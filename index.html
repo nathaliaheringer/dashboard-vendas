@@ -528,6 +528,7 @@ function updateLiveLabel(){
 /* ---------- estado ---------- */
 var period='all';   // 'all' | 'S1'..'S5' | {from:'ISO',to:'ISO'}
 var funProd='RE';
+var evProd='all';
 var charts={};
 function destroyChart(k){if(charts[k]){try{charts[k].destroy();}catch(e){}delete charts[k];}}
 
@@ -774,12 +775,15 @@ function renderGeral(){
    '<div class="grid g-2">'+
     '<div class="panel"><div class="p-head"><div><h3>Faturamento &times; Investimento</h3></div>'+
       '<div class="toggles" id="evToggles"><button class="tg on" data-m="dia">Diário</button>'+
-      '<button class="tg" data-m="sem">Semanal</button></div></div>'+
+      '<button class="tg" data-m="sem">Semanal</button></div>'+
+      '<div class="toggles" id="evProdToggles" style="margin-top:6px"><button class="tg on" data-p="all">Todos</button>'+
+      '<button class="tg" data-p="re">RE</button>'+
+      '<button class="tg" data-p="psi">PSI</button></div></div>'+
       '<div class="p-sub">Receita gerada e verba investida em campanhas de venda.</div>'+
       '<div class="chart-box h280"><canvas id="cEvol"></canvas></div>'+
       '<div class="legend" id="evLeg"></div></div>'+
     '<div class="panel"><div class="p-head"><div><h3>Receita &times; Lucro</h3></div></div>'+
-      '<div class="p-sub">Evolução semanal — receita à esquerda, lucro do funil à direita.</div>'+
+      '<div class="p-sub">Evolução semanal — receita e lucro do funil na mesma escala.</div>'+
       '<div class="chart-box h280"><canvas id="cProfit"></canvas></div>'+
       '<div class="legend"><span><i class="ln" style="background:#37644F"></i>Receita</span>'+
       '<span><i class="ln" style="background:#B57353"></i>Lucro do funil</span>'+
@@ -802,11 +806,18 @@ function renderGeral(){
   renderRangeCampTbl(P.days);
   buildEvolRange(P.days);
  }else{
-  buildEvol('dia'); buildProfit();
+  var evMode='dia';evProd='all';
+  buildEvol(evMode); buildProfit();
   document.querySelectorAll('#evToggles .tg').forEach(function(b){
    b.addEventListener('click',function(){
     document.querySelectorAll('#evToggles .tg').forEach(function(x){x.classList.remove('on');});
-    b.classList.add('on');buildEvol(b.dataset.m);
+    b.classList.add('on');evMode=b.dataset.m;buildEvol(evMode);
+   });
+  });
+  document.querySelectorAll('#evProdToggles .tg').forEach(function(b){
+   b.addEventListener('click',function(){
+    document.querySelectorAll('#evProdToggles .tg').forEach(function(x){x.classList.remove('on');});
+    b.classList.add('on');evProd=b.dataset.p;buildEvol(evMode);
    });
   });
  }
@@ -855,24 +866,39 @@ function buildEvolRange(days){
 function buildEvol(mode){
  destroyChart('evol');
  var labels,fatD,invD;
+ var prodLabel=evProd==='re'?'Faturamento RE':evProd==='psi'?'Faturamento PSI':'Faturamento';
  if(mode==='sem'){
   var ws=DATA.weeks.filter(function(w){return w.has_data;});
   labels=ws.map(function(w){return w.label.replace(' mai','');});
-  fatD=ws.map(function(w){return w.fat;});invD=ws.map(function(w){return w.spend_sales;});
+  if(evProd==='re'){
+   fatD=ws.map(function(w){return w.fat_re||0;});
+  }else if(evProd==='psi'){
+   fatD=ws.map(function(w){return w.fat_psi||0;});
+  }else{
+   fatD=ws.map(function(w){return w.fat;});
+  }
+  invD=ws.map(function(w){return w.spend_sales;});
  }else{
   labels=DATA.daily.map(function(d){return String(d.day).padStart(2,'0')+'/'+(d.date.split('-')[1]);});
-  fatD=DATA.daily.map(function(d){return d.fat;});invD=DATA.daily.map(function(d){return d.spend_sales;});
+  if(evProd==='re'){
+   fatD=DATA.daily.map(function(d){return d.fat_re||0;});
+  }else if(evProd==='psi'){
+   fatD=DATA.daily.map(function(d){return d.fat_psi||0;});
+  }else{
+   fatD=DATA.daily.map(function(d){return d.fat;});
+  }
+  invD=DATA.daily.map(function(d){return d.spend_sales;});
  }
  charts.evol=new Chart(document.getElementById('cEvol').getContext('2d'),{
   data:{labels:labels,datasets:[
-   {type:'bar',label:'Faturamento',data:fatD,backgroundColor:'#37644F',borderRadius:6,maxBarThickness:38,order:2},
+   {type:'bar',label:prodLabel,data:fatD,backgroundColor:'#37644F',borderRadius:6,maxBarThickness:38,order:2},
    {type:'line',label:'Investimento',data:invD,borderColor:'#B57353',backgroundColor:'#B57353',
     borderWidth:2.6,tension:.36,pointRadius:3,pointHoverRadius:5,order:1}
   ]},
   options:baseOpts(function(c){return ' '+c.dataset.label+': '+brl0(c.raw);},true)
  });
  var lg=document.getElementById('evLeg');
- if(lg)lg.innerHTML='<span><i style="background:#37644F"></i>Faturamento (R$)</span>'+
+ if(lg)lg.innerHTML='<span><i style="background:#37644F"></i>'+prodLabel+' (R$)</span>'+
   '<span><i class="ln" style="background:#B57353"></i>Investimento em vendas (R$)</span>';
 }
 function buildProfit(){
@@ -888,17 +914,13 @@ function buildProfit(){
     fill:true,yAxisID:'y',order:1},
    {type:'line',label:'Lucro do funil',data:ws.map(function(w){return w.lucro!=null?w.lucro:w.nh-w.spend_sales;}),
     borderColor:'#B57353',backgroundColor:'#B57353',borderWidth:3,tension:.36,pointRadius:4,
-    pointHoverRadius:6,borderDash:[5,3],yAxisID:'y1',order:2}
+    pointHoverRadius:6,borderDash:[5,3],yAxisID:'y',order:2}
   ]},
   options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},
    plugins:{legend:{display:false},tooltip:tip(function(c){return ' '+c.dataset.label+': '+brl0(c.raw);})},
    scales:{x:{grid:{display:false},ticks:{color:TICK,font:{family:'Spline Sans Mono',size:10}}},
     y:{position:'left',grid:{color:GRID},ticks:{color:TICK,font:{family:'Spline Sans Mono',size:10},
-     callback:function(v){return 'R$'+nf0.format(v);}},
-     title:{display:true,text:'Receita / Investimento',color:TICK,font:{family:'Outfit',size:10}}},
-    y1:{position:'right',min:0,grid:{drawOnChartArea:false},ticks:{color:'#B57353',
-     font:{family:'Spline Sans Mono',size:10},callback:function(v){return 'R$'+nf0.format(v);}},
-     title:{display:true,text:'Lucro',color:'#B57353',font:{family:'Outfit',size:10}}}}}
+     callback:function(v){return 'R$'+nf0.format(v);}}}}
  });
 }
 
@@ -1223,7 +1245,7 @@ function renderFunBody(){
  ];
  var max=impr,fh='<div class="funnel">';
  stages.forEach(function(s,i){
-  var w=Math.max(34,s.v/max*100),inner;
+  var w=Math.max(10,s.v/max*100),inner;
   if(s.edit){
    inner='<div class="fn-n">'+s.n+'</div>'+
      '<input class="fn-edit" id="fe-'+s.edit+'" data-k="'+s.edit+'" value="'+nf0.format(s.v)+'" inputmode="numeric">';
