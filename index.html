@@ -348,17 +348,10 @@ tbody tr.grp td{background:var(--cream-2);font-family:'Fraunces',serif;font-weig
 
 footer{text-align:center;font-size:11px;color:var(--brown);opacity:.6;padding:20px;line-height:1.7}
 
-/* ── Analise Inteligente (SWOT) ── */
-.swot-section{margin-top:28px}
-.swot-title{font-family:'Fraunces',serif;font-size:15px;font-weight:700;color:var(--green-d);
+/* ── Insights por aba ── */
+.ins-section{margin-top:28px}
+.ins-title{font-family:'Fraunces',serif;font-size:15px;font-weight:700;color:var(--green-d);
   margin-bottom:12px;letter-spacing:-.01em}
-.swot-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}
-.swot-card{border-radius:13px;padding:14px 16px;border:1px solid rgba(0,0,0,.06);
-  transition:.2s;cursor:default}
-.swot-card:hover{transform:translateY(-2px);box-shadow:var(--sh-md)}
-.swot-h{display:flex;align-items:center;gap:8px;margin-bottom:7px}
-.swot-lbl{font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.06em}
-.swot-body{font-size:12px;line-height:1.55;color:#4A3728}
 
 /* ── Criativos analysis ── */
 .criat-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-top:20px}
@@ -375,7 +368,7 @@ footer{text-align:center;font-size:11px;color:var(--brown);opacity:.6;padding:20
 
 @media(max-width:1080px){
   .kpis{grid-template-columns:repeat(2,1fr)}
-  .g-2,.g-3,.g-32,.g-23,.ins-grid,.swot-grid,.criat-grid{grid-template-columns:1fr}
+  .g-2,.g-3,.g-32,.g-23,.ins-grid,.criat-grid{grid-template-columns:1fr}
 }
 @media(max-width:560px){
   .kpis{grid-template-columns:1fr}
@@ -683,93 +676,35 @@ function baseOpts(labelFn,money){
 }
 
 /* ============================================================
-   ANÁLISE INTELIGENTE (SWOT)  —  compartilhada por todas as abas
+   INSIGHTS POR ABA  — renderiza DATA.insights filtrado por placement
    ============================================================ */
-function buildSwot(items){
- /* items: [{tipo:'forca'|'fraqueza'|'oportunidade'|'ameaca', texto:'...'}] */
- var labels={forca:'Forca',fraqueza:'Fraqueza',oportunidade:'Oportunidade',ameaca:'Ameaca'};
- var icons={forca:'<circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/>',
-  fraqueza:'<circle cx="12" cy="12" r="9"/><path d="M15 9l-6 6M9 9l6 6"/>',
-  oportunidade:'<circle cx="12" cy="12" r="9"/><path d="M12 8v4l2 2"/>',
-  ameaca:'<path d="M10.3 3.5 2 21h20L13.7 3.5a2 2 0 0 0-3.4 0z"/><path d="M12 9v5M12 16.5v.5"/>'};
- var colors={forca:'#2D6A4F',fraqueza:'#C0533B',oportunidade:'#3E6E8E',ameaca:'#C9962F'};
- var bgColors={forca:'#EAF4EE',fraqueza:'#FBF0EE',oportunidade:'#EDF4FA',ameaca:'#FBF5E6'};
- if(!items||!items.length)return '';
- var h='<div class="swot-section"><div class="swot-title">Analise Inteligente</div><div class="swot-grid">';
+function renderInsights(placement){
+ if(!DATA.insights||!DATA.insights.length)return '';
+ var items=DATA.insights.filter(function(i){return i.placement===placement;});
+ if(!items.length)return '';
+ /* Mapeia chaves de ícone do JSON para as paths já definidas em IC */
+ var ICON={
+  flame:IC.flame, star:IC.star, image:IC.image,
+  'trending-down':IC.down, users:IC.users, calendar:IC.cal,
+  'shopping-cart':IC.cart, 'plus-circle':IC.plus,
+  dollar:IC.cash, funnel:IC.funnel, info:IC.info,
+  down:IC.down, cart:IC.cart, plus:IC.plus, cal:IC.cal, cash:IC.cash
+ };
+ var h='<div class="ins-section"><div class="ins-title">Análise e Recomendações</div><div class="ins-grid">';
  items.forEach(function(it){
-  var c=colors[it.tipo]||'#6B4E3D',bg=bgColors[it.tipo]||'#F5F5F0',ic=icons[it.tipo]||icons.oportunidade;
-  var lbl=labels[it.tipo]||it.tipo;
-  h+='<div class="swot-card" style="border-left:4px solid '+c+';background:'+bg+'">'+
-   '<div class="swot-h"><svg viewBox="0 0 24 24" fill="none" stroke="'+c+'" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;flex-shrink:0">'+ic+'</svg>'+
-   '<span class="swot-lbl" style="color:'+c+'">'+lbl+'</span></div>'+
-   '<div class="swot-body">'+it.texto+'</div></div>';
+  var lv=it.level||'info';
+  var ic=ICON[it.icon]||IC.star;
+  h+='<div class="ins '+lv+'">'+
+   '<div class="ins-h">'+
+    '<div class="ins-ic">'+svg(ic)+'</div>'+
+    '<div class="ins-t">'+it.title+'</div>'+
+    '<div class="ins-tag">'+(it.tag||'')+'</div>'+
+   '</div>'+
+   '<div class="ins-b">'+it.body+'</div>'+
+   '</div>';
  });
  h+='</div></div>';
  return h;
-}
-function swotGeral(){
- var T=DATA.totals,items=[];
- if(T.roas>=4)items.push({tipo:'forca',texto:'ROAS de '+nf2.format(T.roas)+'x demonstra funil altamente rentavel — cada R$1 investido retorna R$'+nf2.format(T.roas)+' em receita.'});
- else if(T.roas>=2)items.push({tipo:'forca',texto:'ROAS de '+nf2.format(T.roas)+'x — funil lucrativo com espaco para escalar.'});
- if(T.lucro>0)items.push({tipo:'forca',texto:'Lucro do funil de R$'+nf0.format(T.lucro)+' com margem de '+nf1.format(T.lucro/T.fat*100)+'% sobre o faturamento.'});
- if(T.conv_checkout<50)items.push({tipo:'fraqueza',texto:'Taxa de conversao no checkout de '+nf1.format(T.conv_checkout)+'% abaixo do benchmark de 50% — indica atrito na etapa de pagamento.'});
- if(T.abandoned>T.faturas*0.5)items.push({tipo:'fraqueza',texto:T.abandoned+' carrinhos abandonados ('+nf1.format(T.abandoned/(T.abandoned+T.faturas)*100)+'% de abandono) — potencial de receita parada.'});
- if(DATA.orderbumps&&DATA.orderbumps.val>0)items.push({tipo:'oportunidade',texto:'Order bumps adicionaram R$'+nf0.format(DATA.orderbumps.val)+' ('+DATA.orderbumps.count+' unidades). Explorar novas combinacoes de oferta no checkout.'});
- if(T.abandoned>0){var potencial=T.abandoned*(T.fat/T.faturas);items.push({tipo:'oportunidade',texto:T.abandoned+' carrinhos abandonados representam potencial de R$'+nf0.format(potencial)+' em recuperacao via WhatsApp/e-mail.'});}
- var avgCpm=DATA.campaigns?DATA.campaigns.filter(function(c){return c.obj!=='followers';}).reduce(function(a,c,i,arr){return a+c.cpm/arr.length;},0):0;
- if(avgCpm>30)items.push({tipo:'ameaca',texto:'CPM medio de R$'+nf2.format(avgCpm)+' nas campanhas de venda — acima de R$30 pode pressionar a rentabilidade conforme o leilao do Meta sobe.'});
- return buildSwot(items);
-}
-function swotFunil(prod){
- var pd=DATA.products_paid[prod];if(!pd)return '';
- var B=getPdBenchmarks(pd),items=[];
- var compras=pd.compras!=null?pd.compras:pd.faturas;
- var checkoutsFunil=pd.checkouts||compras;
- var cliques=pd.funnel_clicks||0,lpv=pd.funnel_lpv||0;
- if(pd.roas>=4)items.push({tipo:'forca',texto:'ROAS de '+nf2.format(pd.roas)+'x — produto altamente rentavel no trafego pago.'});
- else if(pd.roas>=2)items.push({tipo:'forca',texto:'ROAS de '+nf2.format(pd.roas)+'x — produto lucrativo.'});
- if(cliques>0&&lpv>0){var connect=cliques>0?lpv/cliques*100:0;if(connect>=B.connect.bom)items.push({tipo:'forca',texto:'Connect rate de '+nf1.format(connect)+'% — pagina de vendas carrega bem e retém visitantes.'});}
- if(pd.roas<1)items.push({tipo:'fraqueza',texto:'ROAS de '+nf2.format(pd.roas)+'x abaixo de 1,0 — campanha no prejuizo. Revisar oferta e criativos antes de reativar.'});
- if(pd.conv_checkout&&pd.conv_checkout<50)items.push({tipo:'fraqueza',texto:'Conversao no checkout de '+nf1.format(pd.conv_checkout)+'% abaixo do benchmark de 50% — gargalo na etapa de pagamento.'});
- if(pd.abandoned>0){var potencial=pd.abandoned*(pd.fat/Math.max(1,compras));items.push({tipo:'oportunidade',texto:pd.abandoned+' carrinhos abandonados = potencial de R$'+nf0.format(potencial)+' em recuperacao imediata.'});}
- if(cliques>0&&lpv>0){var ctr=pd.impressions>0?cliques/pd.impressions*100:0;if(ctr<B.ctr.media)items.push({tipo:'oportunidade',texto:'CTR de '+nf2.format(ctr)+'% abaixo do benchmark — testar novos hooks e angulos de criativo pode dobrar o volume de cliques.'});}
- if(pd.cpm>30)items.push({tipo:'ameaca',texto:'CPM de R$'+nf2.format(pd.cpm)+' elevado — audiencia saturada ou leilao competitivo. Renovar criativos e/ou ampliar publico.'});
- return buildSwot(items);
-}
-function swotComposicao(){
- var T=DATA.totals,items=[];
- if(DATA.products&&DATA.products.length>3)items.push({tipo:'forca',texto:DATA.products.length+' produtos gerando receita no periodo — portfólio diversificado reduz dependencia de um único produto.'});
- var topProd=DATA.products&&DATA.products[0];
- if(topProd){var topPct=topProd.fat/T.fat*100;if(topPct>60)items.push({tipo:'fraqueza',texto:topProd.name+' representa '+nf1.format(topPct)+'% do faturamento — alta concentracao em um produto e risco de dependencia.'});}
- if(DATA.fb_split){var frio=DATA.fb_split.frio||{fat:0},quente=DATA.fb_split.quente||{fat:0};
-  if(frio.fat>0&&quente.fat>0)items.push({tipo:'forca',texto:'Receita equilibrada entre Frio (R$'+nf0.format(frio.fat)+') e Quente (R$'+nf0.format(quente.fat)+') — ambos os públicos funcionando.'});}
- var semOrig=DATA.origins&&DATA.origins.filter(function(o){return o.name.indexOf('Sem')===0||o.name.indexOf('sem')===0;});
- if(semOrig&&semOrig[0]&&semOrig[0].fat/T.fat>0.15)items.push({tipo:'oportunidade',texto:nf1.format(semOrig[0].fat/T.fat*100)+'% das vendas sem UTM registrada — configurar rastreamento adequado pode revelar canais orgânicos ocultos.'});
- var organica=DATA.origins&&DATA.origins.filter(function(o){return o.name.indexOf('Instagram')>=0||o.name.indexOf('WhatsApp')>=0;}).reduce(function(a,o){return a+o.fat;},0);
- if(organica>0)items.push({tipo:'oportunidade',texto:'R$'+nf0.format(organica)+' em vendas orgânicas (Instagram/WhatsApp) sem custo de midia — audiencia qualificada a ser nutrida com conteúdo.'});
- return buildSwot(items);
-}
-function swotCampanhas(){
- var items=[],cs=DATA.campaigns.filter(function(c){return c.obj!=='followers';});
- var melhores=cs.filter(function(c){return c.roas>=4;});
- if(melhores.length)items.push({tipo:'forca',texto:melhores.length+' campanha(s) com ROAS >= 4x: '+melhores.map(function(c){return c.name.replace(/\s*-\s*ABO$/,'').substring(0,40);}).join(', ')+'.'});
- var maxFreq=cs.reduce(function(a,c){return Math.max(a,c.freq||0);},0);
- if(maxFreq>=4)items.push({tipo:'fraqueza',texto:'Frequencia maxima de '+nf2.format(maxFreq)+' em uma campanha de publico frio — risco de saturacao com queda de CTR e aumento de CPM.'});
- var prejuizo=cs.filter(function(c){return c.roas<1&&c.roas>0;});
- if(prejuizo.length)items.push({tipo:'fraqueza',texto:prejuizo.length+' campanha(s) com ROAS < 1 (no prejuizo): '+prejuizo.map(function(c){return c.name.replace(/\s*-\s*ABO$/,'').substring(0,40);}).join(', ')+'.'});
- var pausadas=cs.filter(function(c){return c.status==='PAUSED'&&c.roas>=2;});
- if(pausadas.length)items.push({tipo:'oportunidade',texto:pausadas.length+' campanha(s) lucrativas pausadas — avaliar reativacao com criativos renovados.'});
- var avgCpm=cs.reduce(function(a,c,i,arr){return a+c.cpm/arr.length;},0);
- if(avgCpm>30)items.push({tipo:'ameaca',texto:'CPM medio de R$'+nf2.format(avgCpm)+' nas campanhas de venda — leilao pressionado. Diversificar criativos para reduzir custo por clique.'});
- return buildSwot(items);
-}
-function swotSeguidores(){
- var F=DATA.followers,items=[];
- if(F.cpm<15)items.push({tipo:'forca',texto:'CPM de R$'+nf2.format(F.cpm)+' muito abaixo das campanhas de venda — alcance eficiente a baixo custo.'});
- if(F.freq<1.3)items.push({tipo:'forca',texto:'Frequencia de '+nf2.format(F.freq)+' — campanha atingindo pessoas novas a cada exibicao, sem saturacao.'});
- if(F.reach>50000)items.push({tipo:'oportunidade',texto:num(F.reach)+' pessoas alcancadas podem ser usadas como publico de remarketing (quente) nas campanhas de venda.'});
- if(F.pct_invest>15)items.push({tipo:'ameaca',texto:nf1.format(F.pct_invest)+'% do investimento total em seguidores — avaliar se o volume de audiencia gerada justifica esse percentual vs campanhas de venda.'});
- return buildSwot(items);
 }
 
 /* ============================================================
@@ -851,7 +786,7 @@ function renderGeral(){
       '<span><i style="background:#A3A983"></i>Investimento</span></div></div>'+
    '</div></div>';
  }
- h+=swotGeral();
+ h+=renderInsights('geral');
  document.getElementById('v-geral').innerHTML=h;
  document.getElementById('v-geral').querySelectorAll('.cup').forEach(countUp);
 
@@ -988,7 +923,7 @@ function renderComposicao(){
    '<div class="panel"><div class="p-head"><div><h3>Receita por região</h3></div></div>'+
      '<div class="p-sub" id="regSub">Faturamento por macrorregião do Brasil.</div>'+
      '<div class="rbars" id="regBars"></div></div>'+
-  '</div>'+swotComposicao()+'</div>';
+  '</div>'+renderInsights('composicao')+'</div>';
  document.getElementById('v-composicao').innerHTML=h;
  renderProdDonut(); renderChanDonut(); renderRegion();
 }
@@ -1092,7 +1027,7 @@ function renderCampanhas(){
   '<div class="legend"><span><i style="background:#3E8E5A"></i>ROAS &ge; 2 — escalar/manter</span>'+
   '<span><i style="background:#C0533B"></i>ROAS &lt; 1 — prejuízo/pausada</span>'+
   '<span><i style="background:#A3A983"></i>Fora do funil de venda</span></div></div>'+
-  criativos+swotCampanhas()+'</div>';
+  criativos+renderInsights('campanhas')+'</div>';
  document.getElementById('v-campanhas').innerHTML=h;
  renderCampTbl();
 }
@@ -1312,7 +1247,7 @@ function renderFunBody(){
    '<span><i style="background:#C0533B"></i>Gargalo</span></div></div>';
  document.getElementById('funBody').innerHTML=h;
  var fs=document.getElementById('funSwot');
- if(fs)fs.innerHTML=swotFunil(funProd);
+ if(fs)fs.innerHTML=renderInsights('funil');
 
  document.querySelectorAll('#funBody .fn-edit').forEach(function(inp){
   inp.addEventListener('input',function(){
@@ -1416,7 +1351,7 @@ function renderSeguidores(){
    '<div class="ins-t">Meça o custo por seguidor no Gerenciador</div>'+
    '<div class="ins-tag">Medição</div></div>'+
    '<div class="ins-b">A API do Meta não devolve o número de seguidores ganhos para esta conta. Com o total de novos seguidores do período (Gerenciador de Anúncios), o custo por seguidor é R$ '+nf0.format(F.spend)+' ÷ seguidores ganhos.</div></div>';
- h+='</div>'+swotSeguidores()+'</div>';
+ h+='</div>'+renderInsights('seguidores')+'</div>';
  document.getElementById('v-seguidores').innerHTML=h;
  document.getElementById('v-seguidores').querySelectorAll('.cup').forEach(countUp);
  buildFollChart();
