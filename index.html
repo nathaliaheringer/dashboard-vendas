@@ -920,7 +920,8 @@ function buildProfit(){
    plugins:{legend:{display:false},tooltip:tip(function(c){return ' '+c.dataset.label+': '+brl0(c.raw);})},
    scales:{x:{grid:{display:false},ticks:{color:TICK,font:{family:'Spline Sans Mono',size:10}}},
     y:{position:'left',grid:{color:GRID},ticks:{color:TICK,font:{family:'Spline Sans Mono',size:10},
-     callback:function(v){return 'R$'+nf0.format(v);}}}}
+     callback:function(v){return 'R$'+nf0.format(v);}}}}}
+
  });
 }
 
