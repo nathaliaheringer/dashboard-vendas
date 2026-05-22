@@ -2,34 +2,34 @@
  "period": {
   "start": "2026-05-01",
   "end": "2026-05-21",
-  "label": "01 a 21 de maio de 2026",
-  "days_elapsed": 21,
+  "label": "01 a 22 de maio de 2026",
+  "days_elapsed": 22,
   "days_month": 31
  },
  "totals": {
-  "spend": 7280.57,
-  "spend_sales": 6448.75,
-  "spend_insta": 831.82,
-  "impressions": 335504,
-  "impressions_sales": 265089,
-  "fat": 35860.11,
-  "total": 38713.91,
-  "nh": 33616.72,
-  "hubla_fee": 5097.19,
-  "faturas": 152,
-  "units": 203,
-  "abandoned": 115,
-  "checkouts": 267,
-  "ob_count": 51,
-  "ob_val": 6414.0,
-  "fat_with_ob": 44,
-  "cpa": 42.43,
-  "roas": 4.93,
-  "roas_sales": 5.56,
-  "lucro": 27167.97,
-  "roi": 421.29,
-  "ticket": 235.92,
-  "conv_checkout": 56.93
+  "spend": 7793.45,
+  "spend_sales": 6897.69,
+  "spend_insta": 895.76,
+  "impressions": 363226,
+  "impressions_sales": 287714,
+  "fat": 37257.81,
+  "total": 40165.54,
+  "nh": 34926.41,
+  "hubla_fee": 5239.13,
+  "faturas": 158,
+  "units": 213,
+  "abandoned": 123,
+  "checkouts": 281,
+  "ob_count": 55,
+  "ob_val": 7198.0,
+  "fat_with_ob": 47,
+  "cpa": 43.66,
+  "roas": 4.78,
+  "roas_sales": 5.4,
+  "lucro": 28028.72,
+  "roi": 406.35,
+  "ticket": 235.81,
+  "conv_checkout": 56.23
  },
  "daily": [
   {
@@ -45,7 +45,7 @@
    "abandoned": 1,
    "checkouts": 2,
    "fat_re": 0.0,
-   "fat_psi": 0.0
+   "fat_psi": 336.0
   },
   {
    "day": 2,
@@ -135,7 +135,7 @@
    "abandoned": 7,
    "checkouts": 16,
    "fat_re": 941.0,
-   "fat_psi": 297.0
+   "fat_psi": 733.0
   },
   {
    "day": 8,
@@ -149,7 +149,7 @@
    "nh": 3073.47,
    "abandoned": 4,
    "checkouts": 11,
-   "fat_re": 872.0,
+   "fat_re": 441.0,
    "fat_psi": 0.0
   },
   {
@@ -164,7 +164,7 @@
    "nh": 1156.51,
    "abandoned": 6,
    "checkouts": 12,
-   "fat_re": 627.0,
+   "fat_re": 441.0,
    "fat_psi": 114.0
   },
   {
@@ -224,8 +224,8 @@
    "nh": 2020.04,
    "abandoned": 5,
    "checkouts": 16,
-   "fat_re": 1215.0,
-   "fat_psi": 336.0
+   "fat_re": 1235.0,
+   "fat_psi": 0.0
   },
   {
    "day": 14,
@@ -240,7 +240,7 @@
    "abandoned": 8,
    "checkouts": 17,
    "fat_re": 1000.0,
-   "fat_psi": 633.0
+   "fat_psi": 297.0
   },
   {
    "day": 15,
@@ -284,7 +284,7 @@
    "nh": 1469.22,
    "abandoned": 6,
    "checkouts": 15,
-   "fat_re": 1029.0,
+   "fat_re": 1235.0,
    "fat_psi": 336.0
   },
   {
@@ -297,8 +297,8 @@
    "units": 23,
    "fat": 2429.0,
    "nh": 2288.38,
-   "abandoned": 9,
-   "checkouts": 23,
+   "abandoned": 8,
+   "checkouts": 22,
    "fat_re": 1499.0,
    "fat_psi": 0.0
   },
@@ -314,7 +314,7 @@
    "nh": 2300.3,
    "abandoned": 7,
    "checkouts": 19,
-   "fat_re": 1029.0,
+   "fat_re": 1235.0,
    "fat_psi": 594.0
   },
   {
@@ -329,15 +329,15 @@
    "nh": 2577.47,
    "abandoned": 10,
    "checkouts": 27,
-   "fat_re": 2342.0,
+   "fat_re": 2097.0,
    "fat_psi": 0.0
   },
   {
    "day": 21,
    "date": "2026-05-21",
-   "spend": 107.14,
-   "spend_sales": 101.08,
-   "impressions": 5079,
+   "spend": 396.0,
+   "spend_sales": 361.0,
+   "impressions": 21403,
    "faturas": 11,
    "units": 14,
    "fat": 6434.0,
@@ -367,7 +367,7 @@
    "lucro": 2663.08,
    "conv_checkout": 50.0,
    "fat_re": 941.0,
-   "fat_psi": 2476.0,
+   "fat_psi": 3248.0,
    "has_data": true
   },
   {
@@ -387,8 +387,8 @@
    "roas": 6.06,
    "lucro": 9903.58,
    "conv_checkout": 59.57,
-   "fat_re": 6203.0,
-   "fat_psi": 1677.0,
+   "fat_re": 5606.0,
+   "fat_psi": 1005.0,
    "has_data": true
   },
   {
@@ -396,19 +396,19 @@
    "label": "15–21 mai",
    "d0": 15,
    "d1": 21,
-   "spend": 2489.95,
-   "spend_sales": 2242.58,
+   "spend": 2778.81,
+   "spend_sales": 2502.5,
    "fat": 17911.75,
    "units": 99,
    "faturas": 76,
    "nh": 16843.89,
-   "abandoned": 57,
-   "checkouts": 133,
-   "cpa": 29.51,
-   "roas": 7.99,
-   "lucro": 14601.31,
-   "conv_checkout": 57.14,
-   "fat_re": 8662.0,
+   "abandoned": 56,
+   "checkouts": 132,
+   "cpa": 32.93,
+   "roas": 7.16,
+   "lucro": 14341.39,
+   "conv_checkout": 57.58,
+   "fat_re": 8829.0,
    "fat_psi": 1524.0,
    "has_data": true
   },
@@ -417,21 +417,21 @@
    "label": "22–28 mai",
    "d0": 22,
    "d1": 28,
-   "spend": 0.0,
-   "spend_sales": 0.0,
-   "fat": 0.0,
-   "units": 0,
-   "faturas": 0,
-   "nh": 0.0,
-   "abandoned": 0,
-   "checkouts": 0,
-   "cpa": 0,
-   "roas": 0,
-   "lucro": 0.0,
-   "conv_checkout": 0,
-   "fat_re": 0.0,
+   "spend": 224.02,
+   "spend_sales": 189.02,
+   "fat": 1397.7,
+   "units": 10,
+   "faturas": 6,
+   "nh": 1309.69,
+   "abandoned": 9,
+   "checkouts": 15,
+   "cpa": 31.5,
+   "roas": 7.39,
+   "lucro": 1120.67,
+   "conv_checkout": 40.0,
+   "fat_re": 480.0,
    "fat_psi": 0.0,
-   "has_data": false
+   "has_data": true
   },
   {
    "id": "S5",
@@ -732,10 +732,10 @@
    "creat": "Vídeos",
    "obj": "sales",
    "status": "ACTIVE",
-   "spend": 1613.93,
-   "impressions": 65226,
-   "reach": 52166,
-   "cpm": 24.74,
+   "spend": 1749.35,
+   "impressions": 72761,
+   "reach": 58046,
+   "cpm": 24.04,
    "freq": 1.25,
    "days": [
     7,
@@ -752,15 +752,16 @@
     18,
     19,
     20,
-    21
+    21,
+    22
    ],
-   "faturas": 47,
-   "units": 47,
-   "fat": 7790.0,
-   "nh": 7300.0,
-   "cpa": 34.34,
-   "roas": 4.83,
-   "lucro": 5686.07,
+   "faturas": 48,
+   "units": 48,
+   "fat": 7976.0,
+   "nh": 7476.45,
+   "cpa": 36.44,
+   "roas": 4.56,
+   "lucro": 5727.1,
    "daily": [
     {
      "day": 7,
@@ -848,9 +849,15 @@
     },
     {
      "day": 21,
-     "spend": 29.38,
-     "impressions": 1422,
-     "cpm": 20.66
+     "spend": 111.53,
+     "impressions": 6551,
+     "cpm": 17.02
+    },
+    {
+     "day": 22,
+     "spend": 53.27,
+     "impressions": 2406,
+     "cpm": 22.14
     }
    ]
   },
@@ -862,11 +869,11 @@
    "creat": "Vídeos",
    "obj": "sales",
    "status": "ACTIVE",
-   "spend": 1074.58,
-   "impressions": 39949,
-   "reach": 30684,
-   "cpm": 26.9,
-   "freq": 1.3,
+   "spend": 1159.69,
+   "impressions": 43560,
+   "reach": 33746,
+   "cpm": 26.62,
+   "freq": 1.29,
    "days": [
     8,
     9,
@@ -881,15 +888,16 @@
     18,
     19,
     20,
-    21
+    21,
+    22
    ],
-   "faturas": 24,
-   "units": 24,
-   "fat": 3861.0,
-   "nh": 3645.54,
-   "cpa": 44.77,
-   "roas": 3.59,
-   "lucro": 2570.96,
+   "faturas": 25,
+   "units": 25,
+   "fat": 4008.0,
+   "nh": 3781.23,
+   "cpa": 46.39,
+   "roas": 3.46,
+   "lucro": 2621.54,
    "daily": [
     {
      "day": 8,
@@ -971,9 +979,15 @@
     },
     {
      "day": 21,
-     "spend": 22.14,
-     "impressions": 880,
-     "cpm": 25.16
+     "spend": 68.75,
+     "impressions": 3029,
+     "cpm": 22.7
+    },
+    {
+     "day": 22,
+     "spend": 38.5,
+     "impressions": 1462,
+     "cpm": 26.33
     }
    ]
   },
@@ -985,11 +999,11 @@
    "creat": "Estáticos",
    "obj": "sales",
    "status": "ACTIVE",
-   "spend": 1482.69,
-   "impressions": 74834,
-   "reach": 40198,
-   "cpm": 19.81,
-   "freq": 1.86,
+   "spend": 1711.1,
+   "impressions": 86313,
+   "reach": 50234,
+   "cpm": 19.82,
+   "freq": 1.72,
    "days": [
     11,
     12,
@@ -1001,15 +1015,16 @@
     18,
     19,
     20,
-    21
+    21,
+    22
    ],
-   "faturas": 35,
-   "units": 35,
-   "fat": 5674.0,
-   "nh": 5332.13,
-   "cpa": 42.36,
-   "roas": 3.83,
-   "lucro": 3849.44,
+   "faturas": 38,
+   "units": 38,
+   "fat": 6272.0,
+   "nh": 5893.47,
+   "cpa": 45.03,
+   "roas": 3.67,
+   "lucro": 4182.37,
    "daily": [
     {
      "day": 11,
@@ -1073,9 +1088,15 @@
     },
     {
      "day": 21,
-     "spend": 49.56,
-     "impressions": 2374,
-     "cpm": 20.88
+     "spend": 180.72,
+     "impressions": 9123,
+     "cpm": 19.81
+    },
+    {
+     "day": 22,
+     "spend": 97.25,
+     "impressions": 4730,
+     "cpm": 20.56
     }
    ]
   },
@@ -1087,11 +1108,11 @@
    "creat": "Misto",
    "obj": "followers",
    "status": "ACTIVE",
-   "spend": 831.82,
-   "impressions": 70415,
-   "reach": 66731,
-   "cpm": 11.81,
-   "freq": 1.06,
+   "spend": 895.76,
+   "impressions": 75512,
+   "reach": 71648,
+   "cpm": 11.86,
+   "freq": 1.05,
    "days": [
     1,
     2,
@@ -1113,7 +1134,8 @@
     18,
     19,
     20,
-    21
+    21,
+    22
    ],
    "faturas": 0,
    "units": 0,
@@ -1121,7 +1143,7 @@
    "nh": 0,
    "cpa": null,
    "roas": 0,
-   "lucro": -831.82,
+   "lucro": -895.76,
    "daily": [
     {
      "day": 1,
@@ -1245,9 +1267,15 @@
     },
     {
      "day": 21,
-     "spend": 6.06,
-     "impressions": 403,
-     "cpm": 15.04
+     "spend": 35.0,
+     "impressions": 2700,
+     "cpm": 12.96
+    },
+    {
+     "day": 22,
+     "spend": 35.0,
+     "impressions": 2800,
+     "cpm": 12.5
     }
    ]
   }
@@ -1255,31 +1283,31 @@
  "products_paid": {
   "RE": {
    "code": "RE",
-   "spend": 4302.94,
-   "impressions": 185411,
-   "reach": 126985,
-   "faturas": 101,
-   "units": 122,
-   "fat": 15806.0,
-   "nh": 14722.94,
-   "total": 16879.4,
-   "ob": 18,
-   "cpa": 42.6,
-   "roas": 3.67,
-   "roas_nh": 3.42,
-   "lucro": 10420.0,
-   "roi": 242.16,
-   "ticket": 156.5,
-   "cpm": 23.21,
-   "abandoned": 89,
-   "checkouts": 190,
-   "compras": 101,
-   "funnel_clicks": 2198,
-   "funnel_lpv": 1851,
-   "funnel_ctr": 1.19,
-   "funnel_cpc": 1.96,
+   "spend": 4751.88,
+   "impressions": 208036,
+   "reach": 145963,
+   "faturas": 102,
+   "units": 120,
+   "fat": 15856.0,
+   "nh": 14757.55,
+   "total": 16879.88,
+   "ob": 17,
+   "cpa": 46.59,
+   "roas": 3.34,
+   "roas_nh": 3.11,
+   "lucro": 10005.67,
+   "roi": 210.56,
+   "ticket": 155.45,
+   "cpm": 22.84,
+   "abandoned": 92,
+   "checkouts": 194,
+   "compras": 102,
+   "funnel_clicks": 2282,
+   "funnel_lpv": 1925,
+   "funnel_ctr": 1.1,
+   "funnel_cpc": 2.08,
    "funnel_source": "planilha",
-   "conv_checkout": 53.16,
+   "conv_checkout": 52.58,
    "weeks": [
     {
      "id": "S1",
@@ -1297,8 +1325,8 @@
      "d0": 8,
      "d1": 14,
      "spend": 1882.23,
-     "fat": 6203.0,
-     "faturas": 39,
+     "fat": 5606.0,
+     "faturas": 36,
      "has_data": true
     },
     {
@@ -1306,9 +1334,9 @@
      "label": "15–21 mai",
      "d0": 15,
      "d1": 21,
-     "spend": 2242.58,
-     "fat": 8662.0,
-     "faturas": 56,
+     "spend": 2502.5,
+     "fat": 8829.0,
+     "faturas": 57,
      "has_data": true
     },
     {
@@ -1316,10 +1344,10 @@
      "label": "22–28 mai",
      "d0": 22,
      "d1": 28,
-     "spend": 0.0,
-     "fat": 0.0,
-     "faturas": 0,
-     "has_data": false
+     "spend": 189.02,
+     "fat": 480.0,
+     "faturas": 3,
+     "has_data": true
     },
     {
      "id": "S5",
@@ -1368,26 +1396,26 @@
    "reach": 52313,
    "faturas": 19,
    "units": 23,
-   "fat": 5677.0,
-   "nh": 5358.66,
-   "total": 6024.95,
+   "fat": 5777.0,
+   "nh": 5491.02,
+   "total": 6316.79,
    "ob": 4,
    "cpa": 112.94,
-   "roas": 2.65,
-   "roas_nh": 2.5,
-   "lucro": 3212.85,
-   "roi": 149.73,
-   "ticket": 298.79,
+   "roas": 2.69,
+   "roas_nh": 2.56,
+   "lucro": 3345.21,
+   "roi": 155.89,
+   "ticket": 304.05,
    "cpm": 26.93,
-   "abandoned": 23,
-   "checkouts": 42,
+   "abandoned": 25,
+   "checkouts": 44,
    "compras": 19,
    "funnel_clicks": 622,
    "funnel_lpv": 505,
    "funnel_ctr": 0.78,
    "funnel_cpc": 3.45,
    "funnel_source": "planilha",
-   "conv_checkout": 45.24,
+   "conv_checkout": 43.18,
    "weeks": [
     {
      "id": "S1",
@@ -1395,8 +1423,8 @@
      "d0": 1,
      "d1": 7,
      "spend": 1919.6,
-     "fat": 2476.0,
-     "faturas": 8,
+     "fat": 3248.0,
+     "faturas": 10,
      "has_data": true
     },
     {
@@ -1405,8 +1433,8 @@
      "d0": 8,
      "d1": 14,
      "spend": 226.21,
-     "fat": 1677.0,
-     "faturas": 6,
+     "fat": 1005.0,
+     "faturas": 4,
      "has_data": true
     },
     {
@@ -1473,9 +1501,9 @@
  "origins": [
   {
    "name": "Facebook Ads",
-   "faturas": 115,
-   "fat": 19596.0,
-   "nh": 18411.22
+   "faturas": 120,
+   "fat": 20527.0,
+   "nh": 19284.7
   },
   {
    "name": "Instagram (orgânico)",
@@ -1491,19 +1519,19 @@
   },
   {
    "name": "Sem origem",
-   "faturas": 15,
-   "fat": 10110.11,
-   "nh": 9475.96
+   "faturas": 16,
+   "fat": 10576.81,
+   "nh": 9912.17
   }
  ],
  "fb_split": {
   "frio": {
-   "faturas": 62,
-   "fat": 10426.0
+   "faturas": 66,
+   "fat": 11171.0
   },
   "quente": {
-   "faturas": 49,
-   "fat": 8143.0
+   "faturas": 50,
+   "fat": 8329.0
   },
   "outros": {
    "faturas": 4,
@@ -1513,23 +1541,30 @@
  "products": [
   {
    "name": "Regulando as Emoções",
-   "faturas": 101,
-   "fat": 15806.0,
-   "units": 122,
+   "faturas": 102,
+   "fat": 15856.0,
+   "units": 120,
+   "recorrente": false
+  },
+  {
+   "name": "Formação Primeira Infância",
+   "faturas": 5,
+   "fat": 6062.7,
+   "units": 5,
    "recorrente": false
   },
   {
    "name": "Curso Psi: 0-8",
    "faturas": 19,
-   "fat": 5677.0,
+   "fat": 5777.0,
    "units": 23,
    "recorrente": false
   },
   {
-   "name": "Formação Primeira Infância",
-   "faturas": 4,
-   "fat": 5596.0,
-   "units": 4,
+   "name": "Recursos Exclusivos Divertidamente 2",
+   "faturas": 17,
+   "fat": 4057.0,
+   "units": 39,
    "recorrente": false
   },
   {
@@ -1541,16 +1576,9 @@
   },
   {
    "name": "O Mapa da Avaliação - Autismo",
-   "faturas": 13,
-   "fat": 3284.0,
-   "units": 30,
-   "recorrente": false
-  },
-  {
-   "name": "Recursos Exclusivos Divertidamente 2",
    "faturas": 9,
-   "fat": 2074.0,
-   "units": 18,
+   "fat": 2082.0,
+   "units": 20,
    "recorrente": false
   },
   {
@@ -1571,14 +1599,14 @@
  "followers": {
   "id": "120241138795630031",
   "name": "[INSTA] [Seguidores] [Frio] - ABO",
-  "spend": 831.82,
-  "impressions": 70415,
-  "reach": 66731,
-  "cpm": 11.81,
-  "freq": 1.06,
-  "days": 21,
-  "pct_invest": 11.43,
-  "cost_per_1k_reach": 12.47,
+  "spend": 895.76,
+  "impressions": 75512,
+  "reach": 71648,
+  "cpm": 11.86,
+  "freq": 1.05,
+  "days": 22,
+  "pct_invest": 11.49,
+  "cost_per_1k_reach": 12.5,
   "daily": [
    {
     "day": 1,
@@ -1702,9 +1730,15 @@
    },
    {
     "day": 21,
-    "spend": 6.06,
-    "impressions": 403,
-    "cpm": 15.04
+    "spend": 35.0,
+    "impressions": 2700,
+    "cpm": 12.96
+   },
+   {
+    "day": 22,
+    "spend": 35.0,
+    "impressions": 2800,
+    "cpm": 12.5
    }
   ],
   "weeks": [
@@ -1725,16 +1759,16 @@
    {
     "id": "S3",
     "label": "15–21 mai",
-    "spend": 247.37,
-    "impressions": 19390,
+    "spend": 276.31,
+    "impressions": 21687,
     "has_data": true
    },
    {
     "id": "S4",
     "label": "22–28 mai",
-    "spend": 0.0,
-    "impressions": 0,
-    "has_data": false
+    "spend": 35.0,
+    "impressions": 2800,
+    "has_data": true
    },
    {
     "id": "S5",
@@ -1746,15 +1780,15 @@
   ]
  },
  "orderbumps": {
-  "count": 51,
-  "val": 6414.0,
-  "pedidos": 44
+  "count": 55,
+  "val": 7198.0,
+  "pedidos": 47
  },
  "abandoned": {
-  "total": 115,
-  "re": 89,
-  "psi": 23,
-  "re_fb": 87,
+  "total": 123,
+  "re": 92,
+  "psi": 25,
+  "re_fb": 89,
   "psi_fb": 7
  },
  "insights": [
@@ -1850,8 +1884,8 @@
  "regioes": [
   {
    "name": "Sudeste",
-   "faturas": 30,
-   "fat": 8583.5
+   "faturas": 31,
+   "fat": 8769.5
   },
   {
    "name": "Sul",
@@ -1875,8 +1909,8 @@
   },
   {
    "name": "Não informado",
-   "faturas": 85,
-   "fat": 16019.0
+   "faturas": 90,
+   "fat": 17230.7
   }
  ],
  "estados": [
@@ -1946,6 +1980,11 @@
    "fat": 444.0
   },
   {
+   "uf": "ES",
+   "faturas": 2,
+   "fat": 333.0
+  },
+  {
    "uf": "SE",
    "faturas": 1,
    "fat": 297.0
@@ -1954,11 +1993,6 @@
    "uf": "MA",
    "faturas": 1,
    "fat": 249.75
-  },
-  {
-   "uf": "ES",
-   "faturas": 1,
-   "fat": 147.0
   },
   {
    "uf": "RN",
@@ -1976,5 +2010,5 @@
    "fat": 29.91
   }
  ],
- "regiao_sem_info": 85
+ "regiao_sem_info": 90
 }
