@@ -1,7 +1,7 @@
 {
  "period": {
   "start": "2026-05-01",
-  "end": "2026-05-21",
+  "end": "2026-05-23",
   "label": "01 a 23 de maio de 2026",
   "days_elapsed": 23,
   "days_month": 31
@@ -345,6 +345,36 @@
    "abandoned": 11,
    "checkouts": 22,
    "fat_re": 1254.0,
+   "fat_psi": 0.0
+  },
+  {
+   "day": 22,
+   "date": "2026-05-22",
+   "spend": 364.96,
+   "spend_sales": 326.96,
+   "impressions": 19172,
+   "faturas": 11,
+   "units": 16,
+   "fat": 2691.7,
+   "nh": 2552.86,
+   "abandoned": 11,
+   "checkouts": 22,
+   "fat_re": 735.0,
+   "fat_psi": 853.0
+  },
+  {
+   "day": 23,
+   "date": "2026-05-23",
+   "spend": 106.78,
+   "spend_sales": 88.78,
+   "impressions": 5011,
+   "faturas": 5,
+   "units": 6,
+   "fat": 774.0,
+   "nh": 724.57,
+   "abandoned": 2,
+   "checkouts": 7,
+   "fat_re": 588.0,
    "fat_psi": 0.0
   }
  ],
