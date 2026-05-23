@@ -1444,17 +1444,38 @@ function setupUpdate(){
 }
 
 /* tenta carregar dados.json hospedado junto ao dashboard */
+/* Usa raw.githubusercontent.com para evitar cache do CDN do GitHub Pages */
+var RAW_URL='https://raw.githubusercontent.com/nathaliaheringer/dashboard-vendas/main/dados.json';
 function tryFetchHosted(){
  if(location.protocol==='file:')return;   /* aberto localmente: sem fetch */
- fetch('./dados.json',{cache:'no-store'}).then(function(r){return r.ok?r.json():null;})
+ var url=RAW_URL+'?t='+Date.now();
+ fetch(url,{cache:'no-store'}).then(function(r){return r.ok?r.json():null;})
   .then(function(obj){
    if(!obj)return;
    if(obj.data&&validData(obj.data))obj=obj.data;
    if(!validData(obj))return;
+   /* Só atualiza se os dados buscados forem mais recentes (period.end mais novo) */
+   var curEnd=DATA&&DATA.period?DATA.period.end:'';
+   var newEnd=obj.period?obj.period.end:'';
+   if(newEnd<=curEnd)return;
    var rec=saveStored(obj,'dados.json hospedado');
    DATA=obj;DATA_META={savedAt:rec.savedAt,fonte:rec.fonte};
    rebootUI();
-  }).catch(function(){});
+  }).catch(function(){
+   /* Fallback para URL relativa se o raw falhar */
+   fetch('./dados.json',{cache:'no-store'}).then(function(r){return r.ok?r.json():null;})
+    .then(function(obj){
+     if(!obj)return;
+     if(obj.data&&validData(obj.data))obj=obj.data;
+     if(!validData(obj))return;
+     var curEnd=DATA&&DATA.period?DATA.period.end:'';
+     var newEnd=obj.period?obj.period.end:'';
+     if(newEnd<=curEnd)return;
+     var rec=saveStored(obj,'dados.json hospedado');
+     DATA=obj;DATA_META={savedAt:rec.savedAt,fonte:rec.fonte};
+     rebootUI();
+    }).catch(function(){});
+  });
 }
 
 /* ============================================================
