@@ -6,7 +6,7 @@
   "days_elapsed": 25,
   "days_month": 31
  },
- "_v": 1779720077555,
+ "_v": 1779726623672,
  "totals": {
   "spend": 8757.58,
   "spend_sales": 7770.32,
@@ -46,7 +46,11 @@
    "abandoned": 1,
    "checkouts": 2,
    "fat_re": 0.0,
-   "fat_psi": 336.0
+   "fat_psi": 336.0,
+   "spend_re": 0.0,
+   "spend_psi": 268.76,
+   "faturas_re": 0,
+   "faturas_psi": 1
   },
   {
    "day": 2,
@@ -61,7 +65,11 @@
    "abandoned": 1,
    "checkouts": 1,
    "fat_re": 0.0,
-   "fat_psi": 0.0
+   "fat_psi": 0.0,
+   "spend_re": 0.0,
+   "spend_psi": 194.1,
+   "faturas_re": 0,
+   "faturas_psi": 0
   },
   {
    "day": 3,
@@ -76,7 +84,11 @@
    "abandoned": 2,
    "checkouts": 3,
    "fat_re": 0.0,
-   "fat_psi": 0.0
+   "fat_psi": 0.0,
+   "spend_re": 0.0,
+   "spend_psi": 189.79,
+   "faturas_re": 0,
+   "faturas_psi": 0
   },
   {
    "day": 4,
@@ -91,7 +103,11 @@
    "abandoned": 0,
    "checkouts": 4,
    "fat_re": 0.0,
-   "fat_psi": 891.0
+   "fat_psi": 891.0,
+   "spend_re": 0.0,
+   "spend_psi": 324.51,
+   "faturas_re": 0,
+   "faturas_psi": 3
   },
   {
    "day": 5,
@@ -106,7 +122,11 @@
    "abandoned": 3,
    "checkouts": 5,
    "fat_re": 0.0,
-   "fat_psi": 594.0
+   "fat_psi": 594.0,
+   "spend_re": 0.0,
+   "spend_psi": 321.46,
+   "faturas_re": 0,
+   "faturas_psi": 2
   },
   {
    "day": 6,
@@ -121,7 +141,11 @@
    "abandoned": 6,
    "checkouts": 9,
    "fat_re": 0.0,
-   "fat_psi": 694.0
+   "fat_psi": 694.0,
+   "spend_re": 0.0,
+   "spend_psi": 363.38,
+   "faturas_re": 0,
+   "faturas_psi": 2
   },
   {
    "day": 7,
@@ -136,7 +160,11 @@
    "abandoned": 7,
    "checkouts": 16,
    "fat_re": 941.0,
-   "fat_psi": 733.0
+   "fat_psi": 733.0,
+   "spend_re": 178.13,
+   "spend_psi": 257.6,
+   "faturas_re": 6,
+   "faturas_psi": 2
   },
   {
    "day": 8,
@@ -151,7 +179,11 @@
    "abandoned": 4,
    "checkouts": 11,
    "fat_re": 686.0,
-   "fat_psi": 0.0
+   "fat_psi": 0.0,
+   "spend_re": 224.86,
+   "spend_psi": 120.6,
+   "faturas_re": 4,
+   "faturas_psi": 0
   },
   {
    "day": 9,
@@ -166,7 +198,11 @@
    "abandoned": 6,
    "checkouts": 12,
    "fat_re": 441.0,
-   "fat_psi": 0.0
+   "fat_psi": 0.0,
+   "spend_re": 199.15,
+   "spend_psi": 81.55,
+   "faturas_re": 3,
+   "faturas_psi": 0
   },
   {
    "day": 10,
@@ -181,7 +217,11 @@
    "abandoned": 1,
    "checkouts": 3,
    "fat_re": 392.0,
-   "fat_psi": 0.0
+   "fat_psi": 0.0,
+   "spend_re": 223.42,
+   "spend_psi": 24.06,
+   "faturas_re": 2,
+   "faturas_psi": 0
   },
   {
    "day": 11,
@@ -196,7 +236,11 @@
    "abandoned": 5,
    "checkouts": 16,
    "fat_re": 1372.0,
-   "fat_psi": 692.0
+   "fat_psi": 692.0,
+   "spend_re": 213.9,
+   "spend_psi": 0.0,
+   "faturas_re": 8,
+   "faturas_psi": 2
   },
   {
    "day": 12,
@@ -211,7 +255,11 @@
    "abandoned": 9,
    "checkouts": 19,
    "fat_re": 1029.0,
-   "fat_psi": 297.0
+   "fat_psi": 297.0,
+   "spend_re": 276.08,
+   "spend_psi": 0.0,
+   "faturas_re": 7,
+   "faturas_psi": 1
   },
   {
    "day": 13,
@@ -226,7 +274,11 @@
    "abandoned": 5,
    "checkouts": 16,
    "fat_re": 1029.0,
-   "fat_psi": 731.0
+   "fat_psi": 731.0,
+   "spend_re": 356.25,
+   "spend_psi": 0.0,
+   "faturas_re": 7,
+   "faturas_psi": 2
   },
   {
    "day": 14,
@@ -241,7 +293,11 @@
    "abandoned": 8,
    "checkouts": 17,
    "fat_re": 794.0,
-   "fat_psi": 297.0
+   "fat_psi": 297.0,
+   "spend_re": 388.57,
+   "spend_psi": 0.0,
+   "faturas_re": 5,
+   "faturas_psi": 1
   },
   {
    "day": 15,
@@ -256,7 +312,11 @@
    "abandoned": 9,
    "checkouts": 16,
    "fat_re": 882.0,
-   "fat_psi": 297.0
+   "fat_psi": 297.0,
+   "spend_re": 358.45,
+   "spend_psi": 0.0,
+   "faturas_re": 6,
+   "faturas_psi": 1
   },
   {
    "day": 16,
@@ -271,7 +331,11 @@
    "abandoned": 5,
    "checkouts": 11,
    "fat_re": 627.0,
-   "fat_psi": 297.0
+   "fat_psi": 297.0,
+   "spend_re": 296.35,
+   "spend_psi": 0.0,
+   "faturas_re": 4,
+   "faturas_psi": 1
   },
   {
    "day": 17,
@@ -286,7 +350,11 @@
    "abandoned": 6,
    "checkouts": 15,
    "fat_re": 1235.0,
-   "fat_psi": 336.0
+   "fat_psi": 336.0,
+   "spend_re": 388.49,
+   "spend_psi": 0.0,
+   "faturas_re": 8,
+   "faturas_psi": 1
   },
   {
    "day": 18,
@@ -301,7 +369,11 @@
    "abandoned": 8,
    "checkouts": 22,
    "fat_re": 1851.0,
-   "fat_psi": 0.0
+   "fat_psi": 0.0,
+   "spend_re": 366.91,
+   "spend_psi": 0.0,
+   "faturas_re": 11,
+   "faturas_psi": 0
   },
   {
    "day": 19,
@@ -316,7 +388,11 @@
    "abandoned": 7,
    "checkouts": 19,
    "fat_re": 1235.0,
-   "fat_psi": 950.0
+   "fat_psi": 950.0,
+   "spend_re": 366.15,
+   "spend_psi": 0.0,
+   "faturas_re": 8,
+   "faturas_psi": 3
   },
   {
    "day": 20,
@@ -331,7 +407,11 @@
    "abandoned": 9,
    "checkouts": 26,
    "fat_re": 2303.0,
-   "fat_psi": 0.0
+   "fat_psi": 0.0,
+   "spend_re": 365.15,
+   "spend_psi": 0.0,
+   "faturas_re": 15,
+   "faturas_psi": 0
   },
   {
    "day": 21,
@@ -346,7 +426,11 @@
    "abandoned": 11,
    "checkouts": 22,
    "fat_re": 882.0,
-   "fat_psi": 0.0
+   "fat_psi": 0.0,
+   "spend_re": 361.0,
+   "spend_psi": 0.0,
+   "faturas_re": 6,
+   "faturas_psi": 0
   },
   {
    "day": 22,
@@ -361,7 +445,11 @@
    "abandoned": 11,
    "checkouts": 22,
    "fat_re": 1166.0,
-   "fat_psi": 397.0
+   "fat_psi": 397.0,
+   "spend_re": 326.96,
+   "spend_psi": 0.0,
+   "faturas_re": 7,
+   "faturas_psi": 1
   },
   {
    "day": 23,
@@ -376,7 +464,11 @@
    "abandoned": 5,
    "checkouts": 16,
    "fat_re": 1734.0,
-   "fat_psi": 0.0
+   "fat_psi": 0.0,
+   "spend_re": 273.66,
+   "spend_psi": 0.0,
+   "faturas_re": 11,
+   "faturas_psi": 0
   },
   {
    "day": 24,
@@ -391,7 +483,11 @@
    "abandoned": 8,
    "checkouts": 20,
    "fat_re": 1068.0,
-   "fat_psi": 0.0
+   "fat_psi": 0.0,
+   "spend_re": 367.18,
+   "spend_psi": 0.0,
+   "faturas_re": 7,
+   "faturas_psi": 0
   },
   {
    "day": 25,
@@ -406,7 +502,11 @@
    "abandoned": 3,
    "checkouts": 7,
    "fat_re": 627.0,
-   "fat_psi": 0.0
+   "fat_psi": 0.0,
+   "spend_re": 93.85,
+   "spend_psi": 0.0,
+   "faturas_re": 4,
+   "faturas_psi": 0
   }
  ],
  "weeks": [
@@ -1462,6 +1562,9 @@
      "spend": 178.13,
      "fat": 941.0,
      "faturas": 6,
+     "nh": 875.13,
+     "lucro": 697.0,
+     "impressions": 7271,
      "has_data": true
     },
     {
@@ -1472,6 +1575,9 @@
      "spend": 1882.23,
      "fat": 5743.0,
      "faturas": 36,
+     "nh": 5340.99,
+     "lucro": 3458.76,
+     "impressions": 68011,
      "has_data": true
     },
     {
@@ -1482,6 +1588,9 @@
      "spend": 2502.5,
      "fat": 9015.0,
      "faturas": 58,
+     "nh": 8383.95,
+     "lucro": 5881.45,
+     "impressions": 124156,
      "has_data": true
     },
     {
@@ -1492,6 +1601,9 @@
      "spend": 1061.65,
      "fat": 4595.0,
      "faturas": 29,
+     "nh": 4273.35,
+     "lucro": 3211.7,
+     "impressions": 50415,
      "has_data": true
     },
     {
@@ -1502,6 +1614,9 @@
      "spend": 0.0,
      "fat": 0.0,
      "faturas": 0,
+     "nh": 0.0,
+     "lucro": 0.0,
+     "impressions": 0,
      "has_data": false
     }
    ],
@@ -1570,6 +1685,9 @@
      "spend": 1919.6,
      "fat": 3248.0,
      "faturas": 10,
+     "nh": 3085.6,
+     "lucro": 1166.0,
+     "impressions": 71226,
      "has_data": true
     },
     {
@@ -1580,6 +1698,9 @@
      "spend": 226.21,
      "fat": 2017.0,
      "faturas": 6,
+     "nh": 1916.15,
+     "lucro": 1689.94,
+     "impressions": 8452,
      "has_data": true
     },
     {
@@ -1590,6 +1711,9 @@
      "spend": 0.0,
      "fat": 1880.0,
      "faturas": 6,
+     "nh": 1786.0,
+     "lucro": 1786.0,
+     "impressions": 0,
      "has_data": true
     },
     {
@@ -1600,6 +1724,9 @@
      "spend": 0.0,
      "fat": 397.0,
      "faturas": 1,
+     "nh": 377.15,
+     "lucro": 377.15,
+     "impressions": 0,
      "has_data": true
     },
     {
@@ -1610,6 +1737,9 @@
      "spend": 0.0,
      "fat": 0.0,
      "faturas": 0,
+     "nh": 0.0,
+     "lucro": 0.0,
+     "impressions": 0,
      "has_data": false
     }
    ],
