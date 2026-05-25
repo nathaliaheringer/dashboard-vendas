@@ -6,7 +6,7 @@
   "days_elapsed": 25,
   "days_month": 31
  },
- "_v": 1779716020807,
+ "_v": 1779720077555,
  "totals": {
   "spend": 8757.58,
   "spend_sales": 7770.32,
@@ -1946,6 +1946,111 @@
   "count": 66,
   "val": 7383.5,
   "pedidos": 58
+ },
+ "orderbumps_detail": [
+  {
+   "name": "Recursos Exclusivos Divertidamente 2",
+   "count": 25,
+   "val": 1413.0,
+   "pct_pedidos": 13.16
+  },
+  {
+   "name": "Regulando as Emoções",
+   "count": 24,
+   "val": 4723.0,
+   "pct_pedidos": 12.63
+  },
+  {
+   "name": "O Mapa da Avaliação - Autismo",
+   "count": 14,
+   "val": 1247.5,
+   "pct_pedidos": 7.37
+  },
+  {
+   "name": "Curso Psi: 0-8",
+   "count": 3,
+   "val": 906.0,
+   "pct_pedidos": 1.58
+  }
+ ],
+ "pagamentos": [
+  {
+   "method": "Cartão de Crédito",
+   "count": 111,
+   "pct": 58.42
+  },
+  {
+   "method": "PIX",
+   "count": 77,
+   "pct": 40.53
+  },
+  {
+   "method": "Boleto",
+   "count": 2,
+   "pct": 1.05
+  }
+ ],
+ "parcelamentos": {
+  "dist": [
+   {
+    "n": 1,
+    "count": 21,
+    "pct": 18.92
+   },
+   {
+    "n": 2,
+    "count": 13,
+    "pct": 11.71
+   },
+   {
+    "n": 3,
+    "count": 9,
+    "pct": 8.11
+   },
+   {
+    "n": 4,
+    "count": 13,
+    "pct": 11.71
+   },
+   {
+    "n": 5,
+    "count": 9,
+    "pct": 8.11
+   },
+   {
+    "n": 6,
+    "count": 6,
+    "pct": 5.41
+   },
+   {
+    "n": 7,
+    "count": 2,
+    "pct": 1.8
+   },
+   {
+    "n": 8,
+    "count": 1,
+    "pct": 0.9
+   },
+   {
+    "n": 9,
+    "count": 1,
+    "pct": 0.9
+   },
+   {
+    "n": 10,
+    "count": 3,
+    "pct": 2.7
+   },
+   {
+    "n": 12,
+    "count": 33,
+    "pct": 29.73
+   }
+  ],
+  "cc_total": 111,
+  "avg_parcelas": 5.98,
+  "pct_avista": 18.92
  },
  "abandoned": {
   "total": 140,
