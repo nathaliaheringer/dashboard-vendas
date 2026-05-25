@@ -841,7 +841,7 @@ function renderGeral(){
       '<button class="tg" data-m="sem">Semanal</button></div>'+
       '<div class="toggles" id="evProdToggles" style="margin-top:6px"><button class="tg on" data-p="all">Todos</button>'+
       '<button class="tg" data-p="re">RE</button>'+
-      '<button class="tg" data-p="psi">PSI</button></div></div>'+
+      '<button class="tg" data-p="psi">PSI 0-8</button></div></div>'+
       '<div class="p-sub">Receita gerada e verba investida em campanhas de venda.</div>'+
       '<div class="chart-box h280"><canvas id="cEvol"></canvas></div>'+
       '<div class="legend" id="evLeg"></div></div>'+
@@ -1345,22 +1345,26 @@ function buildEvol(mode){
   labels=ws.map(function(w){return w.label.replace(' mai','');});
   if(evProd==='re'){
    fatD=ws.map(function(w){return w.fat_re||0;});
+   invD=ws.map(function(w){return DATA.daily.filter(function(d){return d.day>=w.d0&&d.day<=w.d1;}).reduce(function(a,d){return a+(d.spend_re||0);},0);});
   }else if(evProd==='psi'){
    fatD=ws.map(function(w){return w.fat_psi||0;});
+   invD=ws.map(function(w){return DATA.daily.filter(function(d){return d.day>=w.d0&&d.day<=w.d1;}).reduce(function(a,d){return a+(d.spend_psi||0);},0);});
   }else{
    fatD=ws.map(function(w){return w.fat;});
+   invD=ws.map(function(w){return w.spend_sales;});
   }
-  invD=ws.map(function(w){return w.spend_sales;});
  }else{
   labels=DATA.daily.map(function(d){return String(d.day).padStart(2,'0')+'/'+(d.date.split('-')[1]);});
   if(evProd==='re'){
    fatD=DATA.daily.map(function(d){return d.fat_re||0;});
+   invD=DATA.daily.map(function(d){return d.spend_re||0;});
   }else if(evProd==='psi'){
    fatD=DATA.daily.map(function(d){return d.fat_psi||0;});
+   invD=DATA.daily.map(function(d){return d.spend_psi||0;});
   }else{
    fatD=DATA.daily.map(function(d){return d.fat;});
+   invD=DATA.daily.map(function(d){return d.spend_sales;});
   }
-  invD=DATA.daily.map(function(d){return d.spend_sales;});
  }
  charts.evol=new Chart(document.getElementById('cEvol').getContext('2d'),{
   data:{labels:labels,datasets:[
@@ -1370,9 +1374,10 @@ function buildEvol(mode){
   ]},
   options:baseOpts(function(c){return ' '+c.dataset.label+': '+brl0(c.raw);},true)
  });
+ var invLabel=evProd==='re'?'Investimento RE (R$)':evProd==='psi'?'Investimento PSI 0-8 (R$)':'Investimento em vendas (R$)';
  var lg=document.getElementById('evLeg');
  if(lg)lg.innerHTML='<span><i style="background:#37644F"></i>'+prodLabel+' (R$)</span>'+
-  '<span><i class="ln" style="background:#B57353"></i>Investimento em vendas (R$)</span>';
+  '<span><i class="ln" style="background:#B57353"></i>'+invLabel+'</span>';
 }
 function buildProfit(){
  destroyChart('profit');
