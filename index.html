@@ -1579,21 +1579,30 @@ function renderCampanhas(){
 }
 function buildCriativosSection(){
  var cs=DATA.campaigns.filter(function(c){return c.obj!=='followers';});
- /* Agrupar por tipo de criativo */
- function groupBy(arr,key){
-  var out={};arr.forEach(function(c){
-   var k=c[key]||'Misto';if(!out[k])out[k]={spend:0,impressions:0,faturas:0,fat:0,cpmSum:0,n:0,roasSum:0};
-   out[k].spend+=c.spend;out[k].impressions+=c.impressions;out[k].faturas+=c.faturas;out[k].fat+=c.fat;
-   out[k].cpmSum+=c.cpm;out[k].n++;out[k].roasSum+=c.roas;
-  });return out;
+ /* Filtra pelo período atual e agrupa por key */
+ function groupByPeriod(key){
+  var out={};
+  cs.forEach(function(c){
+   var cd=campDataForPeriod(c);
+   if(!cd||cd.spend===0)return; /* campanha sem dados no período */
+   var k=c[key]||'Misto';
+   if(!out[k])out[k]={spend:0,impressions:0,faturas:0,fat:0};
+   out[k].spend+=cd.spend;
+   out[k].impressions+=cd.impressions;
+   out[k].faturas+=cd.faturas;
+   out[k].fat+=cd.fat;
+  });
+  return out;
  }
- var byCreat=groupBy(cs,'creat');
- var byAud=groupBy(cs,'aud');
+ var byCreat=groupByPeriod('creat');
+ var byAud=groupByPeriod('aud');
  function tblRows(g){
   var keys=Object.keys(g).sort(function(a,b){return g[b].spend-g[a].spend;});
   var rows='<tr><th>Tipo</th><th>Invest.</th><th class="num">CPM</th><th class="num">ROAS</th><th class="num">Vendas</th></tr>';
   keys.forEach(function(k){
-   var r=g[k],cpm=r.n?r.cpmSum/r.n:0,roas=r.spend>0?r.fat/r.spend:0;
+   var r=g[k];
+   var cpm=r.impressions>0?r2(r.spend/r.impressions*1000):0;
+   var roas=r.spend>0?r2(r.fat/r.spend):0;
    rows+='<tr><td>'+k+'</td><td>'+brl0(r.spend)+'</td><td class="num">'+brl(cpm)+'</td>'+
     '<td class="num" style="color:'+(roas>=2?'var(--good)':roas>=1?'var(--warn)':'var(--bad)')+';font-weight:700">'+nf2.format(roas)+'x</td>'+
     '<td class="num">'+r.faturas+'</td></tr>';
@@ -1607,7 +1616,7 @@ function buildCriativosSection(){
    '<div class="criat-card"><h4>Estáticos vs Vídeos vs Misto</h4>'+
     '<div class="c-sub">Investimento, CPM médio, ROAS e vendas por formato de criativo.</div>'+
     '<table class="criat-tbl">'+tblRows(byCreat)+'</table></div>'+
-   '<div class="criat-card" style="max-width:560px;margin:0 auto;width:100%"><h4>Público Frio vs Quente</h4>'+
+   '<div class="criat-card"><h4>Público Frio vs Quente</h4>'+
     '<div class="c-sub">Eficiência de cada segmento de audiência no período.</div>'+
     '<table class="criat-tbl">'+tblRows(byAud)+'</table></div>'+
   '</div></div></div>';
