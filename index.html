@@ -838,10 +838,7 @@ function renderGeral(){
    '<div class="grid g-2">'+
     '<div class="panel"><div class="p-head"><div><h3>Faturamento &times; Investimento</h3></div>'+
       '<div class="toggles" id="evToggles"><button class="tg on" data-m="dia">Diário</button>'+
-      '<button class="tg" data-m="sem">Semanal</button></div>'+
-      '<div class="toggles" id="evProdToggles" style="margin-top:6px"><button class="tg on" data-p="all">Todos</button>'+
-      '<button class="tg" data-p="re">RE</button>'+
-      '<button class="tg" data-p="psi">PSI 0-8</button></div></div>'+
+      '<button class="tg" data-m="sem">Semanal</button></div></div>'+
       '<div class="p-sub">Receita gerada e verba investida em campanhas de venda.</div>'+
       '<div class="chart-box h280"><canvas id="cEvol"></canvas></div>'+
       '<div class="legend" id="evLeg"></div></div>'+
@@ -873,10 +870,10 @@ function renderGeral(){
    document.querySelectorAll('#viewProdToggles .tg').forEach(function(x){x.classList.remove('on');});
    b.classList.add('on');
    viewProd=b.dataset.vp;
-   /* Sync evProd with viewProd */
-   if(viewProd==='re') evProd='re';
-   else if(viewProd==='psi') evProd='psi';
-   else evProd='all';
+   /* Sync evProd and funProd with viewProd */
+   if(viewProd==='re'){evProd='re';funProd='RE';}
+   else if(viewProd==='psi'){evProd='psi';funProd='PSI';}
+   else{evProd='all';funProd='RE';}
    rebootUI();
   });
  });
@@ -899,12 +896,7 @@ function renderGeral(){
     b.classList.add('on');evMode=b.dataset.m;buildEvol(evMode);
    });
   });
-  document.querySelectorAll('#evProdToggles .tg').forEach(function(b){
-   b.addEventListener('click',function(){
-    document.querySelectorAll('#evProdToggles .tg').forEach(function(x){x.classList.remove('on');});
-    b.classList.add('on');evProd=b.dataset.p;buildEvol(evMode);
-   });
-  });
+  /* evProd is now controlled solely by the global viewProdToggles selector */
  }
  /* Composição da Receita embutida na Visão Geral */
  renderComposicaoInline();
@@ -914,9 +906,25 @@ function renderGeral(){
 function renderComposicaoInline(){
  var wrap=document.getElementById('geral-composicao-wrap');
  if(!wrap)return;
- /* Re-use renderComposicao but targeting the inline wrapper instead of v-composicao */
+ /* Helper: get the pay_dist/parc_dist/ob_detail arrays based on viewProd */
+ function getPayDist(){
+  if(viewProd==='re') return (DATA.products_paid.RE&&DATA.products_paid.RE.pay_dist)||DATA.payment_dist;
+  if(viewProd==='psi') return (DATA.products_paid.PSI&&DATA.products_paid.PSI.pay_dist)||DATA.payment_dist;
+  return DATA.payment_dist;
+ }
+ function getParcDist(){
+  if(viewProd==='re') return (DATA.products_paid.RE&&DATA.products_paid.RE.parc_dist)||DATA.parc_dist;
+  if(viewProd==='psi') return (DATA.products_paid.PSI&&DATA.products_paid.PSI.parc_dist)||DATA.parc_dist;
+  return DATA.parc_dist;
+ }
+ function getTotalFaturas(){
+  if(viewProd==='re') return DATA.products_paid.RE?DATA.products_paid.RE.faturas:DATA.totals.faturas;
+  if(viewProd==='psi') return DATA.products_paid.PSI?DATA.products_paid.PSI.faturas:DATA.totals.faturas;
+  return DATA.totals.faturas;
+ }
+ var totalFat=viewProd==='re'?DATA.products_paid.RE.fat:viewProd==='psi'?DATA.products_paid.PSI.fat:DATA.totals.fat;
  var h='<div class="sec"><div class="sec-head"><span class="bar"></span><h2>Composição da receita</h2>'+
-   '<div class="note">Faturamento de R$&nbsp;'+nf0.format(DATA.totals.fat)+' distribuído por produto, canal de venda e região.</div></div>'+
+   '<div class="note">Faturamento de R$&nbsp;'+nf0.format(totalFat)+' distribuído por produto, canal de venda e região.</div></div>'+
   '<div class="grid g-3">'+
    '<div class="panel"><div class="p-head"><div><h3>Receita por produto</h3></div></div>'+
      '<div class="p-sub">Participação de cada produto no faturamento.</div>'+
@@ -933,45 +941,94 @@ function renderComposicaoInline(){
      '<div class="p-sub" id="regSub2">Faturamento por macrorregião do Brasil.</div>'+
      '<div class="rbars" id="regBars2"></div></div>'+
   '</div>';
- /* Order bumps detail */
- if(DATA.orderbumps_detail&&DATA.orderbumps_detail.length){
-  h+='<div class="sec"><div class="sec-head"><span class="bar"></span><h2>Order Bumps — detalhamento</h2>'+
-    '<div class="note">Produtos adicionados como order bump em cada pedido.</div></div>'+
-    '<div class="panel" style="padding:15px"><div class="tbl-wrap"><table><thead><tr>'+
-    '<th>Produto OB</th><th>Qtde</th><th>Valor estimado</th><th>% dos pedidos</th></tr></thead><tbody>';
-  DATA.orderbumps_detail.forEach(function(ob){
-   h+='<tr><td>'+ob.name+'</td><td>'+ob.count+'</td><td>'+brl(ob.val)+'</td>'+
-    '<td>'+pct(ob.pct_pedidos)+'</td></tr>';
+ /* ── Order Bumps por produto ─────────────────────────────────── */
+ var obProds=[];
+ if(viewProd==='all'||viewProd==='re'){
+  var re=DATA.products_paid.RE;
+  if(re) obProds.push({label:'Regulando as Emoções',pd:re,color:'#37644F'});
+ }
+ if(viewProd==='all'||viewProd==='psi'){
+  var ps=DATA.products_paid.PSI;
+  if(ps) obProds.push({label:'PSI 0-8',pd:ps,color:'#3E6E8E'});
+ }
+ /* OB conversion rates */
+ var obConvRows='';
+ obProds.forEach(function(op){
+  var pd=op.pd;
+  var rate=pd.faturas>0?Math.round(pd.ob/pd.faturas*100):0;
+  obConvRows+='<div class="di"><i style="background:'+op.color+'"></i>'+
+   '<span class="dn">'+op.label+'</span>'+
+   '<span class="dv">'+pd.ob+'/'+pd.faturas+' pedidos</span>'+
+   '<span class="dp">'+rate+'%</span></div>';
+ });
+ var totOb=DATA.totals.fat_with_ob||0,totFat2=DATA.totals.faturas||1;
+ var globalRate=Math.round(totOb/totFat2*100);
+ /* OB detail per product */
+ var obDetailHtml='';
+ obProds.forEach(function(op){
+  var pd=op.pd;
+  if(!pd.ob_detail||!pd.ob_detail.length) return;
+  obDetailHtml+='<div style="margin-bottom:12px"><div style="font-weight:600;color:'+op.color+';font-size:13px;margin-bottom:6px">'+op.label+' — R$'+nf0.format(pd.ob_val||0)+' em OBs</div>';
+  pd.ob_detail.forEach(function(ob){
+   obDetailHtml+='<div class="di" style="margin-left:8px"><span class="dn">'+ob.name+'</span>'+
+    '<span class="dv">'+ob.count+'x</span>'+
+    '<span class="dp">'+brl(ob.val)+'</span></div>';
   });
-  h+='</tbody></table></div></div>';
+  obDetailHtml+='</div>';
+ });
+ h+='<div class="sec"><div class="sec-head"><span class="bar"></span><h2>Order Bumps</h2>'+
+   '<div class="note">Taxa de aceitação e receita gerada pelos order bumps.</div></div>'+
+  '<div class="grid g-2" style="align-items:stretch">'+
+   '<div class="panel" style="display:flex;flex-direction:column">'+
+    '<div class="p-head"><div><h3>Taxa de conversão de OB</h3></div></div>'+
+    '<div class="p-sub">Pedidos com OB aceito em relação ao total de faturas.</div>'+
+    '<div class="dlist" style="margin-top:12px">'+obConvRows+'</div>'+
+    '<div class="di" style="margin-top:10px;padding-top:10px;border-top:1px solid #eee">'+
+     '<i style="background:#A3A983"></i>'+
+     '<span class="dn"><b>Consolidado</b></span>'+
+     '<span class="dv">'+totOb+'/'+totFat2+' pedidos</span>'+
+     '<span class="dp">'+globalRate+'%</span></div></div>'+
+   '<div class="panel" style="display:flex;flex-direction:column">'+
+    '<div class="p-head"><div><h3>Receita por OB</h3></div></div>'+
+    '<div class="p-sub">Produtos adicionados como order bump e receita estimada.</div>'+
+    '<div style="padding:8px 0">'+obDetailHtml+'</div></div>'+
+  '</div>';
+ /* ── Métodos de pagamento + Parcelamento ─────────────────────── */
+ var payDist=getPayDist();
+ var parcDist=getParcDist();
+ var nFaturas=getTotalFaturas();
+ var ccCount=payDist.reduce(function(s,p){return s+(p.method==='Cartão de Crédito'?p.count:0);},0);
+ var avistaN=parcDist.filter(function(d){return d.n===1;}).reduce(function(s,d){return s+d.count;},0);
+ var avgParcN=0;
+ if(ccCount>0){
+  var sumProd=parcDist.reduce(function(s,d){return s+d.n*d.count;},0);
+  var sumCnt=parcDist.reduce(function(s,d){return s+d.count;},0);
+  avgParcN=sumCnt?sumProd/sumCnt:0;
  }
- /* Métodos de pagamento */
- if(DATA.pagamentos&&DATA.pagamentos.length){
-  h+='<div class="sec"><div class="sec-head"><span class="bar"></span><h2>Métodos de pagamento</h2>'+
-    '<div class="note">Distribuição das vendas por forma de pagamento.</div></div>'+
-    '<div class="grid g-2" style="align-items:stretch">'+
-    '<div class="panel" style="display:flex;flex-direction:column">'+
-     '<div class="p-head"><div><h3>Vendas por método de pagamento</h3></div></div>'+
-     '<div class="p-sub">'+DATA.totals.faturas+' vendas — distribuição por forma de pagamento.</div>'+
-     '<div class="chart-box h260" style="flex:1;min-height:220px"><canvas id="cPayMet"></canvas></div>'+
-     '<div class="dlist" id="payMetList" style="margin-top:8px"></div></div>';
-  /* Parcelamentos CC */
-  if(DATA.parcelamentos&&DATA.parcelamentos.cc_total>0){
-   h+='<div class="panel" style="display:flex;flex-direction:column">'+
-    '<div class="p-head"><div><h3>Parcelamento — Cartão de Crédito</h3></div></div>'+
-    '<div class="p-sub">'+
-    'Total CC: <b>'+DATA.parcelamentos.cc_total+'</b> vendas &nbsp;·&nbsp; '+
-    'Média: <b>'+nf1.format(DATA.parcelamentos.avg_parcelas)+'x</b> &nbsp;·&nbsp; '+
-    'À vista (1x): <b>'+pct(DATA.parcelamentos.pct_avista)+'</b>'+
-    '</div>'+
-    '<div class="chart-box h260" style="flex:1;min-height:220px"><canvas id="cParc"></canvas></div></div>';
-  }
-  h+='</div>';
+ var prodLabel=viewProd==='re'?'Regulando as Emoções':viewProd==='psi'?'PSI 0-8':'Consolidado';
+ h+='<div class="sec"><div class="sec-head"><span class="bar"></span><h2>Métodos de pagamento</h2>'+
+   '<div class="note">'+prodLabel+' — distribuição por forma de pagamento ('+nFaturas+' vendas).</div></div>'+
+  '<div class="grid g-2" style="align-items:stretch">'+
+  '<div class="panel" style="display:flex;flex-direction:column">'+
+   '<div class="p-head"><div><h3>Vendas por método de pagamento</h3></div></div>'+
+   '<div class="p-sub">'+nFaturas+' vendas — distribuição por forma de pagamento.</div>'+
+   '<div class="chart-box h280" style="flex:1;min-height:220px"><canvas id="cPayMetInline"></canvas></div>'+
+   '<div class="dlist" id="payMetListInline" style="margin-top:8px"></div></div>';
+ if(parcDist.length>0){
+  h+='<div class="panel" style="display:flex;flex-direction:column">'+
+   '<div class="p-head"><div><h3>Parcelamento — Cartão de Crédito</h3></div></div>'+
+   '<div class="p-sub">'+
+   'Total CC: <b>'+ccCount+'</b> vendas &nbsp;·&nbsp; '+
+   (avgParcN>0?'Média: <b>'+nf1.format(avgParcN)+'x</b> &nbsp;·&nbsp; ':'')+''+
+   (ccCount>0?'À vista (1x): <b>'+pct(avistaN/ccCount*100)+'</b>':'')+
+   '</div>'+
+   '<div class="chart-box h280" style="flex:1;min-height:220px"><canvas id="cParcInline"></canvas></div></div>';
  }
+ h+='</div>';
  wrap.innerHTML=h;
  /* Render charts */
  renderProdDonutInline(); renderChanDonutInline(); renderRegionInline();
- renderPayMetChart(); renderParcChart();
+ renderPayMetInlineChart(payDist); renderParcInlineChart(parcDist);
  /* Atualiza insights unificados no rodapé */
  renderGeralInsights();
 }
@@ -1039,14 +1096,14 @@ function renderRegionInline(){
  },200);
 }
 function renderPayMetChart(){
- if(!DATA.pagamentos||!DATA.pagamentos.length)return;
+ /* Standalone Composição tab chart — uses global payment_dist */
+ var items=(DATA.payment_dist||[]).filter(function(p){return p.count>0;});
+ if(!items.length)return;
  destroyChart('cPayMet');
- var items=DATA.pagamentos.filter(function(p){return p.count>0;});
  var PAY_COLS=['#37644F','#3E6E8E','#B57353','#A3A983','#C9962F'];
  var cols=PAY_COLS.slice(0,items.length);
  var cv=document.getElementById('cPayMet');
  if(!cv)return;
- /* Barras horizontais — mesma proporção visual do gráfico de parcelamento */
  charts.cPayMet=new Chart(cv.getContext('2d'),{type:'bar',
   data:{labels:items.map(function(p){return p.method;}),
    datasets:[{data:items.map(function(p){return p.count;}),
@@ -1074,11 +1131,12 @@ function renderPayMetChart(){
  if(pl)pl.innerHTML=h;
 }
 function renderParcChart(){
- if(!DATA.parcelamentos||!DATA.parcelamentos.dist||!DATA.parcelamentos.dist.length)return;
+ /* Standalone Composição tab chart — uses global parc_dist */
+ var dist=DATA.parc_dist||[];
+ if(!dist.length)return;
  destroyChart('cParc');
  var cv=document.getElementById('cParc');
  if(!cv)return;
- var dist=DATA.parcelamentos.dist;
  var labels=dist.map(function(d){return d.n+'x';});
  var vals=dist.map(function(d){return d.count;});
  var bgs=dist.map(function(d){return d.n===12?'#B57353':'#37644F';});
@@ -1091,41 +1149,85 @@ function renderParcChart(){
      callback:function(v){return nf0.format(v);}}}}}
  });
 }
+function renderPayMetInlineChart(items){
+ /* Inline Geral chart — items passed in (may be per-product or global) */
+ if(!items||!items.length)return;
+ items=items.filter(function(p){return p.count>0;});
+ if(!items.length)return;
+ destroyChart('cPayMetInline');
+ var PAY_COLS=['#37644F','#3E6E8E','#B57353','#A3A983','#C9962F'];
+ var cols=PAY_COLS.slice(0,items.length);
+ var cv=document.getElementById('cPayMetInline');
+ if(!cv)return;
+ charts.cPayMetInline=new Chart(cv.getContext('2d'),{type:'bar',
+  data:{labels:items.map(function(p){return p.method;}),
+   datasets:[{data:items.map(function(p){return p.count;}),
+    backgroundColor:cols,borderRadius:6,maxBarThickness:52}]},
+  options:{responsive:true,maintainAspectRatio:false,
+   indexAxis:'y',
+   plugins:{legend:{display:false},tooltip:tip(function(c){
+    var tot=c.dataset.data.reduce(function(a,b){return a+b;},0);
+    return ' '+c.raw+' vendas ('+pct(c.raw/tot*100)+')';}),
+    datalabels:{display:false}},
+   scales:{
+    x:{grid:{color:GRID},ticks:{color:TICK,font:{family:'Spline Sans Mono',size:10},
+       callback:function(v){return nf0.format(v);}}},
+    y:{grid:{display:false},ticks:{color:TICK,font:{family:'Outfit',size:11}}}
+   }}
+ });
+ var h='';
+ items.forEach(function(it,i){
+  h+='<div class="di"><i style="background:'+cols[i]+'"></i>'+
+   '<span class="dn">'+it.method+'</span>'+
+   '<span class="dv">'+it.count+'</span>'+
+   '<span class="dp">'+pct(it.pct)+'</span></div>';
+ });
+ var pl=document.getElementById('payMetListInline');
+ if(pl)pl.innerHTML=h;
+}
+function renderParcInlineChart(dist){
+ /* Inline Geral chart — dist passed in (may be per-product or global) */
+ if(!dist||!dist.length)return;
+ destroyChart('cParcInline');
+ var cv=document.getElementById('cParcInline');
+ if(!cv)return;
+ var labels=dist.map(function(d){return d.n+'x';});
+ var vals=dist.map(function(d){return d.count;});
+ var bgs=dist.map(function(d){return d.n===12?'#B57353':'#37644F';});
+ charts.cParcInline=new Chart(cv.getContext('2d'),{type:'bar',
+  data:{labels:labels,datasets:[{label:'Vendas',data:vals,backgroundColor:bgs,borderRadius:5,maxBarThickness:40}]},
+  options:{responsive:true,maintainAspectRatio:false,
+   plugins:{legend:{display:false},tooltip:tip(function(c){return ' '+c.label+': '+c.raw+' vendas';})},
+   scales:{x:{grid:{display:false},ticks:{color:TICK,font:{family:'Spline Sans Mono',size:10}}},
+    y:{grid:{color:GRID},ticks:{color:TICK,font:{family:'Spline Sans Mono',size:10},
+     callback:function(v){return nf0.format(v);}}}}}
+ });
+}
 function renderFunilInline(){
  var wrap=document.getElementById('geral-funil-wrap');
  if(!wrap)return;
+ /* Sync funProd from viewProd before rendering */
+ if(viewProd==='re') funProd='RE';
+ else if(viewProd==='psi') funProd='PSI';
+ /* When viewProd==='all', show both funnels stacked */
+ var prods=viewProd==='all'?['RE','PSI']:[funProd];
  var h='<div class="sec"><div class="sec-head"><span class="bar"></span><h2>Funil de conversão por produto</h2>'+
-   '<div class="note">Cada produto tem ticket e parâmetros próprios. Selecione o produto para ver o funil e os indicadores de referência.</div></div>';
- h+='<div class="prodpick" id="funPick2"></div>';
+   '<div class="note">Da impressão à compra — parâmetros por produto. Use o seletor acima para filtrar.</div></div>';
  h+='<div class="edit-note" id="funNote2"></div>';
- h+='<div class="grid g-32" id="funBody2"></div>';
+ /* Build one funnel body container per product shown */
+ prods.forEach(function(prod){
+  h+='<div id="funBody2-'+prod+'" class="grid g-32" style="margin-bottom:24px"></div>';
+ });
  h+='</div>';
  wrap.innerHTML=h;
- renderFunPickInline(); renderFunBodyInline();
-}
-function renderFunPickInline(){
- var el=document.getElementById('funPick2');
- if(!el)return;
- var h='';
- [['RE','Regulando as Emoções'],['PSI','Curso PSI 0-8']].forEach(function(p){
-  var pd=DATA.products_paid[p[0]];
-  var B=getPdBenchmarks(pd);
-  h+='<button class="ppk'+(funProd===p[0]?' on':'')+'" data-p="'+p[0]+'">'+
-    '<span class="pk-t">Produto · ticket R$ '+nf0.format(B.ticket)+'</span>'+p[1]+'</button>';
- });
- el.innerHTML=h;
- el.querySelectorAll('.ppk').forEach(function(b){
-  b.addEventListener('click',function(){
-   funProd=b.dataset.p;
-   el.querySelectorAll('.ppk').forEach(function(x){x.classList.toggle('on',x.dataset.p===funProd);});
-   /* also sync the standalone funil picker if exists */
-   document.querySelectorAll('#funPick .ppk').forEach(function(x){x.classList.toggle('on',x.dataset.p===funProd);});
-   renderFunBodyInline();
-  });
+ /* Render each funnel */
+ prods.forEach(function(prod){
+  renderFunBodyInline(prod);
  });
 }
-function renderFunBodyInline(){
- var pd=DATA.products_paid[funProd],B=getPdBenchmarks(pd);
+function renderFunBodyInline(prodKey){
+ if(!prodKey) prodKey=funProd;
+ var pd=DATA.products_paid[prodKey],B=getPdBenchmarks(pd);
  var hasReal = pd.funnel_source==='planilha';
  var note=document.getElementById('funNote2');
  if(note){
@@ -1138,7 +1240,7 @@ function renderFunBodyInline(){
     '<div>Ainda não há planilha de controle para este produto. Preencha os campos editáveis com os números do Gerenciador de Anúncios.</div>';
   }
  }
- var ed=(getFun()[funProd])||{};
+ var ed=(getFun()[prodKey])||{};
  var impr=pd.impressions,checkouts=pd.checkouts,compras=pd.compras!=null?pd.compras:pd.faturas;
  var cliques,lpv,checkoutsFunil;
  if(hasReal){
@@ -1182,7 +1284,7 @@ function renderFunBodyInline(){
   var inner;
   if(s.edit){
    inner='<div class="fn-n">'+s.n+'</div>'+
-     '<input class="fn-edit2" id="fe2-'+s.edit+'" data-k="'+s.edit+'" value="'+nf0.format(s.v)+'" inputmode="numeric">';
+     '<input class="fn-edit2" id="fe2-'+s.edit+'-'+prodKey+'" data-k="'+s.edit+'" value="'+nf0.format(s.v)+'" inputmode="numeric">';
    fh+='<div style="'+wrapStyle+'"><div class="fn-bar" style="background:'+s.c+'">'+inner+'</div></div>';
   }else{
    inner='<div class="fn-n">'+s.n+'</div><div class="fn-v">'+num(s.v)+'</div>';
@@ -1198,38 +1300,40 @@ function renderFunBodyInline(){
  });
  fh+='</div>';
 
- var h='<div class="panel"><div class="p-head"><div><h3>Funil — '+(funProd==='RE'?'Regulando as Emoções':'Curso PSI 0-8')+'</h3></div></div>'+
+ var prodTitle=prodKey==='RE'?'Regulando as Emoções':'Curso PSI 0-8';
+ var h='<div class="panel"><div class="p-head"><div><h3>Funil — '+prodTitle+'</h3></div></div>'+
    '<div class="p-sub">Da impressão à compra no tráfego pago do produto. Investimento de R$ '+nf0.format(pd.spend)+
    ' · ticket médio R$ '+nf0.format(B.ticket)+'.</div>'+fh+'</div>';
  h+='<div class="panel soft"><div class="p-head"><div><h3>Indicadores de referência</h3></div></div>'+
    '<div class="p-sub">Parâmetros padrão para o ticket de R$ '+nf0.format(B.ticket)+'.</div>'+
-   '<div class="bench-tbl" id="benchTbl2"></div>'+
+   '<div class="bench-tbl" id="benchTbl2-'+prodKey+'"></div>'+
    '<div class="legend" style="margin-top:13px">'+
    '<span><i style="background:#3E8E5A"></i>Bom</span>'+
    '<span><i style="background:#C9962F"></i>Médio</span>'+
    '<span><i style="background:#C0533B"></i>Gargalo</span></div></div>';
- var fb=document.getElementById('funBody2');
+ var fb=document.getElementById('funBody2-'+prodKey);
  if(fb)fb.innerHTML=h;
  /* Insights movidos para geral-insights-wrap (rodapé unificado) */
  renderGeralInsights();
 
- document.querySelectorAll('#funBody2 .fn-edit2').forEach(function(inp){
+ document.querySelectorAll('#funBody2-'+prodKey+' .fn-edit2').forEach(function(inp){
   inp.addEventListener('input',function(){
-   setFun(funProd,inp.dataset.k,pnum(inp.value));
-   updateFunnelRatesInline();
+   setFun(prodKey,inp.dataset.k,pnum(inp.value));
+   updateFunnelRatesInline(prodKey);
   });
  });
- updateFunnelRatesInline();
+ updateFunnelRatesInline(prodKey);
 }
-function updateFunnelRatesInline(){
- var pd=DATA.products_paid[funProd],B=getPdBenchmarks(pd);
+function updateFunnelRatesInline(prodKey){
+ if(!prodKey) prodKey=funProd;
+ var pd=DATA.products_paid[prodKey],B=getPdBenchmarks(pd);
  var hasReal=pd.funnel_source==='planilha';
  var impr=pd.impressions,checkouts=pd.checkouts,compras=pd.compras!=null?pd.compras:pd.faturas;
  var cliques,lpv,checkoutsFunil;
  if(hasReal){cliques=pd.funnel_clicks;lpv=pd.funnel_lpv;checkoutsFunil=pd.checkouts;}
  else{
-  cliques=pnum((document.getElementById('fe2-cliques')||{}).value);
-  lpv=pnum((document.getElementById('fe2-lpv')||{}).value);
+  cliques=pnum((document.getElementById('fe2-cliques-'+prodKey)||{}).value);
+  lpv=pnum((document.getElementById('fe2-lpv-'+prodKey)||{}).value);
   if(cliques==null)cliques=Math.round(impr*0.012);
   if(lpv==null)lpv=Math.round(cliques*0.82);
   checkoutsFunil=checkouts;
@@ -1257,7 +1361,7 @@ function updateFunnelRatesInline(){
    '<div class="bc"><span class="bnow" style="color:var(--warn)">≥ '+nf1.format(r.b.media)+'%</span></div>'+
    '<div class="bc"><span class="bnow" style="color:var(--bad)">&lt; '+nf1.format(r.b.media)+'%</span></div></div>';
  });
- var bt=document.getElementById('benchTbl2');
+ var bt=document.getElementById('benchTbl2-'+prodKey);
  if(bt)bt.innerHTML=bh;
 }
 function renderGeralInsights(){

@@ -1,36 +1,36 @@
 {
  "period": {
   "start": "2026-05-01",
-  "end": "2026-05-25",
-  "label": "01 a 25 de maio de 2026",
-  "days_elapsed": 25,
+  "end": "2026-05-26",
+  "label": "01 a 26 de maio de 2026",
+  "days_elapsed": 26,
   "days_month": 31
  },
- "_v": 1779736201227,
+ "_v": 1779799325588,
  "totals": {
-  "spend": 8898.92,
-  "spend_sales": 7888.66,
-  "spend_insta": 1010.26,
-  "impressions": 419711,
-  "impressions_sales": 335159,
-  "fat": 44965.38,
-  "total": 48628.15,
-  "nh": 42215.49,
-  "hubla_fee": 6412.66,
-  "faturas": 201,
-  "units": 267,
-  "abandoned": 141,
-  "checkouts": 342,
-  "ob_count": 66,
-  "ob_val": 9271.17,
-  "fat_with_ob": 58,
-  "cpa": 39.25,
-  "roas": 5.05,
-  "roas_sales": 5.7,
-  "lucro": 34326.83,
-  "roi": 435.14,
-  "ticket": 223.71,
-  "conv_checkout": 58.77
+  "spend": 9145.98,
+  "spend_sales": 8097.72,
+  "spend_insta": 1048.26,
+  "impressions": 433194,
+  "impressions_sales": 345692,
+  "fat": 46234.13,
+  "total": 49963.2,
+  "nh": 43403.94,
+  "hubla_fee": 6559.26,
+  "faturas": 208,
+  "units": 277,
+  "abandoned": 147,
+  "checkouts": 355,
+  "ob_count": 69,
+  "ob_val": 8334.28,
+  "fat_with_ob": 60,
+  "cpa": 38.93,
+  "roas": 5.06,
+  "roas_sales": 5.71,
+  "lucro": 35306.22,
+  "roi": 436.0,
+  "ticket": 222.28,
+  "conv_checkout": 58.59
  },
  "daily": [
   {
@@ -159,11 +159,11 @@
    "nh": 1657.1,
    "abandoned": 7,
    "checkouts": 16,
-   "fat_re": 941.0,
+   "fat_re": 1147.0,
    "fat_psi": 297.0,
    "spend_re": 178.13,
    "spend_psi": 257.6,
-   "faturas_re": 6,
+   "faturas_re": 7,
    "faturas_psi": 1
   },
   {
@@ -178,11 +178,11 @@
    "nh": 3073.47,
    "abandoned": 4,
    "checkouts": 11,
-   "fat_re": 872.0,
+   "fat_re": 686.0,
    "fat_psi": 0.0,
    "spend_re": 224.86,
    "spend_psi": 120.6,
-   "faturas_re": 5,
+   "faturas_re": 4,
    "faturas_psi": 0
   },
   {
@@ -198,11 +198,11 @@
    "abandoned": 6,
    "checkouts": 12,
    "fat_re": 441.0,
-   "fat_psi": 114.0,
+   "fat_psi": 0.0,
    "spend_re": 199.15,
    "spend_psi": 81.55,
    "faturas_re": 3,
-   "faturas_psi": 1
+   "faturas_psi": 0
   },
   {
    "day": 10,
@@ -216,11 +216,11 @@
    "nh": 373.7,
    "abandoned": 1,
    "checkouts": 3,
-   "fat_re": 147.0,
+   "fat_re": 392.0,
    "fat_psi": 0.0,
    "spend_re": 223.42,
    "spend_psi": 24.06,
-   "faturas_re": 1,
+   "faturas_re": 2,
    "faturas_psi": 0
   },
   {
@@ -235,11 +235,11 @@
    "nh": 2126.37,
    "abandoned": 5,
    "checkouts": 16,
-   "fat_re": 882.0,
+   "fat_re": 1313.0,
    "fat_psi": 297.0,
    "spend_re": 213.9,
    "spend_psi": 0.0,
-   "faturas_re": 6,
+   "faturas_re": 8,
    "faturas_psi": 1
   },
   {
@@ -254,11 +254,11 @@
    "nh": 1531.96,
    "abandoned": 9,
    "checkouts": 19,
-   "fat_re": 1029.0,
+   "fat_re": 1235.0,
    "fat_psi": 297.0,
    "spend_re": 276.08,
    "spend_psi": 0.0,
-   "faturas_re": 7,
+   "faturas_re": 8,
    "faturas_psi": 1
   },
   {
@@ -273,12 +273,12 @@
    "nh": 2020.04,
    "abandoned": 5,
    "checkouts": 16,
-   "fat_re": 1215.0,
-   "fat_psi": 336.0,
+   "fat_re": 1421.0,
+   "fat_psi": 731.0,
    "spend_re": 356.25,
    "spend_psi": 0.0,
-   "faturas_re": 8,
-   "faturas_psi": 1
+   "faturas_re": 9,
+   "faturas_psi": 2
   },
   {
    "day": 14,
@@ -330,11 +330,11 @@
    "nh": 1057.57,
    "abandoned": 5,
    "checkouts": 11,
-   "fat_re": 627.0,
+   "fat_re": 441.0,
    "fat_psi": 297.0,
    "spend_re": 296.35,
    "spend_psi": 0.0,
-   "faturas_re": 4,
+   "faturas_re": 3,
    "faturas_psi": 1
   },
   {
@@ -350,11 +350,11 @@
    "abandoned": 6,
    "checkouts": 15,
    "fat_re": 1029.0,
-   "fat_psi": 0.0,
+   "fat_psi": 336.0,
    "spend_re": 388.49,
    "spend_psi": 0.0,
    "faturas_re": 7,
-   "faturas_psi": 0
+   "faturas_psi": 1
   },
   {
    "day": 18,
@@ -368,7 +368,7 @@
    "nh": 2288.38,
    "abandoned": 8,
    "checkouts": 22,
-   "fat_re": 1499.0,
+   "fat_re": 1479.0,
    "fat_psi": 0.0,
    "spend_re": 366.91,
    "spend_psi": 0.0,
@@ -406,7 +406,7 @@
    "nh": 2577.47,
    "abandoned": 9,
    "checkouts": 26,
-   "fat_re": 2117.0,
+   "fat_re": 2156.0,
    "fat_psi": 0.0,
    "spend_re": 365.16,
    "spend_psi": 0.0,
@@ -425,11 +425,11 @@
    "nh": 6041.97,
    "abandoned": 11,
    "checkouts": 22,
-   "fat_re": 882.0,
+   "fat_re": 1254.0,
    "fat_psi": 0.0,
    "spend_re": 361.0,
    "spend_psi": 0.0,
-   "faturas_re": 6,
+   "faturas_re": 8,
    "faturas_psi": 0
   },
   {
@@ -444,11 +444,11 @@
    "nh": 2552.86,
    "abandoned": 10,
    "checkouts": 21,
-   "fat_re": 1127.0,
+   "fat_re": 941.0,
    "fat_psi": 853.0,
    "spend_re": 326.98,
    "spend_psi": 0.0,
-   "faturas_re": 7,
+   "faturas_re": 6,
    "faturas_psi": 2
   },
   {
@@ -473,40 +473,59 @@
   {
    "day": 24,
    "date": "2026-05-24",
-   "spend": 404.2,
-   "spend_sales": 367.2,
-   "impressions": 19816,
+   "spend": 404.21,
+   "spend_sales": 367.21,
+   "impressions": 19817,
    "faturas": 12,
    "units": 18,
    "fat": 2038.0,
    "nh": 1914.55,
    "abandoned": 8,
    "checkouts": 20,
-   "fat_re": 1440.0,
+   "fat_re": 1666.0,
    "fat_psi": 0.0,
-   "spend_re": 367.2,
+   "spend_re": 367.21,
    "spend_psi": 0.0,
-   "faturas_re": 9,
+   "faturas_re": 10,
    "faturas_psi": 0
   },
   {
    "day": 25,
    "date": "2026-05-25",
-   "spend": 250.14,
-   "spend_sales": 212.14,
-   "impressions": 12391,
-   "faturas": 15,
-   "units": 16,
-   "fat": 2641.57,
-   "nh": 2500.08,
-   "abandoned": 5,
-   "checkouts": 20,
-   "fat_re": 1362.0,
+   "spend": 435.77,
+   "spend_sales": 397.77,
+   "impressions": 21999,
+   "faturas": 17,
+   "units": 18,
+   "fat": 2935.57,
+   "nh": 2773.6,
+   "abandoned": 6,
+   "checkouts": 23,
+   "fat_re": 1656.0,
    "fat_psi": 447.0,
-   "spend_re": 212.14,
+   "spend_re": 397.77,
    "spend_psi": 0.0,
-   "faturas_re": 9,
+   "faturas_re": 11,
    "faturas_psi": 2
+  },
+  {
+   "day": 26,
+   "date": "2026-05-26",
+   "spend": 61.42,
+   "spend_sales": 23.42,
+   "impressions": 3874,
+   "faturas": 5,
+   "units": 8,
+   "fat": 974.75,
+   "nh": 914.93,
+   "abandoned": 5,
+   "checkouts": 10,
+   "fat_re": 294.0,
+   "fat_psi": 0.0,
+   "spend_re": 23.42,
+   "spend_psi": 0.0,
+   "faturas_re": 2,
+   "faturas_psi": 0
   }
  ],
  "weeks": [
@@ -527,7 +546,7 @@
    "roas": 2.47,
    "lucro": 2663.08,
    "conv_checkout": 50.0,
-   "fat_re": 941.0,
+   "fat_re": 1147.0,
    "fat_psi": 2476.0,
    "has_data": true
   },
@@ -548,8 +567,8 @@
    "roas": 6.06,
    "lucro": 9903.58,
    "conv_checkout": 59.57,
-   "fat_re": 5380.0,
-   "fat_psi": 1677.0,
+   "fat_re": 6282.0,
+   "fat_psi": 1958.0,
    "has_data": true
   },
   {
@@ -569,8 +588,8 @@
    "roas": 7.16,
    "lucro": 14341.38,
    "conv_checkout": 58.02,
-   "fat_re": 8065.0,
-   "fat_psi": 1188.0,
+   "fat_re": 8270.0,
+   "fat_psi": 1524.0,
    "has_data": true
   },
   {
@@ -578,19 +597,19 @@
    "label": "22–28 mai",
    "d0": 22,
    "d1": 28,
-   "spend": 1329.48,
-   "spend_sales": 1179.98,
-   "fat": 9105.27,
-   "units": 64,
-   "faturas": 49,
-   "nh": 8598.77,
-   "abandoned": 28,
-   "checkouts": 77,
-   "cpa": 24.08,
-   "roas": 7.72,
-   "lucro": 7418.79,
-   "conv_checkout": 63.64,
-   "fat_re": 5477.0,
+   "spend": 1576.54,
+   "spend_sales": 1389.04,
+   "fat": 10374.02,
+   "units": 74,
+   "faturas": 56,
+   "nh": 9787.22,
+   "abandoned": 34,
+   "checkouts": 90,
+   "cpa": 24.8,
+   "roas": 7.47,
+   "lucro": 8398.18,
+   "conv_checkout": 62.22,
+   "fat_re": 6105.0,
    "fat_psi": 1300.0,
    "has_data": true
   },
@@ -619,31 +638,31 @@
  "products_paid": {
   "RE": {
    "code": "RE",
-   "spend": 5742.85,
-   "impressions": 255481,
-   "reach": 172327,
-   "faturas": 129,
-   "units": 149,
-   "fat": 19863.0,
-   "nh": 18501.29,
-   "total": 21108.82,
-   "ob": 19,
-   "cpa": 44.52,
-   "roas": 3.46,
-   "roas_nh": 3.22,
-   "lucro": 12758.44,
-   "roi": 222.16,
-   "ticket": 153.98,
-   "cpm": 22.48,
-   "abandoned": 104,
-   "checkouts": 233,
-   "compras": 129,
-   "funnel_clicks": 2764,
-   "funnel_lpv": 2338,
+   "spend": 5951.91,
+   "impressions": 266014,
+   "reach": 179215,
+   "faturas": 139,
+   "units": 168,
+   "fat": 21804.0,
+   "nh": 20360.58,
+   "total": 23348.09,
+   "ob": 25,
+   "cpa": 42.82,
+   "roas": 3.66,
+   "roas_nh": 3.42,
+   "lucro": 14408.67,
+   "roi": 242.08,
+   "ticket": 156.86,
+   "cpm": 22.37,
+   "abandoned": 110,
+   "checkouts": 249,
+   "compras": 139,
+   "funnel_clicks": 2862,
+   "funnel_lpv": 2414,
    "funnel_ctr": 1.08,
    "funnel_cpc": 2.08,
    "funnel_source": "planilha",
-   "conv_checkout": 55.36,
+   "conv_checkout": 55.82,
    "weeks": [
     {
      "id": "S1",
@@ -651,10 +670,10 @@
      "d0": 1,
      "d1": 7,
      "spend": 178.13,
-     "fat": 941.0,
-     "faturas": 6,
-     "nh": 875.13,
-     "lucro": 697.0,
+     "fat": 1147.0,
+     "faturas": 7,
+     "nh": 1066.71,
+     "lucro": 888.58,
      "impressions": 7271,
      "has_data": true
     },
@@ -664,10 +683,10 @@
      "d0": 8,
      "d1": 14,
      "spend": 1882.23,
-     "fat": 5380.0,
-     "faturas": 35,
-     "nh": 5003.4,
-     "lucro": 3121.17,
+     "fat": 6282.0,
+     "faturas": 39,
+     "nh": 5842.26,
+     "lucro": 3960.03,
      "impressions": 68011,
      "has_data": true
     },
@@ -677,10 +696,10 @@
      "d0": 15,
      "d1": 21,
      "spend": 2502.51,
-     "fat": 8065.0,
-     "faturas": 53,
-     "nh": 7500.45,
-     "lucro": 4997.94,
+     "fat": 8270.0,
+     "faturas": 54,
+     "nh": 7691.1,
+     "lucro": 5188.59,
      "impressions": 124162,
      "has_data": true
     },
@@ -689,12 +708,12 @@
      "label": "22–28 mai",
      "d0": 22,
      "d1": 28,
-     "spend": 1179.98,
-     "fat": 5477.0,
-     "faturas": 35,
-     "nh": 5093.61,
-     "lucro": 3913.63,
-     "impressions": 56037,
+     "spend": 1389.04,
+     "fat": 6105.0,
+     "faturas": 39,
+     "nh": 5677.65,
+     "lucro": 4288.61,
+     "impressions": 66570,
      "has_data": true
     },
     {
@@ -738,35 +757,112 @@
      "media": 2.0,
      "gargalo": 1.0
     }
-   }
+   },
+   "pay_dist": [
+    {
+     "method": "Cartão de Crédito",
+     "count": 79,
+     "pct": 56.83
+    },
+    {
+     "method": "PIX",
+     "count": 60,
+     "pct": 43.17
+    }
+   ],
+   "parc_dist": [
+    {
+     "n": 1,
+     "count": 10,
+     "pct": 12.66
+    },
+    {
+     "n": 2,
+     "count": 8,
+     "pct": 10.13
+    },
+    {
+     "n": 3,
+     "count": 9,
+     "pct": 11.39
+    },
+    {
+     "n": 4,
+     "count": 10,
+     "pct": 12.66
+    },
+    {
+     "n": 5,
+     "count": 6,
+     "pct": 7.59
+    },
+    {
+     "n": 6,
+     "count": 6,
+     "pct": 7.59
+    },
+    {
+     "n": 7,
+     "count": 2,
+     "pct": 2.53
+    },
+    {
+     "n": 8,
+     "count": 1,
+     "pct": 1.27
+    },
+    {
+     "n": 10,
+     "count": 3,
+     "pct": 3.8
+    },
+    {
+     "n": 12,
+     "count": 24,
+     "pct": 30.38
+    }
+   ],
+   "ob_val": 1763.0,
+   "ob_detail": [
+    {
+     "name": "Recursos Exclusivos Divertidamente 2",
+     "count": 17,
+     "val": 899.0
+    },
+    {
+     "name": "O Mapa da Avaliação - Autismo",
+     "count": 12,
+     "val": 864.0
+    }
+   ]
   },
   "PSI": {
    "code": "PSI",
    "spend": 2145.81,
    "impressions": 79678,
    "reach": 51898,
-   "faturas": 22,
-   "units": 26,
-   "fat": 6641.0,
-   "nh": 6301.91,
-   "total": 7211.77,
-   "ob": 4,
-   "cpa": 97.54,
-   "roas": 3.09,
-   "roas_nh": 2.94,
-   "lucro": 4156.1,
-   "roi": 193.68,
-   "ticket": 301.86,
+   "faturas": 23,
+   "units": 29,
+   "fat": 7258.0,
+   "nh": 6886.62,
+   "total": 7864.85,
+   "ob": 5,
+   "cpa": 93.3,
+   "roas": 3.38,
+   "roas_nh": 3.21,
+   "lucro": 4740.81,
+   "roi": 220.93,
+   "ticket": 315.57,
    "cpm": 26.93,
    "abandoned": 27,
-   "checkouts": 49,
-   "compras": 22,
+   "checkouts": 50,
+   "compras": 23,
    "funnel_clicks": 622,
    "funnel_lpv": 505,
    "funnel_ctr": 0.78,
    "funnel_cpc": 3.45,
    "funnel_source": "planilha",
-   "conv_checkout": 44.9,
+   "conv_checkout": 46.0,
    "weeks": [
     {
      "id": "S1",
@@ -787,10 +883,10 @@
      "d0": 8,
      "d1": 14,
      "spend": 226.21,
-     "fat": 1677.0,
+     "fat": 1958.0,
      "faturas": 6,
-     "nh": 1593.15,
-     "lucro": 1366.94,
+     "nh": 1860.1,
+     "lucro": 1633.89,
      "impressions": 8452,
      "has_data": true
     },
@@ -800,10 +896,10 @@
      "d0": 15,
      "d1": 21,
      "spend": 0.0,
-     "fat": 1188.0,
-     "faturas": 4,
-     "nh": 1128.6,
-     "lucro": 1128.6,
+     "fat": 1524.0,
+     "faturas": 5,
+     "nh": 1447.8,
+     "lucro": 1447.8,
      "impressions": 0,
      "has_data": true
     },
@@ -861,7 +957,74 @@
      "media": 1.2,
      "gargalo": 0.6
     }
-   }
+   },
+   "pay_dist": [
+    {
+     "method": "Cartão de Crédito",
+     "count": 14,
+     "pct": 60.87
+    },
+    {
+     "method": "PIX",
+     "count": 8,
+     "pct": 34.78
+    },
+    {
+     "method": "Boleto",
+     "count": 1,
+     "pct": 4.35
+    }
+   ],
+   "parc_dist": [
+    {
+     "n": 1,
+     "count": 3,
+     "pct": 21.43
+    },
+    {
+     "n": 2,
+     "count": 2,
+     "pct": 14.29
+    },
+    {
+     "n": 4,
+     "count": 1,
+     "pct": 7.14
+    },
+    {
+     "n": 5,
+     "count": 1,
+     "pct": 7.14
+    },
+    {
+     "n": 6,
+     "count": 1,
+     "pct": 7.14
+    },
+    {
+     "n": 9,
+     "count": 1,
+     "pct": 7.14
+    },
+    {
+     "n": 12,
+     "count": 5,
+     "pct": 35.71
+    }
+   ],
+   "ob_val": 454.33,
+   "ob_detail": [
+    {
+     "name": "O Mapa da Avaliação - Autismo",
+     "count": 2,
+     "val": 251.11
+    },
+    {
+     "name": "Recursos Exclusivos Divertidamente 2",
+     "count": 4,
+     "val": 203.22
+    }
+   ]
   }
  },
  "campaigns": [
@@ -1141,10 +1304,10 @@
    "creat": "Vídeos",
    "obj": "sales",
    "status": "ACTIVE",
-   "spend": 2038.64,
-   "impressions": 87338,
-   "reach": 69870,
-   "cpm": 23.34,
+   "spend": 2090.48,
+   "impressions": 90294,
+   "reach": 72234,
+   "cpm": 23.15,
    "freq": 1.25,
    "days": [
     7,
@@ -1165,15 +1328,16 @@
     22,
     23,
     24,
-    25
+    25,
+    26
    ],
-   "faturas": 55,
-   "units": 55,
-   "fat": 9083.0,
-   "nh": 8520.99,
-   "cpa": 37.07,
-   "roas": 4.46,
-   "lucro": 6482.35,
+   "faturas": 58,
+   "units": 58,
+   "fat": 9563.0,
+   "nh": 8975.84,
+   "cpa": 36.04,
+   "roas": 4.57,
+   "lucro": 6885.36,
    "daily": [
     {
      "day": 7,
@@ -1285,9 +1449,15 @@
     },
     {
      "day": 25,
-     "spend": 62.14,
-     "impressions": 2840,
-     "cpm": 21.88
+     "spend": 107.94,
+     "impressions": 5513,
+     "cpm": 19.58
+    },
+    {
+     "day": 26,
+     "spend": 6.04,
+     "impressions": 283,
+     "cpm": 21.34
     }
    ]
   },
@@ -1299,10 +1469,10 @@
    "creat": "Vídeos",
    "obj": "sales",
    "status": "ACTIVE",
-   "spend": 1353.22,
-   "impressions": 52083,
-   "reach": 38579,
-   "cpm": 25.98,
+   "spend": 1396.92,
+   "impressions": 54219,
+   "reach": 40162,
+   "cpm": 25.76,
    "freq": 1.35,
    "days": [
     8,
@@ -1322,15 +1492,16 @@
     22,
     23,
     24,
-    25
+    25,
+    26
    ],
-   "faturas": 34,
-   "units": 34,
-   "fat": 5409.0,
-   "nh": 5103.83,
-   "cpa": 39.8,
-   "roas": 4.0,
-   "lucro": 3750.61,
+   "faturas": 35,
+   "units": 35,
+   "fat": 5654.0,
+   "nh": 5331.64,
+   "cpa": 39.91,
+   "roas": 4.05,
+   "lucro": 3934.72,
    "daily": [
     {
      "day": 8,
@@ -1430,15 +1601,21 @@
     },
     {
      "day": 24,
-     "spend": 73.97,
-     "impressions": 3173,
+     "spend": 73.98,
+     "impressions": 3174,
      "cpm": 23.31
     },
     {
      "day": 25,
-     "spend": 43.23,
-     "impressions": 1902,
-     "cpm": 22.73
+     "spend": 81.25,
+     "impressions": 3851,
+     "cpm": 21.1
+    },
+    {
+     "day": 26,
+     "spend": 5.67,
+     "impressions": 186,
+     "cpm": 30.48
     }
    ]
   },
@@ -1450,10 +1627,10 @@
    "creat": "Estáticos",
    "obj": "sales",
    "status": "ACTIVE",
-   "spend": 2219.25,
-   "impressions": 110658,
-   "reach": 59816,
-   "cpm": 20.06,
+   "spend": 2332.77,
+   "impressions": 116099,
+   "reach": 62757,
+   "cpm": 20.09,
    "freq": 1.85,
    "days": [
     11,
@@ -1470,15 +1647,16 @@
     22,
     23,
     24,
-    25
+    25,
+    26
    ],
-   "faturas": 47,
-   "units": 47,
-   "fat": 7751.0,
-   "nh": 7278.1,
-   "cpa": 47.22,
-   "roas": 3.49,
-   "lucro": 5058.85,
+   "faturas": 49,
+   "units": 49,
+   "fat": 8045.0,
+   "nh": 7551.62,
+   "cpa": 47.61,
+   "roas": 3.45,
+   "lucro": 5218.85,
    "daily": [
     {
      "day": 11,
@@ -1566,9 +1744,15 @@
     },
     {
      "day": 25,
-     "spend": 106.77,
-     "impressions": 4669,
-     "cpm": 22.87
+     "spend": 208.58,
+     "impressions": 9655,
+     "cpm": 21.6
+    },
+    {
+     "day": 26,
+     "spend": 11.71,
+     "impressions": 455,
+     "cpm": 25.74
     }
    ]
   },
@@ -1580,10 +1764,10 @@
    "creat": "Misto",
    "obj": "followers",
    "status": "ACTIVE",
-   "spend": 1010.26,
-   "impressions": 84552,
-   "reach": 80358,
-   "cpm": 11.95,
+   "spend": 1048.26,
+   "impressions": 87502,
+   "reach": 83198,
+   "cpm": 11.98,
    "freq": 1.05,
    "days": [
     1,
@@ -1610,7 +1794,8 @@
     22,
     23,
     24,
-    25
+    25,
+    26
    ],
    "faturas": 0,
    "units": 0,
@@ -1618,7 +1803,7 @@
    "nh": 0,
    "cpa": null,
    "roas": 0,
-   "lucro": -1010.26,
+   "lucro": -1048.26,
    "daily": [
     {
      "day": 1,
@@ -1769,6 +1954,12 @@
      "spend": 38.0,
      "impressions": 2980,
      "cpm": 12.75
+    },
+    {
+     "day": 26,
+     "spend": 38.0,
+     "impressions": 2950,
+     "cpm": 12.88
     }
    ]
   }
@@ -1776,14 +1967,14 @@
  "followers": {
   "id": "120241138795630031",
   "name": "[INSTA] [Seguidores] [Frio] - ABO",
-  "spend": 1010.26,
-  "impressions": 84552,
-  "reach": 80358,
-  "cpm": 11.95,
+  "spend": 1048.26,
+  "impressions": 87502,
+  "reach": 83198,
+  "cpm": 11.98,
   "freq": 1.05,
-  "days": 25,
-  "pct_invest": 11.35,
-  "cost_per_1k_reach": 12.57,
+  "days": 26,
+  "pct_invest": 11.46,
+  "cost_per_1k_reach": 12.6,
   "daily": [
    {
     "day": 1,
@@ -1934,6 +2125,12 @@
     "spend": 38.0,
     "impressions": 2980,
     "cpm": 12.75
+   },
+   {
+    "day": 26,
+    "spend": 38.0,
+    "impressions": 2950,
+    "cpm": 12.88
    }
   ],
   "weeks": [
@@ -1961,8 +2158,8 @@
    {
     "id": "S4",
     "label": "22–28 mai",
-    "spend": 149.5,
-    "impressions": 11840,
+    "spend": 187.5,
+    "impressions": 14790,
     "has_data": true
    },
    {
@@ -1977,9 +2174,9 @@
  "origins": [
   {
    "name": "Facebook Ads",
-   "faturas": 147,
-   "fat": 24867.0,
-   "nh": 23367.68
+   "faturas": 153,
+   "fat": 25886.0,
+   "nh": 24323.86
   },
   {
    "name": "Instagram (orgânico)",
@@ -1995,24 +2192,24 @@
   },
   {
    "name": "Sem origem",
-   "faturas": 22,
-   "fat": 11706.38,
-   "nh": 10990.06
+   "faturas": 23,
+   "fat": 11956.13,
+   "nh": 11222.33
   }
  ],
  "products": [
   {
    "name": "Regulando as Emoções",
-   "faturas": 129,
-   "fat": 19863.0,
-   "units": 149,
+   "faturas": 139,
+   "fat": 21804.0,
+   "units": 168,
    "recorrente": false
   },
   {
    "name": "Curso Psi: 0-8",
-   "faturas": 22,
-   "fat": 6641.0,
-   "units": 26,
+   "faturas": 23,
+   "fat": 7258.0,
+   "units": 29,
    "recorrente": false
   },
   {
@@ -2023,24 +2220,24 @@
    "recorrente": false
   },
   {
-   "name": "Recursos Exclusivos Divertidamente 2",
-   "faturas": 22,
-   "fat": 5237.0,
-   "units": 49,
-   "recorrente": false
-  },
-  {
    "name": "Formação Primeira Infância • Turma 09",
-   "faturas": 8,
-   "fat": 4128.77,
-   "units": 8,
+   "faturas": 9,
+   "fat": 4378.52,
+   "units": 9,
    "recorrente": true
   },
   {
+   "name": "Recursos Exclusivos Divertidamente 2",
+   "faturas": 19,
+   "fat": 4052.0,
+   "units": 40,
+   "recorrente": false
+  },
+  {
    "name": "O Mapa da Avaliação - Autismo",
-   "faturas": 13,
-   "fat": 2906.0,
-   "units": 28,
+   "faturas": 11,
+   "fat": 2552.0,
+   "units": 24,
    "recorrente": false
   },
   {
@@ -2061,8 +2258,8 @@
  "regioes": [
   {
    "name": "Sudeste",
-   "faturas": 40,
-   "fat": 10801.5
+   "faturas": 41,
+   "fat": 11051.25
   },
   {
    "name": "Sul",
@@ -2086,8 +2283,8 @@
   },
   {
    "name": "Não informado",
-   "faturas": 118,
-   "fat": 21779.7
+   "faturas": 124,
+   "fat": 22798.7
   }
  ],
  "estados": [
@@ -2108,8 +2305,8 @@
   },
   {
    "uf": "RJ",
-   "faturas": 9,
-   "fat": 1978.0
+   "faturas": 10,
+   "fat": 2227.75
   },
   {
    "uf": "SC",
@@ -2195,97 +2392,97 @@
  "payment_dist": [
   {
    "method": "Cartão de Crédito",
-   "count": 118,
-   "pct": 58.71
+   "count": 121,
+   "pct": 58.17
   },
   {
    "method": "PIX",
-   "count": 81,
-   "pct": 40.3
+   "count": 84,
+   "pct": 40.38
   },
   {
    "method": "Boleto",
-   "count": 2,
-   "pct": 1.0
+   "count": 3,
+   "pct": 1.44
   }
  ],
  "parc_dist": [
   {
    "n": 1,
    "count": 25,
-   "pct": 21.19
+   "pct": 20.66
   },
   {
    "n": 2,
    "count": 13,
-   "pct": 11.02
+   "pct": 10.74
   },
   {
    "n": 3,
-   "count": 10,
-   "pct": 8.47
+   "count": 11,
+   "pct": 9.09
   },
   {
    "n": 4,
    "count": 13,
-   "pct": 11.02
+   "pct": 10.74
   },
   {
    "n": 5,
    "count": 10,
-   "pct": 8.47
+   "pct": 8.26
   },
   {
    "n": 6,
-   "count": 6,
-   "pct": 5.08
+   "count": 7,
+   "pct": 5.79
   },
   {
    "n": 7,
    "count": 2,
-   "pct": 1.69
+   "pct": 1.65
   },
   {
    "n": 8,
    "count": 1,
-   "pct": 0.85
+   "pct": 0.83
   },
   {
    "n": 9,
    "count": 1,
-   "pct": 0.85
+   "pct": 0.83
   },
   {
    "n": 10,
    "count": 3,
-   "pct": 2.54
+   "pct": 2.48
   },
   {
    "n": 12,
-   "count": 34,
-   "pct": 28.81
+   "count": 35,
+   "pct": 28.93
   }
  ],
  "ob_detail": [
   {
    "name": "Regulando as Emoções",
-   "count": 29,
-   "val": 5889.0
-  },
-  {
-   "name": "Curso Psi: 0-8",
-   "count": 6,
-   "val": 2254.0
-  },
-  {
-   "name": "O Mapa da Avaliação - Autismo",
-   "count": 13,
-   "val": 2074.06
+   "count": 25,
+   "val": 4967.0
   },
   {
    "name": "Recursos Exclusivos Divertidamente 2",
-   "count": 18,
-   "val": 1167.11
+   "count": 23,
+   "val": 1742.22
+  },
+  {
+   "name": "Curso Psi: 0-8",
+   "count": 5,
+   "val": 1637.0
+  },
+  {
+   "name": "O Mapa da Avaliação - Autismo",
+   "count": 16,
+   "val": 1605.11
   }
  ],
  "insights": [
@@ -2293,15 +2490,15 @@
    "level": "positivo",
    "icon": "star",
    "tag": "MELHOR SEMANA",
-   "title": "Semana 4 (22–25/mai): ROAS 7.7x e CPA R$24 — performance crescente",
-   "body": "Os 4 dias de 22–25/mai já entregaram R$9,105 com R$1,329 investidos (ROAS 7.7x). CPA caiu de R$33 (S3) para R$24 — eficiência crescente. Sinal para aumentar orçamento gradualmente: +15–20% a cada 2–3 dias enquanto ROAS ≥ 4x."
+   "title": "Semana 4 (22–25/mai): ROAS 7.5x e CPA R$25 — performance crescente",
+   "body": "Os 4 dias de 22–25/mai já entregaram R$10,374 com R$1,577 investidos (ROAS 7.5x). CPA caiu de R$33 (S3) para R$25 — eficiência crescente. Sinal para aumentar orçamento gradualmente: +15–20% a cada 2–3 dias enquanto ROAS ≥ 4x."
   },
   {
    "level": "positivo",
    "icon": "star",
    "tag": "ESCALAR AGORA",
-   "title": "RE · Quente · Vídeos: ROAS 4.46x com 55 vendas — candidata ao escalonamento",
-   "body": "R$2,039 investidos → R$9,083 faturados (55 vendas, CPA R$37). Estratégia: +15–20% de budget a cada 2–3 dias, mantendo CPM monitorado. Duplicar o conjunto de anúncios com orçamento menor para testar variações criativas em paralelo."
+   "title": "RE · Quente · Vídeos: ROAS 4.57x com 58 vendas — candidata ao escalonamento",
+   "body": "R$2,090 investidos → R$9,563 faturados (58 vendas, CPA R$36). Estratégia: +15–20% de budget a cada 2–3 dias, mantendo CPM monitorado. Duplicar o conjunto de anúncios com orçamento menor para testar variações criativas em paralelo."
   },
   {
    "level": "atencao",
@@ -2314,46 +2511,46 @@
    "level": "info",
    "icon": "funnel",
    "tag": "PORTFÓLIO",
-   "title": "RE: 129 vendas ROAS 3.46x | PSI: 22 vendas ROAS 3.09x — RE lidera em volume",
-   "body": "Regulando as Emoções: R$19,863 em 129 vendas (ticket médio R$154, CPA R$45). PSI08: R$6,641 em 22 vendas (ticket R$302). Priorizar escala no RE — maior volume e público mais amplo. PSI tem ticket 2× maior; vale reativar com orçamento separado."
+   "title": "RE: 139 vendas ROAS 3.66x | PSI: 23 vendas ROAS 3.38x — RE lidera em volume",
+   "body": "Regulando as Emoções: R$21,804 em 139 vendas (ticket médio R$157, CPA R$43). PSI08: R$7,258 em 23 vendas (ticket R$316). Priorizar escala no RE — maior volume e público mais amplo. PSI tem ticket 2× maior; vale reativar com orçamento separado."
   },
   {
    "level": "atencao",
    "icon": "dollar",
    "tag": "PSI — REATIVAR",
-   "title": "Curso PSI pausado com ROAS 3.09x e ticket R$302 — canal de alto valor inativo",
-   "body": "O Curso Psi:0–8 gerou R$6,641 com ROAS 3.09x — ticket 2× maior que o RE. Campanhas pausadas desde mai/10. Reativar com R$30–50/dia, criativos novos (depoimentos, transformação, urgência) e UTMs corretos. Sugestão: duplicar a campanha [PSI08] [Compra] [Frio] com criativos renovados e testar sem escala por 7 dias antes de aumentar budget."
+   "title": "Curso PSI pausado com ROAS 3.38x e ticket R$316 — canal de alto valor inativo",
+   "body": "O Curso Psi:0–8 gerou R$7,258 com ROAS 3.38x — ticket 2× maior que o RE. Campanhas pausadas desde mai/10. Reativar com R$30–50/dia, criativos novos (depoimentos, transformação, urgência) e UTMs corretos. Sugestão: duplicar a campanha [PSI08] [Compra] [Frio] com criativos renovados e testar sem escala por 7 dias antes de aumentar budget."
   },
   {
    "level": "positivo",
    "icon": "plus",
    "tag": "ORDER BUMP",
-   "title": "58 pedidos com OB aceito — R$9,271 extras (21% do faturamento)",
-   "body": "58 clientes aceitaram o order bump (28.9% dos pedidos), gerando R$9,271 adicionais. Testar novos OBs complementares (templates, recursos, mentorias) pode elevar esse percentual. A/B na posição e copy do OB pode aumentar a taxa de aceitação para 30–40%."
+   "title": "60 pedidos com OB aceito — R$8,334 extras (18% do faturamento)",
+   "body": "60 clientes aceitaram o order bump (28.9% dos pedidos), gerando R$8,334 adicionais. Testar novos OBs complementares (templates, recursos, mentorias) pode elevar esse percentual. A/B na posição e copy do OB pode aumentar a taxa de aceitação para 30–40%."
   },
   {
    "level": "atencao",
    "icon": "cart",
    "tag": "RECUPERAÇÃO",
-   "title": "141 checkouts não convertidos — R$24,164 em receita potencial não capturada",
-   "body": "Taxa de checkout-to-purchase: 58.8% (201 vendas / 342 checkouts). 104 abandonos do RE (ticket ~R$154) + 27 do PSI (ticket ~R$302) = R$24,164 potencial. Sequência de recuperação em 1h + 24h + 72h por WhatsApp/e-mail pode recuperar 20–30%. Checar se o fluxo de recuperação está ativo na Hubla."
+   "title": "147 checkouts não convertidos — R$25,775 em receita potencial não capturada",
+   "body": "Taxa de checkout-to-purchase: 58.6% (208 vendas / 355 checkouts). 110 abandonos do RE (ticket ~R$157) + 27 do PSI (ticket ~R$316) = R$25,775 potencial. Sequência de recuperação em 1h + 24h + 72h por WhatsApp/e-mail pode recuperar 20–30%. Checar se o fluxo de recuperação está ativo na Hubla."
   },
   {
    "level": "info",
    "icon": "profit",
    "tag": "RESULTADO MENSAL",
-   "title": "R$44,965 faturados | Lucro R$34,327 | ROI 435% sobre mídia",
-   "body": "201 vendas em 25 dias: R$44,965 bruto → R$42,215 líquido (taxa Hubla ~13.2%). Investimento em mídia paga: R$7,889. Lucro operacional: R$34,327 (ROI 435%). Projeção para o mês completo: ~R$55,757 de faturamento se o ritmo se mantiver."
+   "title": "R$46,234 faturados | Lucro R$35,306 | ROI 436% sobre mídia",
+   "body": "208 vendas em 26 dias: R$46,234 bruto → R$43,404 líquido (taxa Hubla ~13.1%). Investimento em mídia paga: R$8,098. Lucro operacional: R$35,306 (ROI 436%). Projeção para o mês completo: ~R$55,125 de faturamento se o ritmo se mantiver."
   }
  ],
  "fb_split": {
   "frio": {
-   "faturas": 84,
-   "fat": 14051.0
+   "faturas": 87,
+   "fat": 14590.0
   },
   "quente": {
-   "faturas": 57,
-   "fat": 9436.0
+   "faturas": 60,
+   "fat": 9916.0
   },
   "outros": {
    "faturas": 6,
