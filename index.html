@@ -1276,7 +1276,7 @@ function renderObChartsInline(allObNames,shortNames,reData,psiData){
       var counts=c.dataset.label==='PSI 0-8'?psiConvCounts:reConvCounts;
       var cnt=counts[c.dataIndex];
       var fat=c.dataset.label==='PSI 0-8'?(psiData?psiData.faturas:0):(reData?reData.faturas:0);
-      return ' '+c.raw+'% &nbsp;·&nbsp; '+cnt+' itens / '+fat+' vendas';
+      return ' '+c.raw+'% · '+cnt+' itens / '+fat+' vendas';
      }),
      datalabels:{display:false}},
     scales:{
