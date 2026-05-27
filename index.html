@@ -941,59 +941,7 @@ function renderComposicaoInline(){
      '<div class="p-sub" id="regSub2">Faturamento por macrorregião do Brasil.</div>'+
      '<div class="rbars" id="regBars2"></div></div>'+
   '</div>';
- /* ── Order Bumps por produto ─────────────────────────────────── */
- var obProds=[];
- if(viewProd==='all'||viewProd==='re'){
-  var re=DATA.products_paid.RE;
-  if(re) obProds.push({label:'Regulando as Emoções',pd:re,color:'#37644F'});
- }
- if(viewProd==='all'||viewProd==='psi'){
-  var ps=DATA.products_paid.PSI;
-  if(ps) obProds.push({label:'PSI 0-8',pd:ps,color:'#3E6E8E'});
- }
- /* OB conversion rates */
- var obConvRows='';
- obProds.forEach(function(op){
-  var pd=op.pd;
-  var rate=pd.faturas>0?Math.round(pd.ob/pd.faturas*100):0;
-  obConvRows+='<div class="di"><i style="background:'+op.color+'"></i>'+
-   '<span class="dn">'+op.label+'</span>'+
-   '<span class="dv">'+pd.ob+'/'+pd.faturas+' pedidos</span>'+
-   '<span class="dp">'+rate+'%</span></div>';
- });
- var totOb=DATA.totals.fat_with_ob||0,totFat2=DATA.totals.faturas||1;
- var globalRate=Math.round(totOb/totFat2*100);
- /* OB detail per product */
- var obDetailHtml='';
- obProds.forEach(function(op){
-  var pd=op.pd;
-  if(!pd.ob_detail||!pd.ob_detail.length) return;
-  obDetailHtml+='<div style="margin-bottom:12px"><div style="font-weight:600;color:'+op.color+';font-size:13px;margin-bottom:6px">'+op.label+' — R$'+nf0.format(pd.ob_val||0)+' em OBs</div>';
-  pd.ob_detail.forEach(function(ob){
-   obDetailHtml+='<div class="di" style="margin-left:8px"><span class="dn">'+ob.name+'</span>'+
-    '<span class="dv">'+ob.count+'x</span>'+
-    '<span class="dp">'+brl(ob.val)+'</span></div>';
-  });
-  obDetailHtml+='</div>';
- });
- h+='<div class="sec"><div class="sec-head"><span class="bar"></span><h2>Order Bumps</h2>'+
-   '<div class="note">Taxa de aceitação e receita gerada pelos order bumps.</div></div>'+
-  '<div class="grid g-2" style="align-items:stretch">'+
-   '<div class="panel" style="display:flex;flex-direction:column">'+
-    '<div class="p-head"><div><h3>Taxa de conversão de OB</h3></div></div>'+
-    '<div class="p-sub">Pedidos com OB aceito em relação ao total de faturas.</div>'+
-    '<div class="dlist" style="margin-top:12px">'+obConvRows+'</div>'+
-    '<div class="di" style="margin-top:10px;padding-top:10px;border-top:1px solid #eee">'+
-     '<i style="background:#A3A983"></i>'+
-     '<span class="dn"><b>Consolidado</b></span>'+
-     '<span class="dv">'+totOb+'/'+totFat2+' pedidos</span>'+
-     '<span class="dp">'+globalRate+'%</span></div></div>'+
-   '<div class="panel" style="display:flex;flex-direction:column">'+
-    '<div class="p-head"><div><h3>Receita por OB</h3></div></div>'+
-    '<div class="p-sub">Produtos adicionados como order bump e receita estimada.</div>'+
-    '<div style="padding:8px 0">'+obDetailHtml+'</div></div>'+
-  '</div>';
- /* ── Métodos de pagamento + Parcelamento ─────────────────────── */
+ /* ── Section 2: Métodos de pagamento ──────────────────────────── */
  var payDist=getPayDist();
  var parcDist=getParcDist();
  var nFaturas=getTotalFaturas();
@@ -1025,10 +973,45 @@ function renderComposicaoInline(){
    '<div class="chart-box h280" style="flex:1;min-height:220px"><canvas id="cParcInline"></canvas></div></div>';
  }
  h+='</div>';
+ /* ── Section 3: Order Bumps (chart-based) ─────────────────────── */
+ var reData=DATA.products_paid.RE;
+ var psiData=DATA.products_paid.PSI;
+ /* Collect all unique OB product names across selected funnels */
+ var allObNames=[];
+ function addObNames(pd){
+  if(!pd||!pd.ob_detail) return;
+  pd.ob_detail.forEach(function(ob){
+   if(allObNames.indexOf(ob.name)<0) allObNames.push(ob.name);
+  });
+ }
+ if(viewProd==='all'||viewProd==='re') addObNames(reData);
+ if(viewProd==='all'||viewProd==='psi') addObNames(psiData);
+ var shortObNames=allObNames.map(function(n){
+  if(n==='Recursos Exclusivos Divertidamente 2') return 'Recursos Exclusivos';
+  if(n==='O Mapa da Avaliação - Autismo') return 'Mapa da Avaliação';
+  return n.length>26?n.slice(0,24)+'…':n;
+ });
+ var obNote=viewProd==='all'?'Comparação entre os dois funis — RE e PSI 0-8.':
+  viewProd==='re'?'Funil Regulando as Emoções.':'Funil PSI 0-8.';
+ h+='<div class="sec"><div class="sec-head"><span class="bar"></span><h2>Order Bumps</h2>'+
+   '<div class="note">'+obNote+'</div></div>'+
+  '<div class="grid g-2" style="align-items:stretch">'+
+   '<div class="panel" style="display:flex;flex-direction:column">'+
+    '<div class="p-head"><div><h3>Receita por Order Bump</h3></div></div>'+
+    '<div class="p-sub">Quantidade de itens vendidos por produto OB.</div>'+
+    '<div class="chart-box h280" style="flex:1;min-height:220px"><canvas id="cObRevInline"></canvas></div>'+
+   '</div>'+
+   '<div class="panel" style="display:flex;flex-direction:column">'+
+    '<div class="p-head"><div><h3>Taxa de conversão de OB</h3></div></div>'+
+    '<div class="p-sub">Itens de OB vendidos ÷ vendas do produto principal do funil.</div>'+
+    '<div class="chart-box h280" style="flex:1;min-height:220px"><canvas id="cObConvInline"></canvas></div>'+
+   '</div>'+
+  '</div>';
  wrap.innerHTML=h;
  /* Render charts */
  renderProdDonutInline(); renderChanDonutInline(); renderRegionInline();
  renderPayMetInlineChart(payDist); renderParcInlineChart(parcDist);
+ renderObChartsInline(allObNames,shortObNames,reData,psiData);
  /* Atualiza insights unificados no rodapé */
  renderGeralInsights();
 }
@@ -1202,6 +1185,97 @@ function renderParcInlineChart(dist){
     y:{grid:{color:GRID},ticks:{color:TICK,font:{family:'Spline Sans Mono',size:10},
      callback:function(v){return nf0.format(v);}}}}}
  });
+}
+function renderObChartsInline(allObNames,shortNames,reData,psiData){
+ var RE_COL='#37644F',PSI_COL='#3E6E8E';
+ /* ── Receita por OB: horizontal bar (quantity of items sold) ── */
+ destroyChart('cObRevInline');
+ var cvRev=document.getElementById('cObRevInline');
+ if(cvRev&&allObNames.length){
+  var revDatasets=[];
+  if(viewProd==='all'||viewProd==='re'){
+   if(reData&&reData.ob_detail){
+    var reQtys=allObNames.map(function(n){
+     var ob=reData.ob_detail.filter(function(x){return x.name===n;})[0];
+     return ob?ob.count:0;
+    });
+    revDatasets.push({label:'RE',data:reQtys,backgroundColor:RE_COL+'CC',borderRadius:4,maxBarThickness:28});
+   }
+  }
+  if(viewProd==='all'||viewProd==='psi'){
+   if(psiData&&psiData.ob_detail){
+    var psiQtys=allObNames.map(function(n){
+     var ob=psiData.ob_detail.filter(function(x){return x.name===n;})[0];
+     return ob?ob.count:0;
+    });
+    revDatasets.push({label:'PSI 0-8',data:psiQtys,backgroundColor:PSI_COL+'CC',borderRadius:4,maxBarThickness:28});
+   }
+  }
+  charts.cObRevInline=new Chart(cvRev.getContext('2d'),{type:'bar',
+   data:{labels:shortNames,datasets:revDatasets},
+   options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',
+    plugins:{
+     legend:{display:revDatasets.length>1,position:'bottom',labels:{color:TICK,font:{family:'Outfit',size:11}}},
+     tooltip:tip(function(c){
+      var pd=(c.dataset.label==='PSI 0-8'?psiData:reData);
+      var n=allObNames[c.dataIndex];
+      var ob=pd&&pd.ob_detail?pd.ob_detail.filter(function(x){return x.name===n;})[0]:null;
+      return ' '+c.raw+' itens'+(ob?' — '+brl(ob.val):'');
+     }),
+     datalabels:{display:false}},
+    scales:{
+     x:{grid:{color:GRID},ticks:{color:TICK,font:{family:'Spline Sans Mono',size:10},callback:function(v){return nf0.format(v);}}},
+     y:{grid:{display:false},ticks:{color:TICK,font:{family:'Outfit',size:11}}}
+    }}
+  });
+ }
+ /* ── Taxa de conversão de OB: column chart ─────────────────────── */
+ destroyChart('cObConvInline');
+ var cvConv=document.getElementById('cObConvInline');
+ if(cvConv&&allObNames.length){
+  var convLabels=shortNames.concat(['Total']);
+  var convDatasets=[];
+  if(viewProd==='all'||viewProd==='re'){
+   if(reData&&reData.ob_detail&&reData.faturas>0){
+    var reRates=allObNames.map(function(n){
+     var ob=reData.ob_detail.filter(function(x){return x.name===n;})[0];
+     return ob?Math.round(ob.count/reData.faturas*1000)/10:0;
+    });
+    var reTot=reData.ob_detail.reduce(function(s,x){return s+x.count;},0);
+    reRates.push(Math.round(reTot/reData.faturas*1000)/10);
+    convDatasets.push({label:'RE',data:reRates,
+     backgroundColor:reRates.map(function(v,i){return i===reRates.length-1?RE_COL:RE_COL+'99';}),
+     borderRadius:4,maxBarThickness:40});
+   }
+  }
+  if(viewProd==='all'||viewProd==='psi'){
+   if(psiData&&psiData.ob_detail&&psiData.faturas>0){
+    var psiRates=allObNames.map(function(n){
+     var ob=psiData.ob_detail.filter(function(x){return x.name===n;})[0];
+     return ob?Math.round(ob.count/psiData.faturas*1000)/10:0;
+    });
+    var psiTot=psiData.ob_detail.reduce(function(s,x){return s+x.count;},0);
+    psiRates.push(Math.round(psiTot/psiData.faturas*1000)/10);
+    convDatasets.push({label:'PSI 0-8',data:psiRates,
+     backgroundColor:psiRates.map(function(v,i){return i===psiRates.length-1?PSI_COL:PSI_COL+'99';}),
+     borderRadius:4,maxBarThickness:40});
+   }
+  }
+  charts.cObConvInline=new Chart(cvConv.getContext('2d'),{type:'bar',
+   data:{labels:convLabels,datasets:convDatasets},
+   options:{responsive:true,maintainAspectRatio:false,
+    plugins:{
+     legend:{display:convDatasets.length>1,position:'bottom',labels:{color:TICK,font:{family:'Outfit',size:11}}},
+     tooltip:tip(function(c){return ' '+c.raw+'%';}),
+     datalabels:{display:false}},
+    scales:{
+     x:{grid:{display:false},ticks:{color:TICK,font:{family:'Outfit',size:10}}},
+     y:{grid:{color:GRID},beginAtZero:true,
+      ticks:{color:TICK,font:{family:'Spline Sans Mono',size:10},callback:function(v){return v+'%';}},
+      title:{display:true,text:'% do total de faturas',color:TICK,font:{family:'Outfit',size:10}}}
+    }}
+  });
+ }
 }
 function renderFunilInline(){
  var wrap=document.getElementById('geral-funil-wrap');
