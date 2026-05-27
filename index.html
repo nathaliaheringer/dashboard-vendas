@@ -1235,13 +1235,17 @@ function renderObChartsInline(allObNames,shortNames,reData,psiData){
  if(cvConv&&allObNames.length){
   var convLabels=shortNames.concat(['Total']);
   var convDatasets=[];
+  /* Parallel count arrays for tooltip — captured in closure */
+  var reConvCounts=[], psiConvCounts=[];
   if(viewProd==='all'||viewProd==='re'){
    if(reData&&reData.ob_detail&&reData.faturas>0){
     var reRates=allObNames.map(function(n){
      var ob=reData.ob_detail.filter(function(x){return x.name===n;})[0];
+     reConvCounts.push(ob?ob.count:0);
      return ob?Math.round(ob.count/reData.faturas*1000)/10:0;
     });
     var reTot=reData.ob_detail.reduce(function(s,x){return s+x.count;},0);
+    reConvCounts.push(reTot);
     reRates.push(Math.round(reTot/reData.faturas*1000)/10);
     convDatasets.push({label:'RE',data:reRates,
      backgroundColor:reRates.map(function(v,i){return i===reRates.length-1?RE_COL:RE_COL+'99';}),
@@ -1252,9 +1256,11 @@ function renderObChartsInline(allObNames,shortNames,reData,psiData){
    if(psiData&&psiData.ob_detail&&psiData.faturas>0){
     var psiRates=allObNames.map(function(n){
      var ob=psiData.ob_detail.filter(function(x){return x.name===n;})[0];
+     psiConvCounts.push(ob?ob.count:0);
      return ob?Math.round(ob.count/psiData.faturas*1000)/10:0;
     });
     var psiTot=psiData.ob_detail.reduce(function(s,x){return s+x.count;},0);
+    psiConvCounts.push(psiTot);
     psiRates.push(Math.round(psiTot/psiData.faturas*1000)/10);
     convDatasets.push({label:'PSI 0-8',data:psiRates,
      backgroundColor:psiRates.map(function(v,i){return i===psiRates.length-1?PSI_COL:PSI_COL+'99';}),
@@ -1266,7 +1272,12 @@ function renderObChartsInline(allObNames,shortNames,reData,psiData){
    options:{responsive:true,maintainAspectRatio:false,
     plugins:{
      legend:{display:convDatasets.length>1,position:'bottom',labels:{color:TICK,font:{family:'Outfit',size:11}}},
-     tooltip:tip(function(c){return ' '+c.raw+'%';}),
+     tooltip:tip(function(c){
+      var counts=c.dataset.label==='PSI 0-8'?psiConvCounts:reConvCounts;
+      var cnt=counts[c.dataIndex];
+      var fat=c.dataset.label==='PSI 0-8'?(psiData?psiData.faturas:0):(reData?reData.faturas:0);
+      return ' '+c.raw+'% &nbsp;·&nbsp; '+cnt+' itens / '+fat+' vendas';
+     }),
      datalabels:{display:false}},
     scales:{
      x:{grid:{display:false},ticks:{color:TICK,font:{family:'Outfit',size:10}}},
