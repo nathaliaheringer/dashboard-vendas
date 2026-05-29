@@ -6,7 +6,7 @@
   "days_elapsed": 29,
   "days_month": 31
  },
- "_v": 1780057321720,
+ "_v": 1780059902074,
  "totals": {
   "spend": 10584.45,
   "spend_sales": 9498.19,
@@ -50,7 +50,60 @@
    "spend_re": 0.0,
    "spend_psi": 268.76,
    "faturas_re": 0,
-   "faturas_psi": 1
+   "faturas_psi": 1,
+   "funnel_clicks_re": 0,
+   "funnel_lpv_re": 0,
+   "funnel_imp_re": 0,
+   "funnel_clicks_psi": 79,
+   "funnel_lpv_psi": 66,
+   "funnel_imp_psi": 8363,
+   "origins": [
+    {
+     "name": "Instagram (orgânico)",
+     "fat": 336.0,
+     "faturas": 1
+    }
+   ],
+   "fb_split": {
+    "frio": {
+     "fat": 0.0,
+     "faturas": 0
+    },
+    "quente": {
+     "fat": 0.0,
+     "faturas": 0
+    },
+    "outros": {
+     "fat": 0.0,
+     "faturas": 0
+    }
+   },
+   "regioes": [
+    {
+     "name": "Sudeste",
+     "fat": 336.0,
+     "faturas": 1
+    }
+   ],
+   "pay_dist": [
+    {
+     "method": "Cartão de Crédito",
+     "count": 1
+    }
+   ],
+   "parc_dist": [
+    {
+     "n": 12,
+     "count": 1
+    }
+   ],
+   "ob_detail_re": [],
+   "ob_detail_psi": [
+    {
+     "name": "Recursos Exclusivos Divertidamente 2",
+     "count": 1
+    }
+   ]
   },
   {
    "day": 2,
@@ -69,7 +122,33 @@
    "spend_re": 0.0,
    "spend_psi": 194.1,
    "faturas_re": 0,
-   "faturas_psi": 0
+   "faturas_psi": 0,
+   "funnel_clicks_re": 0,
+   "funnel_lpv_re": 0,
+   "funnel_imp_re": 0,
+   "funnel_clicks_psi": 47,
+   "funnel_lpv_psi": 38,
+   "funnel_imp_psi": 6515,
+   "origins": [],
+   "fb_split": {
+    "frio": {
+     "fat": 0.0,
+     "faturas": 0
+    },
+    "quente": {
+     "fat": 0.0,
+     "faturas": 0
+    },
+    "outros": {
+     "fat": 0.0,
+     "faturas": 0
+    }
+   },
+   "regioes": [],
+   "pay_dist": [],
+   "parc_dist": [],
+   "ob_detail_re": [],
+   "ob_detail_psi": []
   },
   {
    "day": 3,
@@ -88,7 +167,55 @@
    "spend_re": 0.0,
    "spend_psi": 189.79,
    "faturas_re": 0,
-   "faturas_psi": 0
+   "faturas_psi": 0,
+   "funnel_clicks_re": 0,
+   "funnel_lpv_re": 0,
+   "funnel_imp_re": 0,
+   "funnel_clicks_psi": 61,
+   "funnel_lpv_psi": 50,
+   "funnel_imp_psi": 6647,
+   "origins": [
+    {
+     "name": "Sem origem",
+     "fat": 29.91,
+     "faturas": 1
+    }
+   ],
+   "fb_split": {
+    "frio": {
+     "fat": 0.0,
+     "faturas": 0
+    },
+    "quente": {
+     "fat": 0.0,
+     "faturas": 0
+    },
+    "outros": {
+     "fat": 0.0,
+     "faturas": 0
+    }
+   },
+   "regioes": [
+    {
+     "name": "Norte",
+     "fat": 29.91,
+     "faturas": 1
+    }
+   ],
+   "pay_dist": [
+    {
+     "method": "Cartão de Crédito",
+     "count": 1
+    }
+   ],
+   "parc_dist": [
+    {
+     "n": 1,
+     "count": 1
+    }
+   ],
+   "ob_detail_re": [],
+   "ob_detail_psi": []
   },
   {
    "day": 4,
@@ -107,7 +234,78 @@
    "spend_re": 0.0,
    "spend_psi": 324.51,
    "faturas_re": 0,
-   "faturas_psi": 3
+   "faturas_psi": 3,
+   "funnel_clicks_re": 0,
+   "funnel_lpv_re": 0,
+   "funnel_imp_re": 0,
+   "funnel_clicks_psi": 89,
+   "funnel_lpv_psi": 78,
+   "funnel_imp_psi": 12465,
+   "origins": [
+    {
+     "name": "Sem origem",
+     "fat": 796.5,
+     "faturas": 2
+    },
+    {
+     "name": "Facebook Ads",
+     "fat": 594.0,
+     "faturas": 2
+    }
+   ],
+   "fb_split": {
+    "frio": {
+     "fat": 594.0,
+     "faturas": 2
+    },
+    "quente": {
+     "fat": 0.0,
+     "faturas": 0
+    },
+    "outros": {
+     "fat": 0.0,
+     "faturas": 0
+    }
+   },
+   "regioes": [
+    {
+     "name": "Sudeste",
+     "fat": 594.0,
+     "faturas": 2
+    },
+    {
+     "name": "Nordeste",
+     "fat": 297.0,
+     "faturas": 1
+    },
+    {
+     "name": "Centro-Oeste",
+     "fat": 499.5,
+     "faturas": 1
+    }
+   ],
+   "pay_dist": [
+    {
+     "method": "Cartão de Crédito",
+     "count": 3
+    },
+    {
+     "method": "PIX",
+     "count": 1
+    }
+   ],
+   "parc_dist": [
+    {
+     "n": 1,
+     "count": 2
+    },
+    {
+     "n": 2,
+     "count": 1
+    }
+   ],
+   "ob_detail_re": [],
+   "ob_detail_psi": []
   },
   {
    "day": 5,
@@ -126,7 +324,69 @@
    "spend_re": 0.0,
    "spend_psi": 321.46,
    "faturas_re": 0,
-   "faturas_psi": 2
+   "faturas_psi": 2,
+   "funnel_clicks_re": 0,
+   "funnel_lpv_re": 0,
+   "funnel_imp_re": 0,
+   "funnel_clicks_psi": 101,
+   "funnel_lpv_psi": 87,
+   "funnel_imp_psi": 13233,
+   "origins": [
+    {
+     "name": "Instagram (orgânico)",
+     "fat": 297.0,
+     "faturas": 1
+    },
+    {
+     "name": "Facebook Ads",
+     "fat": 297.0,
+     "faturas": 1
+    }
+   ],
+   "fb_split": {
+    "frio": {
+     "fat": 297.0,
+     "faturas": 1
+    },
+    "quente": {
+     "fat": 0.0,
+     "faturas": 0
+    },
+    "outros": {
+     "fat": 0.0,
+     "faturas": 0
+    }
+   },
+   "regioes": [
+    {
+     "name": "Sudeste",
+     "fat": 297.0,
+     "faturas": 1
+    },
+    {
+     "name": "Norte",
+     "fat": 297.0,
+     "faturas": 1
+    }
+   ],
+   "pay_dist": [
+    {
+     "method": "Boleto",
+     "count": 1
+    },
+    {
+     "method": "Cartão de Crédito",
+     "count": 1
+    }
+   ],
+   "parc_dist": [
+    {
+     "n": 12,
+     "count": 1
+    }
+   ],
+   "ob_detail_re": [],
+   "ob_detail_psi": []
   },
   {
    "day": 6,
@@ -145,7 +405,79 @@
    "spend_re": 0.0,
    "spend_psi": 363.38,
    "faturas_re": 0,
-   "faturas_psi": 2
+   "faturas_psi": 2,
+   "funnel_clicks_re": 0,
+   "funnel_lpv_re": 0,
+   "funnel_imp_re": 0,
+   "funnel_clicks_psi": 92,
+   "funnel_lpv_psi": 75,
+   "funnel_imp_psi": 15109,
+   "origins": [
+    {
+     "name": "Sem origem",
+     "fat": 249.75,
+     "faturas": 1
+    },
+    {
+     "name": "Facebook Ads",
+     "fat": 397.0,
+     "faturas": 1
+    },
+    {
+     "name": "Instagram (orgânico)",
+     "fat": 297.0,
+     "faturas": 1
+    }
+   ],
+   "fb_split": {
+    "frio": {
+     "fat": 0.0,
+     "faturas": 0
+    },
+    "quente": {
+     "fat": 0.0,
+     "faturas": 0
+    },
+    "outros": {
+     "fat": 397.0,
+     "faturas": 1
+    }
+   },
+   "regioes": [
+    {
+     "name": "Sudeste",
+     "fat": 397.0,
+     "faturas": 1
+    },
+    {
+     "name": "Sul",
+     "fat": 297.0,
+     "faturas": 1
+    },
+    {
+     "name": "Nordeste",
+     "fat": 249.75,
+     "faturas": 1
+    }
+   ],
+   "pay_dist": [
+    {
+     "method": "PIX",
+     "count": 2
+    },
+    {
+     "method": "Cartão de Crédito",
+     "count": 1
+    }
+   ],
+   "parc_dist": [
+    {
+     "n": 1,
+     "count": 1
+    }
+   ],
+   "ob_detail_re": [],
+   "ob_detail_psi": []
   },
   {
    "day": 7,
@@ -164,7 +496,92 @@
    "spend_re": 178.13,
    "spend_psi": 257.6,
    "faturas_re": 7,
-   "faturas_psi": 2
+   "faturas_psi": 2,
+   "funnel_clicks_re": 101,
+   "funnel_lpv_re": 78,
+   "funnel_imp_re": 7271,
+   "funnel_clicks_psi": 69,
+   "funnel_lpv_psi": 55,
+   "funnel_imp_psi": 8894,
+   "origins": [
+    {
+     "name": "Instagram (orgânico)",
+     "fat": 880.0,
+     "faturas": 3
+    },
+    {
+     "name": "Facebook Ads",
+     "fat": 1000.0,
+     "faturas": 6
+    }
+   ],
+   "fb_split": {
+    "frio": {
+     "fat": 0.0,
+     "faturas": 0
+    },
+    "quente": {
+     "fat": 1000.0,
+     "faturas": 6
+    },
+    "outros": {
+     "fat": 0.0,
+     "faturas": 0
+    }
+   },
+   "regioes": [
+    {
+     "name": "Sul",
+     "fat": 503.0,
+     "faturas": 2
+    },
+    {
+     "name": "Centro-Oeste",
+     "fat": 436.0,
+     "faturas": 1
+    },
+    {
+     "name": "Não informado",
+     "fat": 941.0,
+     "faturas": 6
+    }
+   ],
+   "pay_dist": [
+    {
+     "method": "PIX",
+     "count": 5
+    },
+    {
+     "method": "Cartão de Crédito",
+     "count": 4
+    }
+   ],
+   "parc_dist": [
+    {
+     "n": 1,
+     "count": 1
+    },
+    {
+     "n": 6,
+     "count": 1
+    },
+    {
+     "n": 12,
+     "count": 2
+    }
+   ],
+   "ob_detail_re": [
+    {
+     "name": "O Mapa da Avaliação - Autismo",
+     "count": 2
+    }
+   ],
+   "ob_detail_psi": [
+    {
+     "name": "Recursos Exclusivos Divertidamente 2",
+     "count": 1
+    }
+   ]
   },
   {
    "day": 8,
@@ -183,7 +600,104 @@
    "spend_re": 224.86,
    "spend_psi": 120.6,
    "faturas_re": 5,
-   "faturas_psi": 0
+   "faturas_psi": 0,
+   "funnel_clicks_re": 116,
+   "funnel_lpv_re": 96,
+   "funnel_imp_re": 7205,
+   "funnel_clicks_psi": 45,
+   "funnel_lpv_psi": 30,
+   "funnel_imp_psi": 4294,
+   "origins": [
+    {
+     "name": "Sem origem",
+     "fat": 2399.7,
+     "faturas": 2
+    },
+    {
+     "name": "Facebook Ads",
+     "fat": 872.0,
+     "faturas": 5
+    }
+   ],
+   "fb_split": {
+    "frio": {
+     "fat": 0.0,
+     "faturas": 0
+    },
+    "quente": {
+     "fat": 872.0,
+     "faturas": 5
+    },
+    "outros": {
+     "fat": 0.0,
+     "faturas": 0
+    }
+   },
+   "regioes": [
+    {
+     "name": "Sudeste",
+     "fat": 2345.0,
+     "faturas": 2
+    },
+    {
+     "name": "Sul",
+     "fat": 299.7,
+     "faturas": 1
+    },
+    {
+     "name": "Centro-Oeste",
+     "fat": 147.0,
+     "faturas": 1
+    },
+    {
+     "name": "Não informado",
+     "fat": 480.0,
+     "faturas": 3
+    }
+   ],
+   "pay_dist": [
+    {
+     "method": "Cartão de Crédito",
+     "count": 5
+    },
+    {
+     "method": "Boleto",
+     "count": 1
+    },
+    {
+     "method": "PIX",
+     "count": 1
+    }
+   ],
+   "parc_dist": [
+    {
+     "n": 1,
+     "count": 1
+    },
+    {
+     "n": 4,
+     "count": 2
+    },
+    {
+     "n": 5,
+     "count": 1
+    },
+    {
+     "n": 7,
+     "count": 1
+    }
+   ],
+   "ob_detail_re": [
+    {
+     "name": "Recursos Exclusivos Divertidamente 2",
+     "count": 2
+    },
+    {
+     "name": "O Mapa da Avaliação - Autismo",
+     "count": 1
+    }
+   ],
+   "ob_detail_psi": []
   },
   {
    "day": 9,
@@ -202,7 +716,92 @@
    "spend_re": 199.15,
    "spend_psi": 81.55,
    "faturas_re": 4,
-   "faturas_psi": 1
+   "faturas_psi": 1,
+   "funnel_clicks_re": 100,
+   "funnel_lpv_re": 85,
+   "funnel_imp_re": 7200,
+   "funnel_clicks_psi": 18,
+   "funnel_lpv_psi": 13,
+   "funnel_imp_psi": 3375,
+   "origins": [
+    {
+     "name": "Sem origem",
+     "fat": 613.5,
+     "faturas": 2
+    },
+    {
+     "name": "Facebook Ads",
+     "fat": 627.0,
+     "faturas": 4
+    }
+   ],
+   "fb_split": {
+    "frio": {
+     "fat": 294.0,
+     "faturas": 2
+    },
+    "quente": {
+     "fat": 333.0,
+     "faturas": 2
+    },
+    "outros": {
+     "fat": 0.0,
+     "faturas": 0
+    }
+   },
+   "regioes": [
+    {
+     "name": "Sudeste",
+     "fat": 646.5,
+     "faturas": 2
+    },
+    {
+     "name": "Sul",
+     "fat": 261.0,
+     "faturas": 2
+    },
+    {
+     "name": "Não informado",
+     "fat": 333.0,
+     "faturas": 2
+    }
+   ],
+   "pay_dist": [
+    {
+     "method": "Cartão de Crédito",
+     "count": 4
+    },
+    {
+     "method": "PIX",
+     "count": 2
+    }
+   ],
+   "parc_dist": [
+    {
+     "n": 1,
+     "count": 2
+    },
+    {
+     "n": 3,
+     "count": 1
+    },
+    {
+     "n": 5,
+     "count": 1
+    }
+   ],
+   "ob_detail_re": [
+    {
+     "name": "Recursos Exclusivos Divertidamente 2",
+     "count": 1
+    }
+   ],
+   "ob_detail_psi": [
+    {
+     "name": "O Mapa da Avaliação - Autismo",
+     "count": 1
+    }
+   ]
   },
   {
    "day": 10,
@@ -221,7 +820,73 @@
    "spend_re": 223.42,
    "spend_psi": 24.06,
    "faturas_re": 2,
-   "faturas_psi": 0
+   "faturas_psi": 0,
+   "funnel_clicks_re": 80,
+   "funnel_lpv_re": 68,
+   "funnel_imp_re": 7791,
+   "funnel_clicks_psi": 21,
+   "funnel_lpv_psi": 13,
+   "funnel_imp_psi": 783,
+   "origins": [
+    {
+     "name": "Facebook Ads",
+     "fat": 392.0,
+     "faturas": 2
+    }
+   ],
+   "fb_split": {
+    "frio": {
+     "fat": 147.0,
+     "faturas": 1
+    },
+    "quente": {
+     "fat": 245.0,
+     "faturas": 1
+    },
+    "outros": {
+     "fat": 0.0,
+     "faturas": 0
+    }
+   },
+   "regioes": [
+    {
+     "name": "Sudeste",
+     "fat": 147.0,
+     "faturas": 1
+    },
+    {
+     "name": "Centro-Oeste",
+     "fat": 245.0,
+     "faturas": 1
+    }
+   ],
+   "pay_dist": [
+    {
+     "method": "PIX",
+     "count": 1
+    },
+    {
+     "method": "Cartão de Crédito",
+     "count": 1
+    }
+   ],
+   "parc_dist": [
+    {
+     "n": 10,
+     "count": 1
+    }
+   ],
+   "ob_detail_re": [
+    {
+     "name": "Recursos Exclusivos Divertidamente 2",
+     "count": 1
+    },
+    {
+     "name": "O Mapa da Avaliação - Autismo",
+     "count": 1
+    }
+   ],
+   "ob_detail_psi": []
   },
   {
    "day": 11,
@@ -240,7 +905,113 @@
    "spend_re": 213.9,
    "spend_psi": 0.0,
    "faturas_re": 9,
-   "faturas_psi": 2
+   "faturas_psi": 2,
+   "funnel_clicks_re": 135,
+   "funnel_lpv_re": 120,
+   "funnel_imp_re": 8421,
+   "funnel_clicks_psi": 0,
+   "funnel_lpv_psi": 0,
+   "funnel_imp_psi": 0,
+   "origins": [
+    {
+     "name": "Instagram (orgânico)",
+     "fat": 692.0,
+     "faturas": 2
+    },
+    {
+     "name": "Facebook Ads",
+     "fat": 1313.0,
+     "faturas": 8
+    },
+    {
+     "name": "WhatsApp",
+     "fat": 245.0,
+     "faturas": 1
+    }
+   ],
+   "fb_split": {
+    "frio": {
+     "fat": 588.0,
+     "faturas": 4
+    },
+    "quente": {
+     "fat": 725.0,
+     "faturas": 4
+    },
+    "outros": {
+     "fat": 0.0,
+     "faturas": 0
+    }
+   },
+   "regioes": [
+    {
+     "name": "Sudeste",
+     "fat": 392.0,
+     "faturas": 2
+    },
+    {
+     "name": "Nordeste",
+     "fat": 839.0,
+     "faturas": 3
+    },
+    {
+     "name": "Não informado",
+     "fat": 1019.0,
+     "faturas": 6
+    }
+   ],
+   "pay_dist": [
+    {
+     "method": "Cartão de Crédito",
+     "count": 7
+    },
+    {
+     "method": "PIX",
+     "count": 4
+    }
+   ],
+   "parc_dist": [
+    {
+     "n": 2,
+     "count": 1
+    },
+    {
+     "n": 3,
+     "count": 2
+    },
+    {
+     "n": 4,
+     "count": 1
+    },
+    {
+     "n": 6,
+     "count": 1
+    },
+    {
+     "n": 12,
+     "count": 2
+    }
+   ],
+   "ob_detail_re": [
+    {
+     "name": "Recursos Exclusivos Divertidamente 2",
+     "count": 3
+    },
+    {
+     "name": "O Mapa da Avaliação - Autismo",
+     "count": 2
+    }
+   ],
+   "ob_detail_psi": [
+    {
+     "name": "O Mapa da Avaliação - Autismo",
+     "count": 1
+    },
+    {
+     "name": "Recursos Exclusivos Divertidamente 2",
+     "count": 1
+    }
+   ]
   },
   {
    "day": 12,
@@ -259,7 +1030,96 @@
    "spend_re": 276.08,
    "spend_psi": 0.0,
    "faturas_re": 8,
-   "faturas_psi": 1
+   "faturas_psi": 1,
+   "funnel_clicks_re": 122,
+   "funnel_lpv_re": 92,
+   "funnel_imp_re": 9838,
+   "funnel_clicks_psi": 0,
+   "funnel_lpv_psi": 0,
+   "funnel_imp_psi": 0,
+   "origins": [
+    {
+     "name": "Facebook Ads",
+     "fat": 1235.0,
+     "faturas": 8
+    },
+    {
+     "name": "Instagram (orgânico)",
+     "fat": 394.0,
+     "faturas": 2
+    }
+   ],
+   "fb_split": {
+    "frio": {
+     "fat": 647.0,
+     "faturas": 4
+    },
+    "quente": {
+     "fat": 441.0,
+     "faturas": 3
+    },
+    "outros": {
+     "fat": 147.0,
+     "faturas": 1
+    }
+   },
+   "regioes": [
+    {
+     "name": "Sudeste",
+     "fat": 147.0,
+     "faturas": 1
+    },
+    {
+     "name": "Nordeste",
+     "fat": 297.0,
+     "faturas": 1
+    },
+    {
+     "name": "Centro-Oeste",
+     "fat": 303.0,
+     "faturas": 2
+    },
+    {
+     "name": "Não informado",
+     "fat": 882.0,
+     "faturas": 6
+    }
+   ],
+   "pay_dist": [
+    {
+     "method": "PIX",
+     "count": 5
+    },
+    {
+     "method": "Cartão de Crédito",
+     "count": 5
+    }
+   ],
+   "parc_dist": [
+    {
+     "n": 1,
+     "count": 1
+    },
+    {
+     "n": 4,
+     "count": 2
+    },
+    {
+     "n": 7,
+     "count": 1
+    },
+    {
+     "n": 12,
+     "count": 1
+    }
+   ],
+   "ob_detail_re": [
+    {
+     "name": "O Mapa da Avaliação - Autismo",
+     "count": 1
+    }
+   ],
+   "ob_detail_psi": []
   },
   {
    "day": 13,
@@ -278,7 +1138,106 @@
    "spend_re": 356.25,
    "spend_psi": 0.0,
    "faturas_re": 9,
-   "faturas_psi": 2
+   "faturas_psi": 2,
+   "funnel_clicks_re": 138,
+   "funnel_lpv_re": 120,
+   "funnel_imp_re": 12690,
+   "funnel_clicks_psi": 0,
+   "funnel_lpv_psi": 0,
+   "funnel_imp_psi": 0,
+   "origins": [
+    {
+     "name": "Facebook Ads",
+     "fat": 1127.0,
+     "faturas": 7
+    },
+    {
+     "name": "Instagram (orgânico)",
+     "fat": 395.0,
+     "faturas": 1
+    },
+    {
+     "name": "WhatsApp",
+     "fat": 147.0,
+     "faturas": 1
+    },
+    {
+     "name": "Sem origem",
+     "fat": 483.0,
+     "faturas": 2
+    }
+   ],
+   "fb_split": {
+    "frio": {
+     "fat": 480.0,
+     "faturas": 3
+    },
+    "quente": {
+     "fat": 647.0,
+     "faturas": 4
+    },
+    "outros": {
+     "fat": 0.0,
+     "faturas": 0
+    }
+   },
+   "regioes": [
+    {
+     "name": "Sudeste",
+     "fat": 147.0,
+     "faturas": 1
+    },
+    {
+     "name": "Sul",
+     "fat": 878.0,
+     "faturas": 3
+    },
+    {
+     "name": "Não informado",
+     "fat": 1127.0,
+     "faturas": 7
+    }
+   ],
+   "pay_dist": [
+    {
+     "method": "PIX",
+     "count": 7
+    },
+    {
+     "method": "Cartão de Crédito",
+     "count": 4
+    }
+   ],
+   "parc_dist": [
+    {
+     "n": 4,
+     "count": 2
+    },
+    {
+     "n": 12,
+     "count": 2
+    }
+   ],
+   "ob_detail_re": [
+    {
+     "name": "Recursos Exclusivos Divertidamente 2",
+     "count": 1
+    },
+    {
+     "name": "O Mapa da Avaliação - Autismo",
+     "count": 1
+    }
+   ],
+   "ob_detail_psi": [
+    {
+     "name": "Recursos Exclusivos Divertidamente 2",
+     "count": 2
+    },
+    {
+     "name": "O Mapa da Avaliação - Autismo",
+     "count": 1
+    }
+   ]
   },
   {
    "day": 14,
@@ -297,7 +1256,106 @@
    "spend_re": 388.57,
    "spend_psi": 0.0,
    "faturas_re": 7,
-   "faturas_psi": 2
+   "faturas_psi": 2,
+   "funnel_clicks_re": 186,
+   "funnel_lpv_re": 155,
+   "funnel_imp_re": 14866,
+   "funnel_clicks_psi": 0,
+   "funnel_lpv_psi": 0,
+   "funnel_imp_psi": 0,
+   "origins": [
+    {
+     "name": "Facebook Ads",
+     "fat": 1542.0,
+     "faturas": 8
+    },
+    {
+     "name": "Instagram (orgânico)",
+     "fat": 297.0,
+     "faturas": 1
+    }
+   ],
+   "fb_split": {
+    "frio": {
+     "fat": 1059.0,
+     "faturas": 6
+    },
+    "quente": {
+     "fat": 147.0,
+     "faturas": 1
+    },
+    "outros": {
+     "fat": 336.0,
+     "faturas": 1
+    }
+   },
+   "regioes": [
+    {
+     "name": "Sudeste",
+     "fat": 689.0,
+     "faturas": 3
+    },
+    {
+     "name": "Sul",
+     "fat": 206.0,
+     "faturas": 1
+    },
+    {
+     "name": "Nordeste",
+     "fat": 297.0,
+     "faturas": 1
+    },
+    {
+     "name": "Centro-Oeste",
+     "fat": 147.0,
+     "faturas": 1
+    },
+    {
+     "name": "Não informado",
+     "fat": 500.0,
+     "faturas": 3
+    }
+   ],
+   "pay_dist": [
+    {
+     "method": "Cartão de Crédito",
+     "count": 5
+    },
+    {
+     "method": "PIX",
+     "count": 4
+    }
+   ],
+   "parc_dist": [
+    {
+     "n": 1,
+     "count": 1
+    },
+    {
+     "n": 2,
+     "count": 1
+    },
+    {
+     "n": 5,
+     "count": 1
+    },
+    {
+     "n": 12,
+     "count": 2
+    }
+   ],
+   "ob_detail_re": [
+    {
+     "name": "O Mapa da Avaliação - Autismo",
+     "count": 3
+    }
+   ],
+   "ob_detail_psi": [
+    {
+     "name": "Recursos Exclusivos Divertidamente 2",
+     "count": 1
+    }
+   ]
   },
   {
    "day": 15,
@@ -316,7 +1374,87 @@
    "spend_re": 358.45,
    "spend_psi": 0.0,
    "faturas_re": 6,
-   "faturas_psi": 1
+   "faturas_psi": 1,
+   "funnel_clicks_re": 168,
+   "funnel_lpv_re": 139,
+   "funnel_imp_re": 16212,
+   "funnel_clicks_psi": 0,
+   "funnel_lpv_psi": 0,
+   "funnel_imp_psi": 0,
+   "origins": [
+    {
+     "name": "Facebook Ads",
+     "fat": 882.0,
+     "faturas": 6
+    },
+    {
+     "name": "Instagram (orgânico)",
+     "fat": 297.0,
+     "faturas": 1
+    }
+   ],
+   "fb_split": {
+    "frio": {
+     "fat": 735.0,
+     "faturas": 5
+    },
+    "quente": {
+     "fat": 147.0,
+     "faturas": 1
+    },
+    "outros": {
+     "fat": 0.0,
+     "faturas": 0
+    }
+   },
+   "regioes": [
+    {
+     "name": "Sudeste",
+     "fat": 441.0,
+     "faturas": 3
+    },
+    {
+     "name": "Nordeste",
+     "fat": 297.0,
+     "faturas": 1
+    },
+    {
+     "name": "Norte",
+     "fat": 147.0,
+     "faturas": 1
+    },
+    {
+     "name": "Não informado",
+     "fat": 294.0,
+     "faturas": 2
+    }
+   ],
+   "pay_dist": [
+    {
+     "method": "Cartão de Crédito",
+     "count": 4
+    },
+    {
+     "method": "PIX",
+     "count": 3
+    }
+   ],
+   "parc_dist": [
+    {
+     "n": 2,
+     "count": 1
+    },
+    {
+     "n": 4,
+     "count": 2
+    },
+    {
+     "n": 9,
+     "count": 1
+    }
+   ],
+   "ob_detail_re": [],
+   "ob_detail_psi": []
   },
   {
    "day": 16,
@@ -335,7 +1473,82 @@
    "spend_re": 296.35,
    "spend_psi": 0.0,
    "faturas_re": 5,
-   "faturas_psi": 1
+   "faturas_psi": 1,
+   "funnel_clicks_re": 106,
+   "funnel_lpv_re": 91,
+   "funnel_imp_re": 13387,
+   "funnel_clicks_psi": 0,
+   "funnel_lpv_psi": 0,
+   "funnel_imp_psi": 0,
+   "origins": [
+    {
+     "name": "Facebook Ads",
+     "fat": 833.0,
+     "faturas": 5
+    },
+    {
+     "name": "Instagram (orgânico)",
+     "fat": 297.0,
+     "faturas": 1
+    }
+   ],
+   "fb_split": {
+    "frio": {
+     "fat": 480.0,
+     "faturas": 3
+    },
+    "quente": {
+     "fat": 353.0,
+     "faturas": 2
+    },
+    "outros": {
+     "fat": 0.0,
+     "faturas": 0
+    }
+   },
+   "regioes": [
+    {
+     "name": "Sudeste",
+     "fat": 650.0,
+     "faturas": 3
+    },
+    {
+     "name": "Não informado",
+     "fat": 480.0,
+     "faturas": 3
+    }
+   ],
+   "pay_dist": [
+    {
+     "method": "PIX",
+     "count": 3
+    },
+    {
+     "method": "Cartão de Crédito",
+     "count": 3
+    }
+   ],
+   "parc_dist": [
+    {
+     "n": 3,
+     "count": 1
+    },
+    {
+     "n": 6,
+     "count": 2
+    }
+   ],
+   "ob_detail_re": [
+    {
+     "name": "O Mapa da Avaliação - Autismo",
+     "count": 1
+    },
+    {
+     "name": "Recursos Exclusivos Divertidamente 2",
+     "count": 1
+    }
+   ],
+   "ob_detail_psi": []
   },
   {
    "day": 17,
@@ -354,7 +1567,101 @@
    "spend_re": 388.49,
    "spend_psi": 0.0,
    "faturas_re": 8,
-   "faturas_psi": 1
+   "faturas_psi": 1,
+   "funnel_clicks_re": 176,
+   "funnel_lpv_re": 147,
+   "funnel_imp_re": 18058,
+   "funnel_clicks_psi": 0,
+   "funnel_lpv_psi": 0,
+   "funnel_imp_psi": 0,
+   "origins": [
+    {
+     "name": "Instagram (orgânico)",
+     "fat": 483.0,
+     "faturas": 2
+    },
+    {
+     "name": "Facebook Ads",
+     "fat": 941.0,
+     "faturas": 6
+    },
+    {
+     "name": "Sem origem",
+     "fat": 147.0,
+     "faturas": 1
+    }
+   ],
+   "fb_split": {
+    "frio": {
+     "fat": 647.0,
+     "faturas": 4
+    },
+    "quente": {
+     "fat": 294.0,
+     "faturas": 2
+    },
+    "outros": {
+     "fat": 0.0,
+     "faturas": 0
+    }
+   },
+   "regioes": [
+    {
+     "name": "Sudeste",
+     "fat": 336.0,
+     "faturas": 1
+    },
+    {
+     "name": "Sul",
+     "fat": 294.0,
+     "faturas": 2
+    },
+    {
+     "name": "Não informado",
+     "fat": 941.0,
+     "faturas": 6
+    }
+   ],
+   "pay_dist": [
+    {
+     "method": "PIX",
+     "count": 5
+    },
+    {
+     "method": "Cartão de Crédito",
+     "count": 4
+    }
+   ],
+   "parc_dist": [
+    {
+     "n": 1,
+     "count": 1
+    },
+    {
+     "n": 4,
+     "count": 1
+    },
+    {
+     "n": 6,
+     "count": 1
+    },
+    {
+     "n": 12,
+     "count": 1
+    }
+   ],
+   "ob_detail_re": [
+    {
+     "name": "O Mapa da Avaliação - Autismo",
+     "count": 1
+    }
+   ],
+   "ob_detail_psi": [
+    {
+     "name": "Recursos Exclusivos Divertidamente 2",
+     "count": 1
+    }
+   ]
   },
   {
    "day": 18,
@@ -373,7 +1680,94 @@
    "spend_re": 366.91,
    "spend_psi": 0.0,
    "faturas_re": 14,
-   "faturas_psi": 0
+   "faturas_psi": 0,
+   "funnel_clicks_re": 185,
+   "funnel_lpv_re": 159,
+   "funnel_imp_re": 18085,
+   "funnel_clicks_psi": 0,
+   "funnel_lpv_psi": 0,
+   "funnel_imp_psi": 0,
+   "origins": [
+    {
+     "name": "Facebook Ads",
+     "fat": 2282.0,
+     "faturas": 13
+    },
+    {
+     "name": "Sem origem",
+     "fat": 147.0,
+     "faturas": 1
+    }
+   ],
+   "fb_split": {
+    "frio": {
+     "fat": 1469.0,
+     "faturas": 8
+    },
+    "quente": {
+     "fat": 666.0,
+     "faturas": 4
+    },
+    "outros": {
+     "fat": 147.0,
+     "faturas": 1
+    }
+   },
+   "regioes": [
+    {
+     "name": "Sudeste",
+     "fat": 372.0,
+     "faturas": 2
+    },
+    {
+     "name": "Não informado",
+     "fat": 2057.0,
+     "faturas": 12
+    }
+   ],
+   "pay_dist": [
+    {
+     "method": "Cartão de Crédito",
+     "count": 8
+    },
+    {
+     "method": "PIX",
+     "count": 6
+    }
+   ],
+   "parc_dist": [
+    {
+     "n": 2,
+     "count": 1
+    },
+    {
+     "n": 3,
+     "count": 1
+    },
+    {
+     "n": 4,
+     "count": 1
+    },
+    {
+     "n": 5,
+     "count": 2
+    },
+    {
+     "n": 12,
+     "count": 3
+    }
+   ],
+   "ob_detail_re": [
+    {
+     "name": "Recursos Exclusivos Divertidamente 2",
+     "count": 8
+    },
+    {
+     "name": "O Mapa da Avaliação - Autismo",
+     "count": 1
+    }
+   ],
+   "ob_detail_psi": []
   },
   {
    "day": 19,
@@ -392,7 +1786,111 @@
    "spend_re": 366.15,
    "spend_psi": 0.0,
    "faturas_re": 8,
-   "faturas_psi": 3
+   "faturas_psi": 3,
+   "funnel_clicks_re": 163,
+   "funnel_lpv_re": 141,
+   "funnel_imp_re": 18693,
+   "funnel_clicks_psi": 0,
+   "funnel_lpv_psi": 0,
+   "funnel_imp_psi": 0,
+   "origins": [
+    {
+     "name": "Sem origem",
+     "fat": 249.75,
+     "faturas": 1
+    },
+    {
+     "name": "Facebook Ads",
+     "fat": 1235.0,
+     "faturas": 8
+    },
+    {
+     "name": "WhatsApp",
+     "fat": 297.0,
+     "faturas": 1
+    },
+    {
+     "name": "Instagram (orgânico)",
+     "fat": 653.0,
+     "faturas": 2
+    }
+   ],
+   "fb_split": {
+    "frio": {
+     "fat": 1088.0,
+     "faturas": 7
+    },
+    "quente": {
+     "fat": 147.0,
+     "faturas": 1
+    },
+    "outros": {
+     "fat": 0.0,
+     "faturas": 0
+    }
+   },
+   "regioes": [
+    {
+     "name": "Sul",
+     "fat": 605.75,
+     "faturas": 2
+    },
+    {
+     "name": "Nordeste",
+     "fat": 297.0,
+     "faturas": 1
+    },
+    {
+     "name": "Centro-Oeste",
+     "fat": 297.0,
+     "faturas": 1
+    },
+    {
+     "name": "Não informado",
+     "fat": 1235.0,
+     "faturas": 8
+    }
+   ],
+   "pay_dist": [
+    {
+     "method": "Cartão de Crédito",
+     "count": 10
+    },
+    {
+     "method": "PIX",
+     "count": 2
+    }
+   ],
+   "parc_dist": [
+    {
+     "n": 1,
+     "count": 3
+    },
+    {
+     "n": 2,
+     "count": 3
+    },
+    {
+     "n": 3,
+     "count": 1
+    },
+    {
+     "n": 12,
+     "count": 3
+    }
+   ],
+   "ob_detail_re": [
+    {
+     "name": "O Mapa da Avaliação - Autismo",
+     "count": 1
+    }
+   ],
+   "ob_detail_psi": [
+    {
+     "name": "O Mapa da Avaliação - Autismo",
+     "count": 1
+    }
+   ]
   },
   {
    "day": 20,
@@ -411,7 +1909,85 @@
    "spend_re": 365.16,
    "spend_psi": 0.0,
    "faturas_re": 16,
-   "faturas_psi": 0
+   "faturas_psi": 0,
+   "funnel_clicks_re": 220,
+   "funnel_lpv_re": 191,
+   "funnel_imp_re": 21024,
+   "funnel_clicks_psi": 0,
+   "funnel_lpv_psi": 0,
+   "funnel_imp_psi": 0,
+   "origins": [
+    {
+     "name": "Facebook Ads",
+     "fat": 2587.0,
+     "faturas": 16
+    }
+   ],
+   "fb_split": {
+    "frio": {
+     "fat": 980.0,
+     "faturas": 6
+    },
+    "quente": {
+     "fat": 1607.0,
+     "faturas": 10
+    },
+    "outros": {
+     "fat": 0.0,
+     "faturas": 0
+    }
+   },
+   "regioes": [
+    {
+     "name": "Sudeste",
+     "fat": 500.0,
+     "faturas": 3
+    },
+    {
+     "name": "Não informado",
+     "fat": 2087.0,
+     "faturas": 13
+    }
+   ],
+   "pay_dist": [
+    {
+     "method": "Cartão de Crédito",
+     "count": 10
+    },
+    {
+     "method": "PIX",
+     "count": 6
+    }
+   ],
+   "parc_dist": [
+    {
+     "n": 1,
+     "count": 3
+    },
+    {
+     "n": 4,
+     "count": 1
+    },
+    {
+     "n": 5,
+     "count": 1
+    },
+    {
+     "n": 12,
+     "count": 5
+    }
+   ],
+   "ob_detail_re": [
+    {
+     "name": "Recursos Exclusivos Divertidamente 2",
+     "count": 3
+    },
+    {
+     "name": "O Mapa da Avaliação - Autismo",
+     "count": 2
+    }
+   ],
+   "ob_detail_psi": []
   },
   {
    "day": 21,
@@ -430,7 +2006,106 @@
    "spend_re": 361.0,
    "spend_psi": 0.0,
    "faturas_re": 9,
-   "faturas_psi": 0
+   "faturas_psi": 0,
+   "funnel_clicks_re": 202,
+   "funnel_lpv_re": 169,
+   "funnel_imp_re": 18703,
+   "funnel_clicks_psi": 0,
+   "funnel_lpv_psi": 0,
+   "funnel_imp_psi": 0,
+   "origins": [
+    {
+     "name": "Facebook Ads",
+     "fat": 1293.0,
+     "faturas": 8
+    },
+    {
+     "name": "Sem origem",
+     "fat": 4994.0,
+     "faturas": 2
+    },
+    {
+     "name": "WhatsApp",
+     "fat": 147.0,
+     "faturas": 1
+    }
+   ],
+   "fb_split": {
+    "frio": {
+     "fat": 774.0,
+     "faturas": 5
+    },
+    "quente": {
+     "fat": 519.0,
+     "faturas": 3
+    },
+    "outros": {
+     "fat": 0.0,
+     "faturas": 0
+    }
+   },
+   "regioes": [
+    {
+     "name": "Sudeste",
+     "fat": 147.0,
+     "faturas": 1
+    },
+    {
+     "name": "Sul",
+     "fat": 147.0,
+     "faturas": 1
+    },
+    {
+     "name": "Centro-Oeste",
+     "fat": 2497.0,
+     "faturas": 1
+    },
+    {
+     "name": "Norte",
+     "fat": 147.0,
+     "faturas": 1
+    },
+    {
+     "name": "Não informado",
+     "fat": 3496.0,
+     "faturas": 7
+    }
+   ],
+   "pay_dist": [
+    {
+     "method": "Cartão de Crédito",
+     "count": 6
+    },
+    {
+     "method": "PIX",
+     "count": 5
+    }
+   ],
+   "parc_dist": [
+    {
+     "n": 2,
+     "count": 1
+    },
+    {
+     "n": 8,
+     "count": 1
+    },
+    {
+     "n": 10,
+     "count": 1
+    },
+    {
+     "n": 12,
+     "count": 3
+    }
+   ],
+   "ob_detail_re": [
+    {
+     "name": "Recursos Exclusivos Divertidamente 2",
+     "count": 3
+    }
+   ],
+   "ob_detail_psi": []
   },
   {
    "day": 22,
@@ -449,7 +2124,100 @@
    "spend_re": 326.98,
    "spend_psi": 0.0,
    "faturas_re": 7,
-   "faturas_psi": 2
+   "faturas_psi": 2,
+   "funnel_clicks_re": 162,
+   "funnel_lpv_re": 137,
+   "funnel_imp_re": 16175,
+   "funnel_clicks_psi": 0,
+   "funnel_lpv_psi": 0,
+   "funnel_imp_psi": 0,
+   "origins": [
+    {
+     "name": "Facebook Ads",
+     "fat": 1225.0,
+     "faturas": 7
+    },
+    {
+     "name": "Sem origem",
+     "fat": 466.7,
+     "faturas": 1
+    },
+    {
+     "name": "Instagram (orgânico)",
+     "fat": 853.0,
+     "faturas": 2
+    }
+   ],
+   "fb_split": {
+    "frio": {
+     "fat": 892.0,
+     "faturas": 5
+    },
+    "quente": {
+     "fat": 333.0,
+     "faturas": 2
+    },
+    "outros": {
+     "fat": 0.0,
+     "faturas": 0
+    }
+   },
+   "regioes": [
+    {
+     "name": "Sudeste",
+     "fat": 1186.0,
+     "faturas": 4
+    },
+    {
+     "name": "Não informado",
+     "fat": 1358.7,
+     "faturas": 6
+    }
+   ],
+   "pay_dist": [
+    {
+     "method": "Cartão de Crédito",
+     "count": 8
+    },
+    {
+     "method": "PIX",
+     "count": 2
+    }
+   ],
+   "parc_dist": [
+    {
+     "n": 1,
+     "count": 2
+    },
+    {
+     "n": 3,
+     "count": 1
+    },
+    {
+     "n": 5,
+     "count": 3
+    },
+    {
+     "n": 12,
+     "count": 2
+    }
+   ],
+   "ob_detail_re": [
+    {
+     "name": "O Mapa da Avaliação - Autismo",
+     "count": 2
+    },
+    {
+     "name": "Recursos Exclusivos Divertidamente 2",
+     "count": 2
+    }
+   ],
+   "ob_detail_psi": [
+    {
+     "name": "O Mapa da Avaliação - Autismo",
+     "count": 1
+    }
+   ]
   },
   {
    "day": 23,
@@ -468,7 +2236,96 @@
    "spend_re": 273.66,
    "spend_psi": 0.0,
    "faturas_re": 11,
-   "faturas_psi": 0
+   "faturas_psi": 0,
+   "funnel_clicks_re": 118,
+   "funnel_lpv_re": 99,
+   "funnel_imp_re": 13595,
+   "funnel_clicks_psi": 0,
+   "funnel_lpv_psi": 0,
+   "funnel_imp_psi": 0,
+   "origins": [
+    {
+     "name": "Instagram (orgânico)",
+     "fat": 588.0,
+     "faturas": 4
+    },
+    {
+     "name": "Facebook Ads",
+     "fat": 1146.0,
+     "faturas": 7
+    }
+   ],
+   "fb_split": {
+    "frio": {
+     "fat": 813.0,
+     "faturas": 5
+    },
+    "quente": {
+     "fat": 333.0,
+     "faturas": 2
+    },
+    "outros": {
+     "fat": 0.0,
+     "faturas": 0
+    }
+   },
+   "regioes": [
+    {
+     "name": "Sudeste",
+     "fat": 294.0,
+     "faturas": 2
+    },
+    {
+     "name": "Sul",
+     "fat": 147.0,
+     "faturas": 1
+    },
+    {
+     "name": "Nordeste",
+     "fat": 147.0,
+     "faturas": 1
+    },
+    {
+     "name": "Não informado",
+     "fat": 1146.0,
+     "faturas": 7
+    }
+   ],
+   "pay_dist": [
+    {
+     "method": "Cartão de Crédito",
+     "count": 6
+    },
+    {
+     "method": "PIX",
+     "count": 5
+    }
+   ],
+   "parc_dist": [
+    {
+     "n": 1,
+     "count": 1
+    },
+    {
+     "n": 3,
+     "count": 1
+    },
+    {
+     "n": 4,
+     "count": 1
+    },
+    {
+     "n": 12,
+     "count": 3
+    }
+   ],
+   "ob_detail_re": [
+    {
+     "name": "Recursos Exclusivos Divertidamente 2",
+     "count": 3
+    }
+   ],
+   "ob_detail_psi": []
   },
   {
    "day": 24,
@@ -487,7 +2344,94 @@
    "spend_re": 367.21,
    "spend_psi": 0.0,
    "faturas_re": 12,
-   "faturas_psi": 0
+   "faturas_psi": 0,
+   "funnel_clicks_re": 199,
+   "funnel_lpv_re": 169,
+   "funnel_imp_re": 16857,
+   "funnel_clicks_psi": 0,
+   "funnel_lpv_psi": 0,
+   "funnel_imp_psi": 0,
+   "origins": [
+    {
+     "name": "Facebook Ads",
+     "fat": 1832.0,
+     "faturas": 11
+    },
+    {
+     "name": "Instagram (orgânico)",
+     "fat": 206.0,
+     "faturas": 1
+    }
+   ],
+   "fb_split": {
+    "frio": {
+     "fat": 1293.0,
+     "faturas": 8
+    },
+    "quente": {
+     "fat": 333.0,
+     "faturas": 2
+    },
+    "outros": {
+     "fat": 206.0,
+     "faturas": 1
+    }
+   },
+   "regioes": [
+    {
+     "name": "Sudeste",
+     "fat": 147.0,
+     "faturas": 1
+    },
+    {
+     "name": "Não informado",
+     "fat": 1891.0,
+     "faturas": 11
+    }
+   ],
+   "pay_dist": [
+    {
+     "method": "PIX",
+     "count": 6
+    },
+    {
+     "method": "Cartão de Crédito",
+     "count": 6
+    }
+   ],
+   "parc_dist": [
+    {
+     "n": 1,
+     "count": 1
+    },
+    {
+     "n": 2,
+     "count": 1
+    },
+    {
+     "n": 6,
+     "count": 1
+    },
+    {
+     "n": 10,
+     "count": 1
+    },
+    {
+     "n": 12,
+     "count": 2
+    }
+   ],
+   "ob_detail_re": [
+    {
+     "name": "Recursos Exclusivos Divertidamente 2",
+     "count": 4
+    },
+    {
+     "name": "O Mapa da Avaliação - Autismo",
+     "count": 2
+    }
+   ],
+   "ob_detail_psi": []
   },
   {
    "day": 25,
@@ -506,7 +2450,110 @@
    "spend_re": 398.03,
    "spend_psi": 0.0,
    "faturas_re": 11,
-   "faturas_psi": 2
+   "faturas_psi": 2,
+   "funnel_clicks_re": 179,
+   "funnel_lpv_re": 153,
+   "funnel_imp_re": 19031,
+   "funnel_clicks_psi": 0,
+   "funnel_lpv_psi": 0,
+   "funnel_imp_psi": 0,
+   "origins": [
+    {
+     "name": "Facebook Ads",
+     "fat": 1362.0,
+     "faturas": 9
+    },
+    {
+     "name": "WhatsApp",
+     "fat": 147.0,
+     "faturas": 1
+    },
+    {
+     "name": "Sem origem",
+     "fat": 1129.57,
+     "faturas": 6
+    },
+    {
+     "name": "Instagram (orgânico)",
+     "fat": 297.0,
+     "faturas": 1
+    }
+   ],
+   "fb_split": {
+    "frio": {
+     "fat": 921.0,
+     "faturas": 6
+    },
+    "quente": {
+     "fat": 294.0,
+     "faturas": 2
+    },
+    "outros": {
+     "fat": 147.0,
+     "faturas": 1
+    }
+   },
+   "regioes": [
+    {
+     "name": "Sudeste",
+     "fat": 591.0,
+     "faturas": 3
+    },
+    {
+     "name": "Sul",
+     "fat": 624.49,
+     "faturas": 3
+    },
+    {
+     "name": "Nordeste",
+     "fat": 208.08,
+     "faturas": 1
+    },
+    {
+     "name": "Não informado",
+     "fat": 1512.0,
+     "faturas": 10
+    }
+   ],
+   "pay_dist": [
+    {
+     "method": "Cartão de Crédito",
+     "count": 10
+    },
+    {
+     "method": "PIX",
+     "count": 7
+    }
+   ],
+   "parc_dist": [
+    {
+     "n": 1,
+     "count": 4
+    },
+    {
+     "n": 2,
+     "count": 2
+    },
+    {
+     "n": 3,
+     "count": 2
+    },
+    {
+     "n": 5,
+     "count": 1
+    },
+    {
+     "n": 12,
+     "count": 1
+    }
+   ],
+   "ob_detail_re": [
+    {
+     "name": "Recursos Exclusivos Divertidamente 2",
+     "count": 1
+    }
+   ],
+   "ob_detail_psi": []
   },
   {
    "day": 26,
@@ -525,7 +2572,108 @@
    "spend_re": 415.97,
    "spend_psi": 0.0,
    "faturas_re": 11,
-   "faturas_psi": 0
+   "faturas_psi": 0,
+   "funnel_clicks_re": 174,
+   "funnel_lpv_re": 152,
+   "funnel_imp_re": 20290,
+   "funnel_clicks_psi": 0,
+   "funnel_lpv_psi": 0,
+   "funnel_imp_psi": 0,
+   "origins": [
+    {
+     "name": "Sem origem",
+     "fat": 1134.23,
+     "faturas": 5
+    },
+    {
+     "name": "Facebook Ads",
+     "fat": 1460.0,
+     "faturas": 9
+    },
+    {
+     "name": "Instagram (orgânico)",
+     "fat": 353.0,
+     "faturas": 2
+    }
+   ],
+   "fb_split": {
+    "frio": {
+     "fat": 539.0,
+     "faturas": 3
+    },
+    "quente": {
+     "fat": 921.0,
+     "faturas": 6
+    },
+    "outros": {
+     "fat": 0.0,
+     "faturas": 0
+    }
+   },
+   "regioes": [
+    {
+     "name": "Sudeste",
+     "fat": 834.53,
+     "faturas": 4
+    },
+    {
+     "name": "Nordeste",
+     "fat": 652.7,
+     "faturas": 3
+    },
+    {
+     "name": "Não informado",
+     "fat": 1460.0,
+     "faturas": 9
+    }
+   ],
+   "pay_dist": [
+    {
+     "method": "Cartão de Crédito",
+     "count": 9
+    },
+    {
+     "method": "PIX",
+     "count": 6
+    },
+    {
+     "method": "Boleto",
+     "count": 1
+    }
+   ],
+   "parc_dist": [
+    {
+     "n": 1,
+     "count": 5
+    },
+    {
+     "n": 5,
+     "count": 1
+    },
+    {
+     "n": 6,
+     "count": 1
+    },
+    {
+     "n": 10,
+     "count": 1
+    },
+    {
+     "n": 12,
+     "count": 1
+    }
+   ],
+   "ob_detail_re": [
+    {
+     "name": "Recursos Exclusivos Divertidamente 2",
+     "count": 2
+    },
+    {
+     "name": "O Mapa da Avaliação - Autismo",
+     "count": 2
+    }
+   ],
+   "ob_detail_psi": []
   },
   {
    "day": 27,
@@ -544,7 +2692,93 @@
    "spend_re": 415.39,
    "spend_psi": 0.0,
    "faturas_re": 7,
-   "faturas_psi": 0
+   "faturas_psi": 0,
+   "funnel_clicks_re": 154,
+   "funnel_lpv_re": 120,
+   "funnel_imp_re": 18317,
+   "funnel_clicks_psi": 0,
+   "funnel_lpv_psi": 0,
+   "funnel_imp_psi": 0,
+   "origins": [
+    {
+     "name": "Facebook Ads",
+     "fat": 706.0,
+     "faturas": 4
+    },
+    {
+     "name": "Sem origem",
+     "fat": 280.0,
+     "faturas": 1
+    },
+    {
+     "name": "WhatsApp",
+     "fat": 353.0,
+     "faturas": 2
+    },
+    {
+     "name": "Instagram (orgânico)",
+     "fat": 147.0,
+     "faturas": 1
+    }
+   ],
+   "fb_split": {
+    "frio": {
+     "fat": 353.0,
+     "faturas": 2
+    },
+    "quente": {
+     "fat": 353.0,
+     "faturas": 2
+    },
+    "outros": {
+     "fat": 0.0,
+     "faturas": 0
+    }
+   },
+   "regioes": [
+    {
+     "name": "Sudeste",
+     "fat": 427.0,
+     "faturas": 2
+    },
+    {
+     "name": "Sul",
+     "fat": 353.0,
+     "faturas": 2
+    },
+    {
+     "name": "Não informado",
+     "fat": 706.0,
+     "faturas": 4
+    }
+   ],
+   "pay_dist": [
+    {
+     "method": "PIX",
+     "count": 5
+    },
+    {
+     "method": "Cartão de Crédito",
+     "count": 3
+    }
+   ],
+   "parc_dist": [
+    {
+     "n": 1,
+     "count": 2
+    },
+    {
+     "n": 12,
+     "count": 1
+    }
+   ],
+   "ob_detail_re": [
+    {
+     "name": "O Mapa da Avaliação - Autismo",
+     "count": 3
+    }
+   ],
+   "ob_detail_psi": []
   },
   {
    "day": 28,
@@ -563,7 +2797,114 @@
    "spend_re": 497.84,
    "spend_psi": 0.0,
    "faturas_re": 8,
-   "faturas_psi": 1
+   "faturas_psi": 1,
+   "funnel_clicks_re": 186,
+   "funnel_lpv_re": 165,
+   "funnel_imp_re": 22405,
+   "funnel_clicks_psi": 0,
+   "funnel_lpv_psi": 0,
+   "funnel_imp_psi": 0,
+   "origins": [
+    {
+     "name": "Facebook Ads",
+     "fat": 1590.99,
+     "faturas": 9
+    },
+    {
+     "name": "Instagram (orgânico)",
+     "fat": 147.0,
+     "faturas": 1
+    }
+   ],
+   "fb_split": {
+    "frio": {
+     "fat": 1375.0,
+     "faturas": 7
+    },
+    "quente": {
+     "fat": 186.0,
+     "faturas": 1
+    },
+    "outros": {
+     "fat": 29.99,
+     "faturas": 1
+    }
+   },
+   "regioes": [
+    {
+     "name": "Sudeste",
+     "fat": 147.0,
+     "faturas": 1
+    },
+    {
+     "name": "Sul",
+     "fat": 503.0,
+     "faturas": 2
+    },
+    {
+     "name": "Nordeste",
+     "fat": 29.99,
+     "faturas": 1
+    },
+    {
+     "name": "Norte",
+     "fat": 147.0,
+     "faturas": 1
+    },
+    {
+     "name": "Não informado",
+     "fat": 911.0,
+     "faturas": 5
+    }
+   ],
+   "pay_dist": [
+    {
+     "method": "Cartão de Crédito",
+     "count": 7
+    },
+    {
+     "method": "PIX",
+     "count": 3
+    }
+   ],
+   "parc_dist": [
+    {
+     "n": 1,
+     "count": 1
+    },
+    {
+     "n": 5,
+     "count": 1
+    },
+    {
+     "n": 6,
+     "count": 1
+    },
+    {
+     "n": 10,
+     "count": 1
+    },
+    {
+     "n": 12,
+     "count": 3
+    }
+   ],
+   "ob_detail_re": [
+    {
+     "name": "Recursos Exclusivos Divertidamente 2",
+     "count": 3
+    },
+    {
+     "name": "O Mapa da Avaliação - Autismo",
+     "count": 1
+    }
+   ],
+   "ob_detail_psi": [
+    {
+     "name": "O Mapa da Avaliação - Autismo",
+     "count": 1
+    }
+   ]
   },
   {
    "day": 29,
@@ -582,7 +2923,60 @@
    "spend_re": 94.43,
    "spend_psi": 0.0,
    "faturas_re": 2,
-   "faturas_psi": 0
+   "faturas_psi": 0,
+   "funnel_clicks_re": 30,
+   "funnel_lpv_re": 23,
+   "funnel_imp_re": 3116,
+   "funnel_clicks_psi": 0,
+   "funnel_lpv_psi": 0,
+   "funnel_imp_psi": 0,
+   "origins": [
+    {
+     "name": "Facebook Ads",
+     "fat": 333.0,
+     "faturas": 2
+    }
+   ],
+   "fb_split": {
+    "frio": {
+     "fat": 333.0,
+     "faturas": 2
+    },
+    "quente": {
+     "fat": 0.0,
+     "faturas": 0
+    },
+    "outros": {
+     "fat": 0.0,
+     "faturas": 0
+    }
+   },
+   "regioes": [
+    {
+     "name": "Nordeste",
+     "fat": 147.0,
+     "faturas": 1
+    },
+    {
+     "name": "Não informado",
+     "fat": 186.0,
+     "faturas": 1
+    }
+   ],
+   "pay_dist": [
+    {
+     "method": "PIX",
+     "count": 2
+    }
+   ],
+   "parc_dist": [],
+   "ob_detail_re": [
+    {
+     "name": "Recursos Exclusivos Divertidamente 2",
+     "count": 1
+    }
+   ],
+   "ob_detail_psi": []
   }
  ],
  "weeks": [
