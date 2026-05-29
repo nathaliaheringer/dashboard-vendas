@@ -1374,8 +1374,14 @@ function getPeriodDailyAgg(pd){
  /* ob_detail per product */
  var obReMap={},obPsiMap={};
  daily.forEach(function(d){
-  (d.ob_detail_re||[]).forEach(function(o){obReMap[o.name]=(obReMap[o.name]||0)+o.count;});
-  (d.ob_detail_psi||[]).forEach(function(o){obPsiMap[o.name]=(obPsiMap[o.name]||0)+o.count;});
+  (d.ob_detail_re||[]).forEach(function(o){
+   if(!obReMap[o.name])obReMap[o.name]={count:0,val:0};
+   obReMap[o.name].count+=o.count; obReMap[o.name].val+=(o.val||0);
+  });
+  (d.ob_detail_psi||[]).forEach(function(o){
+   if(!obPsiMap[o.name])obPsiMap[o.name]={count:0,val:0};
+   obPsiMap[o.name].count+=o.count; obPsiMap[o.name].val+=(o.val||0);
+  });
  });
  /* funil per product */
  var funRe={clicks:0,lpv:0,imp:0},funPsi={clicks:0,lpv:0,imp:0};
@@ -1396,8 +1402,8 @@ function getPeriodDailyAgg(pd){
             .map(function(e){return {method:e[0],count:e[1],pct:r2(e[1]/payTot*100)};}),
   parc_dist: Object.entries(parcMap).sort(function(a,b){return a[0]-b[0];})
              .map(function(e){return {n:parseInt(e[0]),count:e[1],pct:r2(e[1]/Math.max(ccCnt,1)*100)};}),
-  ob_detail_re: Object.entries(obReMap).sort(function(a,b){return b[1]-a[1];}).map(function(e){return {name:e[0],count:e[1]};}),
-  ob_detail_psi: Object.entries(obPsiMap).sort(function(a,b){return b[1]-a[1];}).map(function(e){return {name:e[0],count:e[1]};}),
+  ob_detail_re: Object.entries(obReMap).sort(function(a,b){return b[1].count-a[1].count;}).map(function(e){return {name:e[0],count:e[1].count,val:r2(e[1].val)};}),
+  ob_detail_psi: Object.entries(obPsiMap).sort(function(a,b){return b[1].count-a[1].count;}).map(function(e){return {name:e[0],count:e[1].count,val:r2(e[1].val)};}),
   funnel_re: funRe, funnel_psi: funPsi
  };
 }
