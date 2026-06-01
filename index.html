@@ -269,6 +269,12 @@ tbody tr.grp td{background:var(--cream-2);font-family:'Fraunces',serif;font-weig
 .b-quente{background:var(--terra-l);color:var(--bad)}
 .b-on{background:var(--green-soft);color:var(--good)}
 .b-off{background:var(--cream-2);color:var(--brown)}
+.b-champ{background:#F5E6BE;color:#8A6210;border:1px solid #D4A83A}
+.ads-empty{display:flex;align-items:flex-start;gap:14px;padding:20px 22px;background:var(--cream-2);
+  border:1px solid var(--line);border-radius:14px;font-size:12.5px;line-height:1.65;color:var(--brown)}
+.ads-empty svg{width:20px;height:20px;stroke:var(--green-d);flex-shrink:0;margin-top:2px}
+.ads-empty code{background:var(--paper);border:1px solid var(--line);border-radius:5px;
+  padding:1px 6px;font-size:11px;font-family:'Spline Sans Mono'}
 
 /* product picker */
 .prodpick{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:18px}
@@ -1888,6 +1894,7 @@ function renderRegion(){
    ABA 3 · CAMPANHAS
    ============================================================ */
 var sortK='spend',sortD=-1;
+var adSortK='ctr',adSortD=-1;
 /* ── Helper: filtrar array com campo 'day' pelo período selecionado ── */
 function filterByPeriod(arr,d0,d1){
  /* d0 e d1 são números de dia do mês (1-31), ou null para mês completo */
@@ -1953,9 +1960,11 @@ function renderCampanhas(){
   '<div class="legend"><span><i style="background:#3E8E5A"></i>ROAS &ge; 2 — escalar/manter</span>'+
   '<span><i style="background:#C0533B"></i>ROAS &lt; 1 — prejuízo/pausada</span>'+
   '<span><i style="background:#A3A983"></i>Fora do funil de venda</span></div></div>'+
+  '<div id="adsTblWrap"></div>'+
   criativos+renderInsights('campanhas')+'</div>';
  document.getElementById('v-campanhas').innerHTML=h;
  renderCampTbl();
+ renderAdsTbl();
 }
 function buildCriativosSection(){
  var cs=DATA.campaigns.filter(function(c){return c.obj!=='followers';});
@@ -2072,6 +2081,152 @@ function renderCampTbl(){
    var k=h.dataset.k;
    if(k===sortK)sortD=-sortD;else{sortK=k;sortD=(k==='name'||k==='aud')?1:-1;}
    renderCampTbl();
+  });
+ });
+}
+
+function renderAdsTbl(){
+ var wrap=document.getElementById('adsTblWrap');
+ if(!wrap)return;
+ var ads=DATA.ads||[];
+ if(!ads.length){
+  /* Placeholder — instrução de como exportar */
+  wrap.innerHTML='<div class="sec"><div class="sec-head"><span class="bar"></span><h2>Desempenho por anúncio</h2>'+
+   '<div class="note">Identifique os anúncios campeões — criativos com melhor CTR, menor CPM e maior LPV%.</div></div>'+
+   '<div class="ads-empty">'+svg(IC.info)+
+   '<div><b>Dados de anúncio não disponíveis ainda.</b><br>'+
+   'Para popular esta tabela, exporte do Meta Ads Manager um relatório no nível <b>Anúncio</b> com o período do mês '+
+   'e as colunas: <code>Day</code>, <code>Campaign name</code>, <code>Ad name</code>, <code>Amount Spent</code>, '+
+   '<code>Impressions</code>, <code>CPM</code>, <code>Link Clicks</code>, <code>CPC</code>, <code>CTR</code>, '+
+   '<code>Landing Page Views</code>.<br>'+
+   'Salve o arquivo <code>.csv</code> na pasta <code>dashboard-vendas/</code> e reexecute o gerador.</div></div></div>';
+  return;
+ }
+
+ /* Colunas */
+ var hasPx=ads.some(function(a){return a.purchases_px>0;});
+ var cols=[
+  {k:'name',   t:'Anúncio',    num:false},
+  {k:'camp_lbl',t:'Campanha',  num:false},
+  {k:'spend',  t:'Invest.',    num:true},
+  {k:'impressions',t:'Impres.',num:true},
+  {k:'cpm',    t:'CPM',        num:true},
+  {k:'freq',   t:'Freq.',      num:true},
+  {k:'clicks', t:'Cliques',    num:true},
+  {k:'ctr',    t:'CTR',        num:true},
+  {k:'cpc',    t:'CPC',        num:true},
+  {k:'lpv',    t:'LPV',        num:true},
+  {k:'lpv_rate',t:'LPV%',      num:true}
+ ];
+ if(hasPx) cols.push({k:'purchases_px',t:'Compras px',num:true});
+
+ /* Helper: rótulo curto de campanha */
+ function campLbl(name){
+  var m=name.match(/\[([^\]]+)\]/g);
+  if(!m)return name.slice(0,22)+'…';
+  var prod=m[0].replace(/[\[\]]/g,'');
+  var aud=m.filter(function(x){return /frio|quente/i.test(x);})[0]||'';
+  var creat=m.filter(function(x){return /vídeo|estátic/i.test(x);})[0]||'';
+  return [prod,aud.replace(/[\[\]]/g,''),creat.replace(/[\[\]]/g,'')].filter(Boolean).join(' · ');
+ }
+
+ /* Preparar dados com camp_lbl */
+ var rows=ads.map(function(a){return Object.assign({},a,{camp_lbl:campLbl(a.campaign)});});
+
+ /* Agrupar por campanha */
+ var campNames=[]; rows.forEach(function(r){if(campNames.indexOf(r.campaign)<0)campNames.push(r.campaign);});
+
+ /* Por campanha, encontrar o "campeão" = maior CTR */
+ var champMap={};
+ campNames.forEach(function(c){
+  var group=rows.filter(function(r){return r.campaign===c;});
+  if(!group.length)return;
+  champMap[c]=group.reduce(function(best,r){return r.ctr>best.ctr?r:best;}).name;
+ });
+
+ /* Ordenar dentro de cada grupo */
+ function sortRows(group){
+  return group.slice().sort(function(a,b){
+   var va=a[adSortK]==null?-1:a[adSortK], vb=b[adSortK]==null?-1:b[adSortK];
+   if(typeof va==='string') return va<vb?-adSortD:va>vb?adSortD:0;
+   return (va-vb)*adSortD;
+  });
+ }
+
+ var th='<thead><tr>';
+ cols.forEach(function(c){
+  var s=c.k===adSortK?' class="s"':'';
+  var ar=c.k===adSortK?(adSortD<0?'▼':'▲'):'▾';
+  th+='<th'+s+' data-k="'+c.k+'">'+c.t+'<span class="ar">'+ar+'</span></th>';
+ });
+ th+='</tr></thead>';
+
+ var body='<tbody>';
+ var totals={spend:0,impressions:0,clicks:0,lpv:0,purchases_px:0};
+ campNames.forEach(function(camp){
+  var group=sortRows(rows.filter(function(r){return r.campaign===camp;}));
+  if(!group.length)return;
+  var champ=champMap[camp];
+  body+='<tr class="grp"><td colspan="'+cols.length+'">'+campLbl(camp)+
+   ' &nbsp;<small style="font-weight:400;opacity:.7">— '+group.length+' anúncio'+(group.length>1?'s':'')+'</small></td></tr>';
+  group.forEach(function(a){
+   var isChamp=(a.name===champ);
+   var ctrColor=a.ctr>=2?'var(--good)':a.ctr>=1?'var(--warn)':'inherit';
+   var cpmColor=a.cpm<=25?'var(--good)':a.cpm<=40?'var(--warn)':'var(--bad)';
+   totals.spend+=a.spend; totals.impressions+=a.impressions;
+   totals.clicks+=a.clicks; totals.lpv+=a.lpv; totals.purchases_px+=a.purchases_px;
+   var nameTd='<td>'+a.name+(isChamp?' <span class="badge b-champ">campeão</span>':'')+'</td>';
+   body+='<tr>'+nameTd+
+    '<td style="text-align:left"><small style="opacity:.7">'+a.camp_lbl+'</small></td>'+
+    '<td>'+brl0(a.spend)+'</td>'+
+    '<td>'+num(a.impressions)+'</td>'+
+    '<td style="color:'+cpmColor+'">'+brl(a.cpm)+'</td>'+
+    '<td>'+nf2.format(a.freq)+'</td>'+
+    '<td>'+num(a.clicks)+'</td>'+
+    '<td style="color:'+ctrColor+';font-weight:700">'+nf2.format(a.ctr)+'%</td>'+
+    '<td>'+brl(a.cpc)+'</td>'+
+    '<td>'+num(a.lpv)+'</td>'+
+    '<td>'+nf1.format(a.lpv_rate)+'%</td>'+
+    (hasPx?'<td>'+(a.purchases_px||'—')+'</td>':'')+
+    '</tr>';
+  });
+ });
+ /* Total row */
+ var totCpm=totals.impressions>0?r2(totals.spend/totals.impressions*1000):0;
+ var totCtr=totals.impressions>0?r2(totals.clicks/totals.impressions*100):0;
+ var totCpc=totals.clicks>0?r2(totals.spend/totals.clicks):0;
+ var totLpvR=totals.clicks>0?r2(totals.lpv/totals.clicks*100):0;
+ body+='<tr class="tot"><td>TOTAL · '+ads.length+' anúncio'+(ads.length>1?'s':'')+'</td>'+
+  '<td>—</td>'+
+  '<td>'+brl0(totals.spend)+'</td>'+
+  '<td>'+num(totals.impressions)+'</td>'+
+  '<td>'+brl(totCpm)+'</td>'+
+  '<td>—</td>'+
+  '<td>'+num(totals.clicks)+'</td>'+
+  '<td>'+nf2.format(totCtr)+'%</td>'+
+  '<td>'+brl(totCpc)+'</td>'+
+  '<td>'+num(totals.lpv)+'</td>'+
+  '<td>'+nf1.format(totLpvR)+'%</td>'+
+  (hasPx?'<td>'+totals.purchases_px+'</td>':'')+
+  '</tr></tbody>';
+
+ wrap.innerHTML='<div class="sec"><div class="sec-head"><span class="bar"></span><h2>Desempenho por anúncio</h2>'+
+  '<div class="note">Métricas de mídia do Meta Ads por anúncio. '+
+  '<b>Campeão</b> = maior CTR no grupo. Vendas atribuídas no nível de campanha (UTM Hubla).</div></div>'+
+  '<div class="panel" style="padding:15px">'+
+  '<div class="tbl-wrap"><table id="adsTbl">'+th+body+'</table></div>'+
+  '<div class="legend">'+
+  '<span><i style="background:var(--good)"></i>CTR &ge; 2% · CPM &le; R$25 — referência</span>'+
+  '<span><i style="background:var(--warn)"></i>CTR 1–2% · CPM R$25–40 — monitorar</span>'+
+  '<span><i style="background:var(--bad)"></i>CTR &lt; 1% · CPM &gt; R$40 — revisar</span>'+
+  '</div></div></div>';
+
+ /* Eventos de ordenação */
+ document.querySelectorAll('#adsTbl th').forEach(function(h){
+  h.addEventListener('click',function(){
+   var k=h.dataset.k;
+   if(k===adSortK)adSortD=-adSortD;else{adSortK=k;adSortD=(k==='name'||k==='camp_lbl')?1:-1;}
+   renderAdsTbl();
   });
  });
 }
