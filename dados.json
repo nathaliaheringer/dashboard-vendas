@@ -6,7 +6,7 @@
   "days_elapsed": 31,
   "days_month": 31
  },
- "_v": 1780337219338,
+ "_v": 1780338866426,
  "totals": {
   "spend": 12122.91,
   "spend_sales": 11036.65,
@@ -64,7 +64,7 @@
      "faturas": 1
     },
     {
-     "name": "Sem origem",
+     "name": "Hotmart",
      "fat": 49.75,
      "faturas": 1
     }
@@ -183,8 +183,13 @@
    "origins": [
     {
      "name": "Sem origem",
-     "fat": 113.0,
-     "faturas": 2
+     "fat": 29.91,
+     "faturas": 1
+    },
+    {
+     "name": "Hotmart",
+     "fat": 83.09,
+     "faturas": 1
     }
    ],
    "fb_split": {
@@ -426,8 +431,8 @@
    "origins": [
     {
      "name": "Sem origem",
-     "fat": 289.65,
-     "faturas": 2
+     "fat": 249.75,
+     "faturas": 1
     },
     {
      "name": "Facebook Ads",
@@ -437,6 +442,11 @@
     {
      "name": "Instagram (orgânico)",
      "fat": 297.0,
+     "faturas": 1
+    },
+    {
+     "name": "Hotmart",
+     "fat": 39.9,
      "faturas": 1
     }
    ],
@@ -623,13 +633,18 @@
    "origins": [
     {
      "name": "Sem origem",
-     "fat": 2482.79,
-     "faturas": 3
+     "fat": 2399.7,
+     "faturas": 2
     },
     {
      "name": "Facebook Ads",
      "fat": 872.0,
      "faturas": 5
+    },
+    {
+     "name": "Hotmart",
+     "fat": 83.09,
+     "faturas": 1
     }
    ],
    "fb_split": {
@@ -856,7 +871,7 @@
      "faturas": 2
     },
     {
-     "name": "Sem origem",
+     "name": "Hotmart",
      "fat": 39.9,
      "faturas": 1
     }
@@ -958,7 +973,7 @@
      "faturas": 1
     },
     {
-     "name": "Sem origem",
+     "name": "Hotmart",
      "fat": 10.0,
      "faturas": 1
     }
@@ -1202,8 +1217,13 @@
     },
     {
      "name": "Sem origem",
-     "fat": 522.9,
-     "faturas": 3
+     "fat": 483.0,
+     "faturas": 2
+    },
+    {
+     "name": "Hotmart",
+     "fat": 39.9,
+     "faturas": 1
     }
    ],
    "fb_split": {
@@ -1442,7 +1462,7 @@
      "faturas": 1
     },
     {
-     "name": "Sem origem",
+     "name": "Hotmart",
      "fat": 79.8,
      "faturas": 2
     }
@@ -1856,8 +1876,8 @@
    "origins": [
     {
      "name": "Sem origem",
-     "fat": 289.65,
-     "faturas": 2
+     "fat": 249.75,
+     "faturas": 1
     },
     {
      "name": "Facebook Ads",
@@ -1873,6 +1893,11 @@
      "name": "Instagram (orgânico)",
      "fat": 653.0,
      "faturas": 2
+    },
+    {
+     "name": "Hotmart",
+     "fat": 39.9,
+     "faturas": 1
     }
    ],
    "fb_split": {
@@ -2541,12 +2566,17 @@
     },
     {
      "name": "Sem origem",
-     "fat": 1169.47,
-     "faturas": 7
+     "fat": 1129.57,
+     "faturas": 6
     },
     {
      "name": "Instagram (orgânico)",
      "fat": 297.0,
+     "faturas": 1
+    },
+    {
+     "name": "Hotmart",
+     "fat": 39.9,
      "faturas": 1
     }
    ],
@@ -3025,7 +3055,7 @@
      "faturas": 2
     },
     {
-     "name": "Sem origem",
+     "name": "Hotmart",
      "fat": 39.9,
      "faturas": 1
     }
@@ -5808,9 +5838,15 @@
    "nh": 1522.04
   },
   {
+   "name": "Hotmart",
+   "faturas": 12,
+   "fat": 545.13,
+   "nh": 471.15
+  },
+  {
    "name": "Sem origem",
-   "faturas": 39,
-   "fat": 11168.74,
+   "faturas": 27,
+   "fat": 10623.61,
    "nh": 10082.85
   }
  ],
@@ -5820,71 +5856,72 @@
    "faturas": 192,
    "fat": 30887.0,
    "units": 249,
-   "recorrente": false
+   "recorrente": false,
+   "plataforma": "hubla"
   },
   {
    "name": "Curso Psi: 0-8",
    "faturas": 21,
    "fat": 6547.0,
    "units": 24,
-   "recorrente": false
+   "recorrente": false,
+   "plataforma": "hubla"
   },
   {
    "name": "Formação Primeira Infância • Turma 09",
    "faturas": 13,
    "fat": 5457.72,
    "units": 13,
-   "recorrente": true
+   "recorrente": true,
+   "plataforma": "hubla"
   },
   {
    "name": "Recursos Exclusivos Divertidamente 2",
    "faturas": 20,
    "fat": 4856.0,
    "units": 44,
-   "recorrente": false
+   "recorrente": false,
+   "plataforma": "hubla"
   },
   {
    "name": "Formação Primeira Infância",
    "faturas": 4,
    "fat": 3565.7,
    "units": 4,
-   "recorrente": false
+   "recorrente": false,
+   "plataforma": "hubla"
   },
   {
    "name": "O Mapa da Avaliação - Autismo",
    "faturas": 13,
    "fat": 2953.0,
    "units": 29,
-   "recorrente": false
+   "recorrente": false,
+   "plataforma": "hubla"
+  },
+  {
+   "name": "PRO",
+   "faturas": 14,
+   "fat": 605.03,
+   "units": 14,
+   "recorrente": false,
+   "plataforma": "hotmart"
   },
   {
    "name": "Galeria de Recursos",
    "faturas": 1,
    "fat": 97.0,
    "units": 1,
-   "recorrente": false
+   "recorrente": false,
+   "plataforma": "hubla"
   },
   {
    "name": "Black Friday - Combo Base Científica",
    "faturas": 1,
    "fat": 85.28,
    "units": 1,
-   "recorrente": false
-  },
-  {
-   "name": "PRO",
-   "faturas": 2,
-   "fat": 59.9,
-   "units": 2,
-   "recorrente": false
-  },
-  {
-   "name": "PRO (Hotmart)",
-   "faturas": 12,
-   "fat": 545.13,
-   "units": 12,
    "recorrente": false,
-   "plataforma": "hotmart"
+   "plataforma": "hubla"
   }
  ],
  "regioes": [

@@ -956,7 +956,7 @@ function renderComposicaoInline(){
    '<div class="panel"><div class="p-head"><div><h3>Receita por produto</h3></div></div>'+
      '<div class="p-sub">Participação de cada produto no faturamento.</div>'+
      '<div class="donut-wrap"><div class="chart-box h230"><canvas id="cProd2"></canvas></div>'+
-     '<div class="donut-center"><div class="dc-v" id="prodDonutCenter">'+brl0(totalFat)+'</div><div class="dc-l" id="prodDonutLabel">'+(perActive?'no período':DATA.products.length+' produtos')+'</div></div></div>'+
+     '<div class="donut-center"><div class="dc-v" id="prodDonutCenter">'+brl0(totalFat)+'</div><div class="dc-l" id="prodDonutLabel">'+(perActive?'no período':DATA.products.length+' produto'+(DATA.products.length>1?'s':''))+'</div></div></div>'+
      '<div class="dlist" id="prodList2"></div><div class="rec-note" id="recNote2"></div></div>'+
    '<div class="panel"><div class="p-head"><div><h3>Receita por canal de venda</h3></div></div>'+
      '<div class="p-sub">Origem das vendas — Frio e Quente vêm do Facebook Ads.</div>'+
@@ -1065,9 +1065,9 @@ function renderProdDonutInline(){
   var rn=document.getElementById('recNote2');
   if(rn)rn.style.display='none';
  }else{
-  var ps=DATA.products.slice(),top=ps.slice(0,6),rest=ps.slice(6);
-  items=top.map(function(p){return {name:p.name.replace('Curso Psi:','Curso PSI'),fat:p.fat};});
-  if(rest.length)items.push({name:'Outros ('+rest.length+')',fat:rest.reduce(function(a,b){return a+b.fat;},0)});
+  /* Mostrar todos os produtos individualmente — sem agrupamento em "Outros" */
+  var ps=DATA.products.slice();
+  items=ps.map(function(p){return {name:p.name.replace('Curso Psi:','Curso PSI'),fat:p.fat};});
   tot=DATA.totals.fat;
   var rn=document.getElementById('recNote2');
   var rec=ps.filter(function(p){return p.recorrente;});
