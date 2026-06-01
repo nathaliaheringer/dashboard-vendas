@@ -2202,7 +2202,8 @@ function renderAdsTbl(){
    totals.spend+=a.spend; totals.impressions+=a.impressions;
    totals.clicks+=a.clicks; totals.lpv+=a.lpv;
    totals.faturas_est+=a.faturas_est||0; totals.fat_est+=a.fat_est||0;
-   var nameTd='<td>'+a.name+(isChamp?' <span class="badge b-champ">campeão</span>':'')+'</td>';
+   var copiesTag=a.merged?' <span class="badge b-off" title="Inclui '+a.copies_count+' cópia'+(a.copies_count>1?'s':'')+'">+'+a.copies_count+' cópia'+(a.copies_count>1?'s':'')+'</span>':'';
+   var nameTd='<td>'+a.name+copiesTag+(isChamp?' <span class="badge b-champ">campeão</span>':'')+'</td>';
    body+='<tr>'+nameTd+
     '<td style="text-align:left"><small style="opacity:.7">'+a.camp_lbl+'</small></td>'+
     '<td>'+brl0(a.spend)+'</td>'+

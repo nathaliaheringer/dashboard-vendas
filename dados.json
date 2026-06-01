@@ -6,7 +6,7 @@
   "days_elapsed": 31,
   "days_month": 31
  },
- "_v": 1780335662260,
+ "_v": 1780336329032,
  "totals": {
   "spend": 12122.91,
   "spend_sales": 11036.65,
@@ -4809,24 +4809,66 @@
    "lpv_rate": 0.0,
    "fat_est": 5017.71,
    "faturas_est": 31,
-   "roas_est": 3.09
+   "roas_est": 3.09,
+   "merged": false,
+   "copies_count": 0
   },
   {
    "campaign": "[RE] [Compra] [Quente] [Validação] [Vídeos] - ABO",
    "name": "[RE] AD-V: 02",
-   "spend": 1439.83,
-   "impressions": 73708,
-   "reach": 42381,
-   "freq": 1.74,
-   "cpm": 19.53,
-   "clicks": 1018,
+   "spend": 1456.65,
+   "impressions": 74394,
+   "reach": 42907,
+   "freq": 1.73,
+   "cpm": 19.58,
+   "clicks": 1029,
    "ctr": 1.38,
-   "cpc": 1.41,
+   "cpc": 1.42,
    "lpv": 0,
    "lpv_rate": 0.0,
-   "fat_est": 7536.68,
-   "faturas_est": 45,
-   "roas_est": 5.23
+   "fat_est": 7618.12,
+   "faturas_est": 46,
+   "roas_est": 5.23,
+   "merged": true,
+   "copies_count": 1
+  },
+  {
+   "campaign": "[RE] [Compra] [Frio] [Validação] [Estáticos] - ABO",
+   "name": "[RE] AD-E: 01",
+   "spend": 1421.52,
+   "impressions": 81967,
+   "reach": 36265,
+   "freq": 2.26,
+   "cpm": 17.34,
+   "clicks": 601,
+   "ctr": 0.73,
+   "cpc": 2.37,
+   "lpv": 0,
+   "lpv_rate": 0.0,
+   "fat_est": 5254.31,
+   "faturas_est": 31,
+   "roas_est": 3.7,
+   "merged": true,
+   "copies_count": 1
+  },
+  {
+   "campaign": "[RE] [Compra] [Frio] [Validação] [Estáticos] - ABO",
+   "name": "[RE] AD-E: 02",
+   "spend": 1290.29,
+   "impressions": 59162,
+   "reach": 19502,
+   "freq": 3.03,
+   "cpm": 21.8,
+   "clicks": 397,
+   "ctr": 0.67,
+   "cpc": 3.25,
+   "lpv": 0,
+   "lpv_rate": 0.0,
+   "fat_est": 3470.82,
+   "faturas_est": 20,
+   "roas_est": 2.69,
+   "merged": true,
+   "copies_count": 1
   },
   {
    "campaign": "[INSTA] [Seguidores] [Frio] - ABO",
@@ -4843,41 +4885,9 @@
    "lpv_rate": 0.0,
    "fat_est": 0.0,
    "faturas_est": 0,
-   "roas_est": 0.0
-  },
-  {
-   "campaign": "[RE] [Compra] [Frio] [Validação] [Estáticos] - ABO",
-   "name": "[RE] AD-E: 02 — Cópia",
-   "spend": 1256.59,
-   "impressions": 57627,
-   "reach": 18249,
-   "freq": 3.16,
-   "cpm": 21.8,
-   "clicks": 389,
-   "ctr": 0.68,
-   "cpc": 3.23,
-   "lpv": 0,
-   "lpv_rate": 0.0,
-   "fat_est": 3400.88,
-   "faturas_est": 20,
-   "roas_est": 2.71
-  },
-  {
-   "campaign": "[RE] [Compra] [Frio] [Validação] [Estáticos] - ABO",
-   "name": "[RE] AD-E: 01",
-   "spend": 1216.31,
-   "impressions": 70762,
-   "reach": 28255,
-   "freq": 2.5,
-   "cpm": 17.19,
-   "clicks": 494,
-   "ctr": 0.7,
-   "cpc": 2.46,
-   "lpv": 0,
-   "lpv_rate": 0.0,
-   "fat_est": 4318.85,
-   "faturas_est": 25,
-   "roas_est": 3.55
+   "roas_est": 0.0,
+   "merged": false,
+   "copies_count": 0
   },
   {
    "campaign": "[PSI08] [Compra] [Frio] - ABO",
@@ -4894,24 +4904,28 @@
    "lpv_rate": 0.0,
    "fat_est": 613.89,
    "faturas_est": 2,
-   "roas_est": 0.6
+   "roas_est": 0.6,
+   "merged": false,
+   "copies_count": 0
   },
   {
    "campaign": "[RE] [Compra] [Frio] [Validação] [Estáticos] - ABO",
-   "name": "[RE] AD-E: 04 — Cópia",
-   "spend": 623.59,
-   "impressions": 23040,
-   "reach": 7502,
-   "freq": 3.07,
-   "cpm": 27.06,
-   "clicks": 157,
-   "ctr": 0.68,
-   "cpc": 3.97,
+   "name": "[RE] AD-E: 04",
+   "spend": 795.3,
+   "impressions": 29776,
+   "reach": 10753,
+   "freq": 2.77,
+   "cpm": 26.7,
+   "clicks": 206,
+   "ctr": 0.69,
+   "cpc": 3.86,
    "lpv": 0,
    "lpv_rate": 0.0,
-   "fat_est": 1372.59,
-   "faturas_est": 8,
-   "roas_est": 2.2
+   "fat_est": 1800.98,
+   "faturas_est": 11,
+   "roas_est": 2.26,
+   "merged": true,
+   "copies_count": 1
   },
   {
    "campaign": "[RE] [Compra] [Quente] [Validação] [Vídeos] - ABO",
@@ -4928,7 +4942,9 @@
    "lpv_rate": 0.0,
    "fat_est": 1991.52,
    "faturas_est": 12,
-   "roas_est": 3.3
+   "roas_est": 3.3,
+   "merged": false,
+   "copies_count": 0
   },
   {
    "campaign": "[RE] [Compra] [Quente] [Validação] [Vídeos] - ABO",
@@ -4945,7 +4961,9 @@
    "lpv_rate": 0.0,
    "fat_est": 436.8,
    "faturas_est": 3,
-   "roas_est": 1.52
+   "roas_est": 1.52,
+   "merged": false,
+   "copies_count": 0
   },
   {
    "campaign": "[RE] [Compra] [Quente] [Validação] [Vídeos] - ABO",
@@ -4962,7 +4980,9 @@
    "lpv_rate": 0.0,
    "fat_est": 1103.11,
    "faturas_est": 7,
-   "roas_est": 3.93
+   "roas_est": 3.93,
+   "merged": false,
+   "copies_count": 0
   },
   {
    "campaign": "[PSI08] [Compra] [Frio] - ABO",
@@ -4979,7 +4999,9 @@
    "lpv_rate": 0.0,
    "fat_est": 130.03,
    "faturas_est": 0,
-   "roas_est": 0.48
+   "roas_est": 0.48,
+   "merged": false,
+   "copies_count": 0
   },
   {
    "campaign": "[PSI08] [Compra] [Quente] [Teste Criativos] [Estáticos] - ABO",
@@ -4996,11 +5018,32 @@
    "lpv_rate": 0.0,
    "fat_est": 0.0,
    "faturas_est": 0,
-   "roas_est": 0.0
+   "roas_est": 0.0,
+   "merged": false,
+   "copies_count": 0
+  },
+  {
+   "campaign": "[RE] [Compra] [Frio] [Validação] [Estáticos] - ABO",
+   "name": "[RE] AD-E: 03",
+   "spend": 218.32,
+   "impressions": 10204,
+   "reach": 6669,
+   "freq": 1.53,
+   "cpm": 21.4,
+   "clicks": 82,
+   "ctr": 0.8,
+   "cpc": 2.66,
+   "lpv": 0,
+   "lpv_rate": 0.0,
+   "fat_est": 716.89,
+   "faturas_est": 4,
+   "roas_est": 3.28,
+   "merged": true,
+   "copies_count": 1
   },
   {
    "campaign": "[PSI08] [Compra] [Frio] - ABO",
-   "name": "[PSI] AD-E 06 — Cópia",
+   "name": "[PSI] AD-E 06",
    "spend": 211.96,
    "impressions": 8446,
    "reach": 4862,
@@ -5013,24 +5056,9 @@
    "lpv_rate": 0.0,
    "fat_est": 119.37,
    "faturas_est": 0,
-   "roas_est": 0.56
-  },
-  {
-   "campaign": "[RE] [Compra] [Frio] [Validação] [Estáticos] - ABO",
-   "name": "[RE] AD-E: 01 — Cópia",
-   "spend": 205.21,
-   "impressions": 11205,
-   "reach": 8010,
-   "freq": 1.4,
-   "cpm": 18.32,
-   "clicks": 107,
-   "ctr": 0.95,
-   "cpc": 1.92,
-   "lpv": 0,
-   "lpv_rate": 0.0,
-   "fat_est": 935.46,
-   "faturas_est": 5,
-   "roas_est": 4.56
+   "roas_est": 0.56,
+   "merged": false,
+   "copies_count": 0
   },
   {
    "campaign": "[RE] [Compra] [Frio] [Melhores Criativos] - CBO",
@@ -5047,7 +5075,9 @@
    "lpv_rate": 0.0,
    "fat_est": 0.0,
    "faturas_est": 0,
-   "roas_est": 0.0
+   "roas_est": 0.0,
+   "merged": false,
+   "copies_count": 0
   },
   {
    "campaign": "[RE] [Compra] [Frio] [Validação] [Vídeos] - ABO",
@@ -5064,24 +5094,9 @@
    "lpv_rate": 0.0,
    "fat_est": 831.0,
    "faturas_est": 5,
-   "roas_est": 4.28
-  },
-  {
-   "campaign": "[RE] [Compra] [Frio] [Validação] [Estáticos] - ABO",
-   "name": "[RE] AD-E: 03 — Cópia",
-   "spend": 175.14,
-   "impressions": 8433,
-   "reach": 5265,
-   "freq": 1.6,
-   "cpm": 20.77,
-   "clicks": 71,
-   "ctr": 0.84,
-   "cpc": 2.47,
-   "lpv": 0,
-   "lpv_rate": 0.0,
-   "fat_est": 620.73,
-   "faturas_est": 4,
-   "roas_est": 3.54
+   "roas_est": 4.28,
+   "merged": false,
+   "copies_count": 0
   },
   {
    "campaign": "[PSI08] [Compra] [Quente] [Teste Criativos] [Estáticos] - ABO",
@@ -5098,24 +5113,9 @@
    "lpv_rate": 0.0,
    "fat_est": 0.0,
    "faturas_est": 0,
-   "roas_est": 0.0
-  },
-  {
-   "campaign": "[RE] [Compra] [Frio] [Validação] [Estáticos] - ABO",
-   "name": "[RE] AD-E: 04",
-   "spend": 171.71,
-   "impressions": 6736,
-   "reach": 3251,
-   "freq": 2.07,
-   "cpm": 25.49,
-   "clicks": 49,
-   "ctr": 0.73,
-   "cpc": 3.5,
-   "lpv": 0,
-   "lpv_rate": 0.0,
-   "fat_est": 428.39,
-   "faturas_est": 3,
-   "roas_est": 2.49
+   "roas_est": 0.0,
+   "merged": false,
+   "copies_count": 0
   },
   {
    "campaign": "[RE] [Compra] [Frio] [Melhores Criativos] - CBO",
@@ -5132,7 +5132,9 @@
    "lpv_rate": 0.0,
    "fat_est": 0.0,
    "faturas_est": 0,
-   "roas_est": 0.0
+   "roas_est": 0.0,
+   "merged": false,
+   "copies_count": 0
   },
   {
    "campaign": "[RE] [Compra] [Frio] [Validação] [Vídeos] - ABO",
@@ -5149,7 +5151,9 @@
    "lpv_rate": 0.0,
    "fat_est": 228.37,
    "faturas_est": 1,
-   "roas_est": 1.87
+   "roas_est": 1.87,
+   "merged": false,
+   "copies_count": 0
   },
   {
    "campaign": "[PSI08] [Compra] [Quente] [Teste Criativos] [Estáticos] - ABO",
@@ -5166,7 +5170,9 @@
    "lpv_rate": 0.0,
    "fat_est": 0.0,
    "faturas_est": 0,
-   "roas_est": 0.0
+   "roas_est": 0.0,
+   "merged": false,
+   "copies_count": 0
   },
   {
    "campaign": "[PSI08] [Compra] [Quente] [Teste Criativos] [Estáticos] - ABO",
@@ -5183,11 +5189,13 @@
    "lpv_rate": 0.0,
    "fat_est": 0.0,
    "faturas_est": 0,
-   "roas_est": 0.0
+   "roas_est": 0.0,
+   "merged": false,
+   "copies_count": 0
   },
   {
    "campaign": "[PSI08] [Compra] [Frio] - ABO",
-   "name": "[PSI] AD-E 03 — Cópia",
+   "name": "[PSI] AD-E 03",
    "spend": 47.45,
    "impressions": 1426,
    "reach": 972,
@@ -5200,24 +5208,9 @@
    "lpv_rate": 0.0,
    "fat_est": 27.71,
    "faturas_est": 0,
-   "roas_est": 0.58
-  },
-  {
-   "campaign": "[RE] [Compra] [Frio] [Validação] [Estáticos] - ABO",
-   "name": "[RE] AD-E: 03",
-   "spend": 43.18,
-   "impressions": 1771,
-   "reach": 1404,
-   "freq": 1.26,
-   "cpm": 24.38,
-   "clicks": 11,
-   "ctr": 0.62,
-   "cpc": 3.93,
-   "lpv": 0,
-   "lpv_rate": 0.0,
-   "fat_est": 96.17,
-   "faturas_est": 1,
-   "roas_est": 2.23
+   "roas_est": 0.58,
+   "merged": false,
+   "copies_count": 0
   },
   {
    "campaign": "[RE] [Compra] [Quente] [Validação] [Estáticos] - ABO",
@@ -5234,24 +5227,9 @@
    "lpv_rate": 0.0,
    "fat_est": 50.69,
    "faturas_est": 0,
-   "roas_est": 1.29
-  },
-  {
-   "campaign": "[RE] [Compra] [Frio] [Validação] [Estáticos] - ABO",
-   "name": "[RE] AD-E: 02",
-   "spend": 33.7,
-   "impressions": 1535,
-   "reach": 1253,
-   "freq": 1.23,
-   "cpm": 21.95,
-   "clicks": 8,
-   "ctr": 0.52,
-   "cpc": 4.21,
-   "lpv": 0,
-   "lpv_rate": 0.0,
-   "fat_est": 69.94,
-   "faturas_est": 0,
-   "roas_est": 2.08
+   "roas_est": 1.29,
+   "merged": false,
+   "copies_count": 0
   },
   {
    "campaign": "[RE] [Compra] [Quente] [Validação] [Estáticos] - ABO",
@@ -5268,7 +5246,9 @@
    "lpv_rate": 0.0,
    "fat_est": 50.69,
    "faturas_est": 0,
-   "roas_est": 1.55
+   "roas_est": 1.55,
+   "merged": false,
+   "copies_count": 0
   },
   {
    "campaign": "[RE] [Compra] [Quente] [Validação] [Vídeos] - ABO",
@@ -5285,7 +5265,9 @@
    "lpv_rate": 0.0,
    "fat_est": 111.05,
    "faturas_est": 1,
-   "roas_est": 3.46
+   "roas_est": 3.46,
+   "merged": false,
+   "copies_count": 0
   },
   {
    "campaign": "[RE] [Compra] [Frio] [Validação] [Vídeos] - ABO",
@@ -5302,7 +5284,9 @@
    "lpv_rate": 0.0,
    "fat_est": 82.47,
    "faturas_est": 1,
-   "roas_est": 2.99
+   "roas_est": 2.99,
+   "merged": false,
+   "copies_count": 0
   },
   {
    "campaign": "[RE] [Compra] [Frio] [Validação] [Vídeos] - ABO",
@@ -5319,7 +5303,9 @@
    "lpv_rate": 0.0,
    "fat_est": 69.78,
    "faturas_est": 0,
-   "roas_est": 2.99
+   "roas_est": 2.99,
+   "merged": false,
+   "copies_count": 0
   },
   {
    "campaign": "[RE] [Compra] [Quente] [Validação] [Estáticos] - ABO",
@@ -5336,7 +5322,9 @@
    "lpv_rate": 0.0,
    "fat_est": 17.74,
    "faturas_est": 0,
-   "roas_est": 0.78
+   "roas_est": 0.78,
+   "merged": false,
+   "copies_count": 0
   },
   {
    "campaign": "[PSI08] [Initiate Checkout] [Frio] [ADV+] - ABO",
@@ -5353,7 +5341,9 @@
    "lpv_rate": 0.0,
    "fat_est": 0.0,
    "faturas_est": 0,
-   "roas_est": 0.0
+   "roas_est": 0.0,
+   "merged": false,
+   "copies_count": 0
   },
   {
    "campaign": "[RE] [Compra] [Quente] [Validação] [Estáticos] - ABO",
@@ -5370,7 +5360,9 @@
    "lpv_rate": 0.0,
    "fat_est": 15.21,
    "faturas_est": 0,
-   "roas_est": 0.86
+   "roas_est": 0.86,
+   "merged": false,
+   "copies_count": 0
   },
   {
    "campaign": "[RE] [Compra] [Quente] [Validação] [Estáticos] - ABO",
@@ -5387,7 +5379,9 @@
    "lpv_rate": 0.0,
    "fat_est": 12.67,
    "faturas_est": 0,
-   "roas_est": 0.73
+   "roas_est": 0.73,
+   "merged": false,
+   "copies_count": 0
   },
   {
    "campaign": "[PSI08] [Initiate Checkout] [Frio] [ADV+] - ABO",
@@ -5404,24 +5398,9 @@
    "lpv_rate": 0.0,
    "fat_est": 0.0,
    "faturas_est": 0,
-   "roas_est": 0.0
-  },
-  {
-   "campaign": "[RE] [Compra] [Quente] [Validação] [Vídeos] - ABO",
-   "name": "[RE] AD-V: 02 — Cópia",
-   "spend": 16.82,
-   "impressions": 686,
-   "reach": 526,
-   "freq": 1.3,
-   "cpm": 24.52,
-   "clicks": 11,
-   "ctr": 1.6,
-   "cpc": 1.53,
-   "lpv": 0,
-   "lpv_rate": 0.0,
-   "fat_est": 81.44,
-   "faturas_est": 0,
-   "roas_est": 4.84
+   "roas_est": 0.0,
+   "merged": false,
+   "copies_count": 0
   },
   {
    "campaign": "[PSI08] [Compra] [Quente] [Teste Criativos] [Estáticos] - ABO",
@@ -5438,7 +5417,9 @@
    "lpv_rate": 0.0,
    "fat_est": 0.0,
    "faturas_est": 0,
-   "roas_est": 0.0
+   "roas_est": 0.0,
+   "merged": false,
+   "copies_count": 0
   },
   {
    "campaign": "[RE] [Compra] [Frio] [Validação] [Vídeos] - ABO",
@@ -5455,7 +5436,9 @@
    "lpv_rate": 0.0,
    "fat_est": 12.69,
    "faturas_est": 0,
-   "roas_est": 1.55
+   "roas_est": 1.55,
+   "merged": false,
+   "copies_count": 0
   },
   {
    "campaign": "[RE] [Compra] [Quente] [Validação] [Vídeos] - ABO",
@@ -5472,7 +5455,9 @@
    "lpv_rate": 0.0,
    "fat_est": 7.4,
    "faturas_est": 0,
-   "roas_est": 1.3
+   "roas_est": 1.3,
+   "merged": false,
+   "copies_count": 0
   },
   {
    "campaign": "[PSI08] [Initiate Checkout] [Frio] [ADV+] - ABO",
@@ -5489,7 +5474,9 @@
    "lpv_rate": 0.0,
    "fat_est": 0.0,
    "faturas_est": 0,
-   "roas_est": 0.0
+   "roas_est": 0.0,
+   "merged": false,
+   "copies_count": 0
   },
   {
    "campaign": "[RE] [Compra] [Quente] [Validação] [Vídeos] - ABO",
@@ -5506,7 +5493,9 @@
    "lpv_rate": 0,
    "fat_est": 0.0,
    "faturas_est": 0,
-   "roas_est": 0.0
+   "roas_est": 0.0,
+   "merged": false,
+   "copies_count": 0
   },
   {
    "campaign": "[RE] [Compra] [Frio] [Melhores Criativos] - CBO",
@@ -5523,7 +5512,9 @@
    "lpv_rate": 0,
    "fat_est": 0.0,
    "faturas_est": 0,
-   "roas_est": 0.0
+   "roas_est": 0.0,
+   "merged": false,
+   "copies_count": 0
   },
   {
    "campaign": "[RE] [Compra] [Frio] [Validação] [Vídeos] - ABO",
@@ -5540,7 +5531,9 @@
    "lpv_rate": 0,
    "fat_est": 0.0,
    "faturas_est": 0,
-   "roas_est": 0.0
+   "roas_est": 0.0,
+   "merged": false,
+   "copies_count": 0
   }
  ],
  "followers": {
