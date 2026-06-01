@@ -1894,7 +1894,7 @@ function renderRegion(){
    ABA 3 · CAMPANHAS
    ============================================================ */
 var sortK='spend',sortD=-1;
-var adSortK='ctr',adSortD=-1;
+var adSortK='faturas_est',adSortD=-1;
 /* ── Helper: filtrar array com campo 'day' pelo período selecionado ── */
 function filterByPeriod(arr,d0,d1){
  /* d0 e d1 são números de dia do mês (1-31), ou null para mês completo */
@@ -2088,7 +2088,8 @@ function renderCampTbl(){
 function renderAdsTbl(){
  var wrap=document.getElementById('adsTblWrap');
  if(!wrap)return;
- var ads=DATA.ads||[];
+ /* Filtrar apenas campanhas de venda (excluir INSTA — fica na aba Seguidores) */
+ var ads=(DATA.ads||[]).filter(function(a){return a.campaign.indexOf('[INSTA]')<0;});
  if(!ads.length){
   /* Placeholder — instrução de como exportar */
   wrap.innerHTML='<div class="sec"><div class="sec-head"><span class="bar"></span><h2>Desempenho por anúncio</h2>'+
@@ -2134,15 +2135,38 @@ function renderAdsTbl(){
  /* Preparar dados com camp_lbl */
  var rows=ads.map(function(a){return Object.assign({},a,{camp_lbl:campLbl(a.campaign)});});
 
- /* Agrupar por campanha */
- var campNames=[]; rows.forEach(function(r){if(campNames.indexOf(r.campaign)<0)campNames.push(r.campaign);});
+ /* Ordenação dos grupos de campanha por produto:
+    RE: Frio Vídeos → Quente Vídeos → Frio Estáticos → Quente Estáticos → outros RE
+    PSI: todos juntos após o RE */
+ function campPriority(camp){
+  var c=camp.toLowerCase();
+  if(c.indexOf('[re]')<0&&c.indexOf('[psi08]')<0) return 99; /* outros */
+  if(c.indexOf('[re]')>=0){
+   if(c.indexOf('frio')>=0  &&c.indexOf('vídeo')>=0)    return 0;
+   if(c.indexOf('quente')>=0&&c.indexOf('vídeo')>=0)    return 1;
+   if(c.indexOf('frio')>=0  &&c.indexOf('estátic')>=0)  return 2;
+   if(c.indexOf('quente')>=0&&c.indexOf('estátic')>=0)  return 3;
+   if(c.indexOf('melhores')>=0)                          return 4;
+   return 5; /* outro RE */
+  }
+  /* PSI */
+  if(c.indexOf('frio')>=0  &&c.indexOf('compra')>=0)    return 10;
+  if(c.indexOf('quente')>=0&&c.indexOf('compra')>=0)    return 11;
+  if(c.indexOf('initiate')>=0)                          return 12;
+  return 13;
+ }
+ var campNames=[];
+ rows.forEach(function(r){if(campNames.indexOf(r.campaign)<0)campNames.push(r.campaign);});
+ campNames.sort(function(a,b){return campPriority(a)-campPriority(b);});
 
- /* Por campanha, encontrar o "campeão" = maior CTR */
+ /* Campeão por grupo = maior faturas_est (vendas estimadas Hubla) */
  var champMap={};
  campNames.forEach(function(c){
   var group=rows.filter(function(r){return r.campaign===c;});
   if(!group.length)return;
-  champMap[c]=group.reduce(function(best,r){return r.ctr>best.ctr?r:best;}).name;
+  champMap[c]=group.reduce(function(best,r){
+   return (r.faturas_est||0)>(best.faturas_est||0)?r:best;
+  }).name;
  });
 
  /* Ordenar dentro de cada grupo */
@@ -2476,9 +2500,56 @@ function renderSeguidores(){
    '<div class="ins-tag">Medição</div></div>'+
    '<div class="ins-b">A API do Meta não devolve o número de seguidores ganhos para esta conta. Com o total de novos seguidores do período (Gerenciador de Anúncios), o custo por seguidor é R$ '+nf0.format(fSpend)+' ÷ seguidores ganhos.</div></div>';
  h+='</div>'+renderInsights('seguidores')+'</div>';
+ /* Tabela de anúncios INSTA */
+ h+=buildInstaAdsTbl();
  document.getElementById('v-seguidores').innerHTML=h;
  document.getElementById('v-seguidores').querySelectorAll('.cup').forEach(countUp);
  buildFollChart(filtDaily);
+}
+function buildInstaAdsTbl(){
+ var instaAds=(DATA.ads||[]).filter(function(a){return a.campaign.indexOf('[INSTA]')>=0;});
+ if(!instaAds.length) return '';
+ /* Sort by spend desc */
+ instaAds=instaAds.slice().sort(function(a,b){return b.spend-a.spend;});
+ var champ=instaAds.reduce(function(best,a){return a.ctr>best.ctr?a:best;}).name;
+ var cols=['Anúncio','Invest.','Impres.','CPM','Freq.','Cliques','CTR','CPC','LPV','LPV%'];
+ var th='<thead><tr>'+cols.map(function(c){return '<th>'+c+'</th>';}).join('')+'</tr></thead>';
+ var body='<tbody>';
+ var tot={spend:0,impressions:0,clicks:0,lpv:0};
+ instaAds.forEach(function(a){
+  var isChamp=a.name===champ;
+  var ctrC=a.ctr>=2?'var(--good)':a.ctr>=1?'var(--warn)':'inherit';
+  var cpmC=a.cpm<=15?'var(--good)':a.cpm<=25?'var(--warn)':'var(--bad)';
+  tot.spend+=a.spend; tot.impressions+=a.impressions;
+  tot.clicks+=a.clicks; tot.lpv+=a.lpv;
+  body+='<tr><td>'+a.name+(isChamp?' <span class="badge b-champ">campeão CTR</span>':'')+
+   '</td><td>'+brl0(a.spend)+'</td>'+
+   '<td>'+num(a.impressions)+'</td>'+
+   '<td style="color:'+cpmC+'">'+brl(a.cpm)+'</td>'+
+   '<td>'+nf2.format(a.freq)+'</td>'+
+   '<td>'+num(a.clicks)+'</td>'+
+   '<td style="color:'+ctrC+';font-weight:700">'+nf2.format(a.ctr)+'%</td>'+
+   '<td>'+brl(a.cpc)+'</td>'+
+   '<td>'+num(a.lpv)+'</td>'+
+   '<td>'+nf1.format(a.lpv_rate)+'%</td></tr>';
+ });
+ var tCpm=tot.impressions>0?r2(tot.spend/tot.impressions*1000):0;
+ var tCtr=tot.impressions>0?r2(tot.clicks/tot.impressions*100):0;
+ var tCpc=tot.clicks>0?r2(tot.spend/tot.clicks):0;
+ var tLpvR=tot.clicks>0?r2(tot.lpv/tot.clicks*100):0;
+ body+='<tr class="tot"><td>TOTAL · '+instaAds.length+' anúncio'+(instaAds.length>1?'s':'')+'</td>'+
+  '<td>'+brl0(tot.spend)+'</td><td>'+num(tot.impressions)+'</td>'+
+  '<td>'+brl(tCpm)+'</td><td>—</td><td>'+num(tot.clicks)+'</td>'+
+  '<td>'+nf2.format(tCtr)+'%</td><td>'+brl(tCpc)+'</td>'+
+  '<td>'+num(tot.lpv)+'</td><td>'+nf1.format(tLpvR)+'%</td></tr></tbody>';
+ return '<div class="sec"><div class="sec-head"><span class="bar"></span><h2>Desempenho por anúncio</h2>'+
+  '<div class="note">Métricas de mídia do Meta Ads por criativo. Sem ROAS — campanha de audiência, não de venda. <b>Campeão CTR</b> = criativo com maior taxa de clique.</div></div>'+
+  '<div class="panel" style="padding:15px"><div class="tbl-wrap"><table>'+th+body+'</table></div>'+
+  '<div class="legend">'+
+  '<span><i style="background:var(--good)"></i>CTR &ge; 2% · CPM &le; R$15 — excelente</span>'+
+  '<span><i style="background:var(--warn)"></i>CTR 1–2% · CPM R$15–25 — bom</span>'+
+  '<span><i style="background:var(--bad)"></i>CTR &lt; 1% · CPM &gt; R$25 — monitorar</span>'+
+  '</div></div></div>';
 }
 function sl(l,v){return '<div class="sl"><span class="sl-l">'+l+'</span><span class="sl-v">'+v+'</span></div>';}
 function buildFollChart(filtDaily){
