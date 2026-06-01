@@ -6,30 +6,30 @@
   "days_elapsed": 31,
   "days_month": 31
  },
- "_v": 1780336329032,
+ "_v": 1780337219338,
  "totals": {
   "spend": 12122.91,
   "spend_sales": 11036.65,
   "spend_insta": 1086.26,
   "impressions": 563427,
   "impressions_sales": 472965,
-  "fat": 54508.6,
+  "fat": 55053.73,
   "total": 58692.11,
-  "nh": 51310.04,
+  "nh": 51781.19,
   "hubla_fee": 7382.07,
-  "faturas": 267,
-  "units": 367,
+  "faturas": 279,
+  "units": 379,
   "abandoned": 196,
   "checkouts": 463,
   "ob_count": 100,
   "ob_val": 10720.17,
   "fat_with_ob": 85,
-  "cpa": 41.34,
-  "roas": 4.5,
-  "roas_sales": 4.94,
-  "lucro": 40273.39,
-  "roi": 364.91,
-  "ticket": 204.15,
+  "cpa": 39.56,
+  "roas": 4.54,
+  "roas_sales": 4.99,
+  "lucro": 40744.54,
+  "roi": 369.17,
+  "ticket": 197.33,
   "conv_checkout": 57.67
  },
  "daily": [
@@ -39,12 +39,12 @@
    "spend": 316.64,
    "spend_sales": 268.76,
    "impressions": 12304,
-   "faturas": 1,
-   "units": 2,
-   "fat": 336.0,
-   "nh": 330.05,
+   "faturas": 2,
+   "units": 3,
+   "fat": 385.75,
+   "nh": 373.37,
    "abandoned": 0,
-   "checkouts": 1,
+   "checkouts": 2,
    "fat_re": 0.0,
    "fat_psi": 0.0,
    "spend_re": 0.0,
@@ -61,6 +61,11 @@
     {
      "name": "Instagram (orgânico)",
      "fat": 336.0,
+     "faturas": 1
+    },
+    {
+     "name": "Sem origem",
+     "fat": 49.75,
      "faturas": 1
     }
    ],
@@ -81,14 +86,14 @@
    "regioes": [
     {
      "name": "Sudeste",
-     "fat": 336.0,
-     "faturas": 1
+     "fat": 385.75,
+     "faturas": 2
     }
    ],
    "pay_dist": [
     {
      "method": "Cartão de Crédito",
-     "count": 1
+     "count": 2
     }
    ],
    "parc_dist": [
@@ -157,12 +162,12 @@
    "spend": 233.72,
    "spend_sales": 189.79,
    "impressions": 10966,
-   "faturas": 1,
-   "units": 1,
-   "fat": 29.91,
-   "nh": 25.54,
+   "faturas": 2,
+   "units": 2,
+   "fat": 113.0,
+   "nh": 98.9,
    "abandoned": 2,
-   "checkouts": 3,
+   "checkouts": 4,
    "fat_re": 0.0,
    "fat_psi": 0.0,
    "spend_re": 0.0,
@@ -178,8 +183,8 @@
    "origins": [
     {
      "name": "Sem origem",
-     "fat": 29.91,
-     "faturas": 1
+     "fat": 113.0,
+     "faturas": 2
     }
    ],
    "fb_split": {
@@ -198,6 +203,11 @@
    },
    "regioes": [
     {
+     "name": "Nordeste",
+     "fat": 83.09,
+     "faturas": 1
+    },
+    {
      "name": "Norte",
      "fat": 29.91,
      "faturas": 1
@@ -206,7 +216,7 @@
    "pay_dist": [
     {
      "method": "Cartão de Crédito",
-     "count": 1
+     "count": 2
     }
    ],
    "parc_dist": [
@@ -395,12 +405,12 @@
    "spend": 401.7,
    "spend_sales": 363.38,
    "impressions": 18107,
-   "faturas": 3,
-   "units": 3,
-   "fat": 943.75,
-   "nh": 879.65,
+   "faturas": 4,
+   "units": 4,
+   "fat": 983.65,
+   "nh": 914.1,
    "abandoned": 6,
-   "checkouts": 9,
+   "checkouts": 10,
    "fat_re": 0.0,
    "fat_psi": 694.0,
    "spend_re": 0.0,
@@ -416,8 +426,8 @@
    "origins": [
     {
      "name": "Sem origem",
-     "fat": 249.75,
-     "faturas": 1
+     "fat": 289.65,
+     "faturas": 2
     },
     {
      "name": "Facebook Ads",
@@ -457,8 +467,8 @@
     },
     {
      "name": "Nordeste",
-     "fat": 249.75,
-     "faturas": 1
+     "fat": 289.65,
+     "faturas": 2
     }
    ],
    "pay_dist": [
@@ -468,7 +478,7 @@
     },
     {
      "method": "Cartão de Crédito",
-     "count": 1
+     "count": 2
     }
    ],
    "parc_dist": [
@@ -592,12 +602,12 @@
    "spend": 385.15,
    "spend_sales": 345.46,
    "impressions": 14295,
-   "faturas": 7,
-   "units": 10,
-   "fat": 3271.7,
-   "nh": 3073.47,
+   "faturas": 8,
+   "units": 11,
+   "fat": 3354.79,
+   "nh": 3146.83,
    "abandoned": 4,
-   "checkouts": 11,
+   "checkouts": 12,
    "fat_re": 627.0,
    "fat_psi": 0.0,
    "spend_re": 224.86,
@@ -613,8 +623,8 @@
    "origins": [
     {
      "name": "Sem origem",
-     "fat": 2399.7,
-     "faturas": 2
+     "fat": 2482.79,
+     "faturas": 3
     },
     {
      "name": "Facebook Ads",
@@ -648,6 +658,11 @@
      "faturas": 1
     },
     {
+     "name": "Nordeste",
+     "fat": 83.09,
+     "faturas": 1
+    },
+    {
      "name": "Centro-Oeste",
      "fat": 147.0,
      "faturas": 1
@@ -664,11 +679,11 @@
      "count": 5
     },
     {
-     "method": "Boleto",
-     "count": 1
+     "method": "PIX",
+     "count": 2
     },
     {
-     "method": "PIX",
+     "method": "Boleto",
      "count": 1
     }
    ],
@@ -816,12 +831,12 @@
    "spend": 294.32,
    "spend_sales": 247.48,
    "impressions": 11836,
-   "faturas": 2,
-   "units": 4,
-   "fat": 392.0,
-   "nh": 373.7,
+   "faturas": 3,
+   "units": 5,
+   "fat": 431.9,
+   "nh": 408.15,
    "abandoned": 1,
-   "checkouts": 3,
+   "checkouts": 4,
    "fat_re": 392.0,
    "fat_psi": 0.0,
    "spend_re": 223.42,
@@ -839,6 +854,11 @@
      "name": "Facebook Ads",
      "fat": 392.0,
      "faturas": 2
+    },
+    {
+     "name": "Sem origem",
+     "fat": 39.9,
+     "faturas": 1
     }
    ],
    "fb_split": {
@@ -858,8 +878,8 @@
    "regioes": [
     {
      "name": "Sudeste",
-     "fat": 147.0,
-     "faturas": 1
+     "fat": 186.9,
+     "faturas": 2
     },
     {
      "name": "Centro-Oeste",
@@ -869,11 +889,11 @@
    ],
    "pay_dist": [
     {
-     "method": "PIX",
-     "count": 1
+     "method": "Cartão de Crédito",
+     "count": 2
     },
     {
-     "method": "Cartão de Crédito",
+     "method": "PIX",
      "count": 1
     }
    ],
@@ -903,12 +923,12 @@
    "spend": 258.4,
    "spend_sales": 213.9,
    "impressions": 12193,
-   "faturas": 11,
-   "units": 18,
-   "fat": 2250.0,
-   "nh": 2126.37,
+   "faturas": 12,
+   "units": 19,
+   "fat": 2260.0,
+   "nh": 2131.88,
    "abandoned": 5,
-   "checkouts": 16,
+   "checkouts": 17,
    "fat_re": 1372.0,
    "fat_psi": 297.0,
    "spend_re": 213.9,
@@ -935,6 +955,11 @@
     {
      "name": "WhatsApp",
      "fat": 245.0,
+     "faturas": 1
+    },
+    {
+     "name": "Sem origem",
+     "fat": 10.0,
      "faturas": 1
     }
    ],
@@ -965,8 +990,8 @@
     },
     {
      "name": "Não informado",
-     "fat": 1019.0,
-     "faturas": 6
+     "fat": 1029.0,
+     "faturas": 7
     }
    ],
    "pay_dist": [
@@ -976,7 +1001,7 @@
     },
     {
      "method": "PIX",
-     "count": 4
+     "count": 5
     }
    ],
    "parc_dist": [
@@ -1141,12 +1166,12 @@
    "spend": 395.26,
    "spend_sales": 356.25,
    "impressions": 16052,
-   "faturas": 11,
-   "units": 16,
-   "fat": 2152.0,
-   "nh": 2020.04,
+   "faturas": 12,
+   "units": 17,
+   "fat": 2191.9,
+   "nh": 2054.49,
    "abandoned": 5,
-   "checkouts": 16,
+   "checkouts": 17,
    "fat_re": 1421.0,
    "fat_psi": 0.0,
    "spend_re": 356.25,
@@ -1177,8 +1202,8 @@
     },
     {
      "name": "Sem origem",
-     "fat": 483.0,
-     "faturas": 2
+     "fat": 522.9,
+     "faturas": 3
     }
    ],
    "fb_split": {
@@ -1208,8 +1233,8 @@
     },
     {
      "name": "Não informado",
-     "fat": 1127.0,
-     "faturas": 7
+     "fat": 1166.9,
+     "faturas": 8
     }
    ],
    "pay_dist": [
@@ -1220,6 +1245,10 @@
     {
      "method": "Cartão de Crédito",
      "count": 4
+    },
+    {
+     "method": "Boleto",
+     "count": 1
     }
    ],
    "parc_dist": [
@@ -1383,12 +1412,12 @@
    "spend": 394.3,
    "spend_sales": 358.45,
    "impressions": 19413,
-   "faturas": 7,
-   "units": 7,
-   "fat": 1179.0,
-   "nh": 1108.98,
+   "faturas": 9,
+   "units": 9,
+   "fat": 1258.8,
+   "nh": 1177.88,
    "abandoned": 9,
-   "checkouts": 16,
+   "checkouts": 18,
    "fat_re": 882.0,
    "fat_psi": 297.0,
    "spend_re": 358.45,
@@ -1411,6 +1440,11 @@
      "name": "Instagram (orgânico)",
      "fat": 297.0,
      "faturas": 1
+    },
+    {
+     "name": "Sem origem",
+     "fat": 79.8,
+     "faturas": 2
     }
    ],
    "fb_split": {
@@ -1435,8 +1469,8 @@
     },
     {
      "name": "Nordeste",
-     "fat": 297.0,
-     "faturas": 1
+     "fat": 336.9,
+     "faturas": 2
     },
     {
      "name": "Norte",
@@ -1445,14 +1479,14 @@
     },
     {
      "name": "Não informado",
-     "fat": 294.0,
-     "faturas": 2
+     "fat": 333.9,
+     "faturas": 3
     }
    ],
    "pay_dist": [
     {
      "method": "Cartão de Crédito",
-     "count": 4
+     "count": 6
     },
     {
      "method": "PIX",
@@ -1801,12 +1835,12 @@
    "spend": 405.68,
    "spend_sales": 366.15,
    "impressions": 21577,
-   "faturas": 12,
-   "units": 14,
-   "fat": 2434.75,
-   "nh": 2300.3,
+   "faturas": 13,
+   "units": 15,
+   "fat": 2474.65,
+   "nh": 2334.75,
    "abandoned": 7,
-   "checkouts": 19,
+   "checkouts": 20,
    "fat_re": 1029.0,
    "fat_psi": 950.0,
    "spend_re": 366.15,
@@ -1822,8 +1856,8 @@
    "origins": [
     {
      "name": "Sem origem",
-     "fat": 249.75,
-     "faturas": 1
+     "fat": 289.65,
+     "faturas": 2
     },
     {
      "name": "Facebook Ads",
@@ -1858,8 +1892,8 @@
    "regioes": [
     {
      "name": "Sul",
-     "fat": 605.75,
-     "faturas": 2
+     "fat": 645.65,
+     "faturas": 3
     },
     {
      "name": "Nordeste",
@@ -1880,7 +1914,7 @@
    "pay_dist": [
     {
      "method": "Cartão de Crédito",
-     "count": 10
+     "count": 11
     },
     {
      "method": "PIX",
@@ -2476,12 +2510,12 @@
    "spend": 436.03,
    "spend_sales": 398.03,
    "impressions": 22011,
-   "faturas": 17,
-   "units": 18,
-   "fat": 2935.57,
-   "nh": 2773.6,
+   "faturas": 18,
+   "units": 19,
+   "fat": 2975.47,
+   "nh": 2808.05,
    "abandoned": 5,
-   "checkouts": 22,
+   "checkouts": 23,
    "fat_re": 1656.0,
    "fat_psi": 447.0,
    "spend_re": 398.03,
@@ -2507,8 +2541,8 @@
     },
     {
      "name": "Sem origem",
-     "fat": 1129.57,
-     "faturas": 6
+     "fat": 1169.47,
+     "faturas": 7
     },
     {
      "name": "Instagram (orgânico)",
@@ -2548,14 +2582,14 @@
     },
     {
      "name": "Não informado",
-     "fat": 1512.0,
-     "faturas": 10
+     "fat": 1551.9,
+     "faturas": 11
     }
    ],
    "pay_dist": [
     {
      "method": "Cartão de Crédito",
-     "count": 10
+     "count": 11
     },
     {
      "method": "PIX",
@@ -2956,12 +2990,12 @@
    "spend": 538.72,
    "spend_sales": 538.72,
    "impressions": 22385,
-   "faturas": 10,
-   "units": 12,
-   "fat": 1548.0,
-   "nh": 1431.81,
+   "faturas": 11,
+   "units": 13,
+   "fat": 1587.9,
+   "nh": 1466.26,
    "abandoned": 13,
-   "checkouts": 23,
+   "checkouts": 24,
    "fat_re": 1548.0,
    "fat_psi": 0.0,
    "spend_re": 538.72,
@@ -2989,6 +3023,11 @@
      "name": "WhatsApp",
      "fat": 294.0,
      "faturas": 2
+    },
+    {
+     "name": "Sem origem",
+     "fat": 39.9,
+     "faturas": 1
     }
    ],
    "fb_split": {
@@ -3018,14 +3057,14 @@
     },
     {
      "name": "Não informado",
-     "fat": 960.0,
-     "faturas": 6
+     "fat": 999.9,
+     "faturas": 7
     }
    ],
    "pay_dist": [
     {
      "method": "PIX",
-     "count": 9
+     "count": 10
     },
     {
      "method": "Cartão de Crédito",
@@ -3263,16 +3302,16 @@
    "d1": 7,
    "spend": 2395.64,
    "spend_sales": 2097.73,
-   "fat": 5174.16,
-   "units": 24,
-   "faturas": 20,
-   "nh": 4760.81,
+   "fat": 5346.9,
+   "units": 27,
+   "faturas": 23,
+   "nh": 4911.94,
    "abandoned": 19,
-   "checkouts": 39,
-   "cpa": 104.89,
-   "roas": 2.47,
-   "lucro": 2663.08,
-   "conv_checkout": 51.28,
+   "checkouts": 42,
+   "cpa": 91.21,
+   "roas": 2.55,
+   "lucro": 2814.21,
+   "conv_checkout": 54.76,
    "fat_re": 941.0,
    "fat_psi": 2912.0,
    "has_data": true
@@ -3284,16 +3323,16 @@
    "d1": 14,
    "spend": 2394.98,
    "spend_sales": 2108.44,
-   "fat": 12774.2,
-   "units": 80,
-   "faturas": 56,
-   "nh": 12012.02,
+   "fat": 12947.09,
+   "units": 84,
+   "faturas": 60,
+   "nh": 12159.79,
    "abandoned": 38,
-   "checkouts": 94,
-   "cpa": 37.65,
-   "roas": 6.06,
-   "lucro": 9903.58,
-   "conv_checkout": 59.57,
+   "checkouts": 98,
+   "cpa": 35.14,
+   "roas": 6.14,
+   "lucro": 10051.35,
+   "conv_checkout": 61.22,
    "fat_re": 6674.0,
    "fat_psi": 891.0,
    "has_data": true
@@ -3305,16 +3344,16 @@
    "d1": 21,
    "spend": 2778.82,
    "spend_sales": 2502.51,
-   "fat": 15267.75,
-   "units": 97,
-   "faturas": 74,
-   "nh": 14484.98,
+   "fat": 15387.45,
+   "units": 100,
+   "faturas": 77,
+   "nh": 14588.33,
    "abandoned": 55,
-   "checkouts": 129,
-   "cpa": 33.82,
-   "roas": 6.1,
-   "lucro": 11982.47,
-   "conv_checkout": 57.36,
+   "checkouts": 132,
+   "cpa": 32.5,
+   "roas": 6.15,
+   "lucro": 12085.82,
+   "conv_checkout": 58.33,
    "fat_re": 9240.0,
    "fat_psi": 1544.0,
    "has_data": true
@@ -3326,16 +3365,16 @@
    "d1": 28,
    "spend": 2920.84,
    "spend_sales": 2695.34,
-   "fat": 15423.49,
-   "units": 111,
-   "faturas": 84,
-   "nh": 14528.41,
+   "fat": 15463.39,
+   "units": 112,
+   "faturas": 85,
+   "nh": 14562.86,
    "abandoned": 56,
-   "checkouts": 140,
-   "cpa": 32.09,
-   "roas": 5.72,
-   "lucro": 11833.07,
-   "conv_checkout": 60.0,
+   "checkouts": 141,
+   "cpa": 31.71,
+   "roas": 5.74,
+   "lucro": 11867.52,
+   "conv_checkout": 60.28,
    "fat_re": 9564.0,
    "fat_psi": 1200.0,
    "has_data": true
@@ -3347,16 +3386,16 @@
    "d1": 31,
    "spend": 1632.63,
    "spend_sales": 1632.63,
-   "fat": 5869.0,
-   "units": 55,
-   "faturas": 33,
-   "nh": 5523.82,
+   "fat": 5908.9,
+   "units": 56,
+   "faturas": 34,
+   "nh": 5558.27,
    "abandoned": 28,
-   "checkouts": 61,
-   "cpa": 49.47,
-   "roas": 3.59,
-   "lucro": 3891.19,
-   "conv_checkout": 54.1,
+   "checkouts": 62,
+   "cpa": 48.02,
+   "roas": 3.62,
+   "lucro": 3925.64,
+   "conv_checkout": 54.84,
    "fat_re": 4468.0,
    "fat_psi": 0.0,
    "has_data": true
@@ -5770,8 +5809,8 @@
   },
   {
    "name": "Sem origem",
-   "faturas": 27,
-   "fat": 10623.61,
+   "faturas": 39,
+   "fat": 11168.74,
    "nh": 10082.85
   }
  ],
@@ -5837,24 +5876,32 @@
    "faturas": 2,
    "fat": 59.9,
    "units": 2,
-   "recorrente": true
+   "recorrente": false
+  },
+  {
+   "name": "PRO (Hotmart)",
+   "faturas": 12,
+   "fat": 545.13,
+   "units": 12,
+   "recorrente": false,
+   "plataforma": "hotmart"
   }
  ],
  "regioes": [
   {
    "name": "Sudeste",
-   "faturas": 47,
-   "fat": 12210.03
+   "faturas": 49,
+   "fat": 12299.68
   },
   {
    "name": "Sul",
-   "faturas": 23,
-   "fat": 5118.94
+   "faturas": 24,
+   "fat": 5158.84
   },
   {
    "name": "Nordeste",
-   "faturas": 20,
-   "fat": 4444.52
+   "faturas": 24,
+   "fat": 4690.5
   },
   {
    "name": "Centro-Oeste",
@@ -5868,8 +5915,8 @@
   },
   {
    "name": "Não informado",
-   "faturas": 162,
-   "fat": 27248.7
+   "faturas": 167,
+   "fat": 27418.3
   }
  ],
  "estados": [
@@ -5880,8 +5927,8 @@
   },
   {
    "uf": "MG",
-   "faturas": 16,
-   "fat": 3885.25
+   "faturas": 18,
+   "fat": 3974.9
   },
   {
    "uf": "MT",
@@ -5900,8 +5947,8 @@
   },
   {
    "uf": "PR",
-   "faturas": 8,
-   "fat": 1579.03
+   "faturas": 9,
+   "fat": 1618.93
   },
   {
    "uf": "PE",
@@ -5920,13 +5967,13 @@
   },
   {
    "uf": "CE",
-   "faturas": 4,
-   "fat": 888.0
+   "faturas": 5,
+   "fat": 927.9
   },
   {
    "uf": "BA",
-   "faturas": 4,
-   "fat": 799.7
+   "faturas": 5,
+   "fat": 882.79
   },
   {
    "uf": "GO",
@@ -5935,8 +5982,8 @@
   },
   {
    "uf": "RN",
-   "faturas": 3,
-   "fat": 539.0
+   "faturas": 4,
+   "fat": 622.09
   },
   {
    "uf": "MS",
@@ -5979,6 +6026,11 @@
    "fat": 147.0
   },
   {
+   "uf": "AL",
+   "faturas": 1,
+   "fat": 39.9
+  },
+  {
    "uf": "AM",
    "faturas": 1,
    "fat": 29.91
@@ -5987,75 +6039,75 @@
  "payment_dist": [
   {
    "method": "Cartão de Crédito",
-   "count": 151,
-   "pct": 56.55
+   "count": 159,
+   "pct": 56.99
   },
   {
    "method": "PIX",
-   "count": 113,
-   "pct": 42.32
+   "count": 116,
+   "pct": 41.58
   },
   {
    "method": "Boleto",
-   "count": 3,
-   "pct": 1.12
+   "count": 4,
+   "pct": 1.43
   }
  ],
  "parc_dist": [
   {
    "n": 1,
    "count": 34,
-   "pct": 22.52
+   "pct": 21.38
   },
   {
    "n": 2,
    "count": 15,
-   "pct": 9.93
+   "pct": 9.43
   },
   {
    "n": 3,
    "count": 10,
-   "pct": 6.62
+   "pct": 6.29
   },
   {
    "n": 4,
    "count": 15,
-   "pct": 9.93
+   "pct": 9.43
   },
   {
    "n": 5,
    "count": 14,
-   "pct": 9.27
+   "pct": 8.81
   },
   {
    "n": 6,
    "count": 9,
-   "pct": 5.96
+   "pct": 5.66
   },
   {
    "n": 7,
    "count": 2,
-   "pct": 1.32
+   "pct": 1.26
   },
   {
    "n": 8,
    "count": 2,
-   "pct": 1.32
+   "pct": 1.26
   },
   {
    "n": 9,
    "count": 1,
-   "pct": 0.66
+   "pct": 0.63
   },
   {
    "n": 10,
    "count": 5,
-   "pct": 3.31
+   "pct": 3.14
   },
   {
    "n": 12,
    "count": 44,
-   "pct": 29.14
+   "pct": 27.67
   }
  ],
  "ob_detail": [
@@ -6086,7 +6138,7 @@
    "icon": "star",
    "tag": "MELHOR SEMANA",
    "title": "Semana 4 (22–28/mai): ROAS 5.7x e CPA R$32 — performance crescente",
-   "body": "Os 7 dias de 22–28/mai já entregaram R$15,423 com R$2,695 investidos (ROAS 5.7x). CPA caiu de R$34 (S3) para R$32 — eficiência crescente. Sinal para aumentar orçamento gradualmente: +15–20% a cada 2–3 dias enquanto ROAS ≥ 4x."
+   "body": "Os 7 dias de 22–28/mai já entregaram R$15,463 com R$2,695 investidos (ROAS 5.7x). CPA caiu de R$32 (S3) para R$32 — eficiência crescente. Sinal para aumentar orçamento gradualmente: +15–20% a cada 2–3 dias enquanto ROAS ≥ 4x."
   },
   {
    "level": "positivo",
@@ -6120,22 +6172,22 @@
    "level": "positivo",
    "icon": "plus",
    "tag": "ORDER BUMP",
-   "title": "85 pedidos com OB aceito — R$10,720 extras (20% do faturamento)",
-   "body": "85 clientes aceitaram o order bump (31.8% dos pedidos), gerando R$10,720 adicionais. Testar novos OBs complementares (templates, recursos, mentorias) pode elevar esse percentual. A/B na posição e copy do OB pode aumentar a taxa de aceitação para 30–40%."
+   "title": "85 pedidos com OB aceito — R$10,720 extras (19% do faturamento)",
+   "body": "85 clientes aceitaram o order bump (30.5% dos pedidos), gerando R$10,720 adicionais. Testar novos OBs complementares (templates, recursos, mentorias) pode elevar esse percentual. A/B na posição e copy do OB pode aumentar a taxa de aceitação para 30–40%."
   },
   {
    "level": "atencao",
    "icon": "cart",
    "tag": "RECUPERAÇÃO",
    "title": "196 checkouts não convertidos — R$28,870 em receita potencial não capturada",
-   "body": "Taxa de checkout-to-purchase: 57.7% (267 vendas / 463 checkouts). 160 abandonos do RE (ticket ~R$142) + 27 do PSI (ticket ~R$226) = R$28,870 potencial. Sequência de recuperação em 1h + 24h + 72h por WhatsApp/e-mail pode recuperar 20–30%. Checar se o fluxo de recuperação está ativo na Hubla."
+   "body": "Taxa de checkout-to-purchase: 57.7% (279 vendas / 463 checkouts). 160 abandonos do RE (ticket ~R$142) + 27 do PSI (ticket ~R$226) = R$28,870 potencial. Sequência de recuperação em 1h + 24h + 72h por WhatsApp/e-mail pode recuperar 20–30%. Checar se o fluxo de recuperação está ativo na Hubla."
   },
   {
    "level": "info",
    "icon": "profit",
    "tag": "RESULTADO MENSAL",
-   "title": "R$54,509 faturados | Lucro R$40,273 | ROI 365% sobre mídia",
-   "body": "267 vendas em 31 dias: R$54,509 bruto → R$51,310 líquido (taxa Hubla ~12.6%). Investimento em mídia paga: R$11,037. Lucro operacional: R$40,273 (ROI 365%). Projeção para o mês completo: ~R$54,508 de faturamento se o ritmo se mantiver."
+   "title": "R$55,054 faturados | Lucro R$40,745 | ROI 369% sobre mídia",
+   "body": "279 vendas em 31 dias: R$55,054 bruto → R$51,781 líquido (taxa Hubla ~11.8%). Investimento em mídia paga: R$11,037. Lucro operacional: R$40,745 (ROI 369%). Projeção para o mês completo: ~R$55,053 de faturamento se o ritmo se mantiver."
   }
  ],
  "fb_split": {

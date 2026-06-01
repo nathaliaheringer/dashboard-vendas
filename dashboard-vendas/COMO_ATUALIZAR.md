@@ -78,6 +78,7 @@ novo** e **substitui** o arquivo (no Netlify/GitHub, ou te entrega para você ca
 |---|---|---|
 | Hubla | Relatório de Vendas | exportar em `.xlsx`, período do mês corrente |
 | Hubla | Relatório de Carrinho Abandonado | exportar em `.csv` |
+| **Hotmart** | **Histórico de vendas** | exportar em `.csv` (delimitado por `;`); período do mês corrente — **detecção automática**: qualquer `.csv` com a coluna `Nome do Produtor` é reconhecido como Hotmart |
 | Meta Ads | Relatório de campanhas, com detalhamento **por dia** | exportar em `.csv`; colunas: campanha, dia, valor gasto, impressões, alcance, frequência, CPM |
 | Planilha de controle (Google Sheets) | Aba **DADOS [produto]** (ex.: DADOS RE, DADOS PSI) | exportar em `.csv`; colunas: Day, Campaign Name, CPM, Link Clicks, CPC, CTR, Checkouts Initiated, Purchases, Amount Spent, Impressions, Landing Page Views — **usadas para o funil real por produto** |
 
