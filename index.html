@@ -2103,22 +2103,23 @@ function renderAdsTbl(){
   return;
  }
 
- /* Colunas */
- var hasPx=ads.some(function(a){return a.purchases_px>0;});
+ /* Colunas — vendas estimadas vêm da Hubla (proporcional ao spend da campanha) */
  var cols=[
-  {k:'name',   t:'Anúncio',    num:false},
-  {k:'camp_lbl',t:'Campanha',  num:false},
-  {k:'spend',  t:'Invest.',    num:true},
-  {k:'impressions',t:'Impres.',num:true},
-  {k:'cpm',    t:'CPM',        num:true},
-  {k:'freq',   t:'Freq.',      num:true},
-  {k:'clicks', t:'Cliques',    num:true},
-  {k:'ctr',    t:'CTR',        num:true},
-  {k:'cpc',    t:'CPC',        num:true},
-  {k:'lpv',    t:'LPV',        num:true},
-  {k:'lpv_rate',t:'LPV%',      num:true}
+  {k:'name',       t:'Anúncio',       num:false},
+  {k:'camp_lbl',   t:'Campanha',      num:false},
+  {k:'spend',      t:'Invest.',        num:true},
+  {k:'impressions',t:'Impres.',        num:true},
+  {k:'cpm',        t:'CPM',            num:true},
+  {k:'freq',       t:'Freq.',          num:true},
+  {k:'clicks',     t:'Cliques',        num:true},
+  {k:'ctr',        t:'CTR',            num:true},
+  {k:'cpc',        t:'CPC',            num:true},
+  {k:'lpv',        t:'LPV',            num:true},
+  {k:'lpv_rate',   t:'LPV%',           num:true},
+  {k:'faturas_est',t:'Vendas est.',     num:true},
+  {k:'fat_est',    t:'Receita est.',    num:true},
+  {k:'roas_est',   t:'ROAS est.',       num:true}
  ];
- if(hasPx) cols.push({k:'purchases_px',t:'Compras px',num:true});
 
  /* Helper: rótulo curto de campanha */
  function campLbl(name){
@@ -2162,7 +2163,7 @@ function renderAdsTbl(){
  th+='</tr></thead>';
 
  var body='<tbody>';
- var totals={spend:0,impressions:0,clicks:0,lpv:0,purchases_px:0};
+ var totals={spend:0,impressions:0,clicks:0,lpv:0,faturas_est:0,fat_est:0};
  campNames.forEach(function(camp){
   var group=sortRows(rows.filter(function(r){return r.campaign===camp;}));
   if(!group.length)return;
@@ -2173,8 +2174,10 @@ function renderAdsTbl(){
    var isChamp=(a.name===champ);
    var ctrColor=a.ctr>=2?'var(--good)':a.ctr>=1?'var(--warn)':'inherit';
    var cpmColor=a.cpm<=25?'var(--good)':a.cpm<=40?'var(--warn)':'var(--bad)';
+   var roasColor=a.roas_est>=2?'var(--good)':a.roas_est>=1?'var(--warn)':'var(--bad)';
    totals.spend+=a.spend; totals.impressions+=a.impressions;
-   totals.clicks+=a.clicks; totals.lpv+=a.lpv; totals.purchases_px+=a.purchases_px;
+   totals.clicks+=a.clicks; totals.lpv+=a.lpv;
+   totals.faturas_est+=a.faturas_est||0; totals.fat_est+=a.fat_est||0;
    var nameTd='<td>'+a.name+(isChamp?' <span class="badge b-champ">campeão</span>':'')+'</td>';
    body+='<tr>'+nameTd+
     '<td style="text-align:left"><small style="opacity:.7">'+a.camp_lbl+'</small></td>'+
@@ -2187,7 +2190,9 @@ function renderAdsTbl(){
     '<td>'+brl(a.cpc)+'</td>'+
     '<td>'+num(a.lpv)+'</td>'+
     '<td>'+nf1.format(a.lpv_rate)+'%</td>'+
-    (hasPx?'<td>'+(a.purchases_px||'—')+'</td>':'')+
+    '<td>'+(a.faturas_est||0)+'</td>'+
+    '<td>'+brl0(a.fat_est||0)+'</td>'+
+    '<td style="color:'+roasColor+';font-weight:700">'+(a.roas_est?nf2.format(a.roas_est)+'x':'—')+'</td>'+
     '</tr>';
   });
  });
@@ -2196,6 +2201,7 @@ function renderAdsTbl(){
  var totCtr=totals.impressions>0?r2(totals.clicks/totals.impressions*100):0;
  var totCpc=totals.clicks>0?r2(totals.spend/totals.clicks):0;
  var totLpvR=totals.clicks>0?r2(totals.lpv/totals.clicks*100):0;
+ var totRoas=totals.spend>0?r2(totals.fat_est/totals.spend):0;
  body+='<tr class="tot"><td>TOTAL · '+ads.length+' anúncio'+(ads.length>1?'s':'')+'</td>'+
   '<td>—</td>'+
   '<td>'+brl0(totals.spend)+'</td>'+
@@ -2207,18 +2213,21 @@ function renderAdsTbl(){
   '<td>'+brl(totCpc)+'</td>'+
   '<td>'+num(totals.lpv)+'</td>'+
   '<td>'+nf1.format(totLpvR)+'%</td>'+
-  (hasPx?'<td>'+totals.purchases_px+'</td>':'')+
+  '<td>'+totals.faturas_est+'</td>'+
+  '<td>'+brl0(totals.fat_est)+'</td>'+
+  '<td>'+nf2.format(totRoas)+'x</td>'+
   '</tr></tbody>';
 
  wrap.innerHTML='<div class="sec"><div class="sec-head"><span class="bar"></span><h2>Desempenho por anúncio</h2>'+
-  '<div class="note">Métricas de mídia do Meta Ads por anúncio. '+
-  '<b>Campeão</b> = maior CTR no grupo. Vendas atribuídas no nível de campanha (UTM Hubla).</div></div>'+
+  '<div class="note">Mídia (Meta Ads) + vendas estimadas por anúncio. <b>Fonte de vendas: Hubla</b> — atribuição UTM por campanha, distribuída proporcionalmente ao invest. de cada anúncio. '+
+  '<b>Campeão</b> = maior CTR no grupo.</div></div>'+
   '<div class="panel" style="padding:15px">'+
   '<div class="tbl-wrap"><table id="adsTbl">'+th+body+'</table></div>'+
   '<div class="legend">'+
-  '<span><i style="background:var(--good)"></i>CTR &ge; 2% · CPM &le; R$25 — referência</span>'+
-  '<span><i style="background:var(--warn)"></i>CTR 1–2% · CPM R$25–40 — monitorar</span>'+
-  '<span><i style="background:var(--bad)"></i>CTR &lt; 1% · CPM &gt; R$40 — revisar</span>'+
+  '<span><i style="background:var(--good)"></i>CTR &ge; 2% · CPM &le; R$25 · ROAS &ge; 2x</span>'+
+  '<span><i style="background:var(--warn)"></i>CTR 1–2% · CPM R$25–40 · ROAS 1–2x</span>'+
+  '<span><i style="background:var(--bad)"></i>CTR &lt; 1% · CPM &gt; R$40 · ROAS &lt; 1x</span>'+
+  '<span style="margin-left:auto;font-size:11px;opacity:.65">Vendas/Receita/ROAS: estimados via Hubla ÷ spend da campanha</span>'+
   '</div></div></div>';
 
  /* Eventos de ordenação */
