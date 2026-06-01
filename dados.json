@@ -6,14 +6,14 @@
   "days_elapsed": 31,
   "days_month": 31
  },
- "_v": 1780338866426,
+ "_v": 1780347829603,
  "totals": {
   "spend": 12122.91,
   "spend_sales": 11036.65,
   "spend_insta": 1086.26,
   "impressions": 563427,
   "impressions_sales": 472965,
-  "fat": 55053.73,
+  "fat": 59237.24,
   "total": 58692.11,
   "nh": 51781.19,
   "hubla_fee": 7382.07,
@@ -25,11 +25,11 @@
   "ob_val": 10720.17,
   "fat_with_ob": 85,
   "cpa": 39.56,
-  "roas": 4.54,
-  "roas_sales": 4.99,
+  "roas": 4.89,
+  "roas_sales": 5.37,
   "lucro": 40744.54,
   "roi": 369.17,
-  "ticket": 197.33,
+  "ticket": 212.32,
   "conv_checkout": 57.67
  },
  "daily": [
@@ -41,12 +41,12 @@
    "impressions": 12304,
    "faturas": 2,
    "units": 3,
-   "fat": 385.75,
+   "fat": 469.27,
    "nh": 373.37,
    "abandoned": 0,
    "checkouts": 2,
    "fat_re": 0.0,
-   "fat_psi": 0.0,
+   "fat_psi": 419.52,
    "spend_re": 0.0,
    "spend_psi": 268.76,
    "faturas_re": 0,
@@ -60,7 +60,7 @@
    "origins": [
     {
      "name": "Instagram (orgânico)",
-     "fat": 336.0,
+     "fat": 419.52,
      "faturas": 1
     },
     {
@@ -86,7 +86,7 @@
    "regioes": [
     {
      "name": "Sudeste",
-     "fat": 385.75,
+     "fat": 469.27,
      "faturas": 2
     }
    ],
@@ -164,7 +164,7 @@
    "impressions": 10966,
    "faturas": 2,
    "units": 2,
-   "fat": 113.0,
+   "fat": 119.56,
    "nh": 98.9,
    "abandoned": 2,
    "checkouts": 4,
@@ -183,7 +183,7 @@
    "origins": [
     {
      "name": "Sem origem",
-     "fat": 29.91,
+     "fat": 36.47,
      "faturas": 1
     },
     {
@@ -214,7 +214,7 @@
     },
     {
      "name": "Norte",
-     "fat": 29.91,
+     "fat": 36.47,
      "faturas": 1
     }
    ],
@@ -241,12 +241,12 @@
    "impressions": 16797,
    "faturas": 4,
    "units": 4,
-   "fat": 1390.5,
+   "fat": 1406.6,
    "nh": 1300.33,
    "abandoned": 0,
    "checkouts": 4,
    "fat_re": 0.0,
-   "fat_psi": 891.0,
+   "fat_psi": 907.1,
    "spend_re": 0.0,
    "spend_psi": 324.51,
    "faturas_re": 0,
@@ -265,13 +265,13 @@
     },
     {
      "name": "Facebook Ads",
-     "fat": 594.0,
+     "fat": 610.1,
      "faturas": 2
     }
    ],
    "fb_split": {
     "frio": {
-     "fat": 594.0,
+     "fat": 610.1,
      "faturas": 2
     },
     "quente": {
@@ -286,7 +286,7 @@
    "regioes": [
     {
      "name": "Sudeste",
-     "fat": 594.0,
+     "fat": 610.1,
      "faturas": 2
     },
     {
@@ -331,12 +331,12 @@
    "impressions": 17109,
    "faturas": 2,
    "units": 2,
-   "fat": 594.0,
+   "fat": 667.8,
    "nh": 568.14,
    "abandoned": 3,
    "checkouts": 5,
    "fat_re": 0.0,
-   "fat_psi": 594.0,
+   "fat_psi": 667.8,
    "spend_re": 0.0,
    "spend_psi": 321.46,
    "faturas_re": 0,
@@ -355,13 +355,13 @@
     },
     {
      "name": "Facebook Ads",
-     "fat": 297.0,
+     "fat": 370.8,
      "faturas": 1
     }
    ],
    "fb_split": {
     "frio": {
-     "fat": 297.0,
+     "fat": 370.8,
      "faturas": 1
     },
     "quente": {
@@ -376,7 +376,7 @@
    "regioes": [
     {
      "name": "Sudeste",
-     "fat": 297.0,
+     "fat": 370.8,
      "faturas": 1
     },
     {
@@ -508,12 +508,12 @@
    "impressions": 19188,
    "faturas": 9,
    "units": 12,
-   "fat": 1880.0,
+   "fat": 1931.08,
    "nh": 1657.1,
    "abandoned": 7,
    "checkouts": 16,
-   "fat_re": 941.0,
-   "fat_psi": 733.0,
+   "fat_re": 1051.3,
+   "fat_psi": 879.78,
    "spend_re": 178.13,
    "spend_psi": 257.6,
    "faturas_re": 7,
@@ -527,12 +527,12 @@
    "origins": [
     {
      "name": "Instagram (orgânico)",
-     "fat": 880.0,
+     "fat": 894.48,
      "faturas": 3
     },
     {
      "name": "Facebook Ads",
-     "fat": 1000.0,
+     "fat": 1036.6,
      "faturas": 6
     }
    ],
@@ -542,7 +542,7 @@
      "faturas": 0
     },
     "quente": {
-     "fat": 1000.0,
+     "fat": 1036.6,
      "faturas": 6
     },
     "outros": {
@@ -553,17 +553,17 @@
    "regioes": [
     {
      "name": "Sul",
-     "fat": 503.0,
+     "fat": 541.46,
      "faturas": 2
     },
     {
      "name": "Centro-Oeste",
-     "fat": 436.0,
+     "fat": 544.32,
      "faturas": 1
     },
     {
      "name": "Não informado",
-     "fat": 941.0,
+     "fat": 845.3,
      "faturas": 6
     }
    ],
@@ -614,11 +614,11 @@
    "impressions": 14295,
    "faturas": 8,
    "units": 11,
-   "fat": 3354.79,
+   "fat": 3432.3,
    "nh": 3146.83,
    "abandoned": 4,
    "checkouts": 12,
-   "fat_re": 627.0,
+   "fat_re": 949.51,
    "fat_psi": 0.0,
    "spend_re": 224.86,
    "spend_psi": 120.6,
@@ -638,7 +638,7 @@
     },
     {
      "name": "Facebook Ads",
-     "fat": 872.0,
+     "fat": 949.51,
      "faturas": 5
     },
     {
@@ -653,7 +653,7 @@
      "faturas": 0
     },
     "quente": {
-     "fat": 872.0,
+     "fat": 949.51,
      "faturas": 5
     },
     "outros": {
@@ -664,7 +664,7 @@
    "regioes": [
     {
      "name": "Sudeste",
-     "fat": 2345.0,
+     "fat": 2367.4,
      "faturas": 2
     },
     {
@@ -684,7 +684,7 @@
     },
     {
      "name": "Não informado",
-     "fat": 480.0,
+     "fat": 535.11,
      "faturas": 3
     }
    ],
@@ -742,12 +742,12 @@
    "impressions": 13795,
    "faturas": 6,
    "units": 8,
-   "fat": 1240.5,
+   "fat": 1267.38,
    "nh": 1156.51,
    "abandoned": 6,
    "checkouts": 12,
-   "fat_re": 627.0,
-   "fat_psi": 0.0,
+   "fat_re": 653.88,
+   "fat_psi": 114.0,
    "spend_re": 199.15,
    "spend_psi": 81.55,
    "faturas_re": 4,
@@ -766,13 +766,13 @@
     },
     {
      "name": "Facebook Ads",
-     "fat": 627.0,
+     "fat": 653.88,
      "faturas": 4
     }
    ],
    "fb_split": {
     "frio": {
-     "fat": 294.0,
+     "fat": 320.88,
      "faturas": 2
     },
     "quente": {
@@ -792,12 +792,12 @@
     },
     {
      "name": "Sul",
-     "fat": 261.0,
+     "fat": 277.2,
      "faturas": 2
     },
     {
      "name": "Não informado",
-     "fat": 333.0,
+     "fat": 343.68,
      "faturas": 2
     }
    ],
@@ -848,11 +848,11 @@
    "impressions": 11836,
    "faturas": 3,
    "units": 5,
-   "fat": 431.9,
+   "fat": 482.9,
    "nh": 408.15,
    "abandoned": 1,
    "checkouts": 4,
-   "fat_re": 392.0,
+   "fat_re": 443.0,
    "fat_psi": 0.0,
    "spend_re": 223.42,
    "spend_psi": 24.06,
@@ -867,7 +867,7 @@
    "origins": [
     {
      "name": "Facebook Ads",
-     "fat": 392.0,
+     "fat": 443.0,
      "faturas": 2
     },
     {
@@ -882,7 +882,7 @@
      "faturas": 1
     },
     "quente": {
-     "fat": 245.0,
+     "fat": 296.0,
      "faturas": 1
     },
     "outros": {
@@ -898,7 +898,7 @@
     },
     {
      "name": "Centro-Oeste",
-     "fat": 245.0,
+     "fat": 296.0,
      "faturas": 1
     }
    ],
@@ -940,12 +940,12 @@
    "impressions": 12193,
    "faturas": 12,
    "units": 19,
-   "fat": 2260.0,
+   "fat": 2453.76,
    "nh": 2131.88,
    "abandoned": 5,
    "checkouts": 17,
-   "fat_re": 1372.0,
-   "fat_psi": 297.0,
+   "fat_re": 1677.96,
+   "fat_psi": 765.8,
    "spend_re": 213.9,
    "spend_psi": 0.0,
    "faturas_re": 9,
@@ -959,17 +959,17 @@
    "origins": [
     {
      "name": "Instagram (orgânico)",
-     "fat": 692.0,
+     "fat": 765.8,
      "faturas": 2
     },
     {
      "name": "Facebook Ads",
-     "fat": 1313.0,
+     "fat": 1401.24,
      "faturas": 8
     },
     {
      "name": "WhatsApp",
-     "fat": 245.0,
+     "fat": 276.72,
      "faturas": 1
     },
     {
@@ -980,11 +980,11 @@
    ],
    "fb_split": {
     "frio": {
-     "fat": 588.0,
+     "fat": 624.6,
      "faturas": 4
     },
     "quente": {
-     "fat": 725.0,
+     "fat": 776.64,
      "faturas": 4
     },
     "outros": {
@@ -995,17 +995,17 @@
    "regioes": [
     {
      "name": "Sudeste",
-     "fat": 392.0,
+     "fat": 423.72,
      "faturas": 2
     },
     {
      "name": "Nordeste",
-     "fat": 839.0,
+     "fat": 949.4,
      "faturas": 3
     },
     {
      "name": "Não informado",
-     "fat": 1029.0,
+     "fat": 1080.64,
      "faturas": 7
     }
    ],
@@ -1074,12 +1074,12 @@
    "impressions": 13756,
    "faturas": 10,
    "units": 11,
-   "fat": 1629.0,
+   "fat": 1756.99,
    "nh": 1531.96,
    "abandoned": 9,
    "checkouts": 19,
-   "fat_re": 1235.0,
-   "fat_psi": 297.0,
+   "fat_re": 1289.19,
+   "fat_psi": 370.8,
    "spend_re": 276.08,
    "spend_psi": 0.0,
    "faturas_re": 8,
@@ -1093,18 +1093,18 @@
    "origins": [
     {
      "name": "Facebook Ads",
-     "fat": 1235.0,
+     "fat": 1289.19,
      "faturas": 8
     },
     {
      "name": "Instagram (orgânico)",
-     "fat": 394.0,
+     "fat": 467.8,
      "faturas": 2
     }
    ],
    "fb_split": {
     "frio": {
-     "fat": 647.0,
+     "fat": 701.19,
      "faturas": 4
     },
     "quente": {
@@ -1124,17 +1124,17 @@
     },
     {
      "name": "Nordeste",
-     "fat": 297.0,
+     "fat": 370.8,
      "faturas": 1
     },
     {
      "name": "Centro-Oeste",
-     "fat": 303.0,
+     "fat": 321.84,
      "faturas": 2
     },
     {
      "name": "Não informado",
-     "fat": 882.0,
+     "fat": 917.35,
      "faturas": 6
     }
    ],
@@ -1183,12 +1183,12 @@
    "impressions": 16052,
    "faturas": 12,
    "units": 17,
-   "fat": 2191.9,
+   "fat": 2314.62,
    "nh": 2054.49,
    "abandoned": 5,
    "checkouts": 17,
-   "fat_re": 1421.0,
-   "fat_psi": 0.0,
+   "fat_re": 1507.64,
+   "fat_psi": 767.08,
    "spend_re": 356.25,
    "spend_psi": 0.0,
    "faturas_re": 9,
@@ -1202,22 +1202,22 @@
    "origins": [
     {
      "name": "Facebook Ads",
-     "fat": 1127.0,
+     "fat": 1163.6,
      "faturas": 7
     },
     {
      "name": "Instagram (orgânico)",
-     "fat": 395.0,
+     "fat": 431.08,
      "faturas": 1
     },
     {
      "name": "WhatsApp",
-     "fat": 147.0,
+     "fat": 160.44,
      "faturas": 1
     },
     {
      "name": "Sem origem",
-     "fat": 483.0,
+     "fat": 519.6,
      "faturas": 2
     },
     {
@@ -1228,7 +1228,7 @@
    ],
    "fb_split": {
     "frio": {
-     "fat": 480.0,
+     "fat": 516.6,
      "faturas": 3
     },
     "quente": {
@@ -1243,17 +1243,17 @@
    "regioes": [
     {
      "name": "Sudeste",
-     "fat": 147.0,
+     "fat": 183.6,
      "faturas": 1
     },
     {
      "name": "Sul",
-     "fat": 878.0,
+     "fat": 927.52,
      "faturas": 3
     },
     {
      "name": "Não informado",
-     "fat": 1166.9,
+     "fat": 1203.5,
      "faturas": 8
     }
    ],
@@ -1314,12 +1314,12 @@
    "impressions": 19304,
    "faturas": 9,
    "units": 13,
-   "fat": 1839.0,
+   "fat": 1957.59,
    "nh": 1729.97,
    "abandoned": 8,
    "checkouts": 17,
-   "fat_re": 1000.0,
-   "fat_psi": 297.0,
+   "fat_re": 1324.59,
+   "fat_psi": 633.0,
    "spend_re": 388.57,
    "spend_psi": 0.0,
    "faturas_re": 7,
@@ -1333,7 +1333,7 @@
    "origins": [
     {
      "name": "Facebook Ads",
-     "fat": 1542.0,
+     "fat": 1660.59,
      "faturas": 8
     },
     {
@@ -1344,7 +1344,7 @@
    ],
    "fb_split": {
     "frio": {
-     "fat": 1059.0,
+     "fat": 1177.59,
      "faturas": 6
     },
     "quente": {
@@ -1359,7 +1359,7 @@
    "regioes": [
     {
      "name": "Sudeste",
-     "fat": 689.0,
+     "fat": 748.24,
      "faturas": 3
     },
     {
@@ -1379,7 +1379,7 @@
     },
     {
      "name": "Não informado",
-     "fat": 500.0,
+     "fat": 559.35,
      "faturas": 3
     }
    ],
@@ -1434,12 +1434,12 @@
    "impressions": 19413,
    "faturas": 9,
    "units": 9,
-   "fat": 1258.8,
+   "fat": 1349.53,
    "nh": 1177.88,
    "abandoned": 9,
    "checkouts": 18,
-   "fat_re": 882.0,
-   "fat_psi": 297.0,
+   "fat_re": 916.84,
+   "fat_psi": 352.89,
    "spend_re": 358.45,
    "spend_psi": 0.0,
    "faturas_re": 6,
@@ -1453,12 +1453,12 @@
    "origins": [
     {
      "name": "Facebook Ads",
-     "fat": 882.0,
+     "fat": 916.84,
      "faturas": 6
     },
     {
      "name": "Instagram (orgânico)",
-     "fat": 297.0,
+     "fat": 352.89,
      "faturas": 1
     },
     {
@@ -1469,7 +1469,7 @@
    ],
    "fb_split": {
     "frio": {
-     "fat": 735.0,
+     "fat": 769.84,
      "faturas": 5
     },
     "quente": {
@@ -1484,17 +1484,17 @@
    "regioes": [
     {
      "name": "Sudeste",
-     "fat": 441.0,
+     "fat": 462.4,
      "faturas": 3
     },
     {
      "name": "Nordeste",
-     "fat": 336.9,
+     "fat": 392.79,
      "faturas": 2
     },
     {
      "name": "Norte",
-     "fat": 147.0,
+     "fat": 160.44,
      "faturas": 1
     },
     {
@@ -1538,11 +1538,11 @@
    "impressions": 16125,
    "faturas": 6,
    "units": 8,
-   "fat": 1130.0,
+   "fat": 1181.57,
    "nh": 1057.57,
    "abandoned": 5,
    "checkouts": 11,
-   "fat_re": 833.0,
+   "fat_re": 884.57,
    "fat_psi": 297.0,
    "spend_re": 296.35,
    "spend_psi": 0.0,
@@ -1557,7 +1557,7 @@
    "origins": [
     {
      "name": "Facebook Ads",
-     "fat": 833.0,
+     "fat": 884.57,
      "faturas": 5
     },
     {
@@ -1568,11 +1568,11 @@
    ],
    "fb_split": {
     "frio": {
-     "fat": 480.0,
+     "fat": 512.55,
      "faturas": 3
     },
     "quente": {
-     "fat": 353.0,
+     "fat": 372.02,
      "faturas": 2
     },
     "outros": {
@@ -1588,7 +1588,7 @@
     },
     {
      "name": "Não informado",
-     "fat": 480.0,
+     "fat": 531.57,
      "faturas": 3
     }
    ],
@@ -1634,12 +1634,12 @@
    "impressions": 21634,
    "faturas": 9,
    "units": 11,
-   "fat": 1571.0,
+   "fat": 1645.46,
    "nh": 1469.22,
    "abandoned": 6,
    "checkouts": 15,
-   "fat_re": 1029.0,
-   "fat_psi": 0.0,
+   "fat_re": 1309.46,
+   "fat_psi": 336.0,
    "spend_re": 388.49,
    "spend_psi": 0.0,
    "faturas_re": 8,
@@ -1658,7 +1658,7 @@
     },
     {
      "name": "Facebook Ads",
-     "fat": 941.0,
+     "fat": 1015.46,
      "faturas": 6
     },
     {
@@ -1669,11 +1669,11 @@
    ],
    "fb_split": {
     "frio": {
-     "fat": 647.0,
+     "fat": 665.84,
      "faturas": 4
     },
     "quente": {
-     "fat": 294.0,
+     "fat": 349.62,
      "faturas": 2
     },
     "outros": {
@@ -1694,7 +1694,7 @@
     },
     {
      "name": "Não informado",
-     "fat": 941.0,
+     "fat": 1015.46,
      "faturas": 6
     }
    ],
@@ -1749,11 +1749,11 @@
    "impressions": 21776,
    "faturas": 14,
    "units": 23,
-   "fat": 2429.0,
+   "fat": 2628.89,
    "nh": 2288.38,
    "abandoned": 8,
    "checkouts": 22,
-   "fat_re": 1871.0,
+   "fat_re": 2628.89,
    "fat_psi": 0.0,
    "spend_re": 366.91,
    "spend_psi": 0.0,
@@ -1768,38 +1768,38 @@
    "origins": [
     {
      "name": "Facebook Ads",
-     "fat": 2282.0,
+     "fat": 2473.93,
      "faturas": 13
     },
     {
      "name": "Sem origem",
-     "fat": 147.0,
+     "fat": 154.96,
      "faturas": 1
     }
    ],
    "fb_split": {
     "frio": {
-     "fat": 1469.0,
+     "fat": 1611.53,
      "faturas": 8
     },
     "quente": {
-     "fat": 666.0,
+     "fat": 699.2,
      "faturas": 4
     },
     "outros": {
-     "fat": 147.0,
+     "fat": 163.2,
      "faturas": 1
     }
    },
    "regioes": [
     {
      "name": "Sudeste",
-     "fat": 372.0,
+     "fat": 418.2,
      "faturas": 2
     },
     {
      "name": "Não informado",
-     "fat": 2057.0,
+     "fat": 2210.69,
      "faturas": 12
     }
    ],
@@ -1857,12 +1857,12 @@
    "impressions": 21577,
    "faturas": 13,
    "units": 15,
-   "fat": 2474.65,
+   "fat": 2682.23,
    "nh": 2334.75,
    "abandoned": 7,
    "checkouts": 20,
-   "fat_re": 1029.0,
-   "fat_psi": 950.0,
+   "fat_re": 1338.0,
+   "fat_psi": 1054.58,
    "spend_re": 366.15,
    "spend_psi": 0.0,
    "faturas_re": 8,
@@ -1881,17 +1881,17 @@
     },
     {
      "name": "Facebook Ads",
-     "fat": 1235.0,
+     "fat": 1338.0,
      "faturas": 8
     },
     {
      "name": "WhatsApp",
-     "fat": 297.0,
+     "fat": 313.1,
      "faturas": 1
     },
     {
      "name": "Instagram (orgânico)",
-     "fat": 653.0,
+     "fat": 741.48,
      "faturas": 2
     },
     {
@@ -1902,7 +1902,7 @@
    ],
    "fb_split": {
     "frio": {
-     "fat": 1088.0,
+     "fat": 1191.0,
      "faturas": 7
     },
     "quente": {
@@ -1917,7 +1917,7 @@
    "regioes": [
     {
      "name": "Sul",
-     "fat": 645.65,
+     "fat": 734.13,
      "faturas": 3
     },
     {
@@ -1927,12 +1927,12 @@
     },
     {
      "name": "Centro-Oeste",
-     "fat": 297.0,
+     "fat": 313.1,
      "faturas": 1
     },
     {
      "name": "Não informado",
-     "fat": 1235.0,
+     "fat": 1338.0,
      "faturas": 8
     }
    ],
@@ -1987,11 +1987,11 @@
    "impressions": 23921,
    "faturas": 16,
    "units": 21,
-   "fat": 2587.0,
+   "fat": 2828.22,
    "nh": 2440.19,
    "abandoned": 9,
    "checkouts": 25,
-   "fat_re": 2342.0,
+   "fat_re": 2828.22,
    "fat_psi": 0.0,
    "spend_re": 365.16,
    "spend_psi": 0.0,
@@ -2006,17 +2006,17 @@
    "origins": [
     {
      "name": "Facebook Ads",
-     "fat": 2587.0,
+     "fat": 2828.22,
      "faturas": 16
     }
    ],
    "fb_split": {
     "frio": {
-     "fat": 980.0,
+     "fat": 1073.7,
      "faturas": 6
     },
     "quente": {
-     "fat": 1607.0,
+     "fat": 1754.52,
      "faturas": 10
     },
     "outros": {
@@ -2032,7 +2032,7 @@
     },
     {
      "name": "Não informado",
-     "fat": 2087.0,
+     "fat": 2328.22,
      "faturas": 13
     }
    ],
@@ -2086,11 +2086,11 @@
    "impressions": 21403,
    "faturas": 10,
    "units": 13,
-   "fat": 3937.0,
+   "fat": 4659.28,
    "nh": 3820.34,
    "abandoned": 11,
    "checkouts": 21,
-   "fat_re": 1254.0,
+   "fat_re": 1542.04,
    "fat_psi": 0.0,
    "spend_re": 361.0,
    "spend_psi": 0.0,
@@ -2105,12 +2105,12 @@
    "origins": [
     {
      "name": "Facebook Ads",
-     "fat": 1293.0,
+     "fat": 1395.04,
      "faturas": 8
     },
     {
      "name": "Sem origem",
-     "fat": 2497.0,
+     "fat": 3117.24,
      "faturas": 1
     },
     {
@@ -2121,7 +2121,7 @@
    ],
    "fb_split": {
     "frio": {
-     "fat": 774.0,
+     "fat": 876.04,
      "faturas": 5
     },
     "quente": {
@@ -2146,17 +2146,17 @@
     },
     {
      "name": "Centro-Oeste",
-     "fat": 2497.0,
+     "fat": 3117.24,
      "faturas": 1
     },
     {
      "name": "Norte",
-     "fat": 147.0,
+     "fat": 177.6,
      "faturas": 1
     },
     {
      "name": "Não informado",
-     "fat": 999.0,
+     "fat": 1070.44,
      "faturas": 6
     }
    ],
@@ -2205,12 +2205,12 @@
    "impressions": 19175,
    "faturas": 10,
    "units": 15,
-   "fat": 2544.7,
+   "fat": 2784.25,
    "nh": 2415.03,
    "abandoned": 10,
    "checkouts": 20,
-   "fat_re": 1019.0,
-   "fat_psi": 397.0,
+   "fat_re": 1315.53,
+   "fat_psi": 1002.02,
    "spend_re": 326.98,
    "spend_psi": 0.0,
    "faturas_re": 7,
@@ -2224,7 +2224,7 @@
    "origins": [
     {
      "name": "Facebook Ads",
-     "fat": 1225.0,
+     "fat": 1315.53,
      "faturas": 7
     },
     {
@@ -2234,17 +2234,17 @@
     },
     {
      "name": "Instagram (orgânico)",
-     "fat": 853.0,
+     "fat": 1002.02,
      "faturas": 2
     }
    ],
    "fb_split": {
     "frio": {
-     "fat": 892.0,
+     "fat": 925.43,
      "faturas": 5
     },
     "quente": {
-     "fat": 333.0,
+     "fat": 390.1,
      "faturas": 2
     },
     "outros": {
@@ -2255,12 +2255,12 @@
    "regioes": [
     {
      "name": "Sudeste",
-     "fat": 1186.0,
+     "fat": 1392.12,
      "faturas": 4
     },
     {
      "name": "Não informado",
-     "fat": 1358.7,
+     "fat": 1392.13,
      "faturas": 6
     }
    ],
@@ -2320,11 +2320,11 @@
    "impressions": 16495,
    "faturas": 11,
    "units": 14,
-   "fat": 1734.0,
+   "fat": 1877.52,
    "nh": 1631.28,
    "abandoned": 4,
    "checkouts": 15,
-   "fat_re": 1548.0,
+   "fat_re": 1877.52,
    "fat_psi": 0.0,
    "spend_re": 273.66,
    "spend_psi": 0.0,
@@ -2339,22 +2339,22 @@
    "origins": [
     {
      "name": "Instagram (orgânico)",
-     "fat": 588.0,
+     "fat": 601.44,
      "faturas": 4
     },
     {
      "name": "Facebook Ads",
-     "fat": 1146.0,
+     "fat": 1276.08,
      "faturas": 7
     }
    ],
    "fb_split": {
     "frio": {
-     "fat": 813.0,
+     "fat": 896.88,
      "faturas": 5
     },
     "quente": {
-     "fat": 333.0,
+     "fat": 379.2,
      "faturas": 2
     },
     "outros": {
@@ -2365,7 +2365,7 @@
    "regioes": [
     {
      "name": "Sudeste",
-     "fat": 294.0,
+     "fat": 330.6,
      "faturas": 2
     },
     {
@@ -2375,12 +2375,12 @@
     },
     {
      "name": "Nordeste",
-     "fat": 147.0,
+     "fat": 157.68,
      "faturas": 1
     },
     {
      "name": "Não informado",
-     "fat": 1146.0,
+     "fat": 1242.24,
      "faturas": 7
     }
    ],
@@ -2429,11 +2429,11 @@
    "impressions": 19817,
    "faturas": 12,
    "units": 18,
-   "fat": 2038.0,
+   "fat": 2181.58,
    "nh": 1914.55,
    "abandoned": 8,
    "checkouts": 20,
-   "fat_re": 1646.0,
+   "fat_re": 2181.58,
    "fat_psi": 0.0,
    "spend_re": 367.21,
    "spend_psi": 0.0,
@@ -2448,7 +2448,7 @@
    "origins": [
     {
      "name": "Facebook Ads",
-     "fat": 1832.0,
+     "fat": 1975.58,
      "faturas": 11
     },
     {
@@ -2459,7 +2459,7 @@
    ],
    "fb_split": {
     "frio": {
-     "fat": 1293.0,
+     "fat": 1425.42,
      "faturas": 8
     },
     "quente": {
@@ -2467,19 +2467,19 @@
      "faturas": 2
     },
     "outros": {
-     "fat": 206.0,
+     "fat": 217.16,
      "faturas": 1
     }
    },
    "regioes": [
     {
      "name": "Sudeste",
-     "fat": 147.0,
+     "fat": 183.6,
      "faturas": 1
     },
     {
      "name": "Não informado",
-     "fat": 1891.0,
+     "fat": 1997.98,
      "faturas": 11
     }
    ],
@@ -2537,12 +2537,12 @@
    "impressions": 22011,
    "faturas": 18,
    "units": 19,
-   "fat": 2975.47,
+   "fat": 3257.79,
    "nh": 2808.05,
    "abandoned": 5,
    "checkouts": 23,
-   "fat_re": 1656.0,
-   "fat_psi": 447.0,
+   "fat_re": 1709.48,
+   "fat_psi": 520.8,
    "spend_re": 398.03,
    "spend_psi": 0.0,
    "faturas_re": 11,
@@ -2556,7 +2556,7 @@
    "origins": [
     {
      "name": "Facebook Ads",
-     "fat": 1362.0,
+     "fat": 1415.48,
      "faturas": 9
     },
     {
@@ -2566,12 +2566,12 @@
     },
     {
      "name": "Sem origem",
-     "fat": 1129.57,
+     "fat": 1284.61,
      "faturas": 6
     },
     {
      "name": "Instagram (orgânico)",
-     "fat": 297.0,
+     "fat": 370.8,
      "faturas": 1
     },
     {
@@ -2582,37 +2582,37 @@
    ],
    "fb_split": {
     "frio": {
-     "fat": 921.0,
+     "fat": 939.64,
      "faturas": 6
     },
     "quente": {
-     "fat": 294.0,
+     "fat": 318.16,
      "faturas": 2
     },
     "outros": {
-     "fat": 147.0,
+     "fat": 157.68,
      "faturas": 1
     }
    },
    "regioes": [
     {
      "name": "Sudeste",
-     "fat": 591.0,
+     "fat": 681.0,
      "faturas": 3
     },
     {
      "name": "Sul",
-     "fat": 624.49,
+     "fat": 727.85,
      "faturas": 3
     },
     {
      "name": "Nordeste",
-     "fat": 208.08,
+     "fat": 259.76,
      "faturas": 1
     },
     {
      "name": "Não informado",
-     "fat": 1551.9,
+     "fat": 1589.18,
      "faturas": 11
     }
    ],
@@ -2665,11 +2665,11 @@
    "impressions": 23240,
    "faturas": 16,
    "units": 20,
-   "fat": 2947.23,
+   "fat": 3061.95,
    "nh": 2753.48,
    "abandoned": 10,
    "checkouts": 26,
-   "fat_re": 1382.0,
+   "fat_re": 1927.72,
    "fat_psi": 0.0,
    "spend_re": 415.97,
    "spend_psi": 0.0,
@@ -2689,22 +2689,22 @@
     },
     {
      "name": "Facebook Ads",
-     "fat": 1460.0,
+     "fat": 1531.82,
      "faturas": 9
     },
     {
      "name": "Instagram (orgânico)",
-     "fat": 353.0,
+     "fat": 395.9,
      "faturas": 2
     }
    ],
    "fb_split": {
     "frio": {
-     "fat": 539.0,
+     "fat": 555.2,
      "faturas": 3
     },
     "quente": {
-     "fat": 921.0,
+     "fat": 976.62,
      "faturas": 6
     },
     "outros": {
@@ -2720,12 +2720,12 @@
     },
     {
      "name": "Nordeste",
-     "fat": 652.7,
+     "fat": 695.6,
      "faturas": 3
     },
     {
      "name": "Não informado",
-     "fat": 1460.0,
+     "fat": 1531.82,
      "faturas": 9
     }
    ],
@@ -2787,11 +2787,11 @@
    "impressions": 21277,
    "faturas": 8,
    "units": 11,
-   "fat": 1486.0,
+   "fat": 1537.28,
    "nh": 1387.18,
    "abandoned": 13,
    "checkouts": 21,
-   "fat_re": 1206.0,
+   "fat_re": 1257.28,
    "fat_psi": 0.0,
    "spend_re": 415.39,
    "spend_psi": 0.0,
@@ -2806,7 +2806,7 @@
    "origins": [
     {
      "name": "Facebook Ads",
-     "fat": 706.0,
+     "fat": 757.28,
      "faturas": 4
     },
     {
@@ -2831,7 +2831,7 @@
      "faturas": 2
     },
     "quente": {
-     "fat": 353.0,
+     "fat": 404.28,
      "faturas": 2
     },
     "outros": {
@@ -2852,7 +2852,7 @@
     },
     {
      "name": "Não informado",
-     "fat": 706.0,
+     "fat": 757.28,
      "faturas": 4
     }
    ],
@@ -2893,11 +2893,11 @@
    "impressions": 22417,
    "faturas": 10,
    "units": 15,
-   "fat": 1737.99,
+   "fat": 1963.69,
    "nh": 1653.29,
    "abandoned": 6,
    "checkouts": 16,
-   "fat_re": 1107.0,
+   "fat_re": 1571.1,
    "fat_psi": 356.0,
    "spend_re": 498.1,
    "spend_psi": 0.0,
@@ -2912,33 +2912,33 @@
    "origins": [
     {
      "name": "Facebook Ads",
-     "fat": 1590.99,
+     "fat": 1797.67,
      "faturas": 9
     },
     {
      "name": "Instagram (orgânico)",
-     "fat": 147.0,
+     "fat": 166.02,
      "faturas": 1
     }
    ],
    "fb_split": {
     "frio": {
-     "fat": 1375.0,
+     "fat": 1528.88,
      "faturas": 7
     },
     "quente": {
-     "fat": 186.0,
+     "fat": 232.2,
      "faturas": 1
     },
     "outros": {
-     "fat": 29.99,
+     "fat": 36.59,
      "faturas": 1
     }
    },
    "regioes": [
     {
      "name": "Sudeste",
-     "fat": 147.0,
+     "fat": 166.02,
      "faturas": 1
     },
     {
@@ -2948,7 +2948,7 @@
     },
     {
      "name": "Nordeste",
-     "fat": 29.99,
+     "fat": 36.59,
      "faturas": 1
     },
     {
@@ -2958,7 +2958,7 @@
     },
     {
      "name": "Não informado",
-     "fat": 911.0,
+     "fat": 1111.08,
      "faturas": 5
     }
    ],
@@ -3022,11 +3022,11 @@
    "impressions": 22385,
    "faturas": 11,
    "units": 13,
-   "fat": 1587.9,
+   "fat": 1595.86,
    "nh": 1466.26,
    "abandoned": 13,
    "checkouts": 24,
-   "fat_re": 1548.0,
+   "fat_re": 1555.96,
    "fat_psi": 0.0,
    "spend_re": 538.72,
    "spend_psi": 0.0,
@@ -3046,7 +3046,7 @@
     },
     {
      "name": "Instagram (orgânico)",
-     "fat": 294.0,
+     "fat": 301.96,
      "faturas": 2
     },
     {
@@ -3077,7 +3077,7 @@
    "regioes": [
     {
      "name": "Nordeste",
-     "fat": 441.0,
+     "fat": 448.96,
      "faturas": 3
     },
     {
@@ -3124,11 +3124,11 @@
    "impressions": 20955,
    "faturas": 10,
    "units": 20,
-   "fat": 1940.0,
+   "fat": 2139.32,
    "nh": 1838.57,
    "abandoned": 4,
    "checkouts": 14,
-   "fat_re": 970.0,
+   "fat_re": 2139.32,
    "fat_psi": 0.0,
    "spend_re": 519.02,
    "spend_psi": 0.0,
@@ -3143,22 +3143,22 @@
    "origins": [
     {
      "name": "Facebook Ads",
-     "fat": 1137.0,
+     "fat": 1229.24,
      "faturas": 6
     },
     {
      "name": "Instagram (orgânico)",
-     "fat": 803.0,
+     "fat": 910.08,
      "faturas": 4
     }
    ],
    "fb_split": {
     "frio": {
-     "fat": 745.0,
+     "fat": 785.96,
      "faturas": 4
     },
     "quente": {
-     "fat": 392.0,
+     "fat": 443.28,
      "faturas": 2
     },
     "outros": {
@@ -3169,12 +3169,12 @@
    "regioes": [
     {
      "name": "Nordeste",
-     "fat": 392.0,
+     "fat": 408.2,
      "faturas": 2
     },
     {
      "name": "Não informado",
-     "fat": 1548.0,
+     "fat": 1731.12,
      "faturas": 8
     }
    ],
@@ -3224,11 +3224,11 @@
    "impressions": 23821,
    "faturas": 13,
    "units": 23,
-   "fat": 2381.0,
+   "fat": 2619.32,
    "nh": 2253.44,
    "abandoned": 11,
    "checkouts": 24,
-   "fat_re": 1950.0,
+   "fat_re": 2619.32,
    "fat_psi": 0.0,
    "spend_re": 574.89,
    "spend_psi": 0.0,
@@ -3243,18 +3243,18 @@
    "origins": [
     {
      "name": "Facebook Ads",
-     "fat": 1685.0,
+     "fat": 1813.36,
      "faturas": 10
     },
     {
      "name": "Instagram (orgânico)",
-     "fat": 696.0,
+     "fat": 805.96,
      "faturas": 3
     }
    ],
    "fb_split": {
     "frio": {
-     "fat": 1352.0,
+     "fat": 1480.36,
      "faturas": 8
     },
     "quente": {
@@ -3269,7 +3269,7 @@
    "regioes": [
     {
      "name": "Não informado",
-     "fat": 2381.0,
+     "fat": 2619.32,
      "faturas": 13
     }
    ],
@@ -3332,18 +3332,18 @@
    "d1": 7,
    "spend": 2395.64,
    "spend_sales": 2097.73,
-   "fat": 5346.9,
+   "fat": 5577.96,
    "units": 27,
    "faturas": 23,
    "nh": 4911.94,
    "abandoned": 19,
    "checkouts": 42,
    "cpa": 91.21,
-   "roas": 2.55,
+   "roas": 2.66,
    "lucro": 2814.21,
    "conv_checkout": 54.76,
-   "fat_re": 941.0,
-   "fat_psi": 2912.0,
+   "fat_re": 1051.3,
+   "fat_psi": 3568.2,
    "has_data": true
   },
   {
@@ -3353,18 +3353,18 @@
    "d1": 14,
    "spend": 2394.98,
    "spend_sales": 2108.44,
-   "fat": 12947.09,
+   "fat": 13665.54,
    "units": 84,
    "faturas": 60,
    "nh": 12159.79,
    "abandoned": 38,
    "checkouts": 98,
    "cpa": 35.14,
-   "roas": 6.14,
+   "roas": 6.48,
    "lucro": 10051.35,
    "conv_checkout": 61.22,
-   "fat_re": 6674.0,
-   "fat_psi": 891.0,
+   "fat_re": 7845.77,
+   "fat_psi": 2650.68,
    "has_data": true
   },
   {
@@ -3374,18 +3374,18 @@
    "d1": 21,
    "spend": 2778.82,
    "spend_sales": 2502.51,
-   "fat": 15387.45,
+   "fat": 16975.18,
    "units": 100,
    "faturas": 77,
    "nh": 14588.33,
    "abandoned": 55,
    "checkouts": 132,
    "cpa": 32.5,
-   "roas": 6.15,
+   "roas": 6.78,
    "lucro": 12085.82,
    "conv_checkout": 58.33,
-   "fat_re": 9240.0,
-   "fat_psi": 1544.0,
+   "fat_re": 11448.02,
+   "fat_psi": 2040.47,
    "has_data": true
   },
   {
@@ -3395,18 +3395,18 @@
    "d1": 28,
    "spend": 2920.84,
    "spend_sales": 2695.34,
-   "fat": 15463.39,
+   "fat": 16664.06,
    "units": 112,
    "faturas": 85,
    "nh": 14562.86,
    "abandoned": 56,
    "checkouts": 141,
    "cpa": 31.71,
-   "roas": 5.74,
+   "roas": 6.18,
    "lucro": 11867.52,
    "conv_checkout": 60.28,
-   "fat_re": 9564.0,
-   "fat_psi": 1200.0,
+   "fat_re": 11840.21,
+   "fat_psi": 1878.82,
    "has_data": true
   },
   {
@@ -3416,17 +3416,17 @@
    "d1": 31,
    "spend": 1632.63,
    "spend_sales": 1632.63,
-   "fat": 5908.9,
+   "fat": 6354.5,
    "units": 56,
    "faturas": 34,
    "nh": 5558.27,
    "abandoned": 28,
    "checkouts": 62,
    "cpa": 48.02,
-   "roas": 3.62,
+   "roas": 3.89,
    "lucro": 3925.64,
    "conv_checkout": 54.84,
-   "fat_re": 4468.0,
+   "fat_re": 6314.6,
    "fat_psi": 0.0,
    "has_data": true
   }
@@ -3439,16 +3439,16 @@
    "reach": 262411,
    "faturas": 217,
    "units": 304,
-   "fat": 30887.0,
-   "nh": 28864.93,
-   "total": 32922.51,
+   "fat": 38499.9,
+   "nh": 33695.87,
+   "total": 38499.9,
    "ob": 74,
    "cpa": 40.97,
-   "roas": 3.47,
-   "roas_nh": 3.25,
-   "lucro": 19974.09,
-   "roi": 224.66,
-   "ticket": 142.34,
+   "roas": 4.33,
+   "roas_nh": 3.79,
+   "lucro": 24805.03,
+   "roi": 279.0,
+   "ticket": 177.42,
    "cpm": 22.61,
    "abandoned": 160,
    "checkouts": 377,
@@ -3466,10 +3466,10 @@
      "d0": 1,
      "d1": 7,
      "spend": 178.13,
-     "fat": 941.0,
+     "fat": 1051.3,
      "faturas": 7,
-     "nh": 875.13,
-     "lucro": 697.0,
+     "nh": 925.14,
+     "lucro": 747.01,
      "impressions": 7271,
      "has_data": true
     },
@@ -3479,10 +3479,10 @@
      "d0": 8,
      "d1": 14,
      "spend": 1882.23,
-     "fat": 6674.0,
+     "fat": 7845.77,
      "faturas": 44,
-     "nh": 6206.82,
-     "lucro": 4324.59,
+     "nh": 6904.28,
+     "lucro": 5022.05,
      "impressions": 68011,
      "has_data": true
     },
@@ -3492,10 +3492,10 @@
      "d0": 15,
      "d1": 21,
      "spend": 2502.51,
-     "fat": 9240.0,
+     "fat": 11448.02,
      "faturas": 66,
-     "nh": 8593.2,
-     "lucro": 6090.69,
+     "nh": 10074.26,
+     "lucro": 7571.75,
      "impressions": 124162,
      "has_data": true
     },
@@ -3505,10 +3505,10 @@
      "d0": 22,
      "d1": 28,
      "spend": 2695.34,
-     "fat": 9564.0,
+     "fat": 11840.21,
      "faturas": 67,
-     "nh": 8894.52,
-     "lucro": 6199.18,
+     "nh": 10419.38,
+     "lucro": 7724.04,
      "impressions": 126682,
      "has_data": true
     },
@@ -3518,10 +3518,10 @@
      "d0": 29,
      "d1": 31,
      "spend": 1632.63,
-     "fat": 4468.0,
+     "fat": 6314.6,
      "faturas": 33,
-     "nh": 4155.24,
-     "lucro": 2522.61,
+     "nh": 5556.85,
+     "lucro": 3924.22,
      "impressions": 67161,
      "has_data": true
     }
@@ -3639,16 +3639,16 @@
    "reach": 51898,
    "faturas": 29,
    "units": 42,
-   "fat": 6547.0,
-   "nh": 6245.34,
-   "total": 7264.27,
+   "fat": 10138.17,
+   "nh": 8801.16,
+   "total": 10138.17,
    "ob": 11,
    "cpa": 73.99,
-   "roas": 3.05,
-   "roas_nh": 2.91,
-   "lucro": 4099.53,
-   "roi": 191.05,
-   "ticket": 225.76,
+   "roas": 4.72,
+   "roas_nh": 4.1,
+   "lucro": 6655.35,
+   "roi": 310.16,
+   "ticket": 349.59,
    "cpm": 26.93,
    "abandoned": 27,
    "checkouts": 56,
@@ -3666,10 +3666,10 @@
      "d0": 1,
      "d1": 7,
      "spend": 1919.6,
-     "fat": 2912.0,
+     "fat": 3568.2,
      "faturas": 10,
-     "nh": 2766.4,
-     "lucro": 846.8,
+     "nh": 3104.33,
+     "lucro": 1184.73,
      "impressions": 71226,
      "has_data": true
     },
@@ -3679,10 +3679,10 @@
      "d0": 8,
      "d1": 14,
      "spend": 226.21,
-     "fat": 891.0,
+     "fat": 2650.68,
      "faturas": 8,
-     "nh": 846.45,
-     "lucro": 620.24,
+     "nh": 2306.09,
+     "lucro": 2079.88,
      "impressions": 8452,
      "has_data": true
     },
@@ -3692,10 +3692,10 @@
      "d0": 15,
      "d1": 21,
      "spend": 0.0,
-     "fat": 1544.0,
+     "fat": 2040.47,
      "faturas": 6,
-     "nh": 1466.8,
-     "lucro": 1466.8,
+     "nh": 1775.21,
+     "lucro": 1775.21,
      "impressions": 0,
      "has_data": true
     },
@@ -3705,10 +3705,10 @@
      "d0": 22,
      "d1": 28,
      "spend": 0.0,
-     "fat": 1200.0,
+     "fat": 1878.82,
      "faturas": 5,
-     "nh": 1140.0,
-     "lucro": 1140.0,
+     "nh": 1634.57,
+     "lucro": 1634.57,
      "impressions": 0,
      "has_data": true
     },
@@ -5822,19 +5822,19 @@
   {
    "name": "Facebook Ads",
    "faturas": 192,
-   "fat": 32552.99,
+   "fat": 34899.61,
    "nh": 30590.43
   },
   {
    "name": "Instagram (orgânico)",
    "faturas": 39,
-   "fat": 9702.0,
+   "fat": 10651.23,
    "nh": 9114.72
   },
   {
    "name": "WhatsApp",
    "faturas": 9,
-   "fat": 1630.0,
+   "fat": 1691.26,
    "nh": 1522.04
   },
   {
@@ -5846,7 +5846,7 @@
   {
    "name": "Sem origem",
    "faturas": 27,
-   "fat": 10623.61,
+   "fat": 11450.01,
    "nh": 10082.85
   }
  ],
@@ -5854,7 +5854,7 @@
   {
    "name": "Regulando as Emoções",
    "faturas": 192,
-   "fat": 30887.0,
+   "fat": 32922.51,
    "units": 249,
    "recorrente": false,
    "plataforma": "hubla"
@@ -5862,7 +5862,7 @@
   {
    "name": "Curso Psi: 0-8",
    "faturas": 21,
-   "fat": 6547.0,
+   "fat": 7264.27,
    "units": 24,
    "recorrente": false,
    "plataforma": "hubla"
@@ -5870,7 +5870,7 @@
   {
    "name": "Formação Primeira Infância • Turma 09",
    "faturas": 13,
-   "fat": 5457.72,
+   "fat": 6233.0,
    "units": 13,
    "recorrente": true,
    "plataforma": "hubla"
@@ -5878,7 +5878,7 @@
   {
    "name": "Recursos Exclusivos Divertidamente 2",
    "faturas": 20,
-   "fat": 4856.0,
+   "fat": 5238.28,
    "units": 44,
    "recorrente": false,
    "plataforma": "hubla"
@@ -5894,7 +5894,7 @@
   {
    "name": "O Mapa da Avaliação - Autismo",
    "faturas": 13,
-   "fat": 2953.0,
+   "fat": 3213.01,
    "units": 29,
    "recorrente": false,
    "plataforma": "hubla"
@@ -5902,7 +5902,7 @@
   {
    "name": "PRO",
    "faturas": 14,
-   "fat": 605.03,
+   "fat": 618.19,
    "units": 14,
    "recorrente": false,
    "plataforma": "hotmart"
@@ -5928,99 +5928,99 @@
   {
    "name": "Sudeste",
    "faturas": 49,
-   "fat": 12299.68
+   "fat": 13079.0
   },
   {
    "name": "Sul",
    "faturas": 24,
-   "fat": 5158.84
+   "fat": 5454.86
   },
   {
    "name": "Nordeste",
    "faturas": 24,
-   "fat": 4690.5
+   "fat": 5066.61
   },
   {
    "name": "Centro-Oeste",
    "faturas": 10,
-   "fat": 4718.5
+   "fat": 5533.0
   },
   {
    "name": "Norte",
    "faturas": 5,
-   "fat": 767.91
+   "fat": 818.51
   },
   {
    "name": "Não informado",
    "faturas": 167,
-   "fat": 27418.3
+   "fat": 29285.26
   }
  ],
  "estados": [
   {
    "uf": "SP",
    "faturas": 18,
-   "fat": 5514.28
+   "fat": 5787.76
   },
   {
    "uf": "MG",
    "faturas": 18,
-   "fat": 3974.9
+   "fat": 4298.24
   },
   {
    "uf": "MT",
    "faturas": 2,
-   "fat": 2594.0
+   "fat": 3214.24
   },
   {
    "uf": "RJ",
    "faturas": 11,
-   "fat": 2477.5
+   "fat": 2639.5
   },
   {
    "uf": "SC",
    "faturas": 10,
-   "fat": 2284.16
+   "fat": 2439.8
   },
   {
    "uf": "PR",
    "faturas": 9,
-   "fat": 1618.93
-  },
-  {
-   "uf": "PE",
-   "faturas": 4,
-   "fat": 1286.0
+   "fat": 1632.37
   },
   {
    "uf": "RS",
    "faturas": 5,
-   "fat": 1255.75
+   "fat": 1382.69
+  },
+  {
+   "uf": "PE",
+   "faturas": 4,
+   "fat": 1359.8
   },
   {
    "uf": "DF",
    "faturas": 3,
-   "fat": 978.0
+   "fat": 1153.42
   },
   {
    "uf": "CE",
    "faturas": 5,
-   "fat": 927.9
+   "fat": 1073.79
   },
   {
    "uf": "BA",
    "faturas": 5,
-   "fat": 882.79
-  },
-  {
-   "uf": "GO",
-   "faturas": 4,
-   "fat": 647.0
+   "fat": 933.65
   },
   {
    "uf": "RN",
    "faturas": 4,
-   "fat": 622.09
+   "fat": 669.37
+  },
+  {
+   "uf": "GO",
+   "faturas": 4,
+   "fat": 665.84
   },
   {
    "uf": "MS",
@@ -6030,7 +6030,7 @@
   {
    "uf": "RO",
    "faturas": 2,
-   "fat": 444.0
+   "fat": 474.6
   },
   {
    "uf": "SE",
@@ -6040,7 +6040,12 @@
   {
    "uf": "ES",
    "faturas": 2,
-   "fat": 333.0
+   "fat": 353.5
+  },
+  {
+   "uf": "PB",
+   "faturas": 2,
+   "fat": 296.35
   },
   {
    "uf": "MA",
@@ -6048,14 +6053,9 @@
    "fat": 249.75
   },
   {
-   "uf": "PB",
-   "faturas": 2,
-   "fat": 238.07
-  },
-  {
    "uf": "PA",
    "faturas": 1,
-   "fat": 147.0
+   "fat": 160.44
   },
   {
    "uf": "TO",
@@ -6070,7 +6070,7 @@
   {
    "uf": "AM",
    "faturas": 1,
-   "fat": 29.91
+   "fat": 36.47
   }
  ],
  "payment_dist": [
@@ -6174,8 +6174,8 @@
    "level": "positivo",
    "icon": "star",
    "tag": "MELHOR SEMANA",
-   "title": "Semana 4 (22–28/mai): ROAS 5.7x e CPA R$32 — performance crescente",
-   "body": "Os 7 dias de 22–28/mai já entregaram R$15,463 com R$2,695 investidos (ROAS 5.7x). CPA caiu de R$32 (S3) para R$32 — eficiência crescente. Sinal para aumentar orçamento gradualmente: +15–20% a cada 2–3 dias enquanto ROAS ≥ 4x."
+   "title": "Semana 4 (22–28/mai): ROAS 6.2x e CPA R$32 — performance crescente",
+   "body": "Os 7 dias de 22–28/mai já entregaram R$16,664 com R$2,695 investidos (ROAS 6.2x). CPA caiu de R$32 (S3) para R$32 — eficiência crescente. Sinal para aumentar orçamento gradualmente: +15–20% a cada 2–3 dias enquanto ROAS ≥ 4x."
   },
   {
    "level": "positivo",
@@ -6195,50 +6195,50 @@
    "level": "info",
    "icon": "funnel",
    "tag": "PORTFÓLIO",
-   "title": "RE: 217 vendas ROAS 3.47x | PSI: 29 vendas ROAS 3.05x — RE lidera em volume",
-   "body": "Regulando as Emoções: R$30,887 em 217 vendas (ticket médio R$142, CPA R$41). PSI08: R$6,547 em 29 vendas (ticket R$226). Priorizar escala no RE — maior volume e público mais amplo. PSI tem ticket 2× maior; vale reativar com orçamento separado."
+   "title": "PSI ROAS 4.72x supera RE 4.33x — avaliar alocação de budget",
+   "body": "PSI08: R$10,138 em 29 vendas (ticket R$350). RE: R$38,500 em 217 vendas (ticket R$177). Considerar aumentar investimento em PSI, que tem ticket mais alto e ROAS superior."
   },
   {
    "level": "atencao",
    "icon": "dollar",
    "tag": "PSI — REATIVAR",
-   "title": "Curso PSI pausado com ROAS 3.05x e ticket R$226 — canal de alto valor inativo",
-   "body": "O Curso Psi:0–8 gerou R$6,547 com ROAS 3.05x — ticket 2× maior que o RE. Campanhas pausadas desde mai/10. Reativar com R$30–50/dia, criativos novos (depoimentos, transformação, urgência) e UTMs corretos. Sugestão: duplicar a campanha [PSI08] [Compra] [Frio] com criativos renovados e testar sem escala por 7 dias antes de aumentar budget."
+   "title": "Curso PSI pausado com ROAS 4.72x e ticket R$350 — canal de alto valor inativo",
+   "body": "O Curso Psi:0–8 gerou R$10,138 com ROAS 4.72x — ticket 2× maior que o RE. Campanhas pausadas desde mai/10. Reativar com R$30–50/dia, criativos novos (depoimentos, transformação, urgência) e UTMs corretos. Sugestão: duplicar a campanha [PSI08] [Compra] [Frio] com criativos renovados e testar sem escala por 7 dias antes de aumentar budget."
   },
   {
    "level": "positivo",
    "icon": "plus",
    "tag": "ORDER BUMP",
-   "title": "85 pedidos com OB aceito — R$10,720 extras (19% do faturamento)",
+   "title": "85 pedidos com OB aceito — R$10,720 extras (18% do faturamento)",
    "body": "85 clientes aceitaram o order bump (30.5% dos pedidos), gerando R$10,720 adicionais. Testar novos OBs complementares (templates, recursos, mentorias) pode elevar esse percentual. A/B na posição e copy do OB pode aumentar a taxa de aceitação para 30–40%."
   },
   {
    "level": "atencao",
    "icon": "cart",
    "tag": "RECUPERAÇÃO",
-   "title": "196 checkouts não convertidos — R$28,870 em receita potencial não capturada",
-   "body": "Taxa de checkout-to-purchase: 57.7% (279 vendas / 463 checkouts). 160 abandonos do RE (ticket ~R$142) + 27 do PSI (ticket ~R$226) = R$28,870 potencial. Sequência de recuperação em 1h + 24h + 72h por WhatsApp/e-mail pode recuperar 20–30%. Checar se o fluxo de recuperação está ativo na Hubla."
+   "title": "196 checkouts não convertidos — R$37,826 em receita potencial não capturada",
+   "body": "Taxa de checkout-to-purchase: 57.7% (279 vendas / 463 checkouts). 160 abandonos do RE (ticket ~R$177) + 27 do PSI (ticket ~R$350) = R$37,826 potencial. Sequência de recuperação em 1h + 24h + 72h por WhatsApp/e-mail pode recuperar 20–30%. Checar se o fluxo de recuperação está ativo na Hubla."
   },
   {
    "level": "info",
    "icon": "profit",
    "tag": "RESULTADO MENSAL",
-   "title": "R$55,054 faturados | Lucro R$40,745 | ROI 369% sobre mídia",
-   "body": "279 vendas em 31 dias: R$55,054 bruto → R$51,781 líquido (taxa Hubla ~11.8%). Investimento em mídia paga: R$11,037. Lucro operacional: R$40,745 (ROI 369%). Projeção para o mês completo: ~R$55,053 de faturamento se o ritmo se mantiver."
+   "title": "R$59,237 faturados | Lucro R$40,745 | ROI 369% sobre mídia",
+   "body": "279 vendas em 31 dias: R$59,237 bruto → R$51,781 líquido (taxa Hubla ~11.8%). Investimento em mídia paga: R$11,037. Lucro operacional: R$40,745 (ROI 369%). Projeção para o mês completo: ~R$59,237 de faturamento se o ritmo se mantiver."
   }
  ],
  "fb_split": {
   "frio": {
    "faturas": 113,
-   "fat": 19189.0
+   "fat": 20687.03
   },
   "quente": {
    "faturas": 70,
-   "fat": 11621.0
+   "fat": 12424.950000000004
   },
   "outros": {
    "faturas": 9,
-   "fat": 1742.99
+   "fat": 1787.63
   }
  }
 }
