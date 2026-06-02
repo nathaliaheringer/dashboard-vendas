@@ -27,6 +27,9 @@ BASE_DATA = '/Users/guilhermebasso/Documents/Claude/Projects/NH/dashboard-vendas
 BASE_OUT  = '/Users/guilhermebasso/Documents/Claude/Projects/NH'
 
 # ── PERÍODO: detecta automaticamente o mês corrente ──────────────
+# PERIOD_*: mês corrente — usado para totais, KPIs, semanas, products_paid
+# HIST_*:   janela histórica ampla — usada para o daily[] (permite ver
+#           meses anteriores via seletor de datas no dashboard)
 _now = datetime.now()
 PERIOD_YEAR   = _now.year
 PERIOD_MONTH  = _now.month
@@ -35,15 +38,20 @@ DAYS_MONTH    = calendar.monthrange(PERIOD_YEAR, PERIOD_MONTH)[1]
 DAYS_ELAPSED  = min(_now.day, DAYS_MONTH)
 PERIOD_END    = datetime(PERIOD_YEAR, PERIOD_MONTH, DAYS_ELAPSED, 23, 59, 59)
 
+# Histórico: começo do ano até hoje (mantém maio, abril, etc. acessíveis via calendário)
+HIST_START = datetime(PERIOD_YEAR, 1, 1)
+HIST_END   = PERIOD_END
+
 _MES_PT = ['janeiro','fevereiro','março','abril','maio','junho',
            'julho','agosto','setembro','outubro','novembro','dezembro']
 _MES_ABBR = ['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez']
 MES_ABBR = _MES_ABBR[PERIOD_MONTH-1]
 PERIOD_LABEL = f"01 a {DAYS_ELAPSED} de {_MES_PT[PERIOD_MONTH-1]} de {PERIOD_YEAR}"
 
-print(f"\n📅 Período detectado: {PERIOD_LABEL}")
+print(f"\n📅 Mês corrente (totais e KPIs): {PERIOD_LABEL}")
 print(f"   {PERIOD_START.strftime('%Y-%m-%d')} → {PERIOD_END.strftime('%Y-%m-%d')} "
-      f"({DAYS_ELAPSED}/{DAYS_MONTH} dias)\n")
+      f"({DAYS_ELAPSED}/{DAYS_MONTH} dias)")
+print(f"📊 Histórico no daily[] (calendário): {HIST_START.strftime('%Y-%m-%d')} → {HIST_END.strftime('%Y-%m-%d')}\n")
 
 # ── helpers ──────────────────────────────────────────────────────
 def dedup(s):
@@ -102,50 +110,68 @@ REGION_MAP = {
 def is_re_prod(p):  return 'Regulando' in str(p)
 def is_psi_prod(p): return ('Psi' in str(p) or 'PSI' in str(p)) and 'Regulando' not in str(p)
 
-# ── STEP 1: Hubla XLSX (auto-detecta o XLSX que tem dados do mês corrente) ──
-_hubla_candidates = sorted(glob.glob(f'{BASE_DATA}/*.xlsx'),
-                            key=lambda p: os.path.getmtime(p), reverse=True)
-_HUBLA_FILE = None
-for _f in _hubla_candidates:
-    try:
-        _wb_test = openpyxl.load_workbook(_f, read_only=True)
-        _ws_test = _wb_test.active
-        _hdr = [str(c.value) for c in _ws_test[1]]
-        if 'Data de pagamento' not in _hdr or 'Status da fatura' not in _hdr:
-            _wb_test.close(); continue
-        _di = _hdr.index('Data de pagamento'); _si = _hdr.index('Status da fatura')
-        _match = False
-        for _row in _ws_test.iter_rows(min_row=2, values_only=True):
-            if str(_row[_si]) != 'Paga': continue
-            _dt = parse_dt(_row[_di])
-            if _dt and PERIOD_START <= _dt <= PERIOD_END:
-                _match = True; break
-        _wb_test.close()
-        if _match:
-            _HUBLA_FILE = _f; break
-    except Exception:
-        continue
-if not _HUBLA_FILE:
-    # Fallback: usar o mais recente mesmo sem match
-    _HUBLA_FILE = _hubla_candidates[0] if _hubla_candidates else None
-if not _HUBLA_FILE:
+# ── STEP 1: Hubla XLSX — processa TODOS os XLSXs do diretório ──
+# Por quê: o daily[] do dashboard precisa de dias de meses anteriores também
+# (acessíveis via seletor de calendário). Cada XLSX cobre um mês diferente.
+_hubla_files = sorted(glob.glob(f'{BASE_DATA}/*.xlsx'),
+                       key=lambda p: os.path.getmtime(p))
+if not _hubla_files:
     raise SystemExit(f"❌ Nenhum .xlsx encontrado em {BASE_DATA}")
-print(f"[Hubla] XLSX: {os.path.basename(_HUBLA_FILE)}")
-wb = openpyxl.load_workbook(_HUBLA_FILE)
-ws = wb.active
-H = [str(c.value) for c in ws[1]]
+
+# Combinar todas as linhas de TODOS os XLSXs Hubla numa lista única
+all_rows = []
+header_ref = None
+for _f in _hubla_files:
+    try:
+        _wb = openpyxl.load_workbook(_f, read_only=True)
+        _ws = _wb.active
+        _hdr = [str(c.value) for c in _ws[1]]
+        if 'Data de pagamento' not in _hdr or 'Status da fatura' not in _hdr:
+            _wb.close(); continue
+        if header_ref is None:
+            header_ref = _hdr
+        # Reordena cada row para usar o header_ref
+        if _hdr == header_ref:
+            for _r in _ws.iter_rows(min_row=2, values_only=True):
+                all_rows.append(_r)
+        else:
+            # Mapeia índices entre headers (caso diferentes)
+            _idx_map = [_hdr.index(c) if c in _hdr else -1 for c in header_ref]
+            for _r in _ws.iter_rows(min_row=2, values_only=True):
+                all_rows.append(tuple(_r[i] if i >= 0 else None for i in _idx_map))
+        _wb.close()
+        print(f"[Hubla] {os.path.basename(_f)} carregado")
+    except Exception as _e:
+        print(f"[Hubla] {os.path.basename(_f)} pulado: {_e}")
+
+# Cria um objeto "ws" virtual com todas as linhas
+class _VirtualWS:
+    def __init__(self, rows, header):
+        self._rows = rows
+        self._header = header
+    def iter_rows(self, min_row=2, values_only=True):
+        return iter(self._rows)
+    def __getitem__(self, key):
+        if key == 1:
+            return [type('C',(),{'value':h})() for h in self._header]
+ws = _VirtualWS(all_rows, header_ref)
+H = header_ref
 def ci(nm):
     try: return H.index(nm)
     except: return -1
 
+# invoices = só do mês corrente (usado em totals, weeks, products_paid, etc.)
+# invoices_hist = histórico completo (usado para construir daily[] do ano)
 invoices = []
+invoices_hist = []
 for row in ws.iter_rows(min_row=2, values_only=True):
     if str(row[ci('Status da fatura')]) != 'Paga': continue
     dp = str(row[ci('Data de pagamento')] or row[ci('Data de criação')] or '')
     dt = parse_dt(dp)
     if not dt: continue
     d = dt.replace(hour=0,minute=0,second=0,microsecond=0)
-    if not (PERIOD_START <= d <= PERIOD_END): continue
+    # Skip se fora da janela histórica (muito antigo)
+    if d < HIST_START or d > HIST_END: continue
     prod  = str(row[ci('Nome do produto')] or '')
     ob    = str(row[ci('Nome do produto de orderbump')] or '')
     items = int(row[ci('Itens na fatura')] or 1)
@@ -162,12 +188,16 @@ for row in ws.iter_rows(min_row=2, values_only=True):
     num_parcelas_raw = row[ci('Parcelas')] if ci('Parcelas') >= 0 else None
     try: num_parcelas = int(num_parcelas_raw) if num_parcelas_raw is not None else 1
     except: num_parcelas = 1
-    invoices.append(dict(day=dt.day, date=dt.strftime('%Y-%m-%d'),
+    _inv = dict(day=dt.day, month=dt.month, year=dt.year,
+        date=dt.strftime('%Y-%m-%d'),
         prod=prod, ob=ob if ob!='None' else '',
         items=items, fat=fat, nh=nh, total=total,
         recorrente=recor, src=src, med=med, camp=camp, estado=estado,
-        pay_method=pay_method, num_parcelas=num_parcelas))
-print(f"[Hubla] {len(invoices)} faturas pagas")
+        pay_method=pay_method, num_parcelas=num_parcelas)
+    invoices_hist.append(_inv)
+    if PERIOD_START <= d <= PERIOD_END:
+        invoices.append(_inv)
+print(f"[Hubla] {len(invoices)} faturas no mês corrente | {len(invoices_hist)} faturas no histórico")
 
 # ── STEP 2: Carrinhos abandonados ───────────────────────────────
 # Auto-detecta o export-leads-*.csv mais recente
@@ -772,6 +802,89 @@ for _entry in daily_arr:
                                for k,v in sorted(day_ob_re_d[_d].items(),key=lambda x:-x[1]['count']) if v['count']>0]
     _entry['ob_detail_psi'] = [{"name":k,"count":v['count'],"val":r2(v['val'])}
                                for k,v in sorted(day_ob_psi_d[_d].items(),key=lambda x:-x[1]['count']) if v['count']>0]
+    # Tag para o dashboard saber que este é mês corrente (vs histórico)
+    _entry['mes_corrente'] = True
+
+# ── STEP 11b: Prepender dias do histórico (meses anteriores) ────
+# Para cada fatura de meses != mês corrente, agrega por (date) e adiciona ao daily_arr
+# Os campos detalhados (origins, pay_dist, etc.) ficam vazios — só fat/nh/faturas estão
+hist_invoices = [i for i in invoices_hist if not (i['year']==PERIOD_YEAR and i['month']==PERIOD_MONTH)]
+hist_by_date = defaultdict(lambda: {
+    'fat':0.0,'nh':0.0,'total':0.0,'faturas':0,'units':0,
+    'fat_re':0.0,'fat_psi':0.0,'faturas_re':0,'faturas_psi':0,
+    'origins':defaultdict(lambda: {'fat':0.0,'faturas':0}),
+    'fb_split':{'frio':{'fat':0.0,'faturas':0},'quente':{'fat':0.0,'faturas':0},'outros':{'fat':0.0,'faturas':0}},
+    'regioes':defaultdict(lambda: {'fat':0.0,'faturas':0}),
+    'pay_dist':defaultdict(int),
+    'parc_dist':defaultdict(int),
+})
+for inv in hist_invoices:
+    p,ob,tot,nh = inv['prod'],inv['ob'],inv['total'],inv['nh']
+    _hd = hist_by_date[inv['date']]
+    _hd['fat']+=tot; _hd['nh']+=nh; _hd['total']+=tot
+    _hd['faturas']+=1; _hd['units']+=inv['items']
+    _is_re  = is_re_prod(p)  or is_re_prod(ob)
+    _is_psi = is_psi_prod(p) or is_psi_prod(ob)
+    if _is_re:
+        _hd['fat_re']+=tot; _hd['faturas_re']+=1
+    if _is_psi:
+        _hd['fat_psi']+=tot; _hd['faturas_psi']+=1
+    # Origem
+    src = inv['src']
+    if 'facebook' in src: orig='facebook ads'
+    elif 'instagram' in src or 'bio' in src: orig='instagram'
+    elif 'whatsapp' in src: orig='whatsapp'
+    else: orig='sem origem'
+    _hd['origins'][orig]['fat']+=tot; _hd['origins'][orig]['faturas']+=1
+    if orig=='facebook ads':
+        cl = inv['camp'].lower() if inv['camp'] else ''
+        fk = 'frio' if 'frio' in cl else 'quente' if 'quente' in cl else 'outros'
+        _hd['fb_split'][fk]['fat']+=tot; _hd['fb_split'][fk]['faturas']+=1
+    # Região
+    uf=inv['estado']
+    reg=REGION_MAP.get(uf,'Não informado') if uf else 'Não informado'
+    _hd['regioes'][reg]['fat']+=tot; _hd['regioes'][reg]['faturas']+=1
+    # Pagamento
+    pm = inv['pay_method'] or 'Sem informação'
+    _hd['pay_dist'][pm]+=1
+    if pm=='Cartão de Crédito':
+        _hd['parc_dist'][inv['num_parcelas']]+=1
+
+# Constrói entradas do histórico e PREPENDE ao daily_arr
+hist_entries = []
+for date_str, h in sorted(hist_by_date.items()):
+    y,m,dd = [int(x) for x in date_str.split('-')]
+    hist_entries.append({
+        "day":dd, "month":m, "year":y, "date":date_str,
+        "spend":0, "spend_sales":0, "impressions":0,
+        "faturas":h['faturas'], "units":h['units'],
+        "fat":r2(h['fat']), "nh":r2(h['nh']),
+        "abandoned":0, "checkouts":h['faturas'],
+        "fat_re":r2(h['fat_re']), "fat_psi":r2(h['fat_psi']),
+        "spend_re":0, "spend_psi":0,
+        "faturas_re":h['faturas_re'], "faturas_psi":h['faturas_psi'],
+        "funnel_clicks_re":0,"funnel_lpv_re":0,"funnel_imp_re":0,
+        "funnel_clicks_psi":0,"funnel_lpv_psi":0,"funnel_imp_psi":0,
+        "origins":[{"name":ORIG_LABELS.get(k,k),"fat":r2(v['fat']),"faturas":v['faturas']}
+                   for k,v in h['origins'].items() if v['fat']>0],
+        "fb_split":{k:{"fat":r2(v['fat']),"faturas":v['faturas']} for k,v in h['fb_split'].items()},
+        "regioes":[{"name":k,"fat":r2(h['regioes'][k]['fat']),"faturas":h['regioes'][k]['faturas']}
+                   for k in REG_ORDER if h['regioes'].get(k,{}).get('fat',0)>0],
+        "pay_dist":[{"method":k,"count":v} for k,v in sorted(h['pay_dist'].items(),key=lambda x:-x[1]) if v>0],
+        "parc_dist":[{"n":k,"count":v} for k,v in sorted(h['parc_dist'].items()) if v>0],
+        "ob_detail_re":[], "ob_detail_psi":[],
+        "mes_corrente":False,
+    })
+
+# Adiciona month/year aos entries do mês corrente também
+for _entry in daily_arr:
+    _entry['month'] = PERIOD_MONTH
+    _entry['year']  = PERIOD_YEAR
+
+# Prepende histórico ao daily_arr e reordena por data
+daily_arr = hist_entries + daily_arr
+daily_arr.sort(key=lambda x: x['date'])
+print(f"[Daily] {len(daily_arr)} dias no array (histórico + mês corrente)")
 
 def prod_week_rows(day_fat_d, day_c_d, camp_set, nh_ratio=0.94):
     rows=[]

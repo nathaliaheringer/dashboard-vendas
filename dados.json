@@ -6,7 +6,7 @@
   "days_elapsed": 2,
   "days_month": 30
  },
- "_v": 1780424533538,
+ "_v": 1780425978420,
  "totals": {
   "spend": 728.69,
   "spend_sales": 728.69,
@@ -33,6 +33,2993 @@
   "conv_checkout": 48.48
  },
  "daily": [
+  {
+   "day": 1,
+   "month": 5,
+   "year": 2026,
+   "date": "2026-05-01",
+   "spend": 0,
+   "spend_sales": 0,
+   "impressions": 0,
+   "faturas": 1,
+   "units": 2,
+   "fat": 419.52,
+   "nh": 330.05,
+   "abandoned": 0,
+   "checkouts": 1,
+   "fat_re": 0.0,
+   "fat_psi": 419.52,
+   "spend_re": 0,
+   "spend_psi": 0,
+   "faturas_re": 0,
+   "faturas_psi": 1,
+   "funnel_clicks_re": 0,
+   "funnel_lpv_re": 0,
+   "funnel_imp_re": 0,
+   "funnel_clicks_psi": 0,
+   "funnel_lpv_psi": 0,
+   "funnel_imp_psi": 0,
+   "origins": [
+    {
+     "name": "Instagram (orgânico)",
+     "fat": 419.52,
+     "faturas": 1
+    }
+   ],
+   "fb_split": {
+    "frio": {
+     "fat": 0.0,
+     "faturas": 0
+    },
+    "quente": {
+     "fat": 0.0,
+     "faturas": 0
+    },
+    "outros": {
+     "fat": 0.0,
+     "faturas": 0
+    }
+   },
+   "regioes": [
+    {
+     "name": "Sudeste",
+     "fat": 419.52,
+     "faturas": 1
+    }
+   ],
+   "pay_dist": [
+    {
+     "method": "Cartão de Crédito",
+     "count": 1
+    }
+   ],
+   "parc_dist": [
+    {
+     "n": 12,
+     "count": 1
+    }
+   ],
+   "ob_detail_re": [],
+   "ob_detail_psi": [],
+   "mes_corrente": false
+  },
+  {
+   "day": 3,
+   "month": 5,
+   "year": 2026,
+   "date": "2026-05-03",
+   "spend": 0,
+   "spend_sales": 0,
+   "impressions": 0,
+   "faturas": 1,
+   "units": 1,
+   "fat": 36.47,
+   "nh": 25.54,
+   "abandoned": 0,
+   "checkouts": 1,
+   "fat_re": 0.0,
+   "fat_psi": 0.0,
+   "spend_re": 0,
+   "spend_psi": 0,
+   "faturas_re": 0,
+   "faturas_psi": 0,
+   "funnel_clicks_re": 0,
+   "funnel_lpv_re": 0,
+   "funnel_imp_re": 0,
+   "funnel_clicks_psi": 0,
+   "funnel_lpv_psi": 0,
+   "funnel_imp_psi": 0,
+   "origins": [
+    {
+     "name": "Sem origem",
+     "fat": 36.47,
+     "faturas": 1
+    }
+   ],
+   "fb_split": {
+    "frio": {
+     "fat": 0.0,
+     "faturas": 0
+    },
+    "quente": {
+     "fat": 0.0,
+     "faturas": 0
+    },
+    "outros": {
+     "fat": 0.0,
+     "faturas": 0
+    }
+   },
+   "regioes": [
+    {
+     "name": "Norte",
+     "fat": 36.47,
+     "faturas": 1
+    }
+   ],
+   "pay_dist": [
+    {
+     "method": "Cartão de Crédito",
+     "count": 1
+    }
+   ],
+   "parc_dist": [
+    {
+     "n": 1,
+     "count": 1
+    }
+   ],
+   "ob_detail_re": [],
+   "ob_detail_psi": [],
+   "mes_corrente": false
+  },
+  {
+   "day": 4,
+   "month": 5,
+   "year": 2026,
+   "date": "2026-05-04",
+   "spend": 0,
+   "spend_sales": 0,
+   "impressions": 0,
+   "faturas": 4,
+   "units": 4,
+   "fat": 1406.6,
+   "nh": 1300.33,
+   "abandoned": 0,
+   "checkouts": 4,
+   "fat_re": 0.0,
+   "fat_psi": 907.1,
+   "spend_re": 0,
+   "spend_psi": 0,
+   "faturas_re": 0,
+   "faturas_psi": 3,
+   "funnel_clicks_re": 0,
+   "funnel_lpv_re": 0,
+   "funnel_imp_re": 0,
+   "funnel_clicks_psi": 0,
+   "funnel_lpv_psi": 0,
+   "funnel_imp_psi": 0,
+   "origins": [
+    {
+     "name": "Sem origem",
+     "fat": 796.5,
+     "faturas": 2
+    },
+    {
+     "name": "Facebook Ads",
+     "fat": 610.1,
+     "faturas": 2
+    }
+   ],
+   "fb_split": {
+    "frio": {
+     "fat": 610.1,
+     "faturas": 2
+    },
+    "quente": {
+     "fat": 0.0,
+     "faturas": 0
+    },
+    "outros": {
+     "fat": 0.0,
+     "faturas": 0
+    }
+   },
+   "regioes": [
+    {
+     "name": "Sudeste",
+     "fat": 610.1,
+     "faturas": 2
+    },
+    {
+     "name": "Nordeste",
+     "fat": 297.0,
+     "faturas": 1
+    },
+    {
+     "name": "Centro-Oeste",
+     "fat": 499.5,
+     "faturas": 1
+    }
+   ],
+   "pay_dist": [
+    {
+     "method": "Cartão de Crédito",
+     "count": 3
+    },
+    {
+     "method": "PIX",
+     "count": 1
+    }
+   ],
+   "parc_dist": [
+    {
+     "n": 1,
+     "count": 2
+    },
+    {
+     "n": 2,
+     "count": 1
+    }
+   ],
+   "ob_detail_re": [],
+   "ob_detail_psi": [],
+   "mes_corrente": false
+  },
+  {
+   "day": 5,
+   "month": 5,
+   "year": 2026,
+   "date": "2026-05-05",
+   "spend": 0,
+   "spend_sales": 0,
+   "impressions": 0,
+   "faturas": 2,
+   "units": 2,
+   "fat": 667.8,
+   "nh": 568.14,
+   "abandoned": 0,
+   "checkouts": 2,
+   "fat_re": 0.0,
+   "fat_psi": 667.8,
+   "spend_re": 0,
+   "spend_psi": 0,
+   "faturas_re": 0,
+   "faturas_psi": 2,
+   "funnel_clicks_re": 0,
+   "funnel_lpv_re": 0,
+   "funnel_imp_re": 0,
+   "funnel_clicks_psi": 0,
+   "funnel_lpv_psi": 0,
+   "funnel_imp_psi": 0,
+   "origins": [
+    {
+     "name": "Instagram (orgânico)",
+     "fat": 297.0,
+     "faturas": 1
+    },
+    {
+     "name": "Facebook Ads",
+     "fat": 370.8,
+     "faturas": 1
+    }
+   ],
+   "fb_split": {
+    "frio": {
+     "fat": 370.8,
+     "faturas": 1
+    },
+    "quente": {
+     "fat": 0.0,
+     "faturas": 0
+    },
+    "outros": {
+     "fat": 0.0,
+     "faturas": 0
+    }
+   },
+   "regioes": [
+    {
+     "name": "Sudeste",
+     "fat": 370.8,
+     "faturas": 1
+    },
+    {
+     "name": "Norte",
+     "fat": 297.0,
+     "faturas": 1
+    }
+   ],
+   "pay_dist": [
+    {
+     "method": "Boleto",
+     "count": 1
+    },
+    {
+     "method": "Cartão de Crédito",
+     "count": 1
+    }
+   ],
+   "parc_dist": [
+    {
+     "n": 12,
+     "count": 1
+    }
+   ],
+   "ob_detail_re": [],
+   "ob_detail_psi": [],
+   "mes_corrente": false
+  },
+  {
+   "day": 6,
+   "month": 5,
+   "year": 2026,
+   "date": "2026-05-06",
+   "spend": 0,
+   "spend_sales": 0,
+   "impressions": 0,
+   "faturas": 3,
+   "units": 3,
+   "fat": 943.75,
+   "nh": 879.65,
+   "abandoned": 0,
+   "checkouts": 3,
+   "fat_re": 0.0,
+   "fat_psi": 694.0,
+   "spend_re": 0,
+   "spend_psi": 0,
+   "faturas_re": 0,
+   "faturas_psi": 2,
+   "funnel_clicks_re": 0,
+   "funnel_lpv_re": 0,
+   "funnel_imp_re": 0,
+   "funnel_clicks_psi": 0,
+   "funnel_lpv_psi": 0,
+   "funnel_imp_psi": 0,
+   "origins": [
+    {
+     "name": "Sem origem",
+     "fat": 249.75,
+     "faturas": 1
+    },
+    {
+     "name": "Facebook Ads",
+     "fat": 397.0,
+     "faturas": 1
+    },
+    {
+     "name": "Instagram (orgânico)",
+     "fat": 297.0,
+     "faturas": 1
+    }
+   ],
+   "fb_split": {
+    "frio": {
+     "fat": 0.0,
+     "faturas": 0
+    },
+    "quente": {
+     "fat": 0.0,
+     "faturas": 0
+    },
+    "outros": {
+     "fat": 397.0,
+     "faturas": 1
+    }
+   },
+   "regioes": [
+    {
+     "name": "Sudeste",
+     "fat": 397.0,
+     "faturas": 1
+    },
+    {
+     "name": "Sul",
+     "fat": 297.0,
+     "faturas": 1
+    },
+    {
+     "name": "Nordeste",
+     "fat": 249.75,
+     "faturas": 1
+    }
+   ],
+   "pay_dist": [
+    {
+     "method": "PIX",
+     "count": 2
+    },
+    {
+     "method": "Cartão de Crédito",
+     "count": 1
+    }
+   ],
+   "parc_dist": [
+    {
+     "n": 1,
+     "count": 1
+    }
+   ],
+   "ob_detail_re": [],
+   "ob_detail_psi": [],
+   "mes_corrente": false
+  },
+  {
+   "day": 7,
+   "month": 5,
+   "year": 2026,
+   "date": "2026-05-07",
+   "spend": 0,
+   "spend_sales": 0,
+   "impressions": 0,
+   "faturas": 9,
+   "units": 12,
+   "fat": 1931.08,
+   "nh": 1657.1,
+   "abandoned": 0,
+   "checkouts": 9,
+   "fat_re": 1051.3,
+   "fat_psi": 879.78,
+   "spend_re": 0,
+   "spend_psi": 0,
+   "faturas_re": 7,
+   "faturas_psi": 2,
+   "funnel_clicks_re": 0,
+   "funnel_lpv_re": 0,
+   "funnel_imp_re": 0,
+   "funnel_clicks_psi": 0,
+   "funnel_lpv_psi": 0,
+   "funnel_imp_psi": 0,
+   "origins": [
+    {
+     "name": "Instagram (orgânico)",
+     "fat": 894.48,
+     "faturas": 3
+    },
+    {
+     "name": "Facebook Ads",
+     "fat": 1036.6,
+     "faturas": 6
+    }
+   ],
+   "fb_split": {
+    "frio": {
+     "fat": 0.0,
+     "faturas": 0
+    },
+    "quente": {
+     "fat": 1036.6,
+     "faturas": 6
+    },
+    "outros": {
+     "fat": 0.0,
+     "faturas": 0
+    }
+   },
+   "regioes": [
+    {
+     "name": "Sul",
+     "fat": 541.46,
+     "faturas": 2
+    },
+    {
+     "name": "Centro-Oeste",
+     "fat": 544.32,
+     "faturas": 1
+    },
+    {
+     "name": "Não informado",
+     "fat": 845.3,
+     "faturas": 6
+    }
+   ],
+   "pay_dist": [
+    {
+     "method": "PIX",
+     "count": 5
+    },
+    {
+     "method": "Cartão de Crédito",
+     "count": 4
+    }
+   ],
+   "parc_dist": [
+    {
+     "n": 1,
+     "count": 1
+    },
+    {
+     "n": 6,
+     "count": 1
+    },
+    {
+     "n": 12,
+     "count": 2
+    }
+   ],
+   "ob_detail_re": [],
+   "ob_detail_psi": [],
+   "mes_corrente": false
+  },
+  {
+   "day": 8,
+   "month": 5,
+   "year": 2026,
+   "date": "2026-05-08",
+   "spend": 0,
+   "spend_sales": 0,
+   "impressions": 0,
+   "faturas": 7,
+   "units": 10,
+   "fat": 3349.21,
+   "nh": 3073.47,
+   "abandoned": 0,
+   "checkouts": 7,
+   "fat_re": 949.51,
+   "fat_psi": 0.0,
+   "spend_re": 0,
+   "spend_psi": 0,
+   "faturas_re": 5,
+   "faturas_psi": 0,
+   "funnel_clicks_re": 0,
+   "funnel_lpv_re": 0,
+   "funnel_imp_re": 0,
+   "funnel_clicks_psi": 0,
+   "funnel_lpv_psi": 0,
+   "funnel_imp_psi": 0,
+   "origins": [
+    {
+     "name": "Sem origem",
+     "fat": 2399.7,
+     "faturas": 2
+    },
+    {
+     "name": "Facebook Ads",
+     "fat": 949.51,
+     "faturas": 5
+    }
+   ],
+   "fb_split": {
+    "frio": {
+     "fat": 0.0,
+     "faturas": 0
+    },
+    "quente": {
+     "fat": 949.51,
+     "faturas": 5
+    },
+    "outros": {
+     "fat": 0.0,
+     "faturas": 0
+    }
+   },
+   "regioes": [
+    {
+     "name": "Sudeste",
+     "fat": 2367.4,
+     "faturas": 2
+    },
+    {
+     "name": "Sul",
+     "fat": 299.7,
+     "faturas": 1
+    },
+    {
+     "name": "Centro-Oeste",
+     "fat": 147.0,
+     "faturas": 1
+    },
+    {
+     "name": "Não informado",
+     "fat": 535.11,
+     "faturas": 3
+    }
+   ],
+   "pay_dist": [
+    {
+     "method": "Cartão de Crédito",
+     "count": 5
+    },
+    {
+     "method": "Boleto",
+     "count": 1
+    },
+    {
+     "method": "PIX",
+     "count": 1
+    }
+   ],
+   "parc_dist": [
+    {
+     "n": 1,
+     "count": 1
+    },
+    {
+     "n": 4,
+     "count": 2
+    },
+    {
+     "n": 5,
+     "count": 1
+    },
+    {
+     "n": 7,
+     "count": 1
+    }
+   ],
+   "ob_detail_re": [],
+   "ob_detail_psi": [],
+   "mes_corrente": false
+  },
+  {
+   "day": 9,
+   "month": 5,
+   "year": 2026,
+   "date": "2026-05-09",
+   "spend": 0,
+   "spend_sales": 0,
+   "impressions": 0,
+   "faturas": 6,
+   "units": 8,
+   "fat": 1267.38,
+   "nh": 1156.51,
+   "abandoned": 0,
+   "checkouts": 6,
+   "fat_re": 653.88,
+   "fat_psi": 114.0,
+   "spend_re": 0,
+   "spend_psi": 0,
+   "faturas_re": 4,
+   "faturas_psi": 1,
+   "funnel_clicks_re": 0,
+   "funnel_lpv_re": 0,
+   "funnel_imp_re": 0,
+   "funnel_clicks_psi": 0,
+   "funnel_lpv_psi": 0,
+   "funnel_imp_psi": 0,
+   "origins": [
+    {
+     "name": "Sem origem",
+     "fat": 613.5,
+     "faturas": 2
+    },
+    {
+     "name": "Facebook Ads",
+     "fat": 653.88,
+     "faturas": 4
+    }
+   ],
+   "fb_split": {
+    "frio": {
+     "fat": 320.88,
+     "faturas": 2
+    },
+    "quente": {
+     "fat": 333.0,
+     "faturas": 2
+    },
+    "outros": {
+     "fat": 0.0,
+     "faturas": 0
+    }
+   },
+   "regioes": [
+    {
+     "name": "Sudeste",
+     "fat": 646.5,
+     "faturas": 2
+    },
+    {
+     "name": "Sul",
+     "fat": 277.2,
+     "faturas": 2
+    },
+    {
+     "name": "Não informado",
+     "fat": 343.68,
+     "faturas": 2
+    }
+   ],
+   "pay_dist": [
+    {
+     "method": "Cartão de Crédito",
+     "count": 4
+    },
+    {
+     "method": "PIX",
+     "count": 2
+    }
+   ],
+   "parc_dist": [
+    {
+     "n": 1,
+     "count": 2
+    },
+    {
+     "n": 3,
+     "count": 1
+    },
+    {
+     "n": 5,
+     "count": 1
+    }
+   ],
+   "ob_detail_re": [],
+   "ob_detail_psi": [],
+   "mes_corrente": false
+  },
+  {
+   "day": 10,
+   "month": 5,
+   "year": 2026,
+   "date": "2026-05-10",
+   "spend": 0,
+   "spend_sales": 0,
+   "impressions": 0,
+   "faturas": 2,
+   "units": 4,
+   "fat": 443.0,
+   "nh": 373.7,
+   "abandoned": 0,
+   "checkouts": 2,
+   "fat_re": 443.0,
+   "fat_psi": 0.0,
+   "spend_re": 0,
+   "spend_psi": 0,
+   "faturas_re": 2,
+   "faturas_psi": 0,
+   "funnel_clicks_re": 0,
+   "funnel_lpv_re": 0,
+   "funnel_imp_re": 0,
+   "funnel_clicks_psi": 0,
+   "funnel_lpv_psi": 0,
+   "funnel_imp_psi": 0,
+   "origins": [
+    {
+     "name": "Facebook Ads",
+     "fat": 443.0,
+     "faturas": 2
+    }
+   ],
+   "fb_split": {
+    "frio": {
+     "fat": 147.0,
+     "faturas": 1
+    },
+    "quente": {
+     "fat": 296.0,
+     "faturas": 1
+    },
+    "outros": {
+     "fat": 0.0,
+     "faturas": 0
+    }
+   },
+   "regioes": [
+    {
+     "name": "Sudeste",
+     "fat": 147.0,
+     "faturas": 1
+    },
+    {
+     "name": "Centro-Oeste",
+     "fat": 296.0,
+     "faturas": 1
+    }
+   ],
+   "pay_dist": [
+    {
+     "method": "PIX",
+     "count": 1
+    },
+    {
+     "method": "Cartão de Crédito",
+     "count": 1
+    }
+   ],
+   "parc_dist": [
+    {
+     "n": 10,
+     "count": 1
+    }
+   ],
+   "ob_detail_re": [],
+   "ob_detail_psi": [],
+   "mes_corrente": false
+  },
+  {
+   "day": 11,
+   "month": 5,
+   "year": 2026,
+   "date": "2026-05-11",
+   "spend": 0,
+   "spend_sales": 0,
+   "impressions": 0,
+   "faturas": 11,
+   "units": 18,
+   "fat": 2443.76,
+   "nh": 2126.37,
+   "abandoned": 0,
+   "checkouts": 11,
+   "fat_re": 1677.96,
+   "fat_psi": 765.8,
+   "spend_re": 0,
+   "spend_psi": 0,
+   "faturas_re": 9,
+   "faturas_psi": 2,
+   "funnel_clicks_re": 0,
+   "funnel_lpv_re": 0,
+   "funnel_imp_re": 0,
+   "funnel_clicks_psi": 0,
+   "funnel_lpv_psi": 0,
+   "funnel_imp_psi": 0,
+   "origins": [
+    {
+     "name": "Instagram (orgânico)",
+     "fat": 765.8,
+     "faturas": 2
+    },
+    {
+     "name": "Facebook Ads",
+     "fat": 1401.24,
+     "faturas": 8
+    },
+    {
+     "name": "WhatsApp",
+     "fat": 276.72,
+     "faturas": 1
+    }
+   ],
+   "fb_split": {
+    "frio": {
+     "fat": 624.6,
+     "faturas": 4
+    },
+    "quente": {
+     "fat": 776.64,
+     "faturas": 4
+    },
+    "outros": {
+     "fat": 0.0,
+     "faturas": 0
+    }
+   },
+   "regioes": [
+    {
+     "name": "Sudeste",
+     "fat": 423.72,
+     "faturas": 2
+    },
+    {
+     "name": "Nordeste",
+     "fat": 949.4,
+     "faturas": 3
+    },
+    {
+     "name": "Não informado",
+     "fat": 1070.64,
+     "faturas": 6
+    }
+   ],
+   "pay_dist": [
+    {
+     "method": "Cartão de Crédito",
+     "count": 7
+    },
+    {
+     "method": "PIX",
+     "count": 4
+    }
+   ],
+   "parc_dist": [
+    {
+     "n": 2,
+     "count": 1
+    },
+    {
+     "n": 3,
+     "count": 2
+    },
+    {
+     "n": 4,
+     "count": 1
+    },
+    {
+     "n": 6,
+     "count": 1
+    },
+    {
+     "n": 12,
+     "count": 2
+    }
+   ],
+   "ob_detail_re": [],
+   "ob_detail_psi": [],
+   "mes_corrente": false
+  },
+  {
+   "day": 12,
+   "month": 5,
+   "year": 2026,
+   "date": "2026-05-12",
+   "spend": 0,
+   "spend_sales": 0,
+   "impressions": 0,
+   "faturas": 10,
+   "units": 11,
+   "fat": 1756.99,
+   "nh": 1531.96,
+   "abandoned": 0,
+   "checkouts": 10,
+   "fat_re": 1289.19,
+   "fat_psi": 370.8,
+   "spend_re": 0,
+   "spend_psi": 0,
+   "faturas_re": 8,
+   "faturas_psi": 1,
+   "funnel_clicks_re": 0,
+   "funnel_lpv_re": 0,
+   "funnel_imp_re": 0,
+   "funnel_clicks_psi": 0,
+   "funnel_lpv_psi": 0,
+   "funnel_imp_psi": 0,
+   "origins": [
+    {
+     "name": "Facebook Ads",
+     "fat": 1289.19,
+     "faturas": 8
+    },
+    {
+     "name": "Instagram (orgânico)",
+     "fat": 467.8,
+     "faturas": 2
+    }
+   ],
+   "fb_split": {
+    "frio": {
+     "fat": 701.19,
+     "faturas": 4
+    },
+    "quente": {
+     "fat": 441.0,
+     "faturas": 3
+    },
+    "outros": {
+     "fat": 147.0,
+     "faturas": 1
+    }
+   },
+   "regioes": [
+    {
+     "name": "Sudeste",
+     "fat": 147.0,
+     "faturas": 1
+    },
+    {
+     "name": "Nordeste",
+     "fat": 370.8,
+     "faturas": 1
+    },
+    {
+     "name": "Centro-Oeste",
+     "fat": 321.84,
+     "faturas": 2
+    },
+    {
+     "name": "Não informado",
+     "fat": 917.35,
+     "faturas": 6
+    }
+   ],
+   "pay_dist": [
+    {
+     "method": "PIX",
+     "count": 5
+    },
+    {
+     "method": "Cartão de Crédito",
+     "count": 5
+    }
+   ],
+   "parc_dist": [
+    {
+     "n": 1,
+     "count": 1
+    },
+    {
+     "n": 4,
+     "count": 2
+    },
+    {
+     "n": 7,
+     "count": 1
+    },
+    {
+     "n": 12,
+     "count": 1
+    }
+   ],
+   "ob_detail_re": [],
+   "ob_detail_psi": [],
+   "mes_corrente": false
+  },
+  {
+   "day": 13,
+   "month": 5,
+   "year": 2026,
+   "date": "2026-05-13",
+   "spend": 0,
+   "spend_sales": 0,
+   "impressions": 0,
+   "faturas": 11,
+   "units": 16,
+   "fat": 2274.72,
+   "nh": 2020.04,
+   "abandoned": 0,
+   "checkouts": 11,
+   "fat_re": 1507.64,
+   "fat_psi": 767.08,
+   "spend_re": 0,
+   "spend_psi": 0,
+   "faturas_re": 9,
+   "faturas_psi": 2,
+   "funnel_clicks_re": 0,
+   "funnel_lpv_re": 0,
+   "funnel_imp_re": 0,
+   "funnel_clicks_psi": 0,
+   "funnel_lpv_psi": 0,
+   "funnel_imp_psi": 0,
+   "origins": [
+    {
+     "name": "Facebook Ads",
+     "fat": 1163.6,
+     "faturas": 7
+    },
+    {
+     "name": "Instagram (orgânico)",
+     "fat": 431.08,
+     "faturas": 1
+    },
+    {
+     "name": "WhatsApp",
+     "fat": 160.44,
+     "faturas": 1
+    },
+    {
+     "name": "Sem origem",
+     "fat": 519.6,
+     "faturas": 2
+    }
+   ],
+   "fb_split": {
+    "frio": {
+     "fat": 516.6,
+     "faturas": 3
+    },
+    "quente": {
+     "fat": 647.0,
+     "faturas": 4
+    },
+    "outros": {
+     "fat": 0.0,
+     "faturas": 0
+    }
+   },
+   "regioes": [
+    {
+     "name": "Sudeste",
+     "fat": 183.6,
+     "faturas": 1
+    },
+    {
+     "name": "Sul",
+     "fat": 927.52,
+     "faturas": 3
+    },
+    {
+     "name": "Não informado",
+     "fat": 1163.6,
+     "faturas": 7
+    }
+   ],
+   "pay_dist": [
+    {
+     "method": "PIX",
+     "count": 7
+    },
+    {
+     "method": "Cartão de Crédito",
+     "count": 4
+    }
+   ],
+   "parc_dist": [
+    {
+     "n": 4,
+     "count": 2
+    },
+    {
+     "n": 12,
+     "count": 2
+    }
+   ],
+   "ob_detail_re": [],
+   "ob_detail_psi": [],
+   "mes_corrente": false
+  },
+  {
+   "day": 14,
+   "month": 5,
+   "year": 2026,
+   "date": "2026-05-14",
+   "spend": 0,
+   "spend_sales": 0,
+   "impressions": 0,
+   "faturas": 9,
+   "units": 13,
+   "fat": 1957.59,
+   "nh": 1729.97,
+   "abandoned": 0,
+   "checkouts": 9,
+   "fat_re": 1324.59,
+   "fat_psi": 633.0,
+   "spend_re": 0,
+   "spend_psi": 0,
+   "faturas_re": 7,
+   "faturas_psi": 2,
+   "funnel_clicks_re": 0,
+   "funnel_lpv_re": 0,
+   "funnel_imp_re": 0,
+   "funnel_clicks_psi": 0,
+   "funnel_lpv_psi": 0,
+   "funnel_imp_psi": 0,
+   "origins": [
+    {
+     "name": "Facebook Ads",
+     "fat": 1660.59,
+     "faturas": 8
+    },
+    {
+     "name": "Instagram (orgânico)",
+     "fat": 297.0,
+     "faturas": 1
+    }
+   ],
+   "fb_split": {
+    "frio": {
+     "fat": 1177.59,
+     "faturas": 6
+    },
+    "quente": {
+     "fat": 147.0,
+     "faturas": 1
+    },
+    "outros": {
+     "fat": 336.0,
+     "faturas": 1
+    }
+   },
+   "regioes": [
+    {
+     "name": "Sudeste",
+     "fat": 748.24,
+     "faturas": 3
+    },
+    {
+     "name": "Sul",
+     "fat": 206.0,
+     "faturas": 1
+    },
+    {
+     "name": "Nordeste",
+     "fat": 297.0,
+     "faturas": 1
+    },
+    {
+     "name": "Centro-Oeste",
+     "fat": 147.0,
+     "faturas": 1
+    },
+    {
+     "name": "Não informado",
+     "fat": 559.35,
+     "faturas": 3
+    }
+   ],
+   "pay_dist": [
+    {
+     "method": "Cartão de Crédito",
+     "count": 5
+    },
+    {
+     "method": "PIX",
+     "count": 4
+    }
+   ],
+   "parc_dist": [
+    {
+     "n": 1,
+     "count": 1
+    },
+    {
+     "n": 2,
+     "count": 1
+    },
+    {
+     "n": 5,
+     "count": 1
+    },
+    {
+     "n": 12,
+     "count": 2
+    }
+   ],
+   "ob_detail_re": [],
+   "ob_detail_psi": [],
+   "mes_corrente": false
+  },
+  {
+   "day": 15,
+   "month": 5,
+   "year": 2026,
+   "date": "2026-05-15",
+   "spend": 0,
+   "spend_sales": 0,
+   "impressions": 0,
+   "faturas": 7,
+   "units": 7,
+   "fat": 1269.73,
+   "nh": 1108.98,
+   "abandoned": 0,
+   "checkouts": 7,
+   "fat_re": 916.84,
+   "fat_psi": 352.89,
+   "spend_re": 0,
+   "spend_psi": 0,
+   "faturas_re": 6,
+   "faturas_psi": 1,
+   "funnel_clicks_re": 0,
+   "funnel_lpv_re": 0,
+   "funnel_imp_re": 0,
+   "funnel_clicks_psi": 0,
+   "funnel_lpv_psi": 0,
+   "funnel_imp_psi": 0,
+   "origins": [
+    {
+     "name": "Facebook Ads",
+     "fat": 916.84,
+     "faturas": 6
+    },
+    {
+     "name": "Instagram (orgânico)",
+     "fat": 352.89,
+     "faturas": 1
+    }
+   ],
+   "fb_split": {
+    "frio": {
+     "fat": 769.84,
+     "faturas": 5
+    },
+    "quente": {
+     "fat": 147.0,
+     "faturas": 1
+    },
+    "outros": {
+     "fat": 0.0,
+     "faturas": 0
+    }
+   },
+   "regioes": [
+    {
+     "name": "Sudeste",
+     "fat": 462.4,
+     "faturas": 3
+    },
+    {
+     "name": "Nordeste",
+     "fat": 352.89,
+     "faturas": 1
+    },
+    {
+     "name": "Norte",
+     "fat": 160.44,
+     "faturas": 1
+    },
+    {
+     "name": "Não informado",
+     "fat": 294.0,
+     "faturas": 2
+    }
+   ],
+   "pay_dist": [
+    {
+     "method": "Cartão de Crédito",
+     "count": 4
+    },
+    {
+     "method": "PIX",
+     "count": 3
+    }
+   ],
+   "parc_dist": [
+    {
+     "n": 2,
+     "count": 1
+    },
+    {
+     "n": 4,
+     "count": 2
+    },
+    {
+     "n": 9,
+     "count": 1
+    }
+   ],
+   "ob_detail_re": [],
+   "ob_detail_psi": [],
+   "mes_corrente": false
+  },
+  {
+   "day": 16,
+   "month": 5,
+   "year": 2026,
+   "date": "2026-05-16",
+   "spend": 0,
+   "spend_sales": 0,
+   "impressions": 0,
+   "faturas": 6,
+   "units": 8,
+   "fat": 1181.57,
+   "nh": 1057.57,
+   "abandoned": 0,
+   "checkouts": 6,
+   "fat_re": 884.57,
+   "fat_psi": 297.0,
+   "spend_re": 0,
+   "spend_psi": 0,
+   "faturas_re": 5,
+   "faturas_psi": 1,
+   "funnel_clicks_re": 0,
+   "funnel_lpv_re": 0,
+   "funnel_imp_re": 0,
+   "funnel_clicks_psi": 0,
+   "funnel_lpv_psi": 0,
+   "funnel_imp_psi": 0,
+   "origins": [
+    {
+     "name": "Facebook Ads",
+     "fat": 884.57,
+     "faturas": 5
+    },
+    {
+     "name": "Instagram (orgânico)",
+     "fat": 297.0,
+     "faturas": 1
+    }
+   ],
+   "fb_split": {
+    "frio": {
+     "fat": 512.55,
+     "faturas": 3
+    },
+    "quente": {
+     "fat": 372.02,
+     "faturas": 2
+    },
+    "outros": {
+     "fat": 0.0,
+     "faturas": 0
+    }
+   },
+   "regioes": [
+    {
+     "name": "Sudeste",
+     "fat": 650.0,
+     "faturas": 3
+    },
+    {
+     "name": "Não informado",
+     "fat": 531.57,
+     "faturas": 3
+    }
+   ],
+   "pay_dist": [
+    {
+     "method": "PIX",
+     "count": 3
+    },
+    {
+     "method": "Cartão de Crédito",
+     "count": 3
+    }
+   ],
+   "parc_dist": [
+    {
+     "n": 3,
+     "count": 1
+    },
+    {
+     "n": 6,
+     "count": 2
+    }
+   ],
+   "ob_detail_re": [],
+   "ob_detail_psi": [],
+   "mes_corrente": false
+  },
+  {
+   "day": 17,
+   "month": 5,
+   "year": 2026,
+   "date": "2026-05-17",
+   "spend": 0,
+   "spend_sales": 0,
+   "impressions": 0,
+   "faturas": 9,
+   "units": 11,
+   "fat": 1645.46,
+   "nh": 1469.22,
+   "abandoned": 0,
+   "checkouts": 9,
+   "fat_re": 1309.46,
+   "fat_psi": 336.0,
+   "spend_re": 0,
+   "spend_psi": 0,
+   "faturas_re": 8,
+   "faturas_psi": 1,
+   "funnel_clicks_re": 0,
+   "funnel_lpv_re": 0,
+   "funnel_imp_re": 0,
+   "funnel_clicks_psi": 0,
+   "funnel_lpv_psi": 0,
+   "funnel_imp_psi": 0,
+   "origins": [
+    {
+     "name": "Instagram (orgânico)",
+     "fat": 483.0,
+     "faturas": 2
+    },
+    {
+     "name": "Facebook Ads",
+     "fat": 1015.46,
+     "faturas": 6
+    },
+    {
+     "name": "Sem origem",
+     "fat": 147.0,
+     "faturas": 1
+    }
+   ],
+   "fb_split": {
+    "frio": {
+     "fat": 665.84,
+     "faturas": 4
+    },
+    "quente": {
+     "fat": 349.62,
+     "faturas": 2
+    },
+    "outros": {
+     "fat": 0.0,
+     "faturas": 0
+    }
+   },
+   "regioes": [
+    {
+     "name": "Sudeste",
+     "fat": 336.0,
+     "faturas": 1
+    },
+    {
+     "name": "Sul",
+     "fat": 294.0,
+     "faturas": 2
+    },
+    {
+     "name": "Não informado",
+     "fat": 1015.46,
+     "faturas": 6
+    }
+   ],
+   "pay_dist": [
+    {
+     "method": "PIX",
+     "count": 5
+    },
+    {
+     "method": "Cartão de Crédito",
+     "count": 4
+    }
+   ],
+   "parc_dist": [
+    {
+     "n": 1,
+     "count": 1
+    },
+    {
+     "n": 4,
+     "count": 1
+    },
+    {
+     "n": 6,
+     "count": 1
+    },
+    {
+     "n": 12,
+     "count": 1
+    }
+   ],
+   "ob_detail_re": [],
+   "ob_detail_psi": [],
+   "mes_corrente": false
+  },
+  {
+   "day": 18,
+   "month": 5,
+   "year": 2026,
+   "date": "2026-05-18",
+   "spend": 0,
+   "spend_sales": 0,
+   "impressions": 0,
+   "faturas": 14,
+   "units": 23,
+   "fat": 2628.89,
+   "nh": 2288.38,
+   "abandoned": 0,
+   "checkouts": 14,
+   "fat_re": 2628.89,
+   "fat_psi": 0.0,
+   "spend_re": 0,
+   "spend_psi": 0,
+   "faturas_re": 14,
+   "faturas_psi": 0,
+   "funnel_clicks_re": 0,
+   "funnel_lpv_re": 0,
+   "funnel_imp_re": 0,
+   "funnel_clicks_psi": 0,
+   "funnel_lpv_psi": 0,
+   "funnel_imp_psi": 0,
+   "origins": [
+    {
+     "name": "Facebook Ads",
+     "fat": 2473.93,
+     "faturas": 13
+    },
+    {
+     "name": "Sem origem",
+     "fat": 154.96,
+     "faturas": 1
+    }
+   ],
+   "fb_split": {
+    "frio": {
+     "fat": 1611.53,
+     "faturas": 8
+    },
+    "quente": {
+     "fat": 699.2,
+     "faturas": 4
+    },
+    "outros": {
+     "fat": 163.2,
+     "faturas": 1
+    }
+   },
+   "regioes": [
+    {
+     "name": "Sudeste",
+     "fat": 418.2,
+     "faturas": 2
+    },
+    {
+     "name": "Não informado",
+     "fat": 2210.69,
+     "faturas": 12
+    }
+   ],
+   "pay_dist": [
+    {
+     "method": "Cartão de Crédito",
+     "count": 8
+    },
+    {
+     "method": "PIX",
+     "count": 6
+    }
+   ],
+   "parc_dist": [
+    {
+     "n": 2,
+     "count": 1
+    },
+    {
+     "n": 3,
+     "count": 1
+    },
+    {
+     "n": 4,
+     "count": 1
+    },
+    {
+     "n": 5,
+     "count": 2
+    },
+    {
+     "n": 12,
+     "count": 3
+    }
+   ],
+   "ob_detail_re": [],
+   "ob_detail_psi": [],
+   "mes_corrente": false
+  },
+  {
+   "day": 19,
+   "month": 5,
+   "year": 2026,
+   "date": "2026-05-19",
+   "spend": 0,
+   "spend_sales": 0,
+   "impressions": 0,
+   "faturas": 12,
+   "units": 14,
+   "fat": 2642.33,
+   "nh": 2300.3,
+   "abandoned": 0,
+   "checkouts": 12,
+   "fat_re": 1338.0,
+   "fat_psi": 1054.58,
+   "spend_re": 0,
+   "spend_psi": 0,
+   "faturas_re": 8,
+   "faturas_psi": 3,
+   "funnel_clicks_re": 0,
+   "funnel_lpv_re": 0,
+   "funnel_imp_re": 0,
+   "funnel_clicks_psi": 0,
+   "funnel_lpv_psi": 0,
+   "funnel_imp_psi": 0,
+   "origins": [
+    {
+     "name": "Sem origem",
+     "fat": 249.75,
+     "faturas": 1
+    },
+    {
+     "name": "Facebook Ads",
+     "fat": 1338.0,
+     "faturas": 8
+    },
+    {
+     "name": "WhatsApp",
+     "fat": 313.1,
+     "faturas": 1
+    },
+    {
+     "name": "Instagram (orgânico)",
+     "fat": 741.48,
+     "faturas": 2
+    }
+   ],
+   "fb_split": {
+    "frio": {
+     "fat": 1191.0,
+     "faturas": 7
+    },
+    "quente": {
+     "fat": 147.0,
+     "faturas": 1
+    },
+    "outros": {
+     "fat": 0.0,
+     "faturas": 0
+    }
+   },
+   "regioes": [
+    {
+     "name": "Sul",
+     "fat": 694.23,
+     "faturas": 2
+    },
+    {
+     "name": "Nordeste",
+     "fat": 297.0,
+     "faturas": 1
+    },
+    {
+     "name": "Centro-Oeste",
+     "fat": 313.1,
+     "faturas": 1
+    },
+    {
+     "name": "Não informado",
+     "fat": 1338.0,
+     "faturas": 8
+    }
+   ],
+   "pay_dist": [
+    {
+     "method": "Cartão de Crédito",
+     "count": 10
+    },
+    {
+     "method": "PIX",
+     "count": 2
+    }
+   ],
+   "parc_dist": [
+    {
+     "n": 1,
+     "count": 3
+    },
+    {
+     "n": 2,
+     "count": 3
+    },
+    {
+     "n": 3,
+     "count": 1
+    },
+    {
+     "n": 12,
+     "count": 3
+    }
+   ],
+   "ob_detail_re": [],
+   "ob_detail_psi": [],
+   "mes_corrente": false
+  },
+  {
+   "day": 20,
+   "month": 5,
+   "year": 2026,
+   "date": "2026-05-20",
+   "spend": 0,
+   "spend_sales": 0,
+   "impressions": 0,
+   "faturas": 16,
+   "units": 21,
+   "fat": 2828.22,
+   "nh": 2440.19,
+   "abandoned": 0,
+   "checkouts": 16,
+   "fat_re": 2828.22,
+   "fat_psi": 0.0,
+   "spend_re": 0,
+   "spend_psi": 0,
+   "faturas_re": 16,
+   "faturas_psi": 0,
+   "funnel_clicks_re": 0,
+   "funnel_lpv_re": 0,
+   "funnel_imp_re": 0,
+   "funnel_clicks_psi": 0,
+   "funnel_lpv_psi": 0,
+   "funnel_imp_psi": 0,
+   "origins": [
+    {
+     "name": "Facebook Ads",
+     "fat": 2828.22,
+     "faturas": 16
+    }
+   ],
+   "fb_split": {
+    "frio": {
+     "fat": 1073.7,
+     "faturas": 6
+    },
+    "quente": {
+     "fat": 1754.52,
+     "faturas": 10
+    },
+    "outros": {
+     "fat": 0.0,
+     "faturas": 0
+    }
+   },
+   "regioes": [
+    {
+     "name": "Sudeste",
+     "fat": 500.0,
+     "faturas": 3
+    },
+    {
+     "name": "Não informado",
+     "fat": 2328.22,
+     "faturas": 13
+    }
+   ],
+   "pay_dist": [
+    {
+     "method": "Cartão de Crédito",
+     "count": 10
+    },
+    {
+     "method": "PIX",
+     "count": 6
+    }
+   ],
+   "parc_dist": [
+    {
+     "n": 1,
+     "count": 3
+    },
+    {
+     "n": 4,
+     "count": 1
+    },
+    {
+     "n": 5,
+     "count": 1
+    },
+    {
+     "n": 12,
+     "count": 5
+    }
+   ],
+   "ob_detail_re": [],
+   "ob_detail_psi": [],
+   "mes_corrente": false
+  },
+  {
+   "day": 21,
+   "month": 5,
+   "year": 2026,
+   "date": "2026-05-21",
+   "spend": 0,
+   "spend_sales": 0,
+   "impressions": 0,
+   "faturas": 10,
+   "units": 13,
+   "fat": 4659.28,
+   "nh": 3820.34,
+   "abandoned": 0,
+   "checkouts": 10,
+   "fat_re": 1542.04,
+   "fat_psi": 0.0,
+   "spend_re": 0,
+   "spend_psi": 0,
+   "faturas_re": 9,
+   "faturas_psi": 0,
+   "funnel_clicks_re": 0,
+   "funnel_lpv_re": 0,
+   "funnel_imp_re": 0,
+   "funnel_clicks_psi": 0,
+   "funnel_lpv_psi": 0,
+   "funnel_imp_psi": 0,
+   "origins": [
+    {
+     "name": "Facebook Ads",
+     "fat": 1395.04,
+     "faturas": 8
+    },
+    {
+     "name": "Sem origem",
+     "fat": 3117.24,
+     "faturas": 1
+    },
+    {
+     "name": "WhatsApp",
+     "fat": 147.0,
+     "faturas": 1
+    }
+   ],
+   "fb_split": {
+    "frio": {
+     "fat": 876.04,
+     "faturas": 5
+    },
+    "quente": {
+     "fat": 519.0,
+     "faturas": 3
+    },
+    "outros": {
+     "fat": 0.0,
+     "faturas": 0
+    }
+   },
+   "regioes": [
+    {
+     "name": "Sudeste",
+     "fat": 147.0,
+     "faturas": 1
+    },
+    {
+     "name": "Sul",
+     "fat": 147.0,
+     "faturas": 1
+    },
+    {
+     "name": "Centro-Oeste",
+     "fat": 3117.24,
+     "faturas": 1
+    },
+    {
+     "name": "Norte",
+     "fat": 177.6,
+     "faturas": 1
+    },
+    {
+     "name": "Não informado",
+     "fat": 1070.44,
+     "faturas": 6
+    }
+   ],
+   "pay_dist": [
+    {
+     "method": "PIX",
+     "count": 5
+    },
+    {
+     "method": "Cartão de Crédito",
+     "count": 5
+    }
+   ],
+   "parc_dist": [
+    {
+     "n": 2,
+     "count": 1
+    },
+    {
+     "n": 8,
+     "count": 1
+    },
+    {
+     "n": 10,
+     "count": 1
+    },
+    {
+     "n": 12,
+     "count": 2
+    }
+   ],
+   "ob_detail_re": [],
+   "ob_detail_psi": [],
+   "mes_corrente": false
+  },
+  {
+   "day": 22,
+   "month": 5,
+   "year": 2026,
+   "date": "2026-05-22",
+   "spend": 0,
+   "spend_sales": 0,
+   "impressions": 0,
+   "faturas": 10,
+   "units": 15,
+   "fat": 2784.25,
+   "nh": 2415.03,
+   "abandoned": 0,
+   "checkouts": 10,
+   "fat_re": 1315.53,
+   "fat_psi": 1002.02,
+   "spend_re": 0,
+   "spend_psi": 0,
+   "faturas_re": 7,
+   "faturas_psi": 2,
+   "funnel_clicks_re": 0,
+   "funnel_lpv_re": 0,
+   "funnel_imp_re": 0,
+   "funnel_clicks_psi": 0,
+   "funnel_lpv_psi": 0,
+   "funnel_imp_psi": 0,
+   "origins": [
+    {
+     "name": "Facebook Ads",
+     "fat": 1315.53,
+     "faturas": 7
+    },
+    {
+     "name": "Sem origem",
+     "fat": 466.7,
+     "faturas": 1
+    },
+    {
+     "name": "Instagram (orgânico)",
+     "fat": 1002.02,
+     "faturas": 2
+    }
+   ],
+   "fb_split": {
+    "frio": {
+     "fat": 925.43,
+     "faturas": 5
+    },
+    "quente": {
+     "fat": 390.1,
+     "faturas": 2
+    },
+    "outros": {
+     "fat": 0.0,
+     "faturas": 0
+    }
+   },
+   "regioes": [
+    {
+     "name": "Sudeste",
+     "fat": 1392.12,
+     "faturas": 4
+    },
+    {
+     "name": "Não informado",
+     "fat": 1392.13,
+     "faturas": 6
+    }
+   ],
+   "pay_dist": [
+    {
+     "method": "Cartão de Crédito",
+     "count": 8
+    },
+    {
+     "method": "PIX",
+     "count": 2
+    }
+   ],
+   "parc_dist": [
+    {
+     "n": 1,
+     "count": 2
+    },
+    {
+     "n": 3,
+     "count": 1
+    },
+    {
+     "n": 5,
+     "count": 3
+    },
+    {
+     "n": 12,
+     "count": 2
+    }
+   ],
+   "ob_detail_re": [],
+   "ob_detail_psi": [],
+   "mes_corrente": false
+  },
+  {
+   "day": 23,
+   "month": 5,
+   "year": 2026,
+   "date": "2026-05-23",
+   "spend": 0,
+   "spend_sales": 0,
+   "impressions": 0,
+   "faturas": 11,
+   "units": 14,
+   "fat": 1877.52,
+   "nh": 1631.28,
+   "abandoned": 0,
+   "checkouts": 11,
+   "fat_re": 1877.52,
+   "fat_psi": 0.0,
+   "spend_re": 0,
+   "spend_psi": 0,
+   "faturas_re": 11,
+   "faturas_psi": 0,
+   "funnel_clicks_re": 0,
+   "funnel_lpv_re": 0,
+   "funnel_imp_re": 0,
+   "funnel_clicks_psi": 0,
+   "funnel_lpv_psi": 0,
+   "funnel_imp_psi": 0,
+   "origins": [
+    {
+     "name": "Instagram (orgânico)",
+     "fat": 601.44,
+     "faturas": 4
+    },
+    {
+     "name": "Facebook Ads",
+     "fat": 1276.08,
+     "faturas": 7
+    }
+   ],
+   "fb_split": {
+    "frio": {
+     "fat": 896.88,
+     "faturas": 5
+    },
+    "quente": {
+     "fat": 379.2,
+     "faturas": 2
+    },
+    "outros": {
+     "fat": 0.0,
+     "faturas": 0
+    }
+   },
+   "regioes": [
+    {
+     "name": "Sudeste",
+     "fat": 330.6,
+     "faturas": 2
+    },
+    {
+     "name": "Sul",
+     "fat": 147.0,
+     "faturas": 1
+    },
+    {
+     "name": "Nordeste",
+     "fat": 157.68,
+     "faturas": 1
+    },
+    {
+     "name": "Não informado",
+     "fat": 1242.24,
+     "faturas": 7
+    }
+   ],
+   "pay_dist": [
+    {
+     "method": "Cartão de Crédito",
+     "count": 6
+    },
+    {
+     "method": "PIX",
+     "count": 5
+    }
+   ],
+   "parc_dist": [
+    {
+     "n": 1,
+     "count": 1
+    },
+    {
+     "n": 3,
+     "count": 1
+    },
+    {
+     "n": 4,
+     "count": 1
+    },
+    {
+     "n": 12,
+     "count": 3
+    }
+   ],
+   "ob_detail_re": [],
+   "ob_detail_psi": [],
+   "mes_corrente": false
+  },
+  {
+   "day": 24,
+   "month": 5,
+   "year": 2026,
+   "date": "2026-05-24",
+   "spend": 0,
+   "spend_sales": 0,
+   "impressions": 0,
+   "faturas": 12,
+   "units": 18,
+   "fat": 2181.58,
+   "nh": 1914.55,
+   "abandoned": 0,
+   "checkouts": 12,
+   "fat_re": 2181.58,
+   "fat_psi": 0.0,
+   "spend_re": 0,
+   "spend_psi": 0,
+   "faturas_re": 12,
+   "faturas_psi": 0,
+   "funnel_clicks_re": 0,
+   "funnel_lpv_re": 0,
+   "funnel_imp_re": 0,
+   "funnel_clicks_psi": 0,
+   "funnel_lpv_psi": 0,
+   "funnel_imp_psi": 0,
+   "origins": [
+    {
+     "name": "Facebook Ads",
+     "fat": 1975.58,
+     "faturas": 11
+    },
+    {
+     "name": "Instagram (orgânico)",
+     "fat": 206.0,
+     "faturas": 1
+    }
+   ],
+   "fb_split": {
+    "frio": {
+     "fat": 1425.42,
+     "faturas": 8
+    },
+    "quente": {
+     "fat": 333.0,
+     "faturas": 2
+    },
+    "outros": {
+     "fat": 217.16,
+     "faturas": 1
+    }
+   },
+   "regioes": [
+    {
+     "name": "Sudeste",
+     "fat": 183.6,
+     "faturas": 1
+    },
+    {
+     "name": "Não informado",
+     "fat": 1997.98,
+     "faturas": 11
+    }
+   ],
+   "pay_dist": [
+    {
+     "method": "PIX",
+     "count": 6
+    },
+    {
+     "method": "Cartão de Crédito",
+     "count": 6
+    }
+   ],
+   "parc_dist": [
+    {
+     "n": 1,
+     "count": 1
+    },
+    {
+     "n": 2,
+     "count": 1
+    },
+    {
+     "n": 6,
+     "count": 1
+    },
+    {
+     "n": 10,
+     "count": 1
+    },
+    {
+     "n": 12,
+     "count": 2
+    }
+   ],
+   "ob_detail_re": [],
+   "ob_detail_psi": [],
+   "mes_corrente": false
+  },
+  {
+   "day": 25,
+   "month": 5,
+   "year": 2026,
+   "date": "2026-05-25",
+   "spend": 0,
+   "spend_sales": 0,
+   "impressions": 0,
+   "faturas": 17,
+   "units": 18,
+   "fat": 3217.89,
+   "nh": 2773.6,
+   "abandoned": 0,
+   "checkouts": 17,
+   "fat_re": 1709.48,
+   "fat_psi": 520.8,
+   "spend_re": 0,
+   "spend_psi": 0,
+   "faturas_re": 11,
+   "faturas_psi": 2,
+   "funnel_clicks_re": 0,
+   "funnel_lpv_re": 0,
+   "funnel_imp_re": 0,
+   "funnel_clicks_psi": 0,
+   "funnel_lpv_psi": 0,
+   "funnel_imp_psi": 0,
+   "origins": [
+    {
+     "name": "Facebook Ads",
+     "fat": 1415.48,
+     "faturas": 9
+    },
+    {
+     "name": "WhatsApp",
+     "fat": 147.0,
+     "faturas": 1
+    },
+    {
+     "name": "Sem origem",
+     "fat": 1284.61,
+     "faturas": 6
+    },
+    {
+     "name": "Instagram (orgânico)",
+     "fat": 370.8,
+     "faturas": 1
+    }
+   ],
+   "fb_split": {
+    "frio": {
+     "fat": 939.64,
+     "faturas": 6
+    },
+    "quente": {
+     "fat": 318.16,
+     "faturas": 2
+    },
+    "outros": {
+     "fat": 157.68,
+     "faturas": 1
+    }
+   },
+   "regioes": [
+    {
+     "name": "Sudeste",
+     "fat": 681.0,
+     "faturas": 3
+    },
+    {
+     "name": "Sul",
+     "fat": 727.85,
+     "faturas": 3
+    },
+    {
+     "name": "Nordeste",
+     "fat": 259.76,
+     "faturas": 1
+    },
+    {
+     "name": "Não informado",
+     "fat": 1549.28,
+     "faturas": 10
+    }
+   ],
+   "pay_dist": [
+    {
+     "method": "Cartão de Crédito",
+     "count": 10
+    },
+    {
+     "method": "PIX",
+     "count": 7
+    }
+   ],
+   "parc_dist": [
+    {
+     "n": 1,
+     "count": 4
+    },
+    {
+     "n": 2,
+     "count": 2
+    },
+    {
+     "n": 3,
+     "count": 2
+    },
+    {
+     "n": 5,
+     "count": 1
+    },
+    {
+     "n": 12,
+     "count": 1
+    }
+   ],
+   "ob_detail_re": [],
+   "ob_detail_psi": [],
+   "mes_corrente": false
+  },
+  {
+   "day": 26,
+   "month": 5,
+   "year": 2026,
+   "date": "2026-05-26",
+   "spend": 0,
+   "spend_sales": 0,
+   "impressions": 0,
+   "faturas": 16,
+   "units": 20,
+   "fat": 3061.95,
+   "nh": 2753.48,
+   "abandoned": 0,
+   "checkouts": 16,
+   "fat_re": 1927.72,
+   "fat_psi": 0.0,
+   "spend_re": 0,
+   "spend_psi": 0,
+   "faturas_re": 11,
+   "faturas_psi": 0,
+   "funnel_clicks_re": 0,
+   "funnel_lpv_re": 0,
+   "funnel_imp_re": 0,
+   "funnel_clicks_psi": 0,
+   "funnel_lpv_psi": 0,
+   "funnel_imp_psi": 0,
+   "origins": [
+    {
+     "name": "Sem origem",
+     "fat": 1134.23,
+     "faturas": 5
+    },
+    {
+     "name": "Facebook Ads",
+     "fat": 1531.82,
+     "faturas": 9
+    },
+    {
+     "name": "Instagram (orgânico)",
+     "fat": 395.9,
+     "faturas": 2
+    }
+   ],
+   "fb_split": {
+    "frio": {
+     "fat": 555.2,
+     "faturas": 3
+    },
+    "quente": {
+     "fat": 976.62,
+     "faturas": 6
+    },
+    "outros": {
+     "fat": 0.0,
+     "faturas": 0
+    }
+   },
+   "regioes": [
+    {
+     "name": "Sudeste",
+     "fat": 834.53,
+     "faturas": 4
+    },
+    {
+     "name": "Nordeste",
+     "fat": 695.6,
+     "faturas": 3
+    },
+    {
+     "name": "Não informado",
+     "fat": 1531.82,
+     "faturas": 9
+    }
+   ],
+   "pay_dist": [
+    {
+     "method": "Cartão de Crédito",
+     "count": 9
+    },
+    {
+     "method": "PIX",
+     "count": 6
+    },
+    {
+     "method": "Boleto",
+     "count": 1
+    }
+   ],
+   "parc_dist": [
+    {
+     "n": 1,
+     "count": 5
+    },
+    {
+     "n": 5,
+     "count": 1
+    },
+    {
+     "n": 6,
+     "count": 1
+    },
+    {
+     "n": 10,
+     "count": 1
+    },
+    {
+     "n": 12,
+     "count": 1
+    }
+   ],
+   "ob_detail_re": [],
+   "ob_detail_psi": [],
+   "mes_corrente": false
+  },
+  {
+   "day": 27,
+   "month": 5,
+   "year": 2026,
+   "date": "2026-05-27",
+   "spend": 0,
+   "spend_sales": 0,
+   "impressions": 0,
+   "faturas": 8,
+   "units": 11,
+   "fat": 1537.28,
+   "nh": 1387.18,
+   "abandoned": 0,
+   "checkouts": 8,
+   "fat_re": 1257.28,
+   "fat_psi": 0.0,
+   "spend_re": 0,
+   "spend_psi": 0,
+   "faturas_re": 7,
+   "faturas_psi": 0,
+   "funnel_clicks_re": 0,
+   "funnel_lpv_re": 0,
+   "funnel_imp_re": 0,
+   "funnel_clicks_psi": 0,
+   "funnel_lpv_psi": 0,
+   "funnel_imp_psi": 0,
+   "origins": [
+    {
+     "name": "Facebook Ads",
+     "fat": 757.28,
+     "faturas": 4
+    },
+    {
+     "name": "Sem origem",
+     "fat": 280.0,
+     "faturas": 1
+    },
+    {
+     "name": "WhatsApp",
+     "fat": 353.0,
+     "faturas": 2
+    },
+    {
+     "name": "Instagram (orgânico)",
+     "fat": 147.0,
+     "faturas": 1
+    }
+   ],
+   "fb_split": {
+    "frio": {
+     "fat": 353.0,
+     "faturas": 2
+    },
+    "quente": {
+     "fat": 404.28,
+     "faturas": 2
+    },
+    "outros": {
+     "fat": 0.0,
+     "faturas": 0
+    }
+   },
+   "regioes": [
+    {
+     "name": "Sudeste",
+     "fat": 427.0,
+     "faturas": 2
+    },
+    {
+     "name": "Sul",
+     "fat": 353.0,
+     "faturas": 2
+    },
+    {
+     "name": "Não informado",
+     "fat": 757.28,
+     "faturas": 4
+    }
+   ],
+   "pay_dist": [
+    {
+     "method": "PIX",
+     "count": 5
+    },
+    {
+     "method": "Cartão de Crédito",
+     "count": 3
+    }
+   ],
+   "parc_dist": [
+    {
+     "n": 1,
+     "count": 2
+    },
+    {
+     "n": 12,
+     "count": 1
+    }
+   ],
+   "ob_detail_re": [],
+   "ob_detail_psi": [],
+   "mes_corrente": false
+  },
+  {
+   "day": 28,
+   "month": 5,
+   "year": 2026,
+   "date": "2026-05-28",
+   "spend": 0,
+   "spend_sales": 0,
+   "impressions": 0,
+   "faturas": 10,
+   "units": 15,
+   "fat": 1963.69,
+   "nh": 1653.29,
+   "abandoned": 0,
+   "checkouts": 10,
+   "fat_re": 1571.1,
+   "fat_psi": 356.0,
+   "spend_re": 0,
+   "spend_psi": 0,
+   "faturas_re": 8,
+   "faturas_psi": 1,
+   "funnel_clicks_re": 0,
+   "funnel_lpv_re": 0,
+   "funnel_imp_re": 0,
+   "funnel_clicks_psi": 0,
+   "funnel_lpv_psi": 0,
+   "funnel_imp_psi": 0,
+   "origins": [
+    {
+     "name": "Facebook Ads",
+     "fat": 1797.67,
+     "faturas": 9
+    },
+    {
+     "name": "Instagram (orgânico)",
+     "fat": 166.02,
+     "faturas": 1
+    }
+   ],
+   "fb_split": {
+    "frio": {
+     "fat": 1528.88,
+     "faturas": 7
+    },
+    "quente": {
+     "fat": 232.2,
+     "faturas": 1
+    },
+    "outros": {
+     "fat": 36.59,
+     "faturas": 1
+    }
+   },
+   "regioes": [
+    {
+     "name": "Sudeste",
+     "fat": 166.02,
+     "faturas": 1
+    },
+    {
+     "name": "Sul",
+     "fat": 503.0,
+     "faturas": 2
+    },
+    {
+     "name": "Nordeste",
+     "fat": 36.59,
+     "faturas": 1
+    },
+    {
+     "name": "Norte",
+     "fat": 147.0,
+     "faturas": 1
+    },
+    {
+     "name": "Não informado",
+     "fat": 1111.08,
+     "faturas": 5
+    }
+   ],
+   "pay_dist": [
+    {
+     "method": "Cartão de Crédito",
+     "count": 7
+    },
+    {
+     "method": "PIX",
+     "count": 3
+    }
+   ],
+   "parc_dist": [
+    {
+     "n": 1,
+     "count": 1
+    },
+    {
+     "n": 5,
+     "count": 1
+    },
+    {
+     "n": 6,
+     "count": 1
+    },
+    {
+     "n": 10,
+     "count": 1
+    },
+    {
+     "n": 12,
+     "count": 3
+    }
+   ],
+   "ob_detail_re": [],
+   "ob_detail_psi": [],
+   "mes_corrente": false
+  },
+  {
+   "day": 29,
+   "month": 5,
+   "year": 2026,
+   "date": "2026-05-29",
+   "spend": 0,
+   "spend_sales": 0,
+   "impressions": 0,
+   "faturas": 10,
+   "units": 12,
+   "fat": 1555.96,
+   "nh": 1431.81,
+   "abandoned": 0,
+   "checkouts": 10,
+   "fat_re": 1555.96,
+   "fat_psi": 0.0,
+   "spend_re": 0,
+   "spend_psi": 0,
+   "faturas_re": 10,
+   "faturas_psi": 0,
+   "funnel_clicks_re": 0,
+   "funnel_lpv_re": 0,
+   "funnel_imp_re": 0,
+   "funnel_clicks_psi": 0,
+   "funnel_lpv_psi": 0,
+   "funnel_imp_psi": 0,
+   "origins": [
+    {
+     "name": "Facebook Ads",
+     "fat": 960.0,
+     "faturas": 6
+    },
+    {
+     "name": "Instagram (orgânico)",
+     "fat": 301.96,
+     "faturas": 2
+    },
+    {
+     "name": "WhatsApp",
+     "fat": 294.0,
+     "faturas": 2
+    }
+   ],
+   "fb_split": {
+    "frio": {
+     "fat": 627.0,
+     "faturas": 4
+    },
+    "quente": {
+     "fat": 0.0,
+     "faturas": 0
+    },
+    "outros": {
+     "fat": 333.0,
+     "faturas": 2
+    }
+   },
+   "regioes": [
+    {
+     "name": "Nordeste",
+     "fat": 448.96,
+     "faturas": 3
+    },
+    {
+     "name": "Centro-Oeste",
+     "fat": 147.0,
+     "faturas": 1
+    },
+    {
+     "name": "Não informado",
+     "fat": 960.0,
+     "faturas": 6
+    }
+   ],
+   "pay_dist": [
+    {
+     "method": "PIX",
+     "count": 9
+    },
+    {
+     "method": "Cartão de Crédito",
+     "count": 1
+    }
+   ],
+   "parc_dist": [
+    {
+     "n": 2,
+     "count": 1
+    }
+   ],
+   "ob_detail_re": [],
+   "ob_detail_psi": [],
+   "mes_corrente": false
+  },
+  {
+   "day": 30,
+   "month": 5,
+   "year": 2026,
+   "date": "2026-05-30",
+   "spend": 0,
+   "spend_sales": 0,
+   "impressions": 0,
+   "faturas": 10,
+   "units": 20,
+   "fat": 2139.32,
+   "nh": 1838.57,
+   "abandoned": 0,
+   "checkouts": 10,
+   "fat_re": 2139.32,
+   "fat_psi": 0.0,
+   "spend_re": 0,
+   "spend_psi": 0,
+   "faturas_re": 10,
+   "faturas_psi": 0,
+   "funnel_clicks_re": 0,
+   "funnel_lpv_re": 0,
+   "funnel_imp_re": 0,
+   "funnel_clicks_psi": 0,
+   "funnel_lpv_psi": 0,
+   "funnel_imp_psi": 0,
+   "origins": [
+    {
+     "name": "Facebook Ads",
+     "fat": 1229.24,
+     "faturas": 6
+    },
+    {
+     "name": "Instagram (orgânico)",
+     "fat": 910.08,
+     "faturas": 4
+    }
+   ],
+   "fb_split": {
+    "frio": {
+     "fat": 785.96,
+     "faturas": 4
+    },
+    "quente": {
+     "fat": 443.28,
+     "faturas": 2
+    },
+    "outros": {
+     "fat": 0.0,
+     "faturas": 0
+    }
+   },
+   "regioes": [
+    {
+     "name": "Nordeste",
+     "fat": 408.2,
+     "faturas": 2
+    },
+    {
+     "name": "Não informado",
+     "fat": 1731.12,
+     "faturas": 8
+    }
+   ],
+   "pay_dist": [
+    {
+     "method": "PIX",
+     "count": 5
+    },
+    {
+     "method": "Cartão de Crédito",
+     "count": 5
+    }
+   ],
+   "parc_dist": [
+    {
+     "n": 5,
+     "count": 1
+    },
+    {
+     "n": 8,
+     "count": 1
+    },
+    {
+     "n": 12,
+     "count": 3
+    }
+   ],
+   "ob_detail_re": [],
+   "ob_detail_psi": [],
+   "mes_corrente": false
+  },
+  {
+   "day": 31,
+   "month": 5,
+   "year": 2026,
+   "date": "2026-05-31",
+   "spend": 0,
+   "spend_sales": 0,
+   "impressions": 0,
+   "faturas": 13,
+   "units": 23,
+   "fat": 2619.32,
+   "nh": 2253.44,
+   "abandoned": 0,
+   "checkouts": 13,
+   "fat_re": 2619.32,
+   "fat_psi": 0.0,
+   "spend_re": 0,
+   "spend_psi": 0,
+   "faturas_re": 13,
+   "faturas_psi": 0,
+   "funnel_clicks_re": 0,
+   "funnel_lpv_re": 0,
+   "funnel_imp_re": 0,
+   "funnel_clicks_psi": 0,
+   "funnel_lpv_psi": 0,
+   "funnel_imp_psi": 0,
+   "origins": [
+    {
+     "name": "Facebook Ads",
+     "fat": 1813.36,
+     "faturas": 10
+    },
+    {
+     "name": "Instagram (orgânico)",
+     "fat": 805.96,
+     "faturas": 3
+    }
+   ],
+   "fb_split": {
+    "frio": {
+     "fat": 1480.36,
+     "faturas": 8
+    },
+    "quente": {
+     "fat": 333.0,
+     "faturas": 2
+    },
+    "outros": {
+     "fat": 0.0,
+     "faturas": 0
+    }
+   },
+   "regioes": [
+    {
+     "name": "Não informado",
+     "fat": 2619.32,
+     "faturas": 13
+    }
+   ],
+   "pay_dist": [
+    {
+     "method": "Cartão de Crédito",
+     "count": 10
+    },
+    {
+     "method": "PIX",
+     "count": 3
+    }
+   ],
+   "parc_dist": [
+    {
+     "n": 1,
+     "count": 1
+    },
+    {
+     "n": 2,
+     "count": 2
+    },
+    {
+     "n": 4,
+     "count": 2
+    },
+    {
+     "n": 5,
+     "count": 1
+    },
+    {
+     "n": 6,
+     "count": 1
+    },
+    {
+     "n": 12,
+     "count": 3
+    }
+   ],
+   "ob_detail_re": [],
+   "ob_detail_psi": [],
+   "mes_corrente": false
+  },
   {
    "day": 1,
    "date": "2026-06-01",
@@ -154,7 +3141,10 @@
      "val": 0.0
     }
    ],
-   "ob_detail_psi": []
+   "ob_detail_psi": [],
+   "mes_corrente": true,
+   "month": 6,
+   "year": 2026
   },
   {
    "day": 2,
@@ -251,7 +3241,10 @@
      "val": 0.0
     }
    ],
-   "ob_detail_psi": []
+   "ob_detail_psi": [],
+   "mes_corrente": true,
+   "month": 6,
+   "year": 2026
   }
  ],
  "weeks": [
@@ -802,7 +3795,749 @@
    "daily": []
   }
  ],
- "ads": [],
+ "ads": [
+  {
+   "campaign": "[RE] [Compra] [Frio] [Validação] [Vídeos] - ABO",
+   "name": "[RE] AD-V: 01",
+   "spend": 1621.26,
+   "impressions": 64116,
+   "reach": 29979,
+   "freq": 2.14,
+   "cpm": 25.28,
+   "clicks": 791,
+   "ctr": 1.23,
+   "cpc": 2.05,
+   "lpv": 0,
+   "lpv_rate": 0.0,
+   "fat_est": 236.34,
+   "faturas_est": 2,
+   "roas_est": 0.15,
+   "merged": false,
+   "copies_count": 0
+  },
+  {
+   "campaign": "[RE] [Compra] [Quente] [Validação] [Vídeos] - ABO",
+   "name": "[RE] AD-V: 02",
+   "spend": 1456.65,
+   "impressions": 74394,
+   "reach": 42907,
+   "freq": 1.73,
+   "cpm": 19.58,
+   "clicks": 1029,
+   "ctr": 1.38,
+   "cpc": 1.42,
+   "lpv": 0,
+   "lpv_rate": 0.0,
+   "fat_est": 0.0,
+   "faturas_est": 0,
+   "roas_est": 0.0,
+   "merged": true,
+   "copies_count": 1
+  },
+  {
+   "campaign": "[RE] [Compra] [Frio] [Validação] [Estáticos] - ABO",
+   "name": "[RE] AD-E: 01",
+   "spend": 1421.52,
+   "impressions": 81967,
+   "reach": 36265,
+   "freq": 2.26,
+   "cpm": 17.34,
+   "clicks": 601,
+   "ctr": 0.73,
+   "cpc": 2.37,
+   "lpv": 0,
+   "lpv_rate": 0.0,
+   "fat_est": 476.22,
+   "faturas_est": 3,
+   "roas_est": 0.34,
+   "merged": true,
+   "copies_count": 1
+  },
+  {
+   "campaign": "[RE] [Compra] [Frio] [Validação] [Estáticos] - ABO",
+   "name": "[RE] AD-E: 02",
+   "spend": 1290.29,
+   "impressions": 59162,
+   "reach": 19502,
+   "freq": 3.03,
+   "cpm": 21.8,
+   "clicks": 397,
+   "ctr": 0.67,
+   "cpc": 3.25,
+   "lpv": 0,
+   "lpv_rate": 0.0,
+   "fat_est": 314.57,
+   "faturas_est": 2,
+   "roas_est": 0.24,
+   "merged": true,
+   "copies_count": 1
+  },
+  {
+   "campaign": "[INSTA] [Seguidores] [Frio] - ABO",
+   "name": "[INSTA] AD-V: Medo do Escuro",
+   "spend": 1258.86,
+   "impressions": 102189,
+   "reach": 67751,
+   "freq": 1.51,
+   "cpm": 12.32,
+   "clicks": 2131,
+   "ctr": 2.09,
+   "cpc": 0.59,
+   "lpv": 0,
+   "lpv_rate": 0.0,
+   "fat_est": 0.0,
+   "faturas_est": 0,
+   "roas_est": 0.0,
+   "merged": false,
+   "copies_count": 0
+  },
+  {
+   "campaign": "[PSI08] [Compra] [Frio] - ABO",
+   "name": "[PSI] AD13_PSIVendas_Set",
+   "spend": 1014.71,
+   "impressions": 30116,
+   "reach": 21542,
+   "freq": 1.4,
+   "cpm": 33.69,
+   "clicks": 288,
+   "ctr": 0.96,
+   "cpc": 3.52,
+   "lpv": 0,
+   "lpv_rate": 0.0,
+   "fat_est": 0.0,
+   "faturas_est": 0,
+   "roas_est": 0.0,
+   "merged": false,
+   "copies_count": 0
+  },
+  {
+   "campaign": "[RE] [Compra] [Frio] [Validação] [Estáticos] - ABO",
+   "name": "[RE] AD-E: 04",
+   "spend": 795.3,
+   "impressions": 29776,
+   "reach": 10753,
+   "freq": 2.77,
+   "cpm": 26.7,
+   "clicks": 206,
+   "ctr": 0.69,
+   "cpc": 3.86,
+   "lpv": 0,
+   "lpv_rate": 0.0,
+   "fat_est": 163.23,
+   "faturas_est": 1,
+   "roas_est": 0.21,
+   "merged": true,
+   "copies_count": 1
+  },
+  {
+   "campaign": "[RE] [Compra] [Quente] [Validação] [Vídeos] - ABO",
+   "name": "[RE] AD-V: 01",
+   "spend": 603.81,
+   "impressions": 21504,
+   "reach": 12642,
+   "freq": 1.7,
+   "cpm": 28.08,
+   "clicks": 269,
+   "ctr": 1.25,
+   "cpc": 2.24,
+   "lpv": 0,
+   "lpv_rate": 0.0,
+   "fat_est": 0.0,
+   "faturas_est": 0,
+   "roas_est": 0.0,
+   "merged": false,
+   "copies_count": 0
+  },
+  {
+   "campaign": "[RE] [Compra] [Quente] [Validação] [Vídeos] - ABO",
+   "name": "[RE] AD-V: 07",
+   "spend": 287.91,
+   "impressions": 8548,
+   "reach": 4459,
+   "freq": 1.92,
+   "cpm": 33.68,
+   "clicks": 59,
+   "ctr": 0.69,
+   "cpc": 4.88,
+   "lpv": 0,
+   "lpv_rate": 0.0,
+   "fat_est": 0.0,
+   "faturas_est": 0,
+   "roas_est": 0.0,
+   "merged": false,
+   "copies_count": 0
+  },
+  {
+   "campaign": "[RE] [Compra] [Quente] [Validação] [Vídeos] - ABO",
+   "name": "[RE] AD-V: 06",
+   "spend": 280.54,
+   "impressions": 10515,
+   "reach": 4953,
+   "freq": 2.12,
+   "cpm": 26.68,
+   "clicks": 149,
+   "ctr": 1.42,
+   "cpc": 1.88,
+   "lpv": 0,
+   "lpv_rate": 0.0,
+   "fat_est": 0.0,
+   "faturas_est": 0,
+   "roas_est": 0.0,
+   "merged": false,
+   "copies_count": 0
+  },
+  {
+   "campaign": "[PSI08] [Compra] [Frio] - ABO",
+   "name": "[PSI] AD14_PSIVendas_Set",
+   "spend": 271.02,
+   "impressions": 7605,
+   "reach": 5007,
+   "freq": 1.52,
+   "cpm": 35.64,
+   "clicks": 61,
+   "ctr": 0.8,
+   "cpc": 4.44,
+   "lpv": 0,
+   "lpv_rate": 0.0,
+   "fat_est": 0.0,
+   "faturas_est": 0,
+   "roas_est": 0.0,
+   "merged": false,
+   "copies_count": 0
+  },
+  {
+   "campaign": "[PSI08] [Compra] [Quente] [Teste Criativos] [Estáticos] - ABO",
+   "name": "[PSI] AD-E 03",
+   "spend": 261.05,
+   "impressions": 15742,
+   "reach": 6654,
+   "freq": 2.37,
+   "cpm": 16.58,
+   "clicks": 65,
+   "ctr": 0.41,
+   "cpc": 4.02,
+   "lpv": 0,
+   "lpv_rate": 0.0,
+   "fat_est": 0.0,
+   "faturas_est": 0,
+   "roas_est": 0.0,
+   "merged": false,
+   "copies_count": 0
+  },
+  {
+   "campaign": "[RE] [Compra] [Frio] [Validação] [Estáticos] - ABO",
+   "name": "[RE] AD-E: 03",
+   "spend": 218.32,
+   "impressions": 10204,
+   "reach": 6669,
+   "freq": 1.53,
+   "cpm": 21.4,
+   "clicks": 82,
+   "ctr": 0.8,
+   "cpc": 2.66,
+   "lpv": 0,
+   "lpv_rate": 0.0,
+   "fat_est": 64.98,
+   "faturas_est": 0,
+   "roas_est": 0.3,
+   "merged": true,
+   "copies_count": 1
+  },
+  {
+   "campaign": "[PSI08] [Compra] [Frio] - ABO",
+   "name": "[PSI] AD-E 06",
+   "spend": 211.96,
+   "impressions": 8446,
+   "reach": 4862,
+   "freq": 1.74,
+   "cpm": 25.1,
+   "clicks": 56,
+   "ctr": 0.66,
+   "cpc": 3.79,
+   "lpv": 0,
+   "lpv_rate": 0.0,
+   "fat_est": 0.0,
+   "faturas_est": 0,
+   "roas_est": 0.0,
+   "merged": false,
+   "copies_count": 0
+  },
+  {
+   "campaign": "[RE] [Compra] [Frio] [Melhores Criativos] - CBO",
+   "name": "[RE] AD-V: 01",
+   "spend": 204.8,
+   "impressions": 5371,
+   "reach": 4887,
+   "freq": 1.1,
+   "cpm": 38.13,
+   "clicks": 80,
+   "ctr": 1.49,
+   "cpc": 2.56,
+   "lpv": 0,
+   "lpv_rate": 0.0,
+   "fat_est": 0.0,
+   "faturas_est": 0,
+   "roas_est": 0.0,
+   "merged": false,
+   "copies_count": 0
+  },
+  {
+   "campaign": "[RE] [Compra] [Frio] [Validação] [Vídeos] - ABO",
+   "name": "[RE] AD-V: 02",
+   "spend": 194.12,
+   "impressions": 7412,
+   "reach": 5459,
+   "freq": 1.36,
+   "cpm": 26.19,
+   "clicks": 131,
+   "ctr": 1.77,
+   "cpc": 1.48,
+   "lpv": 0,
+   "lpv_rate": 0.0,
+   "fat_est": 39.14,
+   "faturas_est": 0,
+   "roas_est": 0.2,
+   "merged": false,
+   "copies_count": 0
+  },
+  {
+   "campaign": "[PSI08] [Compra] [Quente] [Teste Criativos] [Estáticos] - ABO",
+   "name": "[PSI] AD-V: Você já saiu",
+   "spend": 173.41,
+   "impressions": 8106,
+   "reach": 3895,
+   "freq": 2.08,
+   "cpm": 21.39,
+   "clicks": 79,
+   "ctr": 0.97,
+   "cpc": 2.2,
+   "lpv": 0,
+   "lpv_rate": 0.0,
+   "fat_est": 0.0,
+   "faturas_est": 0,
+   "roas_est": 0.0,
+   "merged": false,
+   "copies_count": 0
+  },
+  {
+   "campaign": "[RE] [Compra] [Frio] [Melhores Criativos] - CBO",
+   "name": "[RE] AD-E: 01",
+   "spend": 143.75,
+   "impressions": 8207,
+   "reach": 6586,
+   "freq": 1.25,
+   "cpm": 17.52,
+   "clicks": 63,
+   "ctr": 0.77,
+   "cpc": 2.28,
+   "lpv": 0,
+   "lpv_rate": 0.0,
+   "fat_est": 0.0,
+   "faturas_est": 0,
+   "roas_est": 0.0,
+   "merged": false,
+   "copies_count": 0
+  },
+  {
+   "campaign": "[RE] [Compra] [Frio] [Validação] [Vídeos] - ABO",
+   "name": "[RE] AD-V: 07",
+   "spend": 121.89,
+   "impressions": 3129,
+   "reach": 2003,
+   "freq": 1.56,
+   "cpm": 38.95,
+   "clicks": 36,
+   "ctr": 1.15,
+   "cpc": 3.39,
+   "lpv": 0,
+   "lpv_rate": 0.0,
+   "fat_est": 10.76,
+   "faturas_est": 0,
+   "roas_est": 0.09,
+   "merged": false,
+   "copies_count": 0
+  },
+  {
+   "campaign": "[PSI08] [Compra] [Quente] [Teste Criativos] [Estáticos] - ABO",
+   "name": "[PSI] AD-E 06",
+   "spend": 58.95,
+   "impressions": 3641,
+   "reach": 2489,
+   "freq": 1.46,
+   "cpm": 16.19,
+   "clicks": 17,
+   "ctr": 0.47,
+   "cpc": 3.47,
+   "lpv": 0,
+   "lpv_rate": 0.0,
+   "fat_est": 0.0,
+   "faturas_est": 0,
+   "roas_est": 0.0,
+   "merged": false,
+   "copies_count": 0
+  },
+  {
+   "campaign": "[PSI08] [Compra] [Quente] [Teste Criativos] [Estáticos] - ABO",
+   "name": "[PSI] AD-V: Mitos",
+   "spend": 48.86,
+   "impressions": 2179,
+   "reach": 1518,
+   "freq": 1.44,
+   "cpm": 22.42,
+   "clicks": 11,
+   "ctr": 0.5,
+   "cpc": 4.44,
+   "lpv": 0,
+   "lpv_rate": 0.0,
+   "fat_est": 0.0,
+   "faturas_est": 0,
+   "roas_est": 0.0,
+   "merged": false,
+   "copies_count": 0
+  },
+  {
+   "campaign": "[PSI08] [Compra] [Frio] - ABO",
+   "name": "[PSI] AD-E 03",
+   "spend": 47.45,
+   "impressions": 1426,
+   "reach": 972,
+   "freq": 1.47,
+   "cpm": 33.27,
+   "clicks": 13,
+   "ctr": 0.91,
+   "cpc": 3.65,
+   "lpv": 0,
+   "lpv_rate": 0.0,
+   "fat_est": 0.0,
+   "faturas_est": 0,
+   "roas_est": 0.0,
+   "merged": false,
+   "copies_count": 0
+  },
+  {
+   "campaign": "[RE] [Compra] [Quente] [Validação] [Estáticos] - ABO",
+   "name": "[RE] AD-E: 01",
+   "spend": 39.4,
+   "impressions": 1736,
+   "reach": 1415,
+   "freq": 1.23,
+   "cpm": 22.7,
+   "clicks": 20,
+   "ctr": 1.15,
+   "cpc": 1.97,
+   "lpv": 0,
+   "lpv_rate": 0.0,
+   "fat_est": 0.0,
+   "faturas_est": 0,
+   "roas_est": 0.0,
+   "merged": false,
+   "copies_count": 0
+  },
+  {
+   "campaign": "[RE] [Compra] [Quente] [Validação] [Estáticos] - ABO",
+   "name": "[RE] AD-V: 07",
+   "spend": 32.77,
+   "impressions": 1201,
+   "reach": 966,
+   "freq": 1.24,
+   "cpm": 27.29,
+   "clicks": 20,
+   "ctr": 1.67,
+   "cpc": 1.64,
+   "lpv": 0,
+   "lpv_rate": 0.0,
+   "fat_est": 0.0,
+   "faturas_est": 0,
+   "roas_est": 0.0,
+   "merged": false,
+   "copies_count": 0
+  },
+  {
+   "campaign": "[RE] [Compra] [Quente] [Validação] [Vídeos] - ABO",
+   "name": "[RE] AD-V: 05",
+   "spend": 32.05,
+   "impressions": 886,
+   "reach": 703,
+   "freq": 1.26,
+   "cpm": 36.17,
+   "clicks": 15,
+   "ctr": 1.69,
+   "cpc": 2.14,
+   "lpv": 0,
+   "lpv_rate": 0.0,
+   "fat_est": 0.0,
+   "faturas_est": 0,
+   "roas_est": 0.0,
+   "merged": false,
+   "copies_count": 0
+  },
+  {
+   "campaign": "[RE] [Compra] [Frio] [Validação] [Vídeos] - ABO",
+   "name": "[RE] AD-V: 03",
+   "spend": 27.58,
+   "impressions": 918,
+   "reach": 710,
+   "freq": 1.29,
+   "cpm": 30.04,
+   "clicks": 13,
+   "ctr": 1.42,
+   "cpc": 2.12,
+   "lpv": 0,
+   "lpv_rate": 0.0,
+   "fat_est": 3.88,
+   "faturas_est": 0,
+   "roas_est": 0.14,
+   "merged": false,
+   "copies_count": 0
+  },
+  {
+   "campaign": "[RE] [Compra] [Frio] [Validação] [Vídeos] - ABO",
+   "name": "[RE] AD-V: 05",
+   "spend": 23.33,
+   "impressions": 705,
+   "reach": 617,
+   "freq": 1.14,
+   "cpm": 33.09,
+   "clicks": 11,
+   "ctr": 1.56,
+   "cpc": 2.12,
+   "lpv": 0,
+   "lpv_rate": 0.0,
+   "fat_est": 3.29,
+   "faturas_est": 0,
+   "roas_est": 0.14,
+   "merged": false,
+   "copies_count": 0
+  },
+  {
+   "campaign": "[RE] [Compra] [Quente] [Validação] [Estáticos] - ABO",
+   "name": "[RE] AD-E: 03",
+   "spend": 22.7,
+   "impressions": 967,
+   "reach": 766,
+   "freq": 1.26,
+   "cpm": 23.47,
+   "clicks": 7,
+   "ctr": 0.72,
+   "cpc": 3.24,
+   "lpv": 0,
+   "lpv_rate": 0.0,
+   "fat_est": 0.0,
+   "faturas_est": 0,
+   "roas_est": 0.0,
+   "merged": false,
+   "copies_count": 0
+  },
+  {
+   "campaign": "[PSI08] [Initiate Checkout] [Frio] [ADV+] - ABO",
+   "name": "[PSI] AD13_PSIVendas_Set",
+   "spend": 22.66,
+   "impressions": 737,
+   "reach": 620,
+   "freq": 1.19,
+   "cpm": 30.75,
+   "clicks": 17,
+   "ctr": 2.31,
+   "cpc": 1.33,
+   "lpv": 0,
+   "lpv_rate": 0.0,
+   "fat_est": 0.0,
+   "faturas_est": 0,
+   "roas_est": 0.0,
+   "merged": false,
+   "copies_count": 0
+  },
+  {
+   "campaign": "[RE] [Compra] [Quente] [Validação] [Estáticos] - ABO",
+   "name": "[RE] AD-E: 02",
+   "spend": 17.72,
+   "impressions": 760,
+   "reach": 631,
+   "freq": 1.2,
+   "cpm": 23.31,
+   "clicks": 6,
+   "ctr": 0.79,
+   "cpc": 2.95,
+   "lpv": 0,
+   "lpv_rate": 0.0,
+   "fat_est": 0.0,
+   "faturas_est": 0,
+   "roas_est": 0.0,
+   "merged": false,
+   "copies_count": 0
+  },
+  {
+   "campaign": "[RE] [Compra] [Quente] [Validação] [Estáticos] - ABO",
+   "name": "[RE] AD-E: 04",
+   "spend": 17.37,
+   "impressions": 674,
+   "reach": 518,
+   "freq": 1.3,
+   "cpm": 25.77,
+   "clicks": 5,
+   "ctr": 0.74,
+   "cpc": 3.47,
+   "lpv": 0,
+   "lpv_rate": 0.0,
+   "fat_est": 0.0,
+   "faturas_est": 0,
+   "roas_est": 0.0,
+   "merged": false,
+   "copies_count": 0
+  },
+  {
+   "campaign": "[PSI08] [Initiate Checkout] [Frio] [ADV+] - ABO",
+   "name": "[PSI] AD-E 02",
+   "spend": 16.91,
+   "impressions": 439,
+   "reach": 365,
+   "freq": 1.2,
+   "cpm": 38.52,
+   "clicks": 11,
+   "ctr": 2.51,
+   "cpc": 1.54,
+   "lpv": 0,
+   "lpv_rate": 0.0,
+   "fat_est": 0.0,
+   "faturas_est": 0,
+   "roas_est": 0.0,
+   "merged": false,
+   "copies_count": 0
+  },
+  {
+   "campaign": "[PSI08] [Compra] [Quente] [Teste Criativos] [Estáticos] - ABO",
+   "name": "[PSI] AD-E 02",
+   "spend": 13.46,
+   "impressions": 1022,
+   "reach": 731,
+   "freq": 1.4,
+   "cpm": 13.17,
+   "clicks": 1,
+   "ctr": 0.1,
+   "cpc": 13.46,
+   "lpv": 0,
+   "lpv_rate": 0.0,
+   "fat_est": 0.0,
+   "faturas_est": 0,
+   "roas_est": 0.0,
+   "merged": false,
+   "copies_count": 0
+  },
+  {
+   "campaign": "[RE] [Compra] [Frio] [Validação] [Vídeos] - ABO",
+   "name": "[RE] AD-V: 04",
+   "spend": 8.18,
+   "impressions": 232,
+   "reach": 191,
+   "freq": 1.21,
+   "cpm": 35.26,
+   "clicks": 2,
+   "ctr": 0.86,
+   "cpc": 4.09,
+   "lpv": 0,
+   "lpv_rate": 0.0,
+   "fat_est": 0.6,
+   "faturas_est": 0,
+   "roas_est": 0.07,
+   "merged": false,
+   "copies_count": 0
+  },
+  {
+   "campaign": "[RE] [Compra] [Quente] [Validação] [Vídeos] - ABO",
+   "name": "[RE] AD-V: 04",
+   "spend": 5.7,
+   "impressions": 157,
+   "reach": 138,
+   "freq": 1.14,
+   "cpm": 36.31,
+   "clicks": 1,
+   "ctr": 0.64,
+   "cpc": 5.7,
+   "lpv": 0,
+   "lpv_rate": 0.0,
+   "fat_est": 0.0,
+   "faturas_est": 0,
+   "roas_est": 0.0,
+   "merged": false,
+   "copies_count": 0
+  },
+  {
+   "campaign": "[PSI08] [Initiate Checkout] [Frio] [ADV+] - ABO",
+   "name": "[PSI] AD-E 06",
+   "spend": 3.83,
+   "impressions": 88,
+   "reach": 86,
+   "freq": 1.02,
+   "cpm": 43.52,
+   "clicks": 3,
+   "ctr": 3.41,
+   "cpc": 1.28,
+   "lpv": 0,
+   "lpv_rate": 0.0,
+   "fat_est": 0.0,
+   "faturas_est": 0,
+   "roas_est": 0.0,
+   "merged": false,
+   "copies_count": 0
+  },
+  {
+   "campaign": "[RE] [Compra] [Quente] [Validação] [Vídeos] - ABO",
+   "name": "[RE] AD-V: 03",
+   "spend": 3.75,
+   "impressions": 120,
+   "reach": 88,
+   "freq": 1.36,
+   "cpm": 31.25,
+   "clicks": 0,
+   "ctr": 0.0,
+   "cpc": 0,
+   "lpv": 0,
+   "lpv_rate": 0,
+   "fat_est": 0.0,
+   "faturas_est": 0,
+   "roas_est": 0.0,
+   "merged": false,
+   "copies_count": 0
+  },
+  {
+   "campaign": "[RE] [Compra] [Frio] [Melhores Criativos] - CBO",
+   "name": "[RE] AD-E: 02",
+   "spend": 2.5,
+   "impressions": 78,
+   "reach": 60,
+   "freq": 1.3,
+   "cpm": 32.05,
+   "clicks": 0,
+   "ctr": 0.0,
+   "cpc": 0,
+   "lpv": 0,
+   "lpv_rate": 0,
+   "fat_est": 0.0,
+   "faturas_est": 0,
+   "roas_est": 0.0,
+   "merged": false,
+   "copies_count": 0
+  },
+  {
+   "campaign": "[RE] [Compra] [Frio] [Validação] [Vídeos] - ABO",
+   "name": "[RE] AD-V: 06",
+   "spend": 2.22,
+   "impressions": 42,
+   "reach": 35,
+   "freq": 1.2,
+   "cpm": 52.86,
+   "clicks": 0,
+   "ctr": 0.0,
+   "cpc": 0,
+   "lpv": 0,
+   "lpv_rate": 0,
+   "fat_est": 0.0,
+   "faturas_est": 0,
+   "roas_est": 0.0,
+   "merged": false,
+   "copies_count": 0
+  }
+ ],
  "followers": {
   "id": "120241138795630031",
   "name": "[INSTA] [Seguidores] [Frio] - ABO",

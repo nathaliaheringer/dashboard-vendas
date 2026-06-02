@@ -934,7 +934,7 @@ function renderComposicaoInline(){
  function getTotalFaturas(){
   if(aggData){
    var fc=aggData.pay_dist.reduce(function(s,p){return s+p.count;},0);
-   return fc||DATA.daily.filter(function(d){return d.day>=pdFilter.d0&&d.day<=pdFilter.d1;})
+   return fc||DATA.daily.filter(function(d){return d.date>=pdFilter.from_date&&d.date<=pdFilter.to_date;})
     .reduce(function(s,d){return s+d.faturas;},0);
   }
   if(viewProd==='re') return DATA.products_paid.RE?DATA.products_paid.RE.faturas:DATA.totals.faturas;
@@ -944,7 +944,7 @@ function renderComposicaoInline(){
  /* totalFat: usa período filtrado quando ativo */
  var totalFat;
  if(perActive){
-  var filtD=DATA.daily.filter(function(d){return d.day>=pdFilter.d0&&d.day<=pdFilter.d1;});
+  var filtD=DATA.daily.filter(function(d){return d.date>=pdFilter.from_date&&d.date<=pdFilter.to_date;});
   var fatKey=viewProd==='re'?'fat_re':viewProd==='psi'?'fat_psi':'fat';
   totalFat=filtD.reduce(function(a,d){return a+(d[fatKey]||0);},0);
  }else{
@@ -1004,11 +1004,11 @@ function renderComposicaoInline(){
  /* Quando período ativo, usa ob_detail_re/psi do aggData; caso contrário, products_paid */
  var reDataOb = aggData
   ? Object.assign({},DATA.products_paid.RE,{ob_detail:aggData.ob_detail_re,
-      faturas:DATA.daily.filter(function(d){return d.day>=pdFilter.d0&&d.day<=pdFilter.d1;}).reduce(function(a,d){return a+d.faturas_re;},0)})
+      faturas:DATA.daily.filter(function(d){return d.date>=pdFilter.from_date&&d.date<=pdFilter.to_date;}).reduce(function(a,d){return a+d.faturas_re;},0)})
   : DATA.products_paid.RE;
  var psiDataOb = aggData
   ? Object.assign({},DATA.products_paid.PSI,{ob_detail:aggData.ob_detail_psi,
-      faturas:DATA.daily.filter(function(d){return d.day>=pdFilter.d0&&d.day<=pdFilter.d1;}).reduce(function(a,d){return a+d.faturas_psi;},0)})
+      faturas:DATA.daily.filter(function(d){return d.date>=pdFilter.from_date&&d.date<=pdFilter.to_date;}).reduce(function(a,d){return a+d.faturas_psi;},0)})
   : DATA.products_paid.PSI;
  /* Collect all unique OB product names across selected funnels */
  var allObNames=[];
@@ -1054,7 +1054,7 @@ function renderProdDonutInline(){
  var items,tot,cols;
  if(pd.d0!=null){
   /* Período ativo: calcula RE e PSI de daily, resto = Outros */
-  var filtered=DATA.daily.filter(function(d){return d.day>=pd.d0&&d.day<=pd.d1;});
+  var filtered=DATA.daily.filter(function(d){return d.date>=pd.from_date&&d.date<=pd.to_date;});
   var fat_re =filtered.reduce(function(a,d){return a+(d.fat_re||0); },0);
   var fat_psi=filtered.reduce(function(a,d){return a+(d.fat_psi||0);},0);
   var fat_tot=filtered.reduce(function(a,d){return a+(d.fat||0);    },0);
@@ -1346,7 +1346,7 @@ function renderObChartsInline(allObNames,shortNames,reData,psiData){
    para o intervalo [pd.d0, pd.d1]. Retorna null se pd.d0 == null (mês completo). */
 function getPeriodDailyAgg(pd){
  if(!pd||pd.d0==null)return null;
- var daily=DATA.daily.filter(function(d){return d.day>=pd.d0&&d.day<=pd.d1;});
+ var daily=DATA.daily.filter(function(d){return d.date>=pd.from_date&&d.date<=pd.to_date;});
  /* origins */
  var origMap={};
  daily.forEach(function(d){
@@ -1436,7 +1436,7 @@ function getProductPeriodData(prodKey){
    var cKey=prodKey==='RE'?'funnel_clicks_re':'funnel_clicks_psi';
    var lKey=prodKey==='RE'?'funnel_lpv_re':'funnel_lpv_psi';
    var iKey=prodKey==='RE'?'funnel_imp_re':'funnel_imp_psi';
-   var wDays=DATA.daily.filter(function(d){return d.day>=pw.d0&&d.day<=pw.d1;});
+   var wDays=DATA.daily.filter(function(d){var ym=DATA.period.start.substring(0,7);return d.date>=ym+'-'+String(pw.d0).padStart(2,'0')&&d.date<=ym+'-'+String(pw.d1).padStart(2,'0');});
    var wClicks=wDays.reduce(function(a,d){return a+(d[cKey]||0);},0);
    var wLpv   =wDays.reduce(function(a,d){return a+(d[lKey]||0);},0);
    var wImp   =wDays.reduce(function(a,d){return a+(d[iKey]||0);},0);
@@ -1456,7 +1456,7 @@ function getProductPeriodData(prodKey){
  var cKey  =prodKey==='RE'?'funnel_clicks_re':'funnel_clicks_psi';
  var lKey  =prodKey==='RE'?'funnel_lpv_re':'funnel_lpv_psi';
  var iKey  =prodKey==='RE'?'funnel_imp_re':'funnel_imp_psi';
- var daily=DATA.daily.filter(function(d){return d.day>=pd.d0&&d.day<=pd.d1;});
+ var daily=DATA.daily.filter(function(d){return d.date>=pd.from_date&&d.date<=pd.to_date;});
  fat    =daily.reduce(function(a,d){return a+(d[fatKey]||0);},0);
  spend  =daily.reduce(function(a,d){return a+(d[spKey]||0); },0);
  faturas=daily.reduce(function(a,d){return a+(d[fcKey]||0);},0);
@@ -1722,19 +1722,19 @@ function buildEvol(mode){
   labels=ws.map(function(w){return w.label.replace(' mai','');});
   if(evProd==='re'){
    fatD=ws.map(function(w){return w.fat_re||0;});
-   invD=ws.map(function(w){return DATA.daily.filter(function(d){return d.day>=w.d0&&d.day<=w.d1;}).reduce(function(a,d){return a+(d.spend_re||0);},0);});
+   invD=ws.map(function(w){var ym=DATA.period.start.substring(0,7);var f=ym+'-'+String(w.d0).padStart(2,'0'),t=ym+'-'+String(w.d1).padStart(2,'0');return DATA.daily.filter(function(d){return d.date>=f&&d.date<=t;}).reduce(function(a,d){return a+(d.spend_re||0);},0);});
   }else if(evProd==='psi'){
    fatD=ws.map(function(w){return w.fat_psi||0;});
-   invD=ws.map(function(w){return DATA.daily.filter(function(d){return d.day>=w.d0&&d.day<=w.d1;}).reduce(function(a,d){return a+(d.spend_psi||0);},0);});
+   invD=ws.map(function(w){var ym=DATA.period.start.substring(0,7);var f=ym+'-'+String(w.d0).padStart(2,'0'),t=ym+'-'+String(w.d1).padStart(2,'0');return DATA.daily.filter(function(d){return d.date>=f&&d.date<=t;}).reduce(function(a,d){return a+(d.spend_psi||0);},0);});
   }else{
    fatD=ws.map(function(w){return w.fat;});
    invD=ws.map(function(w){return w.spend_sales;});
   }
  }else{
   /* Diário: filtra DATA.daily pelo período selecionado */
-  var daily=pd.d0!=null
-   ?DATA.daily.filter(function(d){return d.day>=pd.d0&&d.day<=pd.d1;})
-   :DATA.daily;
+  var daily=pd.from_date
+   ?DATA.daily.filter(function(d){return d.date>=pd.from_date&&d.date<=pd.to_date;})
+   :DATA.daily.filter(function(d){return d.mes_corrente!==false;});
   labels=daily.map(function(d){return String(d.day).padStart(2,'0')+'/'+(d.date.split('-')[1]);});
   if(evProd==='re'){
    fatD=daily.map(function(d){return d.fat_re||0;});
@@ -1904,17 +1904,38 @@ function filterByPeriod(arr,d0,d1){
 }
 /* Retorna {d0,d1} (day numbers) para o período atual, ou null se mês completo */
 function periodDays(){
- if(period==='all')return{d0:null,d1:null};
+ /* Retorna {d0,d1,from_date,to_date}:
+    - d0/d1: dia do mês (1-31) — usado pelos filtros antigos por campanha
+    - from_date/to_date: ISO strings — usados para filtrar DATA.daily quando
+      o intervalo abrange meses diferentes do mês corrente (via calendário) */
+ if(period==='all'){
+  /* Mês completo = só os dias do mês corrente (não todo o daily histórico) */
+  return {d0:null,d1:null,
+          from_date:DATA.period.start, to_date:DATA.period.end};
+ }
  if(typeof period==='object'){
-  /* converte ISO string para dia do mês */
   var d0=parseInt(period.from.split('-')[2],10);
   var d1=parseInt(period.to.split('-')[2],10);
-  return{d0:d0,d1:d1};
+  return {d0:d0,d1:d1,from_date:period.from,to_date:period.to};
  }
- /* semana */
+ /* semana — dia do mês corrente */
  var w=null;DATA.weeks.forEach(function(x){if(x.id===period)w=x;});
- if(w)return{d0:w.d0,d1:w.d1};
- return{d0:null,d1:null};
+ if(w){
+  var ym = DATA.period.start.substring(0,7); /* 'YYYY-MM' */
+  var fd = ym + '-' + String(w.d0).padStart(2,'0');
+  var td = ym + '-' + String(w.d1).padStart(2,'0');
+  return {d0:w.d0,d1:w.d1,from_date:fd,to_date:td};
+ }
+ return {d0:null,d1:null,
+         from_date:DATA.period.start, to_date:DATA.period.end};
+}
+/* Filtra DATA.daily pelo intervalo de datas ISO do período atual.
+   Funciona corretamente quando o intervalo abrange múltiplos meses. */
+function filterDailyByPeriod(pd){
+ if(!pd||!pd.from_date)return DATA.daily;
+ return DATA.daily.filter(function(d){
+  return d.date >= pd.from_date && d.date <= pd.to_date;
+ });
 }
 /* Calcula dados de campanha filtrados pelo período */
 function campDataForPeriod(c){
