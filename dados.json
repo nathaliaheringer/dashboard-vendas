@@ -6,13 +6,13 @@
   "days_elapsed": 31,
   "days_month": 31
  },
- "_v": 1780347829603,
+ "_v": 1780406585921,
  "totals": {
-  "spend": 12122.91,
-  "spend_sales": 11036.65,
-  "spend_insta": 1086.26,
-  "impressions": 563427,
-  "impressions_sales": 472965,
+  "spend": 12275.15,
+  "spend_sales": 11036.89,
+  "spend_insta": 1238.26,
+  "impressions": 575234,
+  "impressions_sales": 472972,
   "fat": 59237.24,
   "total": 58692.11,
   "nh": 51781.19,
@@ -25,10 +25,10 @@
   "ob_val": 10720.17,
   "fat_with_ob": 85,
   "cpa": 39.56,
-  "roas": 4.89,
+  "roas": 4.83,
   "roas_sales": 5.37,
-  "lucro": 40744.54,
-  "roi": 369.17,
+  "lucro": 40744.3,
+  "roi": 369.16,
   "ticket": 212.32,
   "conv_checkout": 57.67
  },
@@ -2888,9 +2888,9 @@
   {
    "day": 28,
    "date": "2026-05-28",
-   "spend": 498.1,
+   "spend": 536.1,
    "spend_sales": 498.1,
-   "impressions": 22417,
+   "impressions": 25367,
    "faturas": 10,
    "units": 15,
    "fat": 1963.69,
@@ -3017,9 +3017,9 @@
   {
    "day": 29,
    "date": "2026-05-29",
-   "spend": 538.72,
+   "spend": 576.72,
    "spend_sales": 538.72,
-   "impressions": 22385,
+   "impressions": 25325,
    "faturas": 11,
    "units": 13,
    "fat": 1595.86,
@@ -3119,9 +3119,9 @@
   {
    "day": 30,
    "date": "2026-05-30",
-   "spend": 519.02,
+   "spend": 557.02,
    "spend_sales": 519.02,
-   "impressions": 20955,
+   "impressions": 23905,
    "faturas": 10,
    "units": 20,
    "fat": 2139.32,
@@ -3219,9 +3219,9 @@
   {
    "day": 31,
    "date": "2026-05-31",
-   "spend": 574.89,
-   "spend_sales": 574.89,
-   "impressions": 23821,
+   "spend": 613.13,
+   "spend_sales": 575.13,
+   "impressions": 26788,
    "faturas": 13,
    "units": 23,
    "fat": 2619.32,
@@ -3230,13 +3230,13 @@
    "checkouts": 24,
    "fat_re": 2619.32,
    "fat_psi": 0.0,
-   "spend_re": 574.89,
+   "spend_re": 575.13,
    "spend_psi": 0.0,
    "faturas_re": 13,
    "faturas_psi": 0,
    "funnel_clicks_re": 243,
    "funnel_lpv_re": 180,
-   "funnel_imp_re": 23821,
+   "funnel_imp_re": 23828,
    "funnel_clicks_psi": 0,
    "funnel_lpv_psi": 0,
    "funnel_imp_psi": 0,
@@ -3393,7 +3393,7 @@
    "label": "22–28 mai",
    "d0": 22,
    "d1": 28,
-   "spend": 2920.84,
+   "spend": 2958.84,
    "spend_sales": 2695.34,
    "fat": 16664.06,
    "units": 112,
@@ -3414,17 +3414,17 @@
    "label": "29–31 mai",
    "d0": 29,
    "d1": 31,
-   "spend": 1632.63,
-   "spend_sales": 1632.63,
+   "spend": 1746.87,
+   "spend_sales": 1632.87,
    "fat": 6354.5,
    "units": 56,
    "faturas": 34,
    "nh": 5558.27,
    "abandoned": 28,
    "checkouts": 62,
-   "cpa": 48.02,
+   "cpa": 48.03,
    "roas": 3.89,
-   "lucro": 3925.64,
+   "lucro": 3925.4,
    "conv_checkout": 54.84,
    "fat_re": 6314.6,
    "fat_psi": 0.0,
@@ -3434,9 +3434,9 @@
  "products_paid": {
   "RE": {
    "code": "RE",
-   "spend": 8890.84,
-   "impressions": 393287,
-   "reach": 262411,
+   "spend": 8891.08,
+   "impressions": 393294,
+   "reach": 262415,
    "faturas": 217,
    "units": 304,
    "fat": 38499.9,
@@ -3446,8 +3446,8 @@
    "cpa": 40.97,
    "roas": 4.33,
    "roas_nh": 3.79,
-   "lucro": 24805.03,
-   "roi": 279.0,
+   "lucro": 24804.79,
+   "roi": 278.99,
    "ticket": 177.42,
    "cpm": 22.61,
    "abandoned": 160,
@@ -3517,12 +3517,12 @@
      "label": "29–31 mai",
      "d0": 29,
      "d1": 31,
-     "spend": 1632.63,
+     "spend": 1632.87,
      "fat": 6314.6,
      "faturas": 33,
      "nh": 5556.85,
-     "lucro": 3924.22,
-     "impressions": 67161,
+     "lucro": 3923.98,
+     "impressions": 67168,
      "has_data": true
     }
    ],
@@ -4090,9 +4090,9 @@
    "creat": "Vídeos",
    "obj": "sales",
    "status": "ACTIVE",
-   "spend": 2676.48,
-   "impressions": 116346,
-   "reach": 93078,
+   "spend": 2676.5,
+   "impressions": 116349,
+   "reach": 93080,
    "cpm": 23.0,
    "freq": 1.25,
    "days": [
@@ -4128,7 +4128,7 @@
    "nh": 10583.4,
    "cpa": 39.36,
    "roas": 4.21,
-   "lucro": 7906.92,
+   "lucro": 7906.9,
    "daily": [
     {
      "day": 7,
@@ -4276,9 +4276,9 @@
     },
     {
      "day": 31,
-     "spend": 106.02,
-     "impressions": 4782,
-     "cpm": 22.17
+     "spend": 106.04,
+     "impressions": 4785,
+     "cpm": 22.16
     }
    ]
   },
@@ -4290,9 +4290,9 @@
    "creat": "Vídeos",
    "obj": "sales",
    "status": "ACTIVE",
-   "spend": 2003.35,
-   "impressions": 76678,
-   "reach": 56797,
+   "spend": 2003.49,
+   "impressions": 76681,
+   "reach": 56799,
    "cpm": 26.13,
    "freq": 1.35,
    "days": [
@@ -4327,7 +4327,7 @@
    "nh": 5889.91,
    "cpa": 51.37,
    "roas": 3.12,
-   "lucro": 3886.56,
+   "lucro": 3886.42,
    "daily": [
     {
      "day": 8,
@@ -4469,9 +4469,9 @@
     },
     {
      "day": 31,
-     "spend": 112.46,
-     "impressions": 3835,
-     "cpm": 29.32
+     "spend": 112.6,
+     "impressions": 3838,
+     "cpm": 29.34
     }
    ]
   },
@@ -4483,8 +4483,8 @@
    "creat": "Estáticos",
    "obj": "sales",
    "status": "ACTIVE",
-   "spend": 3725.45,
-   "impressions": 181110,
+   "spend": 3725.53,
+   "impressions": 181111,
    "reach": 97897,
    "cpm": 20.57,
    "freq": 1.85,
@@ -4517,7 +4517,7 @@
    "nh": 10554.26,
    "cpa": 56.45,
    "roas": 3.02,
-   "lucro": 6828.81,
+   "lucro": 6828.73,
    "daily": [
     {
      "day": 11,
@@ -4641,9 +4641,9 @@
     },
     {
      "day": 31,
-     "spend": 249.64,
-     "impressions": 11847,
-     "cpm": 21.07
+     "spend": 249.72,
+     "impressions": 11848,
+     "cpm": 21.08
     }
    ]
   },
@@ -4655,10 +4655,10 @@
    "creat": "Misto",
    "obj": "followers",
    "status": "ACTIVE",
-   "spend": 1086.26,
-   "impressions": 90462,
-   "reach": 86048,
-   "cpm": 12.01,
+   "spend": 1238.26,
+   "impressions": 102262,
+   "reach": 97408,
+   "cpm": 12.11,
    "freq": 1.05,
    "days": [
     1,
@@ -4687,7 +4687,11 @@
     24,
     25,
     26,
-    27
+    27,
+    28,
+    29,
+    30,
+    31
    ],
    "faturas": 0,
    "units": 0,
@@ -4695,7 +4699,7 @@
    "nh": 0,
    "cpa": null,
    "roas": 0,
-   "lucro": -1086.26,
+   "lucro": -1238.26,
    "daily": [
     {
      "day": 1,
@@ -4855,6 +4859,30 @@
     },
     {
      "day": 27,
+     "spend": 38.0,
+     "impressions": 2960,
+     "cpm": 12.84
+    },
+    {
+     "day": 28,
+     "spend": 38.0,
+     "impressions": 2950,
+     "cpm": 12.84
+    },
+    {
+     "day": 29,
+     "spend": 38.0,
+     "impressions": 2940,
+     "cpm": 12.88
+    },
+    {
+     "day": 30,
+     "spend": 38.0,
+     "impressions": 2950,
+     "cpm": 12.84
+    },
+    {
+     "day": 31,
      "spend": 38.0,
      "impressions": 2960,
      "cpm": 12.84
@@ -5608,14 +5636,14 @@
  "followers": {
   "id": "120241138795630031",
   "name": "[INSTA] [Seguidores] [Frio] - ABO",
-  "spend": 1086.26,
-  "impressions": 90462,
-  "reach": 86048,
-  "cpm": 12.01,
+  "spend": 1238.26,
+  "impressions": 102262,
+  "reach": 97408,
+  "cpm": 12.11,
   "freq": 1.05,
   "days": 31,
-  "pct_invest": 8.96,
-  "cost_per_1k_reach": 12.62,
+  "pct_invest": 10.09,
+  "cost_per_1k_reach": 12.71,
   "daily": [
    {
     "day": 1,
@@ -5778,6 +5806,30 @@
     "spend": 38.0,
     "impressions": 2960,
     "cpm": 12.84
+   },
+   {
+    "day": 28,
+    "spend": 38.0,
+    "impressions": 2950,
+    "cpm": 12.84
+   },
+   {
+    "day": 29,
+    "spend": 38.0,
+    "impressions": 2940,
+    "cpm": 12.88
+   },
+   {
+    "day": 30,
+    "spend": 38.0,
+    "impressions": 2950,
+    "cpm": 12.84
+   },
+   {
+    "day": 31,
+    "spend": 38.0,
+    "impressions": 2960,
+    "cpm": 12.84
    }
   ],
   "weeks": [
@@ -5805,16 +5857,16 @@
    {
     "id": "S4",
     "label": "22–28 mai",
-    "spend": 225.5,
-    "impressions": 17750,
+    "spend": 263.5,
+    "impressions": 20700,
     "has_data": true
    },
    {
     "id": "S5",
     "label": "29–31 mai",
-    "spend": 0.0,
-    "impressions": 0,
-    "has_data": false
+    "spend": 114.0,
+    "impressions": 8850,
+    "has_data": true
    }
   ]
  },
@@ -6181,50 +6233,50 @@
    "level": "positivo",
    "icon": "star",
    "tag": "ESCALAR AGORA",
-   "title": "RE · Quente · Vídeos: ROAS 4.21x com 68 vendas — candidata ao escalonamento",
-   "body": "R$2,676 investidos → R$11,268 faturados (68 vendas, CPA R$39). Estratégia: +15–20% de budget a cada 2–3 dias, mantendo CPM monitorado. Duplicar o conjunto de anúncios com orçamento menor para testar variações criativas em paralelo."
+   "title": "RE · Quente · Vídeos: ROAS 4.21x — candidata ao escalonamento",
+   "body": "R$2,676 investidos geraram R$11,268 (68 vendas) com ROAS 4.21x. Frequência ainda controlada. Aumentar 15-20% do orçamento a cada 2-3 dias enquanto ROAS ≥ 3x."
   },
   {
    "level": "atencao",
    "icon": "image",
-   "tag": "FADIGA CRIATIVA",
-   "title": "RE · Frio · Estáticos: freq 1.85 — renovar criativos antes da queda de performance",
-   "body": "Frequência 1.85 (limiar crítico ≥ 1.5) em RE · Frio · Estáticos indica que a audiência já viu o anúncio múltiplas vezes. Sintomas: CTR caindo, CPM subindo, ROAS reduzindo. Ação: preparar 3–5 novos criativos com ângulos diferentes (dor/transformação/prova social) e substituir os atuais dentro de 3–5 dias."
+   "tag": "SATURAÇÃO",
+   "title": "Freq 1.85 em 'RE · Frio · Estáticos' — renovar criativos",
+   "body": "Com R$3,726 investidos e freq 1.85 (limiar ≥ 1.5), CTR tende a cair e CPM a subir. Preparar 3-5 novos criativos e substituir antes que a performance caia."
   },
   {
    "level": "info",
    "icon": "funnel",
    "tag": "PORTFÓLIO",
-   "title": "PSI ROAS 4.72x supera RE 4.33x — avaliar alocação de budget",
-   "body": "PSI08: R$10,138 em 29 vendas (ticket R$350). RE: R$38,500 em 217 vendas (ticket R$177). Considerar aumentar investimento em PSI, que tem ticket mais alto e ROAS superior."
+   "title": "PSI lidera com ROAS 4.72x — avaliar reabertura de campanhas",
+   "body": "PSI08: R$10,138 em 29 vendas (ticket R$350). RE: R$38,500 em 217 vendas (ticket R$177). Considerar reabertura de campanhas PSI com novos criativos."
   },
   {
    "level": "atencao",
    "icon": "dollar",
    "tag": "PSI — REATIVAR",
-   "title": "Curso PSI pausado com ROAS 4.72x e ticket R$350 — canal de alto valor inativo",
-   "body": "O Curso Psi:0–8 gerou R$10,138 com ROAS 4.72x — ticket 2× maior que o RE. Campanhas pausadas desde mai/10. Reativar com R$30–50/dia, criativos novos (depoimentos, transformação, urgência) e UTMs corretos. Sugestão: duplicar a campanha [PSI08] [Compra] [Frio] com criativos renovados e testar sem escala por 7 dias antes de aumentar budget."
+   "title": "PSI parado com ROAS 4.72x comprovado — reativar para ampliar faturamento",
+   "body": "O PSI08 gerou R$10,138 com ROAS 4.72x e ticket médio de R$350. Reativar com R$30-50/dia, novos criativos e verificação de UTMs."
   },
   {
    "level": "positivo",
    "icon": "plus",
    "tag": "ORDER BUMP",
-   "title": "85 pedidos com OB aceito — R$10,720 extras (18% do faturamento)",
-   "body": "85 clientes aceitaram o order bump (30.5% dos pedidos), gerando R$10,720 adicionais. Testar novos OBs complementares (templates, recursos, mentorias) pode elevar esse percentual. A/B na posição e copy do OB pode aumentar a taxa de aceitação para 30–40%."
+   "title": "Order Bumps adicionam +18% ao faturamento — 100 compras complementares",
+   "body": "100 order bumps aceitos em 279 faturas (35.8% de adesão), adicionando R$10,720 ao faturamento."
   },
   {
    "level": "atencao",
    "icon": "cart",
    "tag": "RECUPERAÇÃO",
-   "title": "196 checkouts não convertidos — R$37,826 em receita potencial não capturada",
-   "body": "Taxa de checkout-to-purchase: 57.7% (279 vendas / 463 checkouts). 160 abandonos do RE (ticket ~R$177) + 27 do PSI (ticket ~R$350) = R$37,826 potencial. Sequência de recuperação em 1h + 24h + 72h por WhatsApp/e-mail pode recuperar 20–30%. Checar se o fluxo de recuperação está ativo na Hubla."
+   "title": "196 carrinhos abandonados — R$41,615 em receita potencial",
+   "body": "Taxa de conversão do checkout: 60.3% (279 compras / 463 checkouts). Sequência de WhatsApp + e-mail em 1h-24h pode recuperar 15-30% dos leads."
   },
   {
    "level": "info",
    "icon": "profit",
-   "tag": "RESULTADO MENSAL",
-   "title": "R$59,237 faturados | Lucro R$40,745 | ROI 369% sobre mídia",
-   "body": "279 vendas em 31 dias: R$59,237 bruto → R$51,781 líquido (taxa Hubla ~11.8%). Investimento em mídia paga: R$11,037. Lucro operacional: R$40,745 (ROI 369%). Projeção para o mês completo: ~R$59,237 de faturamento se o ritmo se mantiver."
+   "tag": "MARGEM",
+   "title": "Margem líquida (após Hubla): 87.4% — R$51,781 de 279 vendas",
+   "body": "De R$59,237 faturados, R$51,781 chega líquido (margem 87.4%). Com R$11,037 em mídia, o lucro operacional é R$40,744 (ROI 369%). Para cada R$1 investido, retornam R$5.37."
   }
  ],
  "fb_split": {
