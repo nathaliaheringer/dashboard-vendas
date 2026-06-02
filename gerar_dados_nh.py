@@ -2,29 +2,48 @@
 """
 Gerador de dados.json para dashboard NH
 Versão final baseada em v8 (sessão 27aa9ba3)
-Período: 01 a 31 de maio de 2026
-Fontes:
-  Hubla:   2b7fc88b-835f-598d-99e6-9ad18d54ad72.xlsx
-  Leads:   export-leads-2026-06-01T09_08_54.csv
-  RE Ads:  [Nathalia Heringer] Controle de Vendas Perpétuos. - DADOS RE (1).csv
-  PSI Ads: [Nathalia Heringer] Controle de Vendas Perpétuos. - DADOS PSI08 (2).csv
-  Hotmart: CSV com coluna 'Nome do Produtor' (detectado automaticamente)
-  Ads:     CSV com coluna 'Ad name' (detectado automaticamente)
+
+PERÍODO: DETECTADO AUTOMATICAMENTE — sempre o mês corrente do sistema.
+Quando vira o mês, o dashboard automaticamente passa a mostrar apenas
+os dados do novo mês — sem precisar editar este arquivo.
+
+Fontes (todas auto-detectadas em dashboard-vendas/):
+  Hubla:   .xlsx que contém faturas pagas no mês corrente
+  Leads:   export-leads-*.csv mais recente
+  RE Ads:  *DADOS RE*.csv
+  PSI Ads: *DADOS PSI08*.csv
+  Hotmart: CSV com coluna 'Nome do Produtor'
+  Ads:     CSV com coluna 'Ad name'
   INSTA:   hardcoded
+
 Correção v8: PSI/RE inclui linhas onde produto aparece em OB; usa Valor total (tot).
 """
-import json, openpyxl, csv, time, re
+import json, openpyxl, csv, time, re, glob, os
+import calendar
 from datetime import datetime
 from collections import defaultdict
 
 BASE_DATA = '/Users/guilhermebasso/Documents/Claude/Projects/NH/dashboard-vendas'
 BASE_OUT  = '/Users/guilhermebasso/Documents/Claude/Projects/NH'
 
-PERIOD_START  = datetime(2026, 5,  1)
-PERIOD_END    = datetime(2026, 5, 31)
-DAYS_ELAPSED  = 31
-PERIOD_LABEL  = "01 a 31 de maio de 2026"
-DAYS_MONTH    = 31
+# ── PERÍODO: detecta automaticamente o mês corrente ──────────────
+_now = datetime.now()
+PERIOD_YEAR   = _now.year
+PERIOD_MONTH  = _now.month
+PERIOD_START  = datetime(PERIOD_YEAR, PERIOD_MONTH, 1)
+DAYS_MONTH    = calendar.monthrange(PERIOD_YEAR, PERIOD_MONTH)[1]
+DAYS_ELAPSED  = min(_now.day, DAYS_MONTH)
+PERIOD_END    = datetime(PERIOD_YEAR, PERIOD_MONTH, DAYS_ELAPSED, 23, 59, 59)
+
+_MES_PT = ['janeiro','fevereiro','março','abril','maio','junho',
+           'julho','agosto','setembro','outubro','novembro','dezembro']
+_MES_ABBR = ['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez']
+MES_ABBR = _MES_ABBR[PERIOD_MONTH-1]
+PERIOD_LABEL = f"01 a {DAYS_ELAPSED} de {_MES_PT[PERIOD_MONTH-1]} de {PERIOD_YEAR}"
+
+print(f"\n📅 Período detectado: {PERIOD_LABEL}")
+print(f"   {PERIOD_START.strftime('%Y-%m-%d')} → {PERIOD_END.strftime('%Y-%m-%d')} "
+      f"({DAYS_ELAPSED}/{DAYS_MONTH} dias)\n")
 
 # ── helpers ──────────────────────────────────────────────────────
 def dedup(s):
@@ -46,12 +65,14 @@ def parse_dt(s):
     return None
 
 def parse_day_col(s):
+    """Parse 'Day' column do Meta Ads CSV. Aceita 'YYYY-MM-DD', 'DD/MM' ou 'DD/MM/YYYY'."""
     s=str(s).strip()
-    if '2026-05' in s: return parse_dt(s)
+    if '-' in s and len(s) >= 10:   # YYYY-MM-DD
+        return parse_dt(s)
     if '/' in s:
         parts=s.split('/')
         if len(parts)==2:
-            try: return datetime(2026,int(parts[1]),int(parts[0]))
+            try: return datetime(PERIOD_YEAR,int(parts[1]),int(parts[0]))
             except: pass
         return parse_dt(s)
     return None
@@ -81,8 +102,36 @@ REGION_MAP = {
 def is_re_prod(p):  return 'Regulando' in str(p)
 def is_psi_prod(p): return ('Psi' in str(p) or 'PSI' in str(p)) and 'Regulando' not in str(p)
 
-# ── STEP 1: Hubla XLSX ───────────────────────────────────────────
-wb = openpyxl.load_workbook(f'{BASE_DATA}/2b7fc88b-835f-598d-99e6-9ad18d54ad72.xlsx')
+# ── STEP 1: Hubla XLSX (auto-detecta o XLSX que tem dados do mês corrente) ──
+_hubla_candidates = sorted(glob.glob(f'{BASE_DATA}/*.xlsx'),
+                            key=lambda p: os.path.getmtime(p), reverse=True)
+_HUBLA_FILE = None
+for _f in _hubla_candidates:
+    try:
+        _wb_test = openpyxl.load_workbook(_f, read_only=True)
+        _ws_test = _wb_test.active
+        _hdr = [str(c.value) for c in _ws_test[1]]
+        if 'Data de pagamento' not in _hdr or 'Status da fatura' not in _hdr:
+            _wb_test.close(); continue
+        _di = _hdr.index('Data de pagamento'); _si = _hdr.index('Status da fatura')
+        _match = False
+        for _row in _ws_test.iter_rows(min_row=2, values_only=True):
+            if str(_row[_si]) != 'Paga': continue
+            _dt = parse_dt(_row[_di])
+            if _dt and PERIOD_START <= _dt <= PERIOD_END:
+                _match = True; break
+        _wb_test.close()
+        if _match:
+            _HUBLA_FILE = _f; break
+    except Exception:
+        continue
+if not _HUBLA_FILE:
+    # Fallback: usar o mais recente mesmo sem match
+    _HUBLA_FILE = _hubla_candidates[0] if _hubla_candidates else None
+if not _HUBLA_FILE:
+    raise SystemExit(f"❌ Nenhum .xlsx encontrado em {BASE_DATA}")
+print(f"[Hubla] XLSX: {os.path.basename(_HUBLA_FILE)}")
+wb = openpyxl.load_workbook(_HUBLA_FILE)
 ws = wb.active
 H = [str(c.value) for c in ws[1]]
 def ci(nm):
@@ -121,7 +170,13 @@ for row in ws.iter_rows(min_row=2, values_only=True):
 print(f"[Hubla] {len(invoices)} faturas pagas")
 
 # ── STEP 2: Carrinhos abandonados ───────────────────────────────
-CART_FILE = f'{BASE_DATA}/export-leads-2026-06-01T09_08_54.csv'
+# Auto-detecta o export-leads-*.csv mais recente
+_cart_candidates = sorted(glob.glob(f'{BASE_DATA}/export-leads-*.csv'),
+                          key=lambda p: os.path.getmtime(p), reverse=True)
+if not _cart_candidates:
+    raise SystemExit(f"❌ Nenhum export-leads-*.csv encontrado em {BASE_DATA}")
+CART_FILE = _cart_candidates[0]
+print(f"[Carrinhos] CSV: {os.path.basename(CART_FILE)}")
 carts = []
 cart_by_day = defaultdict(int)
 with open(CART_FILE, encoding='utf-8') as f:
@@ -302,6 +357,8 @@ INSTA_RAW = [
     ("2026-05-31",38.00,2960,2850,12.84),
 ]
 for (date,spend,imp,reach,cpm) in INSTA_RAW:
+    # Só incluir se o ano-mês da data corresponde ao período corrente
+    if date[:7] != f"{PERIOD_YEAR}-{PERIOD_MONTH:02d}": continue
     meta_raw.append({'campaign':INSTA_CAMP,'date':date,'spend':r2(spend),
                      'impressions':imp,'reach':reach,'frequency':r2(imp/reach if reach else 1.04),'cpm':r2(cpm)})
 
@@ -616,9 +673,12 @@ def build_week(wid,label,d0,d1):
             "lucro":r2(w_nh-w_sps),"conv_checkout":sdiv(w_fc*100,w_ch) if w_ch else 0,
             "fat_re":r2(w_re),"fat_psi":r2(w_psi),"has_data":has}
 
-weeks=[build_week("S1","01–07 mai",1,7),build_week("S2","08–14 mai",8,14),
-       build_week("S3","15–21 mai",15,21),build_week("S4","22–28 mai",22,28),
-       build_week("S5","29–31 mai",29,31)]
+_s5_end = DAYS_MONTH  # 28/29/30/31 conforme o mês
+weeks=[build_week("S1",f"01–07 {MES_ABBR}",1,7),
+       build_week("S2",f"08–14 {MES_ABBR}",8,14),
+       build_week("S3",f"15–21 {MES_ABBR}",15,21),
+       build_week("S4",f"22–28 {MES_ABBR}",22,28),
+       build_week("S5",f"29–{_s5_end} {MES_ABBR}",29,_s5_end)]
 
 print("\nSemanas:")
 for w in weeks:
@@ -629,7 +689,7 @@ for w in weeks:
 daily_arr=[]
 for d in range(1, DAYS_ELAPSED+1):
     ab=day_ab[d]; fc=day_fat_c[d]
-    daily_arr.append({"day":d,"date":f"2026-05-{d:02d}",
+    daily_arr.append({"day":d,"date":f"{PERIOD_YEAR}-{PERIOD_MONTH:02d}-{d:02d}",
         "spend":r2(meta_by_day[d]['spend']),
         "spend_sales":r2(meta_by_day[d]['spend_sales']),
         "impressions":meta_by_day[d]['imp'],
@@ -715,9 +775,11 @@ for _entry in daily_arr:
 
 def prod_week_rows(day_fat_d, day_c_d, camp_set, nh_ratio=0.94):
     rows=[]
-    for wid,label,d0,d1 in [("S1","01–07 mai",1,7),("S2","08–14 mai",8,14),
-                              ("S3","15–21 mai",15,21),("S4","22–28 mai",22,28),
-                              ("S5","29–31 mai",29,31)]:
+    for wid,label,d0,d1 in [("S1",f"01–07 {MES_ABBR}",1,7),
+                            ("S2",f"08–14 {MES_ABBR}",8,14),
+                            ("S3",f"15–21 {MES_ABBR}",15,21),
+                            ("S4",f"22–28 {MES_ABBR}",22,28),
+                            ("S5",f"29–{DAYS_MONTH} {MES_ABBR}",29,DAYS_MONTH)]:
         wf=sum(day_fat_d[d] for d in range(d0,d1+1))
         wc=sum(day_c_d[d]   for d in range(d0,d1+1))
         ws=sum(r['spend'] for r in meta_raw if r['campaign'] in camp_set and d0<=int(r['date'][8:10])<=d1)
@@ -845,7 +907,7 @@ w2 = next((w for w in weeks if w['id']=='S2'), None)
 # Dias com dados em S4 (dinâmico)
 s4_end_day   = min(DAYS_ELAPSED, 28)
 s4_days      = max(0, s4_end_day - 21)
-s4_range_str = f"22–{s4_end_day}/mai" if s4_days > 0 else "22–28/mai"
+s4_range_str = f"22–{s4_end_day}/{MES_ABBR}" if s4_days > 0 else f"22–28/{MES_ABBR}"
 
 re_cpm_atual = r2(sdiv(re_sp * 1000, re_imp_m))
 

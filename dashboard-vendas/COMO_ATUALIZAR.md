@@ -24,31 +24,27 @@ O gerador lê os relatórios brutos e produz o `dados.json` — o dashboard busc
 
 ### Passos
 
-1. **Exportar os relatórios** (veja seção 2) e salvar todos na pasta `dashboard-vendas/`
+> 🎯 **Período é 100% automático.** O gerador sempre usa o mês corrente do sistema.
+> Quando vira o mês (ex.: 01/jul), basta arquivar os relatórios antigos e baixar os
+> novos do mês — o dashboard automaticamente mostra apenas o mês atual.
 
-2. **Atualizar as constantes de período** no topo do `gerar_dados_nh.py`:
-   ```python
-   PERIOD_START  = datetime(2026, 5,  1)   # início do mês
-   PERIOD_END    = datetime(2026, 5, 31)   # último dia com dados
-   DAYS_ELAPSED  = 31                      # dia do mês de PERIOD_END
-   PERIOD_LABEL  = "01 a 31 de maio de 2026"
-   DAYS_MONTH    = 31                      # dias no mês
-   ```
+1. **Quando virar o mês:** crie uma pasta `_historico/[mês]/` e mova para lá todos os
+   arquivos do mês anterior (XLSX da Hubla, leads CSV, Hotmart CSV, ads CSV).
+   Mantém histórico sem confundir o gerador.
 
-3. **Atualizar os nomes dos arquivos** no topo do script:
-   ```python
-   wb = openpyxl.load_workbook(f'{BASE_DATA}/NOVO-UUID-HUBLA.xlsx')
-   CART_FILE = f'{BASE_DATA}/export-leads-NOVO-TIMESTAMP.csv'
-   ```
-   O gerador detecta automaticamente o CSV do Hotmart e o CSV de anúncios — não precisa alterar.
+2. **Exportar os relatórios do mês corrente** (veja seção 2) e salvar todos na pasta `dashboard-vendas/`.
 
-4. **Executar o gerador:**
+3. **Executar o gerador:**
    ```bash
    python3 /Users/guilhermebasso/Documents/Claude/Projects/NH/gerar_dados_nh.py
    ```
-   A saída deve mostrar `✅ Salvo: .../dados.json`
+   - Detecta automaticamente o mês corrente do sistema
+   - Auto-seleciona o XLSX da Hubla que contém faturas do mês corrente
+   - Auto-seleciona o `export-leads-*.csv` mais recente
+   - Auto-detecta CSVs do Hotmart (coluna `Nome do Produtor`) e de anúncios (coluna `Ad name`)
+   - Saída deve mostrar `✅ Salvo: .../dados.json`
 
-5. **Publicar no GitHub:**
+4. **Publicar no GitHub:**
    ```bash
    cd /Users/guilhermebasso/Documents/Claude/Projects/NH
    git add dados.json
@@ -57,6 +53,11 @@ O gerador lê os relatórios brutos e produz o `dados.json` — o dashboard busc
    ```
 
 O dashboard em `https://nathaliaheringer.github.io/dashboard-vendas/` estará atualizado em ~30 segundos.
+
+> ⚠️ **Importante:** nunca deixe arquivos de mês passado na pasta `dashboard-vendas/`
+> (ex.: `ads_maio2026.csv` em junho). O gerador filtra por data quando o CSV tem
+> coluna de data, mas alguns CSVs (como o de anúncios agregado) não têm — eles
+> entram no mês errado se ficarem na pasta. Sempre arquive ao virar o mês.
 
 ---
 
@@ -162,14 +163,20 @@ Coloque todos os arquivos na pasta `dashboard-vendas/` antes de rodar o gerador.
 
 ## 5. Checklist de atualização
 
-- [ ] Exportar XLSX do Hubla (Vendas, período do mês)
+**Início do mês (ou diário):**
+- [ ] Se virou o mês: criar `dashboard-vendas/_historico/[mes_anterior]/` e mover arquivos antigos
+- [ ] Exportar XLSX do Hubla (Vendas, período do mês corrente)
 - [ ] Exportar CSV de Carrinhos Abandonados do Hubla
 - [ ] Exportar CSV do Histórico de Vendas do Hotmart (se houver vendas no mês)
 - [ ] Exportar CSVs das abas DADOS RE e DADOS PSI08 do Google Sheets
 - [ ] *(Opcional)* Exportar relatório de anúncios do Meta Ads Manager (nível Anúncio)
 - [ ] Salvar todos os arquivos em `dashboard-vendas/`
-- [ ] Atualizar `PERIOD_END`, `DAYS_ELAPSED` e `PERIOD_LABEL` no `gerar_dados_nh.py`
-- [ ] Atualizar nome do XLSX e do CSV de carrinhos no script
+
+**Gerar e publicar:**
 - [ ] Executar `python3 gerar_dados_nh.py` — verificar saída sem erros
+- [ ] Conferir na saída: período detectado corresponde ao mês corrente
 - [ ] Conferir na saída: faturas RE e PSI batem com o Hubla UI
 - [ ] `git add dados.json && git commit -m "..." && git push`
+
+> ✅ **Não é mais necessário editar o script** para trocar período ou nomes de arquivos —
+> tudo é detectado automaticamente.
