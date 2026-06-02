@@ -741,7 +741,7 @@ function geralKpiData(P){
   return {fat:pp.fat,faturas:pp.faturas,invest:pp.spend,ticket:pp.ticket,
    lucro:pp.lucro,roas:pp.roas,cpa:pp.cpa,units:pp.units,kind:P.kind,label:P.label};
  }
- /* Semana — usa pp.weeks */
+ /* Semana — agrega dailies do mês corrente dentro do intervalo da semana */
  if(typeof period==='string'&&period.match(/^S\d$/)){
   var pw=null;(pp.weeks||[]).forEach(function(w){if(w.id===period)pw=w;});
   if(pw&&pw.has_data){
@@ -751,8 +751,14 @@ function geralKpiData(P){
    var ticket=faturas>0?r2(fat/faturas):0;
    var roas=invest>0?r2(fat/invest):0;
    var cpa=faturas>0?r2(invest/faturas):null;
+   /* Soma units_re/units_psi do daily entre pw.d0..pw.d1 do mês corrente */
+   var uKey=viewProd==='re'?'units_re':'units_psi';
+   var ym=DATA.period.start.substring(0,7);
+   var fd=ym+'-'+String(pw.d0).padStart(2,'0'), td=ym+'-'+String(pw.d1).padStart(2,'0');
+   var unitsWeek=DATA.daily.filter(function(d){return d.date>=fd&&d.date<=td;})
+                            .reduce(function(a,d){return a+(d[uKey]||0);},0);
    return {fat:fat,faturas:faturas,invest:invest,ticket:ticket,
-    lucro:lucro,roas:roas,cpa:cpa,units:faturas,kind:P.kind,label:P.label};
+    lucro:lucro,roas:roas,cpa:cpa,units:unitsWeek||faturas,kind:P.kind,label:P.label};
   }
  }
  /* Intervalo/dia — agrega global daily pelos campos fat_re/fat_psi + spend_re/spend_psi */
@@ -760,17 +766,19 @@ function geralKpiData(P){
   var fatKey=viewProd==='re'?'fat_re':'fat_psi';
   var spKey=viewProd==='re'?'spend_re':'spend_psi';
   var fcKey=viewProd==='re'?'faturas_re':'faturas_psi';
+  var uKey =viewProd==='re'?'units_re':'units_psi';
   var ds=P.days||[];
   var fat=r2(ds.reduce(function(a,d){return a+(d[fatKey]||0);},0));
   var invest=r2(ds.reduce(function(a,d){return a+(d[spKey]||0);},0));
   var faturas=ds.reduce(function(a,d){return a+(d[fcKey]||0);},0);
+  var units=ds.reduce(function(a,d){return a+(d[uKey]||0);},0);
   var nh=r2(fat*nhRatio);
   var lucro=r2(nh-invest);
   var ticket=faturas>0?r2(fat/faturas):0;
   var roas=invest>0?r2(fat/invest):0;
   var cpa=faturas>0?r2(invest/faturas):null;
   return {fat:fat,faturas:faturas,invest:invest,ticket:ticket,
-   lucro:lucro,roas:roas,cpa:cpa,units:faturas,kind:P.kind,label:P.label,days:P.days};
+   lucro:lucro,roas:roas,cpa:cpa,units:units||faturas,kind:P.kind,label:P.label,days:P.days};
  }
  /* Fallback — mês */
  return {fat:pp.fat,faturas:pp.faturas,invest:pp.spend,ticket:pp.ticket,

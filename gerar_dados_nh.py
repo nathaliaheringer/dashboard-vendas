@@ -454,6 +454,7 @@ day_fat=defaultdict(float); day_nh=defaultdict(float)
 day_fat_c=defaultdict(int); day_units=defaultdict(int)
 day_fat_re=defaultdict(float); day_fat_psi=defaultdict(float)
 day_fat_re_c=defaultdict(int); day_fat_psi_c=defaultdict(int)
+day_units_re_d=defaultdict(int); day_units_psi_d=defaultdict(int)
 prod_fat=defaultdict(float); prod_fat_c=defaultdict(int); prod_units_d=defaultdict(int)
 origins_map={k:{'faturas':0,'fat':0.0,'nh':0.0} for k in ('facebook ads','instagram','whatsapp','sem origem','hotmart')}
 fb_split={k:{'faturas':0,'fat':0.0} for k in ('frio','quente','outros')}
@@ -558,6 +559,7 @@ for inv in invoices:
             prod_fat[p]+=0  # p já contabilizado; não duplicar
         re_count+=1; re_units+=inv['items']
         day_fat_re_c[d]+=1
+        day_units_re_d[d]+=inv['items']
         if has_ob: re_ob+=1
         # OB product detail for RE
         if prod_is_re:
@@ -586,6 +588,7 @@ for inv in invoices:
         day_fat_psi[d]+=tot
         psi_count+=1; psi_units+=inv['items']
         day_fat_psi_c[d]+=1
+        day_units_psi_d[d]+=inv['items']
         if has_ob: psi_ob+=1
         # OB product detail for PSI
         if prod_is_psi:
@@ -811,6 +814,8 @@ for _entry in daily_arr:
     _entry['spend_psi']  = r2(sum(r['spend'] for r in meta_raw if r['campaign'] in PSI_CAMPS and int(r['date'][8:10])==_d))
     _entry['faturas_re'] = day_fat_re_c[_d]
     _entry['faturas_psi']= day_fat_psi_c[_d]
+    _entry['units_re']   = day_units_re_d[_d]
+    _entry['units_psi']  = day_units_psi_d[_d]
     # Funil por produto
     _entry['funnel_clicks_re']  = day_funnel_re[_d]['clicks']
     _entry['funnel_lpv_re']     = day_funnel_re[_d]['lpv']
@@ -844,6 +849,7 @@ hist_invoices = [i for i in invoices_hist if not (i['year']==PERIOD_YEAR and i['
 hist_by_date = defaultdict(lambda: {
     'fat':0.0,'nh':0.0,'total':0.0,'faturas':0,'units':0,
     'fat_re':0.0,'fat_psi':0.0,'faturas_re':0,'faturas_psi':0,
+    'units_re':0,'units_psi':0,
     'origins':defaultdict(lambda: {'fat':0.0,'faturas':0}),
     'fb_split':{'frio':{'fat':0.0,'faturas':0},'quente':{'fat':0.0,'faturas':0},'outros':{'fat':0.0,'faturas':0}},
     'regioes':defaultdict(lambda: {'fat':0.0,'faturas':0}),
@@ -869,9 +875,9 @@ for inv in hist_invoices:
     _is_re  = prod_is_re  or ob_is_re
     _is_psi = prod_is_psi or ob_is_psi
     if _is_re:
-        _hd['fat_re']+=tot; _hd['faturas_re']+=1
+        _hd['fat_re']+=tot; _hd['faturas_re']+=1; _hd['units_re']+=inv['items']
     if _is_psi:
-        _hd['fat_psi']+=tot; _hd['faturas_psi']+=1
+        _hd['fat_psi']+=tot; _hd['faturas_psi']+=1; _hd['units_psi']+=inv['items']
     # OB detail RE
     if _is_re:
         if prod_is_re:
@@ -950,6 +956,7 @@ for date_str, h in sorted(hist_by_date.items()):
         "fat_re":r2(h['fat_re']), "fat_psi":r2(h['fat_psi']),
         "spend_re":r2(_mt['spend_re']), "spend_psi":r2(_mt['spend_psi']),
         "faturas_re":h['faturas_re'], "faturas_psi":h['faturas_psi'],
+        "units_re":h['units_re'], "units_psi":h['units_psi'],
         "funnel_clicks_re":_fre['clicks'],"funnel_lpv_re":_fre['lpv'],"funnel_imp_re":_fre['imp'],
         "funnel_clicks_psi":_fps['clicks'],"funnel_lpv_psi":_fps['lpv'],"funnel_imp_psi":_fps['imp'],
         "origins":[{"name":ORIG_LABELS.get(k,k),"fat":r2(v['fat']),"faturas":v['faturas']}
