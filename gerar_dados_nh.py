@@ -1277,108 +1277,81 @@ for _af in _ad_files:
 
 if _AD_FILE:
     print(f"[Anúncios] Arquivo detectado: {_os.path.basename(_AD_FILE)}")
+    # _has_day_col: True quando o CSV tem coluna Day (permite breakdown diário)
+    with open(_AD_FILE, encoding='utf-8') as _f:
+        _hdr_check = [h.strip().lower() for h in _f.readline().split(',')]
+    _has_day_col = 'day' in _hdr_check
+
+    def _base_name(name):
+        return re.sub(r'\s*[—\-]{1,2}\s*C[oó]pia.*$', '', str(name).strip()).strip()
+
+    # Map: (camp, ad_base) → {totals, daily:[]}
     _ads_map = defaultdict(lambda: {'spend':0.0,'impressions':0,'clicks':0,'lpv':0,
-                                     'reach':0,'cpm_x_imp':0.0,'n_rows':0})
+                                     'reach':0,'cpm_x_imp':0.0,'names':set(),'daily':[]})
     with open(_AD_FILE, encoding='utf-8') as _f:
         _rd = csv.DictReader(_f)
         for _row in _rd:
-            _dt2 = parse_day_col((_row.get('Day') or _row.get('day') or ''))
-            if _dt2 and not (PERIOD_START <= _dt2.replace(hour=0,minute=0,second=0) <= PERIOD_END): continue
             _ad_name  = (_row.get('Ad name') or _row.get('Ad Name') or _row.get('ad name') or '').strip()
             _camp_name = (_row.get('Campaign name') or _row.get('Campaign Name') or '').strip()
             if not _ad_name: continue
-            _key = (_camp_name, _ad_name)
+            _ad_base = _base_name(_ad_name)
+            _key = (_camp_name, _ad_base)
             _sp  = n(_row.get('Amount Spent','0'))
             _imp = r0(n(_row.get('Impressions','0')))
             _cl  = r0(n(_row.get('Link Clicks','0')))
             _lp  = r0(n(_row.get('Landing Page Views','0')))
             _rc  = r0(n(_row.get('Reach','0')))
             _cpm = n(_row.get('CPM (Cost per 1,000 Impressions)','0'))
+            _date_iso = ''
+            if _has_day_col:
+                _dt2 = parse_day_col((_row.get('Day') or _row.get('day') or ''))
+                if _dt2: _date_iso = _dt2.strftime('%Y-%m-%d')
+                # Filtra pela janela histórica (não pelo mês corrente!)
+                if _dt2 and not (HIST_START <= _dt2.replace(hour=0,minute=0,second=0) <= HIST_END):
+                    continue
             _ads_map[_key]['spend']       += _sp
             _ads_map[_key]['impressions'] += _imp
             _ads_map[_key]['clicks']      += _cl
             _ads_map[_key]['lpv']         += _lp
             _ads_map[_key]['reach']       += _rc
             _ads_map[_key]['cpm_x_imp']   += _cpm * _imp
-            _ads_map[_key]['n_rows']      += 1
-    # Índice de vendas Hubla por campanha
+            _ads_map[_key]['names'].add(_ad_name)
+            if _date_iso:
+                _ads_map[_key]['daily'].append({
+                    'date':_date_iso,'spend':r2(_sp),'impressions':_imp,
+                    'clicks':_cl,'lpv':_lp,'reach':_rc,'cpm':r2(_cpm),
+                })
+
+    # Índice de vendas Hubla por campanha (mês corrente)
     _camp_hubla = {}
     for _c in campaigns_arr:
-        _cn = _c['name']
-        _camp_hubla[_cn] = {
+        _camp_hubla[_c['name']] = {
             'faturas': _c.get('faturas', 0),
             'fat':     _c.get('fat', 0.0),
             'nh':      _c.get('nh', 0.0),
             'spend':   _c.get('spend', 0.0),
         }
-    # Total de link clicks por campanha
-    _camp_clicks_tot = defaultdict(int)
+    # Total de link clicks por campanha (todos os anúncios)
+    _camp_cl_tot = defaultdict(int)
     for (_c, _), _v2 in _ads_map.items():
-        _camp_clicks_tot[_c] += _v2['clicks']
+        _camp_cl_tot[_c] += _v2['clicks']
+
     for (_camp, _aname), _v in sorted(_ads_map.items(), key=lambda x: -x[1]['spend']):
         _sp  = r2(_v['spend']); _imp = _v['impressions']
-        _cl  = _v['clicks'];    _lp  = _v['lpv']; _rc = _v['reach']
+        _rc  = _v['reach'];     _cl  = _v['clicks']; _lp = _v['lpv']
         _cpm = r2(_v['cpm_x_imp']/_imp) if _imp else 0
         _freq = r2(_imp/_rc) if _rc else 0
-        _ctr   = r2(_cl/_imp*100) if _imp else 0
-        _cpc   = r2(_sp/_cl)      if _cl  else 0
-        _lpv_r = r2(_lp/_cl*100) if _cl  else 0
-        _ch = _camp_hubla.get(_camp, {})
-        _c_cl_tot = _camp_clicks_tot[_camp]
-        _prop_cl = _cl / _c_cl_tot if _c_cl_tot > 0 else 0.0
-        _est_fat     = r2(_ch.get('fat', 0.0) * _prop_cl)
-        _est_faturas = int(round(_ch.get('faturas', 0) * _prop_cl))
-        _est_roas    = r2(_est_fat / _sp) if _sp > 0 else 0
-        ads_arr.append({
-            "campaign":    _camp,  "name": _aname,
-            "spend":       _sp,    "impressions": _imp,
-            "reach":       _rc,    "freq": _freq,
-            "cpm":         _cpm,   "clicks": _cl,
-            "ctr":         _ctr,   "cpc": _cpc,
-            "lpv":         _lp,    "lpv_rate": _lpv_r,
-            "fat_est":     _est_fat,
-            "faturas_est": _est_faturas,
-            "roas_est":    _est_roas,
-        })
-    # ── Mesclar cópias com o anúncio pai ─────────────────────────────
-    def _base_name(name):
-        return re.sub(r'\s*[—\-]{1,2}\s*C[oó]pia.*$', '', name.strip()).strip()
-
-    _merged = defaultdict(lambda: {'spend':0.0,'impressions':0,'reach':0,
-                                    'clicks':0,'lpv':0,'cpm_x_imp':0.0,
-                                    'names':[]})
-    for _ad in ads_arr:
-        _bn  = _base_name(_ad['name'])
-        _key = (_ad['campaign'], _bn)
-        _m   = _merged[_key]
-        _m['spend']      += _ad['spend']
-        _m['impressions']+= _ad['impressions']
-        _m['reach']      += _ad['reach']
-        _m['clicks']     += _ad['clicks']
-        _m['lpv']        += _ad['lpv']
-        _m['cpm_x_imp']  += _ad['cpm'] * _ad['impressions']
-        _m['names'].append(_ad['name'])
-
-    _camp_cl_merged = defaultdict(int)
-    for (_cc, _), _mv in _merged.items():
-        _camp_cl_merged[_cc] += _mv['clicks']
-
-    ads_arr = []
-    for (_camp, _aname), _mv in sorted(_merged.items(), key=lambda x: -x[1]['spend']):
-        _sp   = r2(_mv['spend']); _imp = _mv['impressions']
-        _rc   = _mv['reach'];     _cl  = _mv['clicks']; _lp = _mv['lpv']
-        _cpm  = r2(_mv['cpm_x_imp']/_imp) if _imp else 0
-        _freq = r2(_imp/_rc)     if _rc else 0
         _ctr  = r2(_cl/_imp*100) if _imp else 0
         _cpc  = r2(_sp/_cl)      if _cl  else 0
         _lpvr = r2(_lp/_cl*100)  if _cl  else 0
-        _ch   = _camp_hubla.get(_camp, {})
-        _c_cl = _camp_cl_merged[_camp]
+        # Estimativas Hubla (proporcional aos clicks vs total da campanha)
+        _ch = _camp_hubla.get(_camp, {})
+        _c_cl = _camp_cl_tot[_camp]
         _prop = _cl/_c_cl if _c_cl else 0.0
-        _ef   = r2(_ch.get('fat',0.0)*_prop)
-        _ec   = int(round(_ch.get('faturas',0)*_prop))
+        _ef   = r2(_ch.get('fat', 0.0) * _prop)
+        _ec   = int(round(_ch.get('faturas', 0) * _prop))
         _er   = r2(_ef/_sp) if _sp else 0
-        _is_merged = len(_mv['names']) > 1
+        _copies = len(_v['names']) - 1
         ads_arr.append({
             "campaign":    _camp,  "name": _aname,
             "spend":       _sp,    "impressions": _imp,
@@ -1387,12 +1360,13 @@ if _AD_FILE:
             "ctr":         _ctr,   "cpc": _cpc,
             "lpv":         _lp,    "lpv_rate": _lpvr,
             "fat_est":     _ef,    "faturas_est": _ec, "roas_est": _er,
-            "merged":      _is_merged,
-            "copies_count":len(_mv['names'])-1,
+            "merged":      _copies > 0,
+            "copies_count":_copies,
+            # Daily breakdown — permite filtro por período no dashboard
+            "daily":       sorted(_v['daily'], key=lambda x:x['date']),
         })
-    _n_copies = sum(1 for _ad in ads_arr if _ad['merged'])
-    print(f"[Anúncios] {len(ads_arr)} anúncios únicos após mesclar cópias "
-          f"({sum(a['copies_count'] for a in ads_arr)} cópias absorvidas)")
+    print(f"[Anúncios] {len(ads_arr)} anúncios únicos | "
+          f"{sum(len(a['daily']) for a in ads_arr)} registros diários")
 else:
     print("[Anúncios] Nenhum CSV com coluna 'Ad name' encontrado — ads: []")
 

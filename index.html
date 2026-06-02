@@ -1656,19 +1656,147 @@ function updateFunnelRatesInline(prodKey){
  var bt=document.getElementById('benchTbl2-'+prodKey);
  if(bt)bt.innerHTML=bh;
 }
+/* Gera insights dinamicamente para o período selecionado */
+function buildDynamicInsights(){
+ var pd=periodDays();
+ var dailyP=DATA.daily.filter(function(d){
+  return pd.from_date && d.date>=pd.from_date && d.date<=pd.to_date;
+ });
+ if(!dailyP.length) dailyP=DATA.daily;
+ var ins=[];
+
+ /* Totais do período */
+ var fat=0,nh=0,spend=0,faturas=0,abandoned=0;
+ dailyP.forEach(function(d){
+  fat+=d.fat||0; nh+=d.nh||0; spend+=d.spend_sales||0;
+  faturas+=d.faturas||0; abandoned+=d.abandoned||0;
+ });
+ var roas=spend>0?fat/spend:0;
+ var lucro=nh-spend;
+ var roi=spend>0?lucro/spend*100:0;
+ var margem=fat>0?nh/fat*100:0;
+
+ /* RE vs PSI */
+ var fatRE=dailyP.reduce(function(a,d){return a+(d.fat_re||0);},0);
+ var fatPSI=dailyP.reduce(function(a,d){return a+(d.fat_psi||0);},0);
+ var spRE=dailyP.reduce(function(a,d){return a+(d.spend_re||0);},0);
+ var spPSI=dailyP.reduce(function(a,d){return a+(d.spend_psi||0);},0);
+ var fcRE=dailyP.reduce(function(a,d){return a+(d.faturas_re||0);},0);
+ var fcPSI=dailyP.reduce(function(a,d){return a+(d.faturas_psi||0);},0);
+ var roasRE=spRE>0?fatRE/spRE:0, roasPSI=spPSI>0?fatPSI/spPSI:0;
+ var tkRE=fcRE>0?fatRE/fcRE:0,   tkPSI=fcPSI>0?fatPSI/fcPSI:0;
+ var cpaRE=fcRE>0?spRE/fcRE:0,   cpaPSI=fcPSI>0?spPSI/fcPSI:0;
+
+ /* 1) Melhor campanha ATIVA via ROAS (recalculada via campDataForPeriod) */
+ var bestCamp=null;
+ (DATA.campaigns||[]).forEach(function(c){
+  if(c.obj==='followers')return;
+  var cd=campDataForPeriod(c);
+  if(!cd||cd.faturas===0)return;
+  if(!bestCamp || cd.roas>bestCamp.roas){
+   bestCamp={name:c.name, prod:c.prod, status:c.status, roas:cd.roas,
+             fat:cd.fat, spend:cd.spend, faturas:cd.faturas, cpa:cd.cpa};
+  }
+ });
+ if(bestCamp && bestCamp.roas>=2){
+  var shortName=bestCamp.name.replace(/\[(.*?)\] \[(.*?)\] /,'$1 · ')
+                              .replace(/\[(.*?)\] /g,'$1 · ').replace(/ - ABO$/,'').replace(/ · $/,'');
+  ins.push({level:'positivo',icon:'star',tag:'MELHOR CAMPANHA',
+   title:shortName+': ROAS '+bestCamp.roas.toFixed(2)+'x com '+bestCamp.faturas+' vendas',
+   body:'R$'+nf0.format(bestCamp.spend)+' investidos → R$'+nf0.format(bestCamp.fat)+
+        ' faturados ('+bestCamp.faturas+' vendas, CPA R$'+nf0.format(bestCamp.cpa||0)+'). '+
+        (bestCamp.status==='ACTIVE'?'Candidata ao escalonamento — aumentar 15–20% do orçamento gradualmente.'
+                                    :'⚠ Campanha PAUSADA — reativar para capturar mais resultado.')});
+ }
+
+ /* 2) Campanha com freq alta (saturação) */
+ var worstFreq=null;
+ (DATA.campaigns||[]).forEach(function(c){
+  if(c.obj==='followers' || c.status!=='ACTIVE')return;
+  var cd=campDataForPeriod(c);
+  if(!cd || cd.spend<300)return;
+  if(!worstFreq || cd.freq>worstFreq.freq){
+   worstFreq={name:c.name, freq:cd.freq};
+  }
+ });
+ if(worstFreq && worstFreq.freq>=1.5){
+  var shortName=worstFreq.name.replace(/\[(.*?)\] \[(.*?)\] /,'$1 · ')
+                               .replace(/\[(.*?)\] /g,'$1 · ').replace(/ - ABO$/,'').replace(/ · $/,'');
+  ins.push({level:'atencao',icon:'image',tag:'FADIGA CRIATIVA',
+   title:'Freq '+worstFreq.freq.toFixed(2)+' em \''+shortName+'\' — renovar criativos',
+   body:'Frequência ≥ 1.5 indica que a audiência viu o anúncio múltiplas vezes. '+
+        'Sintomas: CTR caindo, CPM subindo. Ação: preparar 3–5 novos criativos com ângulos diferentes em 3–5 dias.'});
+ }
+
+ /* 3) Comparativo RE vs PSI */
+ if(fcRE>0 && fcPSI>0){
+  if(roasRE>=roasPSI){
+   ins.push({level:'info',icon:'funnel',tag:'PORTFÓLIO',
+    title:'RE: '+fcRE+' vendas ROAS '+roasRE.toFixed(2)+'x | PSI: '+fcPSI+' vendas ROAS '+roasPSI.toFixed(2)+'x — RE lidera',
+    body:'Regulando: R$'+nf0.format(fatRE)+' em '+fcRE+' vendas (ticket R$'+nf0.format(tkRE)+', CPA R$'+nf0.format(cpaRE)+'). '+
+         'PSI08: R$'+nf0.format(fatPSI)+' em '+fcPSI+' vendas (ticket R$'+nf0.format(tkPSI)+'). '+
+         'Priorizar escala no RE. PSI tem ticket 2× maior — vale reativar com orçamento dedicado.'});
+  }else{
+   ins.push({level:'info',icon:'funnel',tag:'PORTFÓLIO',
+    title:'PSI lidera com ROAS '+roasPSI.toFixed(2)+'x | RE: ROAS '+roasRE.toFixed(2)+'x — avaliar alocação',
+    body:'PSI08: R$'+nf0.format(fatPSI)+' em '+fcPSI+' vendas (ticket R$'+nf0.format(tkPSI)+'). '+
+         'RE: R$'+nf0.format(fatRE)+' em '+fcRE+' vendas (ticket R$'+nf0.format(tkRE)+'). '+
+         'Considerar aumentar investimento em PSI — ticket mais alto e ROAS superior.'});
+  }
+ }
+
+ /* 4) PSI pausado com ROAS bom */
+ var anyPSIActive=(DATA.campaigns||[]).some(function(c){
+  return c.status==='ACTIVE' && c.prod==='PSI' && campDataForPeriod(c);
+ });
+ if(roasPSI>=2.5 && fcPSI>0 && !anyPSIActive){
+  ins.push({level:'atencao',icon:'dollar',tag:'PSI — REATIVAR',
+   title:'PSI pausado com ROAS '+roasPSI.toFixed(2)+'x e ticket R$'+nf0.format(tkPSI)+' — canal de alto valor inativo',
+   body:'PSI gerou R$'+nf0.format(fatPSI)+' com ROAS '+roasPSI.toFixed(2)+'x. '+
+        'Reativar com R$30–50/dia, criativos novos (depoimentos, transformação) e UTMs corretos.'});
+ }
+
+ /* 5) Order Bumps no período */
+ var obCount=0,obVal=0;
+ dailyP.forEach(function(d){
+  (d.ob_detail_re||[]).forEach(function(o){obCount+=o.count;obVal+=(o.val||0);});
+  (d.ob_detail_psi||[]).forEach(function(o){obCount+=o.count;obVal+=(o.val||0);});
+ });
+ if(obCount>0 && fat>0){
+  var obPct=obVal/fat*100;
+  ins.push({level:'positivo',icon:'plus-circle',tag:'ORDER BUMP',
+   title:'Order Bumps adicionam +'+obPct.toFixed(0)+'% ao faturamento — '+obCount+' compras complementares',
+   body:obCount+' clientes aceitaram order bump, gerando R$'+nf0.format(obVal)+' adicionais. '+
+        'Testar novos OBs complementares pode elevar essa taxa.'});
+ }
+
+ /* 6) Carrinhos abandonados */
+ if(abandoned>10){
+  var tk=faturas>0?fat/faturas:200;
+  ins.push({level:'atencao',icon:'shopping-cart',tag:'RECUPERAÇÃO',
+   title:abandoned+' carrinhos abandonados — R$'+nf0.format(abandoned*tk)+' em receita potencial',
+   body:'Sequência de WhatsApp + e-mail em 1h e 24h pode recuperar 15–30% dos leads. '+
+        'Confira se o fluxo de recuperação está ativo na Hubla.'});
+ }
+
+ /* 7) Resumo financeiro */
+ ins.push({level:'info',icon:'dollar',tag:'RESUMO FINANCEIRO',
+  title:'Margem líquida (após Hubla): '+margem.toFixed(1)+'% — R$'+nf0.format(nh)+' de '+faturas+' vendas',
+  body:'De R$'+nf0.format(fat)+' faturados, R$'+nf0.format(nh)+' chega líquido (margem '+margem.toFixed(1)+'%). '+
+       'Com R$'+nf0.format(spend)+' em mídia, o lucro operacional é R$'+nf0.format(lucro)+' (ROI '+roi.toFixed(0)+'%). '+
+       'Para cada R$1 investido, retornam R$'+(roas).toFixed(2)+'.'});
+
+ return ins;
+}
+
 function renderGeralInsights(){
- /* Renderiza TODOS os insights no rodapé unificado usando a mesma estrutura CSS de renderInsights() */
  var wrap=document.getElementById('geral-insights-wrap');
  if(!wrap)return;
- if(!DATA.insights||!DATA.insights.length){wrap.innerHTML='';return;}
- /* Insights são pré-calculados para o mês corrente (junho).
-    Quando o usuário seleciona outro período via calendário, exibe aviso. */
- var isCurrentMonth = (period==='all');
- if(typeof period==='string' && period.match(/^S\d$/)) isCurrentMonth = true;
+ /* Gera insights dinâmicos com base no período selecionado */
+ var items=buildDynamicInsights();
+ if(!items.length){wrap.innerHTML='';return;}
  var LEVEL_ORDER={'alerta':0,'atencao':1,'positivo':2,'info':3};
- var items=DATA.insights.slice().sort(function(a,b){
-  return (LEVEL_ORDER[a.level]||99)-(LEVEL_ORDER[b.level]||99);
- });
+ items.sort(function(a,b){return (LEVEL_ORDER[a.level]||99)-(LEVEL_ORDER[b.level]||99);});
  var ICON={
   flame:IC.flame,star:IC.star,image:IC.image,
   'trending-down':IC.down,'trending-up':IC.profit,
@@ -1677,11 +1805,10 @@ function renderGeralInsights(){
   dollar:IC.cash,funnel:IC.funnel,info:IC.info,
   down:IC.down,cart:IC.cart,plus:IC.plus,cal:IC.cal,cash:IC.cash
  };
- var subtitle = isCurrentMonth
-  ? 'Leituras automáticas geradas a partir dos dados do período. Confira os alertas antes de tomar decisões de escala.'
-  : '<b style="color:var(--bad)">⚠ Estes insights referem-se ao mês corrente ('+DATA.period.label+'), não ao intervalo selecionado.</b> Análises automáticas por intervalo histórico ainda não estão disponíveis.';
+ var P=periodData();
+ var periodLabel = P.kind==='mes' ? P.label : P.label;
  var h='<div class="sec"><div class="sec-head"><span class="bar"></span><h2>Análises e Recomendações</h2>'+
-  '<div class="note">'+subtitle+'</div></div>'+
+  '<div class="note">Leituras automáticas geradas a partir dos dados do período selecionado ('+periodLabel+'). Confira os alertas antes de tomar decisões de escala.</div></div>'+
   '<div class="ins-grid">';
  items.forEach(function(it){
   var lv=it.level||'info';
@@ -2159,11 +2286,77 @@ function renderCampTbl(){
  });
 }
 
+/* Recalcula métricas de anúncios filtrando seu daily[] pelo período ativo.
+   Retorna ads "ajustados" — só inclui anúncios que tiveram atividade no período.
+   Vendas/fat estimados pela proporção de clicks vs total da campanha no período. */
+function aggregateAdsForPeriod(srcAds){
+ var pd=periodDays();
+ if(!pd.from_date){return srcAds.slice();}
+ var out=[];
+ /* Totais por campanha no período (para denominador da estimativa Hubla) */
+ var campCl={}, campFat={}, campFaturas={};
+ var campMap={}; /* camp_name → DATA.campaigns entry (para spend total) */
+ (DATA.campaigns||[]).forEach(function(c){campMap[c.name]=c;});
+ /* Vendas/fat por campanha no período: extrai de DATA.daily via fração de spend */
+ var dailyP=DATA.daily.filter(function(d){return d.date>=pd.from_date&&d.date<=pd.to_date;});
+ /* Per campaign: spend, e via campDataForPeriod (já existe) → fat/faturas */
+ srcAds.forEach(function(a){
+  if(campCl[a.campaign]==null){
+   campCl[a.campaign]=0;
+   var c=campMap[a.campaign];
+   var cd=c?campDataForPeriod(c):null;
+   campFat[a.campaign]=cd?cd.fat:0;
+   campFaturas[a.campaign]=cd?cd.faturas:0;
+  }
+ });
+ /* Soma total de clicks por campanha no período (todos anúncios) */
+ srcAds.forEach(function(a){
+  (a.daily||[]).forEach(function(dd){
+   if(dd.date>=pd.from_date && dd.date<=pd.to_date){
+    campCl[a.campaign]+=(dd.clicks||0);
+   }
+  });
+ });
+ /* Construir ad ajustado por período */
+ srcAds.forEach(function(a){
+  var daily=(a.daily||[]).filter(function(dd){return dd.date>=pd.from_date&&dd.date<=pd.to_date;});
+  if(!daily.length){
+   /* Sem daily breakdown: anúncio agregado (sem coluna Day) — não inclui no filtro */
+   return;
+  }
+  var spend=0,imp=0,clicks=0,lpv=0,reach=0,cpmXimp=0;
+  daily.forEach(function(d){
+   spend+=d.spend||0; imp+=d.impressions||0; clicks+=d.clicks||0;
+   lpv+=d.lpv||0; reach+=d.reach||0; cpmXimp+=(d.cpm||0)*(d.impressions||0);
+  });
+  if(spend===0 && imp===0) return;
+  var cpm=imp>0?(cpmXimp/imp):0;
+  var freq=reach>0?imp/reach:a.freq;
+  var ctr=imp>0?clicks/imp*100:0;
+  var cpc=clicks>0?spend/clicks:0;
+  var lpvR=clicks>0?lpv/clicks*100:0;
+  /* Estimativas Hubla via proporção de clicks */
+  var ccl=campCl[a.campaign]||0;
+  var prop=ccl>0?clicks/ccl:0;
+  var fatEst=(campFat[a.campaign]||0)*prop;
+  var faturasEst=Math.round((campFaturas[a.campaign]||0)*prop);
+  var roasEst=spend>0?fatEst/spend:0;
+  out.push(Object.assign({},a,{
+   spend:r2(spend), impressions:Math.round(imp), reach:Math.round(reach),
+   freq:r2(freq), cpm:r2(cpm), clicks:clicks,
+   ctr:r2(ctr), cpc:r2(cpc), lpv:lpv, lpv_rate:r2(lpvR),
+   fat_est:r2(fatEst), faturas_est:faturasEst, roas_est:r2(roasEst),
+  }));
+ });
+ return out;
+}
+
 function renderAdsTbl(){
  var wrap=document.getElementById('adsTblWrap');
  if(!wrap)return;
  /* Filtrar apenas campanhas de venda (excluir INSTA — fica na aba Seguidores) */
- var ads=(DATA.ads||[]).filter(function(a){return a.campaign.indexOf('[INSTA]')<0;});
+ var rawAds=(DATA.ads||[]).filter(function(a){return a.campaign.indexOf('[INSTA]')<0;});
+ var ads=aggregateAdsForPeriod(rawAds);
  if(!ads.length){
   /* Placeholder — instrução de como exportar */
   wrap.innerHTML='<div class="sec"><div class="sec-head"><span class="bar"></span><h2>Desempenho por anúncio</h2>'+
@@ -2597,7 +2790,8 @@ function renderSeguidores(){
  buildFollChart(filtDaily);
 }
 function buildInstaAdsTbl(){
- var instaAds=(DATA.ads||[]).filter(function(a){return a.campaign.indexOf('[INSTA]')>=0;});
+ var rawIns=(DATA.ads||[]).filter(function(a){return a.campaign.indexOf('[INSTA]')>=0;});
+ var instaAds=aggregateAdsForPeriod(rawIns);
  if(!instaAds.length) return '';
  /* Sort by spend desc */
  instaAds=instaAds.slice().sort(function(a,b){return b.spend-a.spend;});
