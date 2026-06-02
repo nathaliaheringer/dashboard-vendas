@@ -836,17 +836,15 @@ function renderGeral(){
   h+='<div class="sec"><div class="sec-head"><span class="bar"></span><h2>Campanhas no dia '+P.label+'</h2></div>'+
     '<div class="panel" style="padding:15px"><div class="tbl-wrap"><table id="rangeCampTbl"></table></div></div></div>';
  }else if(P.kind==='intervalo'){
+  /* Intervalo customizado: apenas o gráfico de Faturamento × Investimento dia a dia.
+     Tabela de campanhas pertence à aba Campanhas (não aqui). */
   h+='<div class="sec"><div class="sec-head"><span class="bar"></span><h2>Evolução no intervalo</h2></div>'+
-   '<div class="grid g-2">'+
-    '<div class="panel"><div class="p-head"><div><h3>Faturamento &times; Investimento</h3></div></div>'+
-      '<div class="p-sub">Dia a dia dentro do intervalo selecionado.</div>'+
-      '<div class="chart-box h280"><canvas id="cEvol"></canvas></div>'+
-      '<div class="legend"><span><i style="background:#37644F"></i>Faturamento (R$)</span>'+
-      '<span><i class="ln" style="background:#B57353"></i>Investimento em vendas (R$)</span></div></div>'+
-    '<div class="panel"><div class="p-head"><div><h3>Campanhas no intervalo</h3></div></div>'+
-      '<div class="p-sub">Investimento e mídia somados nos '+P.days.length+' dias.</div>'+
-      '<div class="tbl-wrap"><table id="rangeCampTbl"></table></div></div>'+
-   '</div></div>';
+   '<div class="panel"><div class="p-head"><div><h3>Faturamento &times; Investimento</h3></div></div>'+
+     '<div class="p-sub">Dia a dia dentro do intervalo selecionado ('+P.days.length+' dias).</div>'+
+     '<div class="chart-box h280"><canvas id="cEvol"></canvas></div>'+
+     '<div class="legend"><span><i style="background:#37644F"></i>Faturamento (R$)</span>'+
+     '<span><i class="ln" style="background:#B57353"></i>Investimento em vendas (R$)</span></div></div>'+
+   '</div>';
  }else{
   h+='<div class="sec"><div class="sec-head"><span class="bar"></span><h2>Evolução no período</h2></div>'+
    '<div class="grid g-2">'+
@@ -895,7 +893,6 @@ function renderGeral(){
  if(P.kind==='dia'){
   renderRangeCampTbl(P.days);
  }else if(P.kind==='intervalo'){
-  renderRangeCampTbl(P.days);
   buildEvolRange(P.days);
  }else{
   var evMode='dia';
@@ -1643,6 +1640,10 @@ function renderGeralInsights(){
  var wrap=document.getElementById('geral-insights-wrap');
  if(!wrap)return;
  if(!DATA.insights||!DATA.insights.length){wrap.innerHTML='';return;}
+ /* Insights são pré-calculados para o mês corrente (junho).
+    Quando o usuário seleciona outro período via calendário, exibe aviso. */
+ var isCurrentMonth = (period==='all');
+ if(typeof period==='string' && period.match(/^S\d$/)) isCurrentMonth = true;
  var LEVEL_ORDER={'alerta':0,'atencao':1,'positivo':2,'info':3};
  var items=DATA.insights.slice().sort(function(a,b){
   return (LEVEL_ORDER[a.level]||99)-(LEVEL_ORDER[b.level]||99);
@@ -1655,8 +1656,11 @@ function renderGeralInsights(){
   dollar:IC.cash,funnel:IC.funnel,info:IC.info,
   down:IC.down,cart:IC.cart,plus:IC.plus,cal:IC.cal,cash:IC.cash
  };
+ var subtitle = isCurrentMonth
+  ? 'Leituras automáticas geradas a partir dos dados do período. Confira os alertas antes de tomar decisões de escala.'
+  : '<b style="color:var(--bad)">⚠ Estes insights referem-se ao mês corrente ('+DATA.period.label+'), não ao intervalo selecionado.</b> Análises automáticas por intervalo histórico ainda não estão disponíveis.';
  var h='<div class="sec"><div class="sec-head"><span class="bar"></span><h2>Análises e Recomendações</h2>'+
-  '<div class="note">Leituras automáticas geradas a partir dos dados do período. Confira os alertas antes de tomar decisões de escala.</div></div>'+
+  '<div class="note">'+subtitle+'</div></div>'+
   '<div class="ins-grid">';
  items.forEach(function(it){
   var lv=it.level||'info';

@@ -266,38 +266,52 @@ if not hotmart_invoices:
     print("[Hotmart] Nenhum CSV Hotmart encontrado.")
 
 # ── STEP 3: Funnel clicks/LPV from RE CSV ────────────────────────
+# Mantém DOIS índices: por dia do mês (mês corrente) e por data ISO (histórico)
 re_clicks=re_lpv=re_imp=re_spend_sheet=0
 day_funnel_re = defaultdict(lambda: {'clicks':0,'lpv':0,'imp':0})
+day_funnel_re_iso = defaultdict(lambda: {'clicks':0,'lpv':0,'imp':0})
 with open(f'{BASE_DATA}/[Nathalia Heringer] Controle de Vendas Perpétuos. - DADOS RE (1).csv', encoding='utf-8') as f:
     reader = csv.DictReader(f)
     for row in reader:
         dt2 = parse_day_col(row.get('Day',''))
-        if not dt2 or not (PERIOD_START <= dt2.replace(hour=0,minute=0,second=0) <= PERIOD_END): continue
+        if not dt2 or not (HIST_START <= dt2.replace(hour=0,minute=0,second=0) <= HIST_END): continue
         cl=r0(n(row.get('Link Clicks',0))); lp=r0(n(row.get('Landing Page Views',0))); im=r0(n(row.get('Impressions',0)))
-        re_clicks += cl; re_lpv += lp; re_imp += im
-        re_spend_sheet += n(row.get('Amount Spent',0))
-        _dd = dt2.day
-        day_funnel_re[_dd]['clicks'] += cl
-        day_funnel_re[_dd]['lpv']    += lp
-        day_funnel_re[_dd]['imp']    += im
-print(f"[RE CSV] clicks={re_clicks} lpv={re_lpv}")
+        _iso = dt2.strftime('%Y-%m-%d')
+        day_funnel_re_iso[_iso]['clicks'] += cl
+        day_funnel_re_iso[_iso]['lpv']    += lp
+        day_funnel_re_iso[_iso]['imp']    += im
+        # Acumuladores apenas do mês corrente
+        if PERIOD_START <= dt2 <= PERIOD_END:
+            re_clicks += cl; re_lpv += lp; re_imp += im
+            re_spend_sheet += n(row.get('Amount Spent',0))
+            _dd = dt2.day
+            day_funnel_re[_dd]['clicks'] += cl
+            day_funnel_re[_dd]['lpv']    += lp
+            day_funnel_re[_dd]['imp']    += im
+print(f"[RE CSV] mês corrente: clicks={re_clicks} lpv={re_lpv}")
 
 # ── STEP 4: Funnel clicks/LPV from PSI08 CSV ────────────────────
 psi_clicks=psi_lpv=psi_imp=psi_spend_sheet=0
 day_funnel_psi = defaultdict(lambda: {'clicks':0,'lpv':0,'imp':0})
+day_funnel_psi_iso = defaultdict(lambda: {'clicks':0,'lpv':0,'imp':0})
 with open(f'{BASE_DATA}/[Nathalia Heringer] Controle de Vendas Perpétuos. - DADOS PSI08 (2).csv', encoding='utf-8') as f:
     reader = csv.DictReader(f)
     for row in reader:
         dt2 = parse_day_col(row.get('Day',''))
-        if not dt2 or not (PERIOD_START <= dt2.replace(hour=0,minute=0,second=0) <= PERIOD_END): continue
+        if not dt2 or not (HIST_START <= dt2.replace(hour=0,minute=0,second=0) <= HIST_END): continue
         cl=r0(n(row.get('Link Clicks',0))); lp=r0(n(row.get('Landing Page Views',0))); im=r0(n(row.get('Impressions',0)))
-        psi_clicks += cl; psi_lpv += lp; psi_imp += im
-        psi_spend_sheet += n(row.get('Amount Spent',0))
-        _dd = dt2.day
-        day_funnel_psi[_dd]['clicks'] += cl
-        day_funnel_psi[_dd]['lpv']    += lp
-        day_funnel_psi[_dd]['imp']    += im
-print(f"[PSI08 CSV] clicks={psi_clicks} lpv={psi_lpv}")
+        _iso = dt2.strftime('%Y-%m-%d')
+        day_funnel_psi_iso[_iso]['clicks'] += cl
+        day_funnel_psi_iso[_iso]['lpv']    += lp
+        day_funnel_psi_iso[_iso]['imp']    += im
+        if PERIOD_START <= dt2 <= PERIOD_END:
+            psi_clicks += cl; psi_lpv += lp; psi_imp += im
+            psi_spend_sheet += n(row.get('Amount Spent',0))
+            _dd = dt2.day
+            day_funnel_psi[_dd]['clicks'] += cl
+            day_funnel_psi[_dd]['lpv']    += lp
+            day_funnel_psi[_dd]['imp']    += im
+print(f"[PSI08 CSV] mês corrente: clicks={psi_clicks} lpv={psi_lpv}")
 
 # ── STEP 5: Build meta_raw from CSVs + INSTA hardcoded ──────────
 RE_FREQ = {
@@ -324,7 +338,8 @@ with open(f'{BASE_DATA}/[Nathalia Heringer] Controle de Vendas Perpétuos. - DAD
     reader = csv.DictReader(f)
     for row in reader:
         dt2 = parse_day_col(row.get('Day',''))
-        if not dt2 or not (PERIOD_START <= dt2.replace(hour=0,minute=0,second=0) <= PERIOD_END): continue
+        # Janela histórica completa (para popular daily[] de meses anteriores)
+        if not dt2 or not (HIST_START <= dt2.replace(hour=0,minute=0,second=0) <= HIST_END): continue
         cname = (row.get('Campaign Name') or '').strip()
         spend_v = n(row.get('Amount Spent',0))
         imp_v   = r0(n(row.get('Impressions',0)))
@@ -347,7 +362,7 @@ with open(f'{BASE_DATA}/[Nathalia Heringer] Controle de Vendas Perpétuos. - DAD
     reader = csv.DictReader(f)
     for row in reader:
         dt2 = parse_day_col(row.get('Day',''))
-        if not dt2 or not (PERIOD_START <= dt2.replace(hour=0,minute=0,second=0) <= PERIOD_END): continue
+        if not dt2 or not (HIST_START <= dt2.replace(hour=0,minute=0,second=0) <= HIST_END): continue
         cname_raw = (row.get('Campaign Name') or '').strip()
         cname = PSI_NAME_MAP.get(cname_raw, cname_raw)
         spend_v = n(row.get('Amount Spent',0))
@@ -387,25 +402,42 @@ INSTA_RAW = [
     ("2026-05-31",38.00,2960,2850,12.84),
 ]
 for (date,spend,imp,reach,cpm) in INSTA_RAW:
-    # Só incluir se o ano-mês da data corresponde ao período corrente
-    if date[:7] != f"{PERIOD_YEAR}-{PERIOD_MONTH:02d}": continue
+    # Incluir se data está dentro da janela histórica
+    _idt = parse_dt(date)
+    if not _idt or not (HIST_START <= _idt <= HIST_END): continue
     meta_raw.append({'campaign':INSTA_CAMP,'date':date,'spend':r2(spend),
                      'impressions':imp,'reach':reach,'frequency':r2(imp/reach if reach else 1.04),'cpm':r2(cpm)})
 
 # ── Aggregate meta by camp and day ──────────────────────────────
+# meta_by_camp / meta_by_day: agregam APENAS do mês corrente (usados em totals/campaigns)
+# meta_by_date_iso: agrega o histórico inteiro (usado pelo daily[] para meses anteriores)
 meta_by_camp = defaultdict(lambda: dict(spend=0,imp=0,reach=0,daily=[]))
 meta_by_day  = defaultdict(lambda: dict(spend=0,spend_sales=0,imp=0))
+meta_by_date_iso = defaultdict(lambda: dict(spend=0,spend_sales=0,spend_re=0,spend_psi=0,imp=0))
 
 for row in meta_raw:
-    c=row['campaign']; d=int(row['date'][8:10])
-    meta_by_camp[c]['spend']  += row['spend']
-    meta_by_camp[c]['imp']    += row['impressions']
-    meta_by_camp[c]['reach']  += row['reach']
-    meta_by_camp[c]['daily'].append({'day':d,'spend':r2(row['spend']),'impressions':row['impressions'],'cpm':r2(row['cpm'])})
-    meta_by_day[d]['spend']      += row['spend']
-    meta_by_day[d]['imp']        += row['impressions']
+    c=row['campaign']; date_iso=row['date']
+    # Histórico (por data ISO) — usado no daily de meses anteriores
+    meta_by_date_iso[date_iso]['spend'] += row['spend']
+    meta_by_date_iso[date_iso]['imp']   += row['impressions']
     if c != INSTA_CAMP:
-        meta_by_day[d]['spend_sales'] += row['spend']
+        meta_by_date_iso[date_iso]['spend_sales'] += row['spend']
+    if '[RE]' in c:
+        meta_by_date_iso[date_iso]['spend_re'] += row['spend']
+    elif '[PSI08]' in c:
+        meta_by_date_iso[date_iso]['spend_psi'] += row['spend']
+    # Mês corrente (por dia do mês) — usado em totals, campaigns, etc.
+    _dt_iso = parse_dt(date_iso)
+    if _dt_iso and PERIOD_START <= _dt_iso <= PERIOD_END:
+        d=int(date_iso[8:10])
+        meta_by_camp[c]['spend']  += row['spend']
+        meta_by_camp[c]['imp']    += row['impressions']
+        meta_by_camp[c]['reach']  += row['reach']
+        meta_by_camp[c]['daily'].append({'day':d,'spend':r2(row['spend']),'impressions':row['impressions'],'cpm':r2(row['cpm'])})
+        meta_by_day[d]['spend']      += row['spend']
+        meta_by_day[d]['imp']        += row['impressions']
+        if c != INSTA_CAMP:
+            meta_by_day[d]['spend_sales'] += row['spend']
 
 total_meta_spend  = sum(v['spend'] for v in meta_by_camp.values())
 total_insta_spend = meta_by_camp[INSTA_CAMP]['spend']
@@ -817,18 +849,61 @@ hist_by_date = defaultdict(lambda: {
     'regioes':defaultdict(lambda: {'fat':0.0,'faturas':0}),
     'pay_dist':defaultdict(int),
     'parc_dist':defaultdict(int),
+    'ob_re':defaultdict(lambda: {'count':0,'val':0.0}),
+    'ob_psi':defaultdict(lambda: {'count':0,'val':0.0}),
 })
+
+# Precisa de avg_re/avg_psi para estimar valor de OB (recalcular no histórico)
+_re_solo_hist  = [i['fat'] for i in hist_invoices if is_re_prod(i['prod']) and not i['ob']]
+_psi_solo_hist = [i['fat'] for i in hist_invoices if is_psi_prod(i['prod']) and not i['ob']]
+_avg_re_hist  = sum(_re_solo_hist)/len(_re_solo_hist)   if _re_solo_hist  else 147.0
+_avg_psi_hist = sum(_psi_solo_hist)/len(_psi_solo_hist) if _psi_solo_hist else 297.0
+
 for inv in hist_invoices:
-    p,ob,tot,nh = inv['prod'],inv['ob'],inv['total'],inv['nh']
+    p,ob_col,tot,nh,f = inv['prod'],inv['ob'],inv['total'],inv['nh'],inv['fat']
     _hd = hist_by_date[inv['date']]
     _hd['fat']+=tot; _hd['nh']+=nh; _hd['total']+=tot
     _hd['faturas']+=1; _hd['units']+=inv['items']
-    _is_re  = is_re_prod(p)  or is_re_prod(ob)
-    _is_psi = is_psi_prod(p) or is_psi_prod(ob)
+    prod_is_re  = is_re_prod(p);  ob_is_re  = is_re_prod(ob_col)
+    prod_is_psi = is_psi_prod(p); ob_is_psi = is_psi_prod(ob_col)
+    _is_re  = prod_is_re  or ob_is_re
+    _is_psi = prod_is_psi or ob_is_psi
     if _is_re:
         _hd['fat_re']+=tot; _hd['faturas_re']+=1
     if _is_psi:
         _hd['fat_psi']+=tot; _hd['faturas_psi']+=1
+    # OB detail RE
+    if _is_re:
+        if prod_is_re:
+            for ob_name_part in ob_col.split(','):
+                ob_name_clean = ob_name_part.strip()
+                if ob_name_clean and ob_name_clean.lower() not in ('none','') and not is_re_prod(ob_name_clean):
+                    ob_val = max(0, f - _avg_re_hist)
+                    _hd['ob_re'][ob_name_clean]['count'] += 1
+                    _hd['ob_re'][ob_name_clean]['val']   += ob_val
+        else:  # RE como OB
+            if p and not is_re_prod(p):
+                _hd['ob_re'][p]['count'] += 1
+            for ob_name_part in ob_col.split(','):
+                ob_name_clean = ob_name_part.strip()
+                if ob_name_clean and ob_name_clean.lower() not in ('none','') and not is_re_prod(ob_name_clean) and ob_name_clean != p:
+                    _hd['ob_re'][ob_name_clean]['count'] += 1
+    # OB detail PSI
+    if _is_psi:
+        if prod_is_psi:
+            for ob_name_part in ob_col.split(','):
+                ob_name_clean = ob_name_part.strip()
+                if ob_name_clean and ob_name_clean.lower() not in ('none','') and not is_psi_prod(ob_name_clean):
+                    ob_val = max(0, f - _avg_psi_hist)
+                    _hd['ob_psi'][ob_name_clean]['count'] += 1
+                    _hd['ob_psi'][ob_name_clean]['val']   += ob_val
+        else:
+            if p and not is_psi_prod(p):
+                _hd['ob_psi'][p]['count'] += 1
+            for ob_name_part in ob_col.split(','):
+                ob_name_clean = ob_name_part.strip()
+                if ob_name_clean and ob_name_clean.lower() not in ('none','') and not is_psi_prod(ob_name_clean) and ob_name_clean != p:
+                    _hd['ob_psi'][ob_name_clean]['count'] += 1
     # Origem
     src = inv['src']
     if 'facebook' in src: orig='facebook ads'
@@ -850,21 +925,33 @@ for inv in hist_invoices:
     if pm=='Cartão de Crédito':
         _hd['parc_dist'][inv['num_parcelas']]+=1
 
+# Garantir que TODOS os dias com qualquer dado (vendas OU spend Meta) estejam em hist_by_date
+for _iso in meta_by_date_iso:
+    _dt_iso = parse_dt(_iso)
+    if _dt_iso and (_dt_iso.year != PERIOD_YEAR or _dt_iso.month != PERIOD_MONTH):
+        _ = hist_by_date[_iso]  # cria entrada vazia se não houver vendas naquele dia
+
 # Constrói entradas do histórico e PREPENDE ao daily_arr
 hist_entries = []
 for date_str, h in sorted(hist_by_date.items()):
     y,m,dd = [int(x) for x in date_str.split('-')]
+    # Métricas Meta Ads do dia
+    _mt = meta_by_date_iso.get(date_str, {'spend':0,'spend_sales':0,'spend_re':0,'spend_psi':0,'imp':0})
+    # Funil RE/PSI do dia (clicks/LPV/imp da planilha de controle)
+    _fre = day_funnel_re_iso.get(date_str, {'clicks':0,'lpv':0,'imp':0})
+    _fps = day_funnel_psi_iso.get(date_str, {'clicks':0,'lpv':0,'imp':0})
     hist_entries.append({
         "day":dd, "month":m, "year":y, "date":date_str,
-        "spend":0, "spend_sales":0, "impressions":0,
+        "spend":r2(_mt['spend']), "spend_sales":r2(_mt['spend_sales']),
+        "impressions":r0(_mt['imp']),
         "faturas":h['faturas'], "units":h['units'],
         "fat":r2(h['fat']), "nh":r2(h['nh']),
         "abandoned":0, "checkouts":h['faturas'],
         "fat_re":r2(h['fat_re']), "fat_psi":r2(h['fat_psi']),
-        "spend_re":0, "spend_psi":0,
+        "spend_re":r2(_mt['spend_re']), "spend_psi":r2(_mt['spend_psi']),
         "faturas_re":h['faturas_re'], "faturas_psi":h['faturas_psi'],
-        "funnel_clicks_re":0,"funnel_lpv_re":0,"funnel_imp_re":0,
-        "funnel_clicks_psi":0,"funnel_lpv_psi":0,"funnel_imp_psi":0,
+        "funnel_clicks_re":_fre['clicks'],"funnel_lpv_re":_fre['lpv'],"funnel_imp_re":_fre['imp'],
+        "funnel_clicks_psi":_fps['clicks'],"funnel_lpv_psi":_fps['lpv'],"funnel_imp_psi":_fps['imp'],
         "origins":[{"name":ORIG_LABELS.get(k,k),"fat":r2(v['fat']),"faturas":v['faturas']}
                    for k,v in h['origins'].items() if v['fat']>0],
         "fb_split":{k:{"fat":r2(v['fat']),"faturas":v['faturas']} for k,v in h['fb_split'].items()},
@@ -872,7 +959,10 @@ for date_str, h in sorted(hist_by_date.items()):
                    for k in REG_ORDER if h['regioes'].get(k,{}).get('fat',0)>0],
         "pay_dist":[{"method":k,"count":v} for k,v in sorted(h['pay_dist'].items(),key=lambda x:-x[1]) if v>0],
         "parc_dist":[{"n":k,"count":v} for k,v in sorted(h['parc_dist'].items()) if v>0],
-        "ob_detail_re":[], "ob_detail_psi":[],
+        "ob_detail_re":[{"name":k,"count":v['count'],"val":r2(v['val'])}
+                        for k,v in sorted(h['ob_re'].items(),key=lambda x:-x[1]['count']) if v['count']>0],
+        "ob_detail_psi":[{"name":k,"count":v['count'],"val":r2(v['val'])}
+                         for k,v in sorted(h['ob_psi'].items(),key=lambda x:-x[1]['count']) if v['count']>0],
         "mes_corrente":False,
     })
 
