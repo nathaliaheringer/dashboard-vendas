@@ -455,6 +455,7 @@ day_fat_c=defaultdict(int); day_units=defaultdict(int)
 day_fat_re=defaultdict(float); day_fat_psi=defaultdict(float)
 day_fat_re_c=defaultdict(int); day_fat_psi_c=defaultdict(int)
 day_units_re_d=defaultdict(int); day_units_psi_d=defaultdict(int)
+day_prod_fat_d=defaultdict(lambda: defaultdict(lambda: {'fat':0.0,'faturas':0,'units':0}))
 prod_fat=defaultdict(float); prod_fat_c=defaultdict(int); prod_units_d=defaultdict(int)
 origins_map={k:{'faturas':0,'fat':0.0,'nh':0.0} for k in ('facebook ads','instagram','whatsapp','sem origem','hotmart')}
 fb_split={k:{'faturas':0,'fat':0.0} for k in ('frio','quente','outros')}
@@ -534,6 +535,10 @@ for inv in invoices:
     # Per-day origin
     day_orig_d[d][orig]['fat']+=tot; day_orig_d[d][orig]['faturas']+=1
     prod_fat[p]+=tot; prod_fat_c[p]+=1; prod_units_d[p]+=inv['items']
+    # Per-day product breakdown (para "Receita por produto" funcionar por intervalo)
+    day_prod_fat_d[d][p]['fat']    += tot
+    day_prod_fat_d[d][p]['faturas']+= 1
+    day_prod_fat_d[d][p]['units']  += inv['items']
     uf=inv['estado']; reg=REGION_MAP.get(uf,'Não informado') if uf else 'Não informado'
     reg_fat[reg]+=tot; reg_count[reg]+=1
     if uf: state_fat[uf]+=tot; state_count[uf]+=1
@@ -816,6 +821,18 @@ for _entry in daily_arr:
     _entry['faturas_psi']= day_fat_psi_c[_d]
     _entry['units_re']   = day_units_re_d[_d]
     _entry['units_psi']  = day_units_psi_d[_d]
+    # Produtos individuais do dia (para "Receita por produto" funcionar por intervalo)
+    _entry['prods_dia']  = [{"name":pn,"fat":r2(pv['fat']),"faturas":pv['faturas'],"units":pv['units']}
+                            for pn,pv in sorted(day_prod_fat_d[_d].items(),key=lambda x:-x[1]['fat']) if pv['fat']>0]
+    # Campanhas Meta do dia (para Campanhas e Seguidores funcionarem por intervalo)
+    _camp_day = defaultdict(lambda: {'spend':0.0,'imp':0,'reach':0})
+    for _mr in meta_raw:
+        if int(_mr['date'][8:10]) == _d and _mr['date'][:7] == f"{PERIOD_YEAR}-{PERIOD_MONTH:02d}":
+            _camp_day[_mr['campaign']]['spend'] += _mr['spend']
+            _camp_day[_mr['campaign']]['imp']   += _mr['impressions']
+            _camp_day[_mr['campaign']]['reach'] += _mr['reach']
+    _entry['camps_dia']  = [{"name":cn,"spend":r2(cv['spend']),"impressions":r0(cv['imp']),"reach":r0(cv['reach'])}
+                            for cn,cv in _camp_day.items() if cv['spend']>0 or cv['imp']>0]
     # Funil por produto
     _entry['funnel_clicks_re']  = day_funnel_re[_d]['clicks']
     _entry['funnel_lpv_re']     = day_funnel_re[_d]['lpv']
@@ -857,6 +874,7 @@ hist_by_date = defaultdict(lambda: {
     'parc_dist':defaultdict(int),
     'ob_re':defaultdict(lambda: {'count':0,'val':0.0}),
     'ob_psi':defaultdict(lambda: {'count':0,'val':0.0}),
+    'prods':defaultdict(lambda: {'fat':0.0,'faturas':0,'units':0}),
 })
 
 # Precisa de avg_re/avg_psi para estimar valor de OB (recalcular no histórico)
@@ -878,6 +896,10 @@ for inv in hist_invoices:
         _hd['fat_re']+=tot; _hd['faturas_re']+=1; _hd['units_re']+=inv['items']
     if _is_psi:
         _hd['fat_psi']+=tot; _hd['faturas_psi']+=1; _hd['units_psi']+=inv['items']
+    # Produto individual
+    _hd['prods'][p]['fat']    += tot
+    _hd['prods'][p]['faturas']+= 1
+    _hd['prods'][p]['units']  += inv['items']
     # OB detail RE
     if _is_re:
         if prod_is_re:
@@ -970,6 +992,11 @@ for date_str, h in sorted(hist_by_date.items()):
                         for k,v in sorted(h['ob_re'].items(),key=lambda x:-x[1]['count']) if v['count']>0],
         "ob_detail_psi":[{"name":k,"count":v['count'],"val":r2(v['val'])}
                          for k,v in sorted(h['ob_psi'].items(),key=lambda x:-x[1]['count']) if v['count']>0],
+        "prods_dia":[{"name":pn,"fat":r2(pv['fat']),"faturas":pv['faturas'],"units":pv['units']}
+                     for pn,pv in sorted(h['prods'].items(),key=lambda x:-x[1]['fat']) if pv['fat']>0],
+        "camps_dia":[{"name":mr['campaign'],"spend":r2(mr['spend']),
+                      "impressions":r0(mr['impressions']),"reach":r0(mr['reach'])}
+                     for mr in meta_raw if mr['date']==date_str],
         "mes_corrente":False,
     })
 

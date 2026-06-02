@@ -1063,15 +1063,28 @@ function renderProdDonutInline(){
  var pd=periodDays();
  var items,tot,cols;
  if(pd.d0!=null){
-  /* Período ativo: calcula RE e PSI de daily, resto = Outros */
+  /* Período ativo: agrega prods_dia (produto individual) do daily filtrado */
   var filtered=DATA.daily.filter(function(d){return d.date>=pd.from_date&&d.date<=pd.to_date;});
-  var fat_re =filtered.reduce(function(a,d){return a+(d.fat_re||0); },0);
-  var fat_psi=filtered.reduce(function(a,d){return a+(d.fat_psi||0);},0);
-  var fat_tot=filtered.reduce(function(a,d){return a+(d.fat||0);    },0);
-  var fat_out=Math.max(0,fat_tot-fat_re-fat_psi);
-  items=[{name:'Regulando as Emoções',fat:fat_re},{name:'Curso PSI 0-8',fat:fat_psi}];
-  if(fat_out>1)items.push({name:'Outros produtos',fat:fat_out});
-  tot=fat_tot;
+  var prodMap={};
+  filtered.forEach(function(d){
+   (d.prods_dia||[]).forEach(function(p){
+    if(!prodMap[p.name])prodMap[p.name]=0;
+    prodMap[p.name]+=p.fat;
+   });
+  });
+  items=Object.keys(prodMap).sort(function(a,b){return prodMap[b]-prodMap[a];})
+                            .map(function(n){return {name:n.replace('Curso Psi:','Curso PSI'),fat:prodMap[n]};});
+  tot=items.reduce(function(a,p){return a+p.fat;},0);
+  if(!items.length){
+   /* fallback: agrega RE/PSI direto se prods_dia não existir */
+   var fat_re =filtered.reduce(function(a,d){return a+(d.fat_re||0); },0);
+   var fat_psi=filtered.reduce(function(a,d){return a+(d.fat_psi||0);},0);
+   var fat_tot=filtered.reduce(function(a,d){return a+(d.fat||0);    },0);
+   var fat_out=Math.max(0,fat_tot-fat_re-fat_psi);
+   items=[{name:'Regulando as Emoções',fat:fat_re},{name:'Curso PSI 0-8',fat:fat_psi}];
+   if(fat_out>1)items.push({name:'Outros produtos',fat:fat_out});
+   tot=fat_tot;
+  }
   var rn=document.getElementById('recNote2');
   if(rn)rn.style.display='none';
  }else{
@@ -1962,21 +1975,44 @@ function campDataForPeriod(c){
   return {spend:c.spend,impressions:c.impressions,cpm:c.cpm,freq:c.freq,
    faturas:c.faturas,fat:c.fat,nh:c.nh,cpa:c.cpa,roas:c.roas,lucro:c.lucro};
  }
- var days=filterByPeriod(c.daily||[],pd.d0,pd.d1);
- if(!days.length)return null; /* campanha sem dados no período */
- var spend=0,imp=0,cpmSum=0,n=0;
- days.forEach(function(x){spend+=x.spend;imp+=x.impressions;cpmSum+=x.cpm;n++;});
+ /* Período histórico/intervalo: agrega camps_dia do daily filtrado pelo período */
+ var dailyFiltered=DATA.daily.filter(function(d){return d.date>=pd.from_date&&d.date<=pd.to_date;});
+ var spend=0,imp=0,reach=0;
+ dailyFiltered.forEach(function(d){
+  (d.camps_dia||[]).forEach(function(cd){
+   if(cd.name===c.name){
+    spend+=cd.spend; imp+=cd.impressions; reach+=cd.reach||0;
+   }
+  });
+ });
+ if(spend===0 && imp===0) return null; /* campanha sem dados no período */
  var cpm=imp?spend/imp*1000:0;
- /* Para fat/faturas: proporcional ao período, mantemos os totais da campanha como referência */
- /* Distribuição proporcional com base na fração do spend no período */
- var frac=(c.spend>0)?spend/c.spend:0;
- var faturas=Math.round(c.faturas*frac);
- var fat=r2(c.fat*frac);
- var nh=r2(c.nh*frac);
+ var freq=reach?imp/reach:c.freq;
+ /* Para fat/faturas: proporcional ao spend da campanha sobre o spend total
+    do produto (RE/PSI) no período. Os totais reais de fat/faturas vêm do daily. */
+ var prodSpend=0, prodFat=0, prodFaturas=0;
+ if(c.prod==='RE'){
+  dailyFiltered.forEach(function(d){
+   prodSpend  += d.spend_re||0;
+   prodFat    += d.fat_re||0;
+   prodFaturas+= d.faturas_re||0;
+  });
+ }else if(c.prod==='PSI'){
+  dailyFiltered.forEach(function(d){
+   prodSpend  += d.spend_psi||0;
+   prodFat    += d.fat_psi||0;
+   prodFaturas+= d.faturas_psi||0;
+  });
+ } /* INSTA / outros: sem atribuição de vendas */
+ var frac = prodSpend>0 ? spend/prodSpend : 0;
+ var faturas = Math.round(prodFaturas * frac);
+ var fat = r2(prodFat * frac);
+ var nhRatio = c.fat>0 ? c.nh/c.fat : 0.94;
+ var nh = r2(fat * nhRatio);
  var cpa=faturas>0?r2(spend/faturas):null;
  var roas=spend>0?r2(fat/spend):0;
  var lucro=r2(nh-spend);
- return {spend:r2(spend),impressions:Math.round(imp),cpm:r2(cpm),freq:c.freq,
+ return {spend:r2(spend),impressions:Math.round(imp),cpm:r2(cpm),freq:r2(freq),
   faturas:faturas,fat:fat,nh:nh,cpa:cpa,roas:roas,lucro:lucro};
 }
 function r2(v){return Math.round((v||0)*100)/100;}
@@ -2489,18 +2525,33 @@ function updateFunnelRates(){
    ============================================================ */
 function renderSeguidores(){
  var F=DATA.followers;
- /* Filtrar daily pelo período selecionado */
+ /* Filtrar daily pelo período selecionado — usa camps_dia[INSTA] do DATA.daily
+    para suportar intervalos históricos (não só o mês corrente) */
  var pd=periodDays();
- var filtDaily=(pd.d0!=null)?filterByPeriod(F.daily||[],pd.d0,pd.d1):(F.daily||[]);
+ var INSTA='[INSTA] [Seguidores] [Frio] - ABO';
+ var filtDaily=[];
+ if(pd.d0!=null){
+  /* Período custom/semana: extrair INSTA do daily filtrado */
+  DATA.daily.filter(function(d){return d.date>=pd.from_date&&d.date<=pd.to_date;}).forEach(function(d){
+   (d.camps_dia||[]).forEach(function(cd){
+    if(cd.name===INSTA) filtDaily.push({day:d.day,spend:cd.spend,impressions:cd.impressions,reach:cd.reach||0,date:d.date});
+   });
+  });
+ }else{
+  filtDaily = F.daily||[];
+ }
  var fSpend=filtDaily.reduce(function(a,x){return a+x.spend;},0);
  var fImp=filtDaily.reduce(function(a,x){return a+x.impressions;},0);
+ var fReachSum=filtDaily.reduce(function(a,x){return a+(x.reach||0);},0);
  var fCpm=fImp>0?fSpend/fImp*1000:F.cpm;
  var fDays=filtDaily.length||F.days;
- /* Usar reach proporcional */
- var frac=F.spend>0?fSpend/F.spend:1;
- var fReach=Math.round((F.reach||0)*frac);
+ /* Reach: somar do daily se disponível; senão proporcional */
+ var fReach = fReachSum > 0 ? fReachSum : Math.round((F.reach||0) * (F.spend>0?fSpend/F.spend:1));
  var fCostPer1k=fReach>0?fSpend/fReach*1000:F.cost_per_1k_reach;
- var fPctInvest=DATA.totals&&DATA.totals.spend>0?fSpend/DATA.totals.spend*100:F.pct_invest;
+ /* % de invest sobre o total do período (não mais do mês corrente) */
+ var totSpendPeriodo = DATA.daily.filter(function(d){return pd.d0==null || (d.date>=pd.from_date&&d.date<=pd.to_date);})
+                                  .reduce(function(a,d){return a+(d.spend||0);},0);
+ var fPctInvest=totSpendPeriodo>0?fSpend/totSpendPeriodo*100:F.pct_invest;
  var periodoLabel=pd.d0!=null?(' — '+fDays+' dias selecionados'):'';
  var h='<div class="sec"><div class="sec-head"><span class="bar"></span><h2>Campanha de seguidores'+periodoLabel+'</h2>'+
    '<div class="note">Campanha de topo de funil — objetivo de audiência, lida separada do ROAS de vendas.</div></div>';
