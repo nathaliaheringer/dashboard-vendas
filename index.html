@@ -570,7 +570,12 @@ function renderSeg(){
   });
  });
  var df=document.getElementById('dateFrom'),dt=document.getElementById('dateTo');
- df.min=dt.min=DATA.period.start; df.max=dt.max=DATA.period.end;
+ /* Range do calendário = todo o histórico disponível em DATA.daily
+    (não só o mês corrente — permite navegar para meses anteriores) */
+ var _dailyDates = (DATA.daily||[]).map(function(d){return d.date;}).filter(Boolean);
+ var _minDate = _dailyDates.length ? _dailyDates.reduce(function(a,b){return a<b?a:b;}) : DATA.period.start;
+ var _maxDate = _dailyDates.length ? _dailyDates.reduce(function(a,b){return a>b?a:b;}) : DATA.period.end;
+ df.min=dt.min=_minDate; df.max=dt.max=_maxDate;
  function applyRange(){
   var a=df.value,b=dt.value;
   if(!a&&!b)return;
