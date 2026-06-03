@@ -6,7 +6,7 @@
   "days_elapsed": 3,
   "days_month": 30
  },
- "_v": 1780506509459,
+ "_v": 1780507050427,
  "totals": {
   "spend": 1300.35,
   "spend_sales": 1300.35,
@@ -10769,29 +10769,29 @@
  "products_paid": {
   "RE": {
    "code": "RE",
-   "spend": 10059.69,
-   "impressions": 453040,
-   "reach": 301015,
+   "spend": 1300.35,
+   "impressions": 65148,
+   "reach": 42662,
    "faturas": 26,
    "units": 38,
    "fat": 4661.01,
    "nh": 4116.06,
    "total": 4661.01,
    "ob": 10,
-   "cpa": 386.91,
-   "roas": 0.46,
-   "roas_nh": 0.41,
-   "lucro": -5943.63,
-   "roi": -59.08,
+   "cpa": 50.01,
+   "roas": 3.58,
+   "roas_nh": 3.17,
+   "lucro": 2815.71,
+   "roi": 216.53,
    "ticket": 179.27,
-   "cpm": 22.2,
+   "cpm": 19.96,
    "abandoned": 21,
    "checkouts": 47,
    "compras": 26,
    "funnel_clicks": 504,
    "funnel_lpv": 430,
-   "funnel_ctr": 0.11,
-   "funnel_cpc": 19.96,
+   "funnel_ctr": 0.77,
+   "funnel_cpc": 2.58,
    "funnel_source": "planilha",
    "conv_checkout": 55.32,
    "weeks": [
@@ -10800,12 +10800,12 @@
      "label": "01–07 jun",
      "d0": 1,
      "d1": 7,
-     "spend": 1383.21,
+     "spend": 1300.35,
      "fat": 4661.01,
      "faturas": 26,
      "nh": 4101.69,
-     "lucro": 2718.48,
-     "impressions": 68271,
+     "lucro": 2801.34,
+     "impressions": 65148,
      "has_data": true
     },
     {
@@ -10813,52 +10813,52 @@
      "label": "08–14 jun",
      "d0": 8,
      "d1": 14,
-     "spend": 1845.76,
+     "spend": 0.0,
      "fat": 0.0,
      "faturas": 0,
      "nh": 0.0,
-     "lucro": -1845.76,
-     "impressions": 66757,
-     "has_data": true
+     "lucro": 0.0,
+     "impressions": 0,
+     "has_data": false
     },
     {
      "id": "S3",
      "label": "15–21 jun",
      "d0": 15,
      "d1": 21,
-     "spend": 2502.51,
+     "spend": 0.0,
      "fat": 0.0,
      "faturas": 0,
      "nh": 0.0,
-     "lucro": -2502.51,
-     "impressions": 124162,
-     "has_data": true
+     "lucro": 0.0,
+     "impressions": 0,
+     "has_data": false
     },
     {
      "id": "S4",
      "label": "22–28 jun",
      "d0": 22,
      "d1": 28,
-     "spend": 2695.34,
+     "spend": 0.0,
      "fat": 0.0,
      "faturas": 0,
      "nh": 0.0,
-     "lucro": -2695.34,
-     "impressions": 126682,
-     "has_data": true
+     "lucro": 0.0,
+     "impressions": 0,
+     "has_data": false
     },
     {
      "id": "S5",
      "label": "29–30 jun",
      "d0": 29,
      "d1": 30,
-     "spend": 1057.74,
+     "spend": 0.0,
      "fat": 0.0,
      "faturas": 0,
      "nh": 0.0,
-     "lucro": -1057.74,
-     "impressions": 43340,
-     "has_data": true
+     "lucro": 0.0,
+     "impressions": 0,
+     "has_data": false
     }
    ],
    "benchmarks": {
@@ -18373,37 +18373,37 @@
    {
     "id": "S1",
     "label": "01–07 jun",
-    "spend": 297.91,
-    "impressions": 26257,
-    "has_data": true
+    "spend": 0.0,
+    "impressions": 0,
+    "has_data": false
    },
    {
     "id": "S2",
     "label": "08–14 jun",
-    "spend": 286.54,
-    "impressions": 24768,
-    "has_data": true
+    "spend": 0.0,
+    "impressions": 0,
+    "has_data": false
    },
    {
     "id": "S3",
     "label": "15–21 jun",
-    "spend": 276.31,
-    "impressions": 21687,
-    "has_data": true
+    "spend": 0.0,
+    "impressions": 0,
+    "has_data": false
    },
    {
     "id": "S4",
     "label": "22–28 jun",
-    "spend": 263.5,
-    "impressions": 20700,
-    "has_data": true
+    "spend": 0.0,
+    "impressions": 0,
+    "has_data": false
    },
    {
     "id": "S5",
     "label": "29–30 jun",
-    "spend": 76.0,
-    "impressions": 5890,
-    "has_data": true
+    "spend": 0.0,
+    "impressions": 0,
+    "has_data": false
    }
   ]
  },
@@ -18634,6 +18634,13 @@
    "tag": "RECUPERAÇÃO",
    "title": "22 carrinhos abandonados — R$4,218 em receita potencial",
    "body": "Taxa de conversão do checkout: 56.9% (29 compras / 51 checkouts). Sequência de WhatsApp + e-mail em 1h-24h pode recuperar 15-30% dos leads."
+  },
+  {
+   "level": "positivo",
+   "icon": "cash",
+   "tag": "CPM EFICIENTE",
+   "title": "CPM médio do RE em R$20 — custo de entrega eficiente",
+   "body": "CPM abaixo de R$20 indica boa relevância. Aproveitar para escalar 15-20%/semana."
   },
   {
    "level": "info",

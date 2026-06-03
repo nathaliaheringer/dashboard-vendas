@@ -270,7 +270,10 @@ if not hotmart_invoices:
 re_clicks=re_lpv=re_imp=re_spend_sheet=0
 day_funnel_re = defaultdict(lambda: {'clicks':0,'lpv':0,'imp':0})
 day_funnel_re_iso = defaultdict(lambda: {'clicks':0,'lpv':0,'imp':0})
-with open(f'{BASE_DATA}/[Nathalia Heringer] Controle de Vendas Perpétuos. - DADOS RE (1).csv', encoding='utf-8') as f:
+_re_csvs = sorted(glob.glob(f'{BASE_DATA}/*DADOS RE*.csv'), key=os.path.getmtime)
+if not _re_csvs:
+    raise SystemExit(f"❌ Nenhum CSV '*DADOS RE*.csv' encontrado em {BASE_DATA}")
+with open(_re_csvs[-1], encoding='utf-8') as f:
     reader = csv.DictReader(f)
     for row in reader:
         dt2 = parse_day_col(row.get('Day',''))
@@ -294,7 +297,10 @@ print(f"[RE CSV] mês corrente: clicks={re_clicks} lpv={re_lpv}")
 psi_clicks=psi_lpv=psi_imp=psi_spend_sheet=0
 day_funnel_psi = defaultdict(lambda: {'clicks':0,'lpv':0,'imp':0})
 day_funnel_psi_iso = defaultdict(lambda: {'clicks':0,'lpv':0,'imp':0})
-with open(f'{BASE_DATA}/[Nathalia Heringer] Controle de Vendas Perpétuos. - DADOS PSI08 (2).csv', encoding='utf-8') as f:
+_psi_csvs = sorted(glob.glob(f'{BASE_DATA}/*DADOS PSI08*.csv'), key=os.path.getmtime)
+if not _psi_csvs:
+    raise SystemExit(f"❌ Nenhum CSV '*DADOS PSI08*.csv' encontrado em {BASE_DATA}")
+with open(_psi_csvs[-1], encoding='utf-8') as f:
     reader = csv.DictReader(f)
     for row in reader:
         dt2 = parse_day_col(row.get('Day',''))
@@ -334,7 +340,7 @@ PSI_FREQ = {
 meta_raw = []
 
 # ── RE from CSV ──
-with open(f'{BASE_DATA}/[Nathalia Heringer] Controle de Vendas Perpétuos. - DADOS RE (1).csv', encoding='utf-8') as f:
+with open(_re_csvs[-1], encoding='utf-8') as f:
     reader = csv.DictReader(f)
     for row in reader:
         dt2 = parse_day_col(row.get('Day',''))
@@ -358,7 +364,7 @@ with open(f'{BASE_DATA}/[Nathalia Heringer] Controle de Vendas Perpétuos. - DAD
         })
 
 # ── PSI08 from CSV ──
-with open(f'{BASE_DATA}/[Nathalia Heringer] Controle de Vendas Perpétuos. - DADOS PSI08 (2).csv', encoding='utf-8') as f:
+with open(_psi_csvs[-1], encoding='utf-8') as f:
     reader = csv.DictReader(f)
     for row in reader:
         dt2 = parse_day_col(row.get('Day',''))
@@ -676,13 +682,23 @@ if hotmart_invoices:
 
 RE_CAMPS  = set(c for c in meta_by_camp if '[RE]'    in c and c != INSTA_CAMP)
 PSI_CAMPS = set(c for c in meta_by_camp if '[PSI08]' in c)
+# Inclui também campanhas que aparecem só no histórico (mas não no mês corrente)
+_all_camps_hist = set(r['campaign'] for r in meta_raw)
+RE_CAMPS_HIST  = set(c for c in _all_camps_hist if '[RE]'    in c and c != INSTA_CAMP)
+PSI_CAMPS_HIST = set(c for c in _all_camps_hist if '[PSI08]' in c)
 
-re_sp  = sum(r['spend'] for r in meta_raw if r['campaign'] in RE_CAMPS)
-psi_sp = sum(r['spend'] for r in meta_raw if r['campaign'] in PSI_CAMPS)
-re_imp_m   = sum(r['impressions'] for r in meta_raw if r['campaign'] in RE_CAMPS)
-re_reach_m = sum(r['reach']       for r in meta_raw if r['campaign'] in RE_CAMPS)
-psi_imp_m  = sum(r['impressions'] for r in meta_raw if r['campaign'] in PSI_CAMPS)
-psi_reach_m= sum(r['reach']       for r in meta_raw if r['campaign'] in PSI_CAMPS)
+# meta_raw cobre HIST_START..HIST_END (vários meses). Para totais do produto
+# do MÊS CORRENTE, filtra apenas as linhas do período corrente.
+def _in_cur_period(r):
+    return r['date'][:7] == f"{PERIOD_YEAR}-{PERIOD_MONTH:02d}"
+meta_raw_cur = [r for r in meta_raw if _in_cur_period(r)]
+
+re_sp  = sum(r['spend'] for r in meta_raw_cur if r['campaign'] in RE_CAMPS)
+psi_sp = sum(r['spend'] for r in meta_raw_cur if r['campaign'] in PSI_CAMPS)
+re_imp_m   = sum(r['impressions'] for r in meta_raw_cur if r['campaign'] in RE_CAMPS)
+re_reach_m = sum(r['reach']       for r in meta_raw_cur if r['campaign'] in RE_CAMPS)
+psi_imp_m  = sum(r['impressions'] for r in meta_raw_cur if r['campaign'] in PSI_CAMPS)
+psi_reach_m= sum(r['reach']       for r in meta_raw_cur if r['campaign'] in PSI_CAMPS)
 
 re_cpa_v=sdiv(re_sp,re_count); re_roas_v=sdiv(re_fat,re_sp); re_roas_nh=sdiv(re_nh,re_sp)
 re_lucro=r2(re_nh-re_sp); re_roi=sdiv(re_lucro*100,re_sp); re_ticket=sdiv(re_fat,re_count)
@@ -815,8 +831,8 @@ for c4 in campaigns_arr:
 REG_ORDER = ['Sudeste','Sul','Nordeste','Centro-Oeste','Norte','Não informado']
 for _entry in daily_arr:
     _d = _entry['day']
-    _entry['spend_re']   = r2(sum(r['spend'] for r in meta_raw if r['campaign'] in RE_CAMPS  and int(r['date'][8:10])==_d))
-    _entry['spend_psi']  = r2(sum(r['spend'] for r in meta_raw if r['campaign'] in PSI_CAMPS and int(r['date'][8:10])==_d))
+    _entry['spend_re']   = r2(sum(r['spend'] for r in meta_raw_cur if r['campaign'] in RE_CAMPS  and int(r['date'][8:10])==_d))
+    _entry['spend_psi']  = r2(sum(r['spend'] for r in meta_raw_cur if r['campaign'] in PSI_CAMPS and int(r['date'][8:10])==_d))
     _entry['faturas_re'] = day_fat_re_c[_d]
     _entry['faturas_psi']= day_fat_psi_c[_d]
     _entry['units_re']   = day_units_re_d[_d]
@@ -1019,10 +1035,10 @@ def prod_week_rows(day_fat_d, day_c_d, camp_set, nh_ratio=0.94):
                             ("S5",f"29–{DAYS_MONTH} {MES_ABBR}",29,DAYS_MONTH)]:
         wf=sum(day_fat_d[d] for d in range(d0,d1+1))
         wc=sum(day_c_d[d]   for d in range(d0,d1+1))
-        ws=sum(r['spend'] for r in meta_raw if r['campaign'] in camp_set and d0<=int(r['date'][8:10])<=d1)
+        ws=sum(r['spend'] for r in meta_raw_cur if r['campaign'] in camp_set and d0<=int(r['date'][8:10])<=d1)
         w_nh=r2(wf*nh_ratio)
         w_lucro=r2(w_nh-ws)
-        w_imp=r0(sum(r['impressions'] for r in meta_raw if r['campaign'] in camp_set and d0<=int(r['date'][8:10])<=d1))
+        w_imp=r0(sum(r['impressions'] for r in meta_raw_cur if r['campaign'] in camp_set and d0<=int(r['date'][8:10])<=d1))
         rows.append({"id":wid,"label":label,"d0":d0,"d1":d1,"spend":r2(ws),"fat":r2(wf),
                      "faturas":wc,"nh":w_nh,"lucro":w_lucro,"impressions":w_imp,
                      "has_data":wf>0 or ws>0})
@@ -1115,9 +1131,9 @@ followers_obj={
     "cost_per_1k_reach":r2(icd2['spend']/icd2['reach']*1000) if icd2['reach'] else 0,
     "daily":sorted(icd2['daily'],key=lambda x:x['day']),
     "weeks":[{"id":w["id"],"label":w["label"],
-              "spend":r2(sum(r['spend'] for r in meta_raw if r['campaign']==INSTA_CAMP and w['d0']<=int(r['date'][8:10])<=w['d1'])),
-              "impressions":r0(sum(r['impressions'] for r in meta_raw if r['campaign']==INSTA_CAMP and w['d0']<=int(r['date'][8:10])<=w['d1'])),
-              "has_data":any(r['campaign']==INSTA_CAMP and w['d0']<=int(r['date'][8:10])<=w['d1'] for r in meta_raw)}
+              "spend":r2(sum(r['spend'] for r in meta_raw_cur if r['campaign']==INSTA_CAMP and w['d0']<=int(r['date'][8:10])<=w['d1'])),
+              "impressions":r0(sum(r['impressions'] for r in meta_raw_cur if r['campaign']==INSTA_CAMP and w['d0']<=int(r['date'][8:10])<=w['d1'])),
+              "has_data":any(r['campaign']==INSTA_CAMP and w['d0']<=int(r['date'][8:10])<=w['d1'] for r in meta_raw_cur)}
              for w in weeks]
 }
 
