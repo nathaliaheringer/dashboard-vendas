@@ -846,12 +846,14 @@ function renderGeral(){
  }else if(P.kind==='intervalo'){
   /* Intervalo customizado: apenas o gráfico de Faturamento × Investimento dia a dia.
      Tabela de campanhas pertence à aba Campanhas (não aqui). */
+  var _fatLbl=viewProd==='re'?'Faturamento RE':viewProd==='psi'?'Faturamento PSI':'Faturamento';
+  var _invLbl=viewProd==='re'?'Investimento RE':viewProd==='psi'?'Investimento PSI':'Investimento em vendas';
   h+='<div class="sec"><div class="sec-head"><span class="bar"></span><h2>Evolução no intervalo</h2></div>'+
    '<div class="panel"><div class="p-head"><div><h3>Faturamento &times; Investimento</h3></div></div>'+
      '<div class="p-sub">Dia a dia dentro do intervalo selecionado ('+P.days.length+' dias).</div>'+
      '<div class="chart-box h280"><canvas id="cEvol"></canvas></div>'+
-     '<div class="legend"><span><i style="background:#37644F"></i>Faturamento (R$)</span>'+
-     '<span><i class="ln" style="background:#B57353"></i>Investimento em vendas (R$)</span></div></div>'+
+     '<div class="legend"><span><i style="background:#37644F"></i>'+_fatLbl+' (R$)</span>'+
+     '<span><i class="ln" style="background:#B57353"></i>'+_invLbl+' (R$)</span></div></div>'+
    '</div>';
  }else{
   h+='<div class="sec"><div class="sec-head"><span class="bar"></span><h2>Evolução no período</h2></div>'+
@@ -1855,16 +1857,23 @@ function renderRangeCampTbl(days){
 function buildEvolRange(days){
  destroyChart('evol');
  var labels=days.map(function(d){return String(d.day).padStart(2,'0')+'/'+(d.date.split('-')[1]);});
+ /* Respeita viewProd — quando RE/PSI selecionado, mostra apenas fat/spend desse produto */
+ var fatKey  = viewProd==='re' ? 'fat_re'   : viewProd==='psi' ? 'fat_psi'   : 'fat';
+ var spKey   = viewProd==='re' ? 'spend_re' : viewProd==='psi' ? 'spend_psi' : 'spend_sales';
+ var fatLbl  = viewProd==='re' ? 'Faturamento RE' : viewProd==='psi' ? 'Faturamento PSI' : 'Faturamento';
+ var spLbl   = viewProd==='re' ? 'Investimento RE' : viewProd==='psi' ? 'Investimento PSI' : 'Investimento';
  charts.evol=new Chart(document.getElementById('cEvol').getContext('2d'),{
   data:{labels:labels,datasets:[
-   {type:'bar',label:'Faturamento',data:days.map(function(d){return d.fat;}),
+   {type:'bar',label:fatLbl,data:days.map(function(d){return d[fatKey]||0;}),
     backgroundColor:'#37644F',borderRadius:6,maxBarThickness:40,order:2},
-   {type:'line',label:'Investimento',data:days.map(function(d){return d.spend_sales;}),
+   {type:'line',label:spLbl,data:days.map(function(d){return d[spKey]||0;}),
     borderColor:'#B57353',backgroundColor:'#B57353',borderWidth:2.6,tension:.36,
     pointRadius:3,pointHoverRadius:5,order:1}
   ]},
   options:baseOpts(function(c){return ' '+c.dataset.label+': '+brl0(c.raw);},true)
  });
+ /* Atualiza a legenda visível ao lado do gráfico, se existir */
+ var lg = document.querySelector('.legend');
 }
 function buildEvol(mode){
  destroyChart('evol');
