@@ -1,36 +1,36 @@
 {
  "period": {
   "start": "2026-06-01",
-  "end": "2026-06-03",
-  "label": "01 a 3 de junho de 2026",
-  "days_elapsed": 3,
+  "end": "2026-06-04",
+  "label": "01 a 4 de junho de 2026",
+  "days_elapsed": 4,
   "days_month": 30
  },
- "_v": 1780507050427,
+ "_v": 1780574838827,
  "totals": {
-  "spend": 1300.35,
-  "spend_sales": 1300.35,
+  "spend": 1814.59,
+  "spend_sales": 1814.59,
   "spend_insta": 0.0,
-  "impressions": 65148,
-  "impressions_sales": 65148,
-  "fat": 5560.76,
-  "total": 5560.76,
-  "nh": 4954.35,
-  "hubla_fee": 606.41,
-  "faturas": 29,
-  "units": 41,
-  "abandoned": 22,
-  "checkouts": 51,
-  "ob_count": 12,
-  "ob_val": 1597.0,
-  "fat_with_ob": 10,
-  "cpa": 44.84,
-  "roas": 4.28,
-  "roas_sales": 4.28,
-  "lucro": 3654.0,
-  "roi": 281.0,
-  "ticket": 191.75,
-  "conv_checkout": 56.86
+  "impressions": 92418,
+  "impressions_sales": 92418,
+  "fat": 8626.44,
+  "total": 8626.44,
+  "nh": 7627.34,
+  "hubla_fee": 999.1,
+  "faturas": 45,
+  "units": 63,
+  "abandoned": 35,
+  "checkouts": 80,
+  "ob_count": 18,
+  "ob_val": 1871.0,
+  "fat_with_ob": 14,
+  "cpa": 40.32,
+  "roas": 4.75,
+  "roas_sales": 4.75,
+  "lucro": 5812.75,
+  "roi": 320.33,
+  "ticket": 191.7,
+  "conv_checkout": 56.25
  },
  "daily": [
   {
@@ -10163,8 +10163,8 @@
    "units": 18,
    "fat": 2421.38,
    "nh": 2170.26,
-   "abandoned": 11,
-   "checkouts": 23,
+   "abandoned": 10,
+   "checkouts": 22,
    "fat_re": 1846.63,
    "fat_psi": 0.0,
    "spend_re": 595.07,
@@ -10176,9 +10176,15 @@
    "prods_dia": [
     {
      "name": "Regulando as Emoções",
-     "fat": 1415.63,
+     "fat": 1446.92,
      "faturas": 8,
-     "units": 11
+     "units": 12
+    },
+    {
+     "name": "Recursos Exclusivos Divertidamente 2",
+     "fat": 399.71,
+     "faturas": 2,
+     "units": 4
     },
     {
      "name": "Formação Primeira Infância",
@@ -10191,18 +10197,6 @@
      "fat": 249.75,
      "faturas": 1,
      "units": 1
-    },
-    {
-     "name": "O Mapa da Avaliação - Autismo",
-     "fat": 245.0,
-     "faturas": 1,
-     "units": 3
-    },
-    {
-     "name": "Recursos Exclusivos Divertidamente 2",
-     "fat": 186.0,
-     "faturas": 1,
-     "units": 2
     }
    ],
    "camps_dia": [
@@ -10326,12 +10320,12 @@
     {
      "name": "Recursos Exclusivos Divertidamente 2",
      "count": 4,
-     "val": 137.0
+     "val": 196.0
     },
     {
      "name": "O Mapa da Avaliação - Autismo",
      "count": 2,
-     "val": 98.0
+     "val": 196.0
     }
    ],
    "ob_detail_psi": [],
@@ -10342,9 +10336,9 @@
   {
    "day": 2,
    "date": "2026-06-02",
-   "spend": 604.29,
-   "spend_sales": 604.29,
-   "impressions": 33127,
+   "spend": 604.48,
+   "spend_sales": 604.48,
+   "impressions": 33137,
    "faturas": 12,
    "units": 17,
    "fat": 2349.18,
@@ -10353,7 +10347,7 @@
    "checkouts": 21,
    "fat_re": 2024.18,
    "fat_psi": 0.0,
-   "spend_re": 604.29,
+   "spend_re": 604.48,
    "spend_psi": 0.0,
    "faturas_re": 11,
    "faturas_psi": 0,
@@ -10362,15 +10356,9 @@
    "prods_dia": [
     {
      "name": "Regulando as Emoções",
-     "fat": 1117.62,
-     "faturas": 7,
-     "units": 8
-    },
-    {
-     "name": "O Mapa da Avaliação - Autismo",
-     "fat": 720.56,
-     "faturas": 3,
-     "units": 6
+     "fat": 1818.18,
+     "faturas": 10,
+     "units": 14
     },
     {
      "name": "Formação Primeira Infância",
@@ -10379,8 +10367,8 @@
      "units": 1
     },
     {
-     "name": "Recursos Exclusivos Divertidamente 2",
-     "fat": 186.0,
+     "name": "O Mapa da Avaliação - Autismo",
+     "fat": 206.0,
      "faturas": 1,
      "units": 2
     }
@@ -10388,27 +10376,27 @@
    "camps_dia": [
     {
      "name": "[RE] [Compra] [Quente] [Validação] [Vídeos] - ABO",
-     "spend": 87.26,
-     "impressions": 4788,
-     "reach": 3830
+     "spend": 87.27,
+     "impressions": 4789,
+     "reach": 3831
     },
     {
      "name": "[RE] [Compra] [Frio] [Validação] [Vídeos] - ABO",
-     "spend": 95.37,
-     "impressions": 4114,
-     "reach": 3047
+     "spend": 95.42,
+     "impressions": 4115,
+     "reach": 3048
     },
     {
      "name": "[RE] [Compra] [Frio] [Validação] [Estáticos] - ABO",
-     "spend": 264.93,
-     "impressions": 16838,
-     "reach": 9102
+     "spend": 265.05,
+     "impressions": 16843,
+     "reach": 9104
     },
     {
      "name": "[RE] [Compra] [Frio] [Melhores Criativos] - CBO",
-     "spend": 112.32,
-     "impressions": 5499,
-     "reach": 4230
+     "spend": 112.33,
+     "impressions": 5502,
+     "reach": 4232
     },
     {
      "name": "[RE] [Compra] [Frio] [Novos Criativos] [Estáticos] - ABO",
@@ -10419,7 +10407,7 @@
    ],
    "funnel_clicks_re": 254,
    "funnel_lpv_re": 225,
-   "funnel_imp_re": 33127,
+   "funnel_imp_re": 33137,
    "funnel_clicks_psi": 0,
    "funnel_lpv_psi": 0,
    "funnel_imp_psi": 0,
@@ -10503,12 +10491,12 @@
     {
      "name": "O Mapa da Avaliação - Autismo",
      "count": 3,
-     "val": 0.0
+     "val": 118.0
     },
     {
      "name": "Recursos Exclusivos Divertidamente 2",
      "count": 2,
-     "val": 39.0
+     "val": 78.0
     }
    ],
    "ob_detail_psi": [],
@@ -10519,96 +10507,125 @@
   {
    "day": 3,
    "date": "2026-06-03",
-   "spend": 100.99,
-   "spend_sales": 100.99,
-   "impressions": 4032,
-   "faturas": 5,
-   "units": 6,
-   "fat": 790.2,
-   "nh": 718.35,
-   "abandoned": 2,
-   "checkouts": 7,
-   "fat_re": 790.2,
+   "spend": 511.82,
+   "spend_sales": 511.82,
+   "impressions": 26859,
+   "faturas": 16,
+   "units": 21,
+   "fat": 2880.84,
+   "nh": 2592.36,
+   "abandoned": 11,
+   "checkouts": 27,
+   "fat_re": 2219.96,
    "fat_psi": 0.0,
-   "spend_re": 100.99,
+   "spend_re": 511.82,
    "spend_psi": 0.0,
-   "faturas_re": 5,
+   "faturas_re": 13,
    "faturas_psi": 0,
-   "units_re": 6,
+   "units_re": 18,
    "units_psi": 0,
    "prods_dia": [
     {
      "name": "Regulando as Emoções",
-     "fat": 604.2,
-     "faturas": 4,
-     "units": 4
+     "fat": 1602.96,
+     "faturas": 10,
+     "units": 11
+    },
+    {
+     "name": "Formação Primeira Infância",
+     "fat": 374.66,
+     "faturas": 1,
+     "units": 1
     },
     {
      "name": "Recursos Exclusivos Divertidamente 2",
-     "fat": 186.0,
+     "fat": 372.0,
+     "faturas": 2,
+     "units": 4
+    },
+    {
+     "name": "Formação Primeira Infância • Turma 09",
+     "fat": 249.75,
      "faturas": 1,
-     "units": 2
+     "units": 1
+    },
+    {
+     "name": "O Mapa da Avaliação - Autismo",
+     "fat": 245.0,
+     "faturas": 1,
+     "units": 3
+    },
+    {
+     "name": "PRO",
+     "fat": 36.47,
+     "faturas": 1,
+     "units": 1
     }
    ],
    "camps_dia": [
     {
      "name": "[RE] [Compra] [Quente] [Validação] [Vídeos] - ABO",
-     "spend": 12.62,
-     "impressions": 600,
-     "reach": 480
+     "spend": 55.53,
+     "impressions": 3677,
+     "reach": 2942
     },
     {
      "name": "[RE] [Compra] [Frio] [Validação] [Vídeos] - ABO",
-     "spend": 11.88,
-     "impressions": 339,
-     "reach": 251
+     "spend": 57.77,
+     "impressions": 1962,
+     "reach": 1453
     },
     {
      "name": "[RE] [Compra] [Frio] [Validação] [Estáticos] - ABO",
-     "spend": 39.16,
-     "impressions": 1784,
-     "reach": 964
+     "spend": 234.45,
+     "impressions": 14620,
+     "reach": 7903
     },
     {
      "name": "[RE] [Compra] [Frio] [Melhores Criativos] - CBO",
-     "spend": 16.73,
-     "impressions": 616,
-     "reach": 474
+     "spend": 87.24,
+     "impressions": 3956,
+     "reach": 3043
     },
     {
      "name": "[RE] [Compra] [Frio] [Novos Criativos] [Estáticos] - ABO",
-     "spend": 20.6,
-     "impressions": 693,
-     "reach": 533
+     "spend": 76.83,
+     "impressions": 2644,
+     "reach": 2034
     }
    ],
-   "funnel_clicks_re": 33,
-   "funnel_lpv_re": 25,
-   "funnel_imp_re": 4032,
+   "funnel_clicks_re": 221,
+   "funnel_lpv_re": 167,
+   "funnel_imp_re": 26859,
    "funnel_clicks_psi": 0,
    "funnel_lpv_psi": 0,
    "funnel_imp_psi": 0,
    "origins": [
     {
      "name": "Instagram (orgânico)",
-     "fat": 147.0,
-     "faturas": 1
+     "fat": 889.0,
+     "faturas": 5
     },
     {
      "name": "Facebook Ads",
-     "fat": 457.2,
-     "faturas": 3
+     "fat": 958.96,
+     "faturas": 6
     },
     {
      "name": "Sem origem",
-     "fat": 186.0,
-     "faturas": 1
+     "fat": 472.22,
+     "faturas": 3
+    },
+    {
+     "name": "WhatsApp",
+     "fat": 560.66,
+     "faturas": 2
     }
    ],
    "fb_split": {
     "frio": {
-     "fat": 310.2,
-     "faturas": 2
+     "fat": 811.96,
+     "faturas": 5
     },
     "quente": {
      "fat": 147.0,
@@ -10621,34 +10638,208 @@
    },
    "regioes": [
     {
+     "name": "Sul",
+     "fat": 249.75,
+     "faturas": 1
+    },
+    {
+     "name": "Nordeste",
+     "fat": 154.96,
+     "faturas": 1
+    },
+    {
+     "name": "Norte",
+     "fat": 36.47,
+     "faturas": 1
+    },
+    {
      "name": "Não informado",
-     "fat": 790.2,
-     "faturas": 5
+     "fat": 2439.66,
+     "faturas": 13
     }
    ],
    "pay_dist": [
     {
-     "method": "PIX",
-     "count": 3
+     "method": "Cartão de Crédito",
+     "count": 10
     },
     {
-     "method": "Cartão de Crédito",
-     "count": 2
+     "method": "PIX",
+     "count": 6
     }
    ],
    "parc_dist": [
     {
      "n": 1,
+     "count": 5
+    },
+    {
+     "n": 2,
+     "count": 1
+    },
+    {
+     "n": 4,
      "count": 1
     },
     {
      "n": 5,
+     "count": 2
+    },
+    {
+     "n": 12,
      "count": 1
     }
    ],
    "ob_detail_re": [
     {
      "name": "Recursos Exclusivos Divertidamente 2",
+     "count": 4,
+     "val": 39.0
+    },
+    {
+     "name": "O Mapa da Avaliação - Autismo",
+     "count": 1,
+     "val": 0.0
+    }
+   ],
+   "ob_detail_psi": [],
+   "mes_corrente": true,
+   "month": 6,
+   "year": 2026
+  },
+  {
+   "day": 4,
+   "date": "2026-06-04",
+   "spend": 103.22,
+   "spend_sales": 103.22,
+   "impressions": 4433,
+   "faturas": 5,
+   "units": 7,
+   "fat": 975.04,
+   "nh": 798.98,
+   "abandoned": 5,
+   "checkouts": 10,
+   "fat_re": 975.04,
+   "fat_psi": 0.0,
+   "spend_re": 103.22,
+   "spend_psi": 0.0,
+   "faturas_re": 5,
+   "faturas_psi": 0,
+   "units_re": 7,
+   "units_psi": 0,
+   "prods_dia": [
+    {
+     "name": "Regulando as Emoções",
+     "fat": 669.16,
+     "faturas": 4,
+     "units": 4
+    },
+    {
+     "name": "Recursos Exclusivos Divertidamente 2",
+     "fat": 305.88,
+     "faturas": 1,
+     "units": 3
+    }
+   ],
+   "camps_dia": [
+    {
+     "name": "[RE] [Compra] [Quente] [Validação] [Vídeos] - ABO",
+     "spend": 10.13,
+     "impressions": 630,
+     "reach": 504
+    },
+    {
+     "name": "[RE] [Compra] [Frio] [Validação] [Vídeos] - ABO",
+     "spend": 14.21,
+     "impressions": 499,
+     "reach": 370
+    },
+    {
+     "name": "[RE] [Compra] [Frio] [Validação] [Estáticos] - ABO",
+     "spend": 39.97,
+     "impressions": 2165,
+     "reach": 1170
+    },
+    {
+     "name": "[RE] [Compra] [Frio] [Melhores Criativos] - CBO",
+     "spend": 20.3,
+     "impressions": 700,
+     "reach": 538
+    },
+    {
+     "name": "[RE] [Compra] [Frio] [Novos Criativos] [Estáticos] - ABO",
+     "spend": 18.61,
+     "impressions": 439,
+     "reach": 338
+    }
+   ],
+   "funnel_clicks_re": 39,
+   "funnel_lpv_re": 32,
+   "funnel_imp_re": 4433,
+   "funnel_clicks_psi": 0,
+   "funnel_lpv_psi": 0,
+   "funnel_imp_psi": 0,
+   "origins": [
+    {
+     "name": "Facebook Ads",
+     "fat": 975.04,
+     "faturas": 5
+    }
+   ],
+   "fb_split": {
+    "frio": {
+     "fat": 975.04,
+     "faturas": 5
+    },
+    "quente": {
+     "fat": 0.0,
+     "faturas": 0
+    },
+    "outros": {
+     "fat": 0.0,
+     "faturas": 0
+    }
+   },
+   "regioes": [
+    {
+     "name": "Sudeste",
+     "fat": 147.0,
+     "faturas": 1
+    },
+    {
+     "name": "Não informado",
+     "fat": 828.04,
+     "faturas": 4
+    }
+   ],
+   "pay_dist": [
+    {
+     "method": "Cartão de Crédito",
+     "count": 4
+    },
+    {
+     "method": "PIX",
+     "count": 1
+    }
+   ],
+   "parc_dist": [
+    {
+     "n": 2,
+     "count": 1
+    },
+    {
+     "n": 12,
+     "count": 3
+    }
+   ],
+   "ob_detail_re": [
+    {
+     "name": "Recursos Exclusivos Divertidamente 2",
+     "count": 1,
+     "val": 0.0
+    },
+    {
+     "name": "O Mapa da Avaliação - Autismo",
      "count": 1,
      "val": 0.0
     }
@@ -10665,19 +10856,19 @@
    "label": "01–07 jun",
    "d0": 1,
    "d1": 7,
-   "spend": 1300.35,
-   "spend_sales": 1300.35,
-   "fat": 5560.76,
-   "units": 41,
-   "faturas": 29,
-   "nh": 4954.35,
-   "abandoned": 22,
-   "checkouts": 51,
-   "cpa": 44.84,
-   "roas": 4.28,
-   "lucro": 3654.0,
-   "conv_checkout": 56.86,
-   "fat_re": 4661.01,
+   "spend": 1814.59,
+   "spend_sales": 1814.59,
+   "fat": 8626.44,
+   "units": 63,
+   "faturas": 45,
+   "nh": 7627.34,
+   "abandoned": 35,
+   "checkouts": 80,
+   "cpa": 40.32,
+   "roas": 4.75,
+   "lucro": 5812.75,
+   "conv_checkout": 56.25,
+   "fat_re": 7065.81,
    "fat_psi": 0.0,
    "has_data": true
   },
@@ -10769,43 +10960,43 @@
  "products_paid": {
   "RE": {
    "code": "RE",
-   "spend": 1300.35,
-   "impressions": 65148,
-   "reach": 42662,
-   "faturas": 26,
-   "units": 38,
-   "fat": 4661.01,
-   "nh": 4116.06,
-   "total": 4661.01,
-   "ob": 10,
-   "cpa": 50.01,
-   "roas": 3.58,
-   "roas_nh": 3.17,
-   "lucro": 2815.71,
-   "roi": 216.53,
-   "ticket": 179.27,
-   "cpm": 19.96,
-   "abandoned": 21,
-   "checkouts": 47,
-   "compras": 26,
-   "funnel_clicks": 504,
-   "funnel_lpv": 430,
-   "funnel_ctr": 0.77,
-   "funnel_cpc": 2.58,
+   "spend": 1814.59,
+   "impressions": 92418,
+   "reach": 60261,
+   "faturas": 39,
+   "units": 57,
+   "fat": 7065.81,
+   "nh": 6181.55,
+   "total": 7065.81,
+   "ob": 14,
+   "cpa": 46.53,
+   "roas": 3.89,
+   "roas_nh": 3.41,
+   "lucro": 4366.96,
+   "roi": 240.66,
+   "ticket": 181.17,
+   "cpm": 19.63,
+   "abandoned": 31,
+   "checkouts": 70,
+   "compras": 39,
+   "funnel_clicks": 731,
+   "funnel_lpv": 604,
+   "funnel_ctr": 0.79,
+   "funnel_cpc": 2.48,
    "funnel_source": "planilha",
-   "conv_checkout": 55.32,
+   "conv_checkout": 55.71,
    "weeks": [
     {
      "id": "S1",
      "label": "01–07 jun",
      "d0": 1,
      "d1": 7,
-     "spend": 1300.35,
-     "fat": 4661.01,
-     "faturas": 26,
-     "nh": 4101.69,
-     "lucro": 2801.34,
-     "impressions": 65148,
+     "spend": 1814.59,
+     "fat": 7065.81,
+     "faturas": 39,
+     "nh": 6147.25,
+     "lucro": 4332.66,
+     "impressions": 92418,
      "has_data": true
     },
     {
@@ -10892,68 +11083,63 @@
    "pay_dist": [
     {
      "method": "Cartão de Crédito",
-     "count": 10,
-     "pct": 52.63
+     "count": 19,
+     "pct": 59.38
     },
     {
      "method": "PIX",
-     "count": 9,
-     "pct": 47.37
+     "count": 13,
+     "pct": 40.62
     }
    ],
    "parc_dist": [
     {
      "n": 1,
-     "count": 2,
-     "pct": 20.0
+     "count": 3,
+     "pct": 15.79
     },
     {
      "n": 2,
-     "count": 2,
-     "pct": 20.0
+     "count": 4,
+     "pct": 21.05
     },
     {
      "n": 4,
-     "count": 1,
-     "pct": 10.0
+     "count": 2,
+     "pct": 10.53
     },
     {
      "n": 5,
-     "count": 1,
-     "pct": 10.0
+     "count": 2,
+     "pct": 10.53
     },
     {
      "n": 6,
      "count": 1,
-     "pct": 10.0
-    },
-    {
-     "n": 7,
-     "count": 1,
-     "pct": 10.0
+     "pct": 5.26
     },
     {
      "n": 10,
      "count": 1,
-     "pct": 10.0
+     "pct": 5.26
     },
     {
      "n": 12,
-     "count": 1,
-     "pct": 10.0
+     "count": 6,
+     "pct": 31.58
     }
    ],
-   "ob_val": 274.0,
+   "ob_val": 627.0,
    "ob_detail": [
     {
-     "name": "Recursos Exclusivos Divertidamente 2",
+     "name": "O Mapa da Avaliação - Autismo",
      "count": 7,
-     "val": 176.0
+     "val": 314.0
     },
     {
-     "name": "O Mapa da Avaliação - Autismo",
-     "count": 5,
-     "val": 98.0
+     "name": "Recursos Exclusivos Divertidamente 2",
+     "count": 11,
+     "val": 313.0
     }
    ]
   },
@@ -10975,15 +11161,15 @@
    "roi": 0,
    "ticket": 0,
    "cpm": 0.0,
-   "abandoned": 0,
-   "checkouts": 0,
+   "abandoned": 2,
+   "checkouts": 2,
    "compras": 0,
    "funnel_clicks": 0,
    "funnel_lpv": 0,
    "funnel_ctr": 0,
    "funnel_cpc": 0,
    "funnel_source": "planilha",
-   "conv_checkout": 0,
+   "conv_checkout": 0.0,
    "weeks": [
     {
      "id": "S1",
@@ -11094,23 +11280,24 @@
    "creat": "Vídeos",
    "obj": "sales",
    "status": "ACTIVE",
-   "spend": 209.73,
-   "impressions": 10266,
-   "reach": 8212,
-   "cpm": 20.43,
+   "spend": 262.78,
+   "impressions": 13974,
+   "reach": 11179,
+   "cpm": 18.8,
    "freq": 1.25,
    "days": [
     1,
     2,
-    3
+    3,
+    4
    ],
    "faturas": 3,
    "units": 3,
    "fat": 480.0,
    "nh": 443.73,
-   "cpa": 69.91,
-   "roas": 2.29,
-   "lucro": 234.0,
+   "cpa": 87.59,
+   "roas": 1.83,
+   "lucro": 180.95,
    "daily": [
     {
      "day": 1,
@@ -11120,15 +11307,21 @@
     },
     {
      "day": 2,
-     "spend": 87.26,
-     "impressions": 4788,
+     "spend": 87.27,
+     "impressions": 4789,
      "cpm": 18.22
     },
     {
      "day": 3,
-     "spend": 12.62,
-     "impressions": 600,
-     "cpm": 21.03
+     "spend": 55.53,
+     "impressions": 3677,
+     "cpm": 15.1
+    },
+    {
+     "day": 4,
+     "spend": 10.13,
+     "impressions": 630,
+     "cpm": 16.08
     }
    ]
   },
@@ -11140,23 +11333,24 @@
    "creat": "Vídeos",
    "obj": "sales",
    "status": "ACTIVE",
-   "spend": 215.99,
-   "impressions": 9211,
-   "reach": 6822,
-   "cpm": 23.45,
+   "spend": 276.14,
+   "impressions": 11334,
+   "reach": 8395,
+   "cpm": 24.36,
    "freq": 1.35,
    "days": [
     1,
     2,
-    3
+    3,
+    4
    ],
    "faturas": 3,
    "units": 3,
    "fat": 441.0,
    "nh": 417.63,
-   "cpa": 72.0,
-   "roas": 2.04,
-   "lucro": 201.64,
+   "cpa": 92.05,
+   "roas": 1.6,
+   "lucro": 141.49,
    "daily": [
     {
      "day": 1,
@@ -11166,15 +11360,21 @@
     },
     {
      "day": 2,
-     "spend": 95.37,
-     "impressions": 4114,
-     "cpm": 23.18
+     "spend": 95.42,
+     "impressions": 4115,
+     "cpm": 23.19
     },
     {
      "day": 3,
-     "spend": 11.88,
-     "impressions": 339,
-     "cpm": 35.04
+     "spend": 57.77,
+     "impressions": 1962,
+     "cpm": 29.44
+    },
+    {
+     "day": 4,
+     "spend": 14.21,
+     "impressions": 499,
+     "cpm": 28.48
     }
    ]
   },
@@ -11186,23 +11386,24 @@
    "creat": "Estáticos",
    "obj": "sales",
    "status": "ACTIVE",
-   "spend": 574.3,
-   "impressions": 32808,
-   "reach": 17734,
-   "cpm": 17.5,
+   "spend": 809.68,
+   "impressions": 47814,
+   "reach": 25845,
+   "cpm": 16.93,
    "freq": 1.85,
    "days": [
     1,
     2,
-    3
+    3,
+    4
    ],
-   "faturas": 9,
-   "units": 9,
-   "fat": 1519.0,
-   "nh": 1427.9,
-   "cpa": 63.81,
-   "roas": 2.64,
-   "lucro": 853.6,
+   "faturas": 14,
+   "units": 14,
+   "fat": 2254.0,
+   "nh": 2120.09,
+   "cpa": 57.83,
+   "roas": 2.78,
+   "lucro": 1310.41,
    "daily": [
     {
      "day": 1,
@@ -11212,15 +11413,21 @@
     },
     {
      "day": 2,
-     "spend": 264.93,
-     "impressions": 16838,
-     "cpm": 15.73
+     "spend": 265.05,
+     "impressions": 16843,
+     "cpm": 15.74
     },
     {
      "day": 3,
-     "spend": 39.16,
-     "impressions": 1784,
-     "cpm": 21.95
+     "spend": 234.45,
+     "impressions": 14620,
+     "cpm": 16.04
+    },
+    {
+     "day": 4,
+     "spend": 39.97,
+     "impressions": 2165,
+     "cpm": 18.46
     }
    ]
   },
@@ -11625,9 +11832,9 @@
    "cpc": 1.67,
    "lpv": 0,
    "lpv_rate": 0.0,
-   "fat_est": 736.98,
-   "faturas_est": 4,
-   "roas_est": 0.49,
+   "fat_est": 1093.58,
+   "faturas_est": 7,
+   "roas_est": 0.73,
    "merged": true,
    "copies_count": 1,
    "daily": [
@@ -13047,9 +13254,9 @@
    "cpc": 2.29,
    "lpv": 0,
    "lpv_rate": 0.0,
-   "fat_est": 461.02,
-   "faturas_est": 3,
-   "roas_est": 0.36,
+   "fat_est": 684.1,
+   "faturas_est": 4,
+   "roas_est": 0.53,
    "merged": true,
    "copies_count": 1,
    "daily": [
@@ -13701,9 +13908,9 @@
    "cpc": 2.98,
    "lpv": 0,
    "lpv_rate": 0.0,
-   "fat_est": 228.46,
-   "faturas_est": 1,
-   "roas_est": 0.27,
+   "fat_est": 339.01,
+   "faturas_est": 2,
+   "roas_est": 0.41,
    "merged": true,
    "copies_count": 1,
    "daily": [
@@ -15360,9 +15567,9 @@
    "cpc": 1.94,
    "lpv": 0,
    "lpv_rate": 0.0,
-   "fat_est": 92.53,
+   "fat_est": 137.31,
    "faturas_est": 1,
-   "roas_est": 0.42,
+   "roas_est": 0.63,
    "merged": true,
    "copies_count": 1,
    "daily": [
@@ -18365,7 +18572,7 @@
   "reach": 0,
   "cpm": 0.0,
   "freq": 0.0,
-  "days": 3,
+  "days": 4,
   "pct_invest": 0.0,
   "cost_per_1k_reach": 0,
   "daily": [],
@@ -18410,21 +18617,21 @@
  "origins": [
   {
    "name": "Facebook Ads",
-   "faturas": 19,
-   "fat": 3376.77,
-   "nh": 2970.14
+   "faturas": 27,
+   "fat": 4853.57,
+   "nh": 4188.34
   },
   {
    "name": "Instagram (orgânico)",
-   "faturas": 6,
-   "fat": 1098.24,
-   "nh": 973.57
+   "faturas": 10,
+   "fat": 1840.24,
+   "nh": 1648.51
   },
   {
    "name": "WhatsApp",
-   "faturas": 0,
-   "fat": 0.0,
-   "nh": 0.0
+   "faturas": 2,
+   "fat": 560.66,
+   "nh": 522.04
   },
   {
    "name": "Hotmart",
@@ -18434,63 +18641,76 @@
   },
   {
    "name": "Sem origem",
-   "faturas": 4,
-   "fat": 1085.75,
-   "nh": 1010.64
+   "faturas": 6,
+   "fat": 1371.97,
+   "nh": 1268.45
   }
  ],
  "products": [
   {
    "name": "Regulando as Emoções",
-   "faturas": 19,
-   "fat": 3137.45,
-   "units": 23,
-   "recorrente": false,
-   "plataforma": "hubla"
-  },
-  {
-   "name": "O Mapa da Avaliação - Autismo",
-   "faturas": 4,
-   "fat": 965.56,
-   "units": 9,
-   "recorrente": false,
-   "plataforma": "hubla"
-  },
-  {
-   "name": "Formação Primeira Infância",
-   "faturas": 2,
-   "fat": 650.0,
-   "units": 2,
+   "faturas": 32,
+   "fat": 5537.22,
+   "units": 41,
    "recorrente": false,
    "plataforma": "hubla"
   },
   {
    "name": "Recursos Exclusivos Divertidamente 2",
+   "faturas": 5,
+   "fat": 1077.59,
+   "units": 11,
+   "recorrente": false,
+   "plataforma": "hubla"
+  },
+  {
+   "name": "Formação Primeira Infância",
    "faturas": 3,
-   "fat": 558.0,
-   "units": 6,
+   "fat": 1024.66,
+   "units": 3,
    "recorrente": false,
    "plataforma": "hubla"
   },
   {
    "name": "Formação Primeira Infância • Turma 09",
-   "faturas": 1,
-   "fat": 249.75,
-   "units": 1,
+   "faturas": 2,
+   "fat": 499.5,
+   "units": 2,
    "recorrente": true,
+   "plataforma": "hubla"
+  },
+  {
+   "name": "O Mapa da Avaliação - Autismo",
+   "faturas": 2,
+   "fat": 451.0,
+   "units": 5,
+   "recorrente": false,
+   "plataforma": "hubla"
+  },
+  {
+   "name": "PRO",
+   "faturas": 1,
+   "fat": 36.47,
+   "units": 1,
+   "recorrente": false,
    "plataforma": "hubla"
   }
  ],
  "regioes": [
   {
    "name": "Sudeste",
-   "faturas": 2,
-   "fat": 479.96
+   "faturas": 3,
+   "fat": 626.96
+  },
+  {
+   "name": "Sul",
+   "faturas": 1,
+   "fat": 249.75
   },
   {
    "name": "Nordeste",
-   "faturas": 2,
-   "fat": 574.75
+   "faturas": 3,
+   "fat": 729.71
   },
   {
    "name": "Centro-Oeste",
@@ -18499,13 +18719,13 @@
   },
   {
    "name": "Norte",
-   "faturas": 1,
-   "fat": 147.0
+   "faturas": 2,
+   "fat": 183.47
   },
   {
    "name": "Não informado",
-   "faturas": 23,
-   "fat": 4175.45
+   "faturas": 35,
+   "fat": 6652.95
   }
  ],
  "estados": [
@@ -18516,11 +18736,16 @@
   },
   {
    "uf": "CE",
-   "faturas": 1,
-   "fat": 325.0
+   "faturas": 2,
+   "fat": 479.96
   },
   {
    "uf": "MA",
+   "faturas": 1,
+   "fat": 249.75
+  },
+  {
+   "uf": "RS",
    "faturas": 1,
    "fat": 249.75
   },
@@ -18531,79 +18756,84 @@
   },
   {
    "uf": "AM",
+   "faturas": 2,
+   "fat": 183.47
+  },
+  {
+   "uf": "MG",
    "faturas": 1,
    "fat": 147.0
   }
  ],
  "payment_dist": [
   {
-   "method": "PIX",
-   "count": 15,
-   "pct": 51.72
+   "method": "Cartão de Crédito",
+   "count": 26,
+   "pct": 57.78
   },
   {
-   "method": "Cartão de Crédito",
-   "count": 14,
-   "pct": 48.28
+   "method": "PIX",
+   "count": 19,
+   "pct": 42.22
   }
  ],
  "parc_dist": [
   {
    "n": 1,
-   "count": 4,
-   "pct": 28.57
+   "count": 8,
+   "pct": 30.77
   },
   {
    "n": 2,
-   "count": 2,
-   "pct": 14.29
+   "count": 4,
+   "pct": 15.38
   },
   {
    "n": 4,
-   "count": 1,
-   "pct": 7.14
+   "count": 2,
+   "pct": 7.69
   },
   {
    "n": 5,
-   "count": 1,
-   "pct": 7.14
+   "count": 2,
+   "pct": 7.69
   },
   {
    "n": 6,
    "count": 1,
-   "pct": 7.14
+   "pct": 3.85
   },
   {
    "n": 7,
    "count": 1,
-   "pct": 7.14
+   "pct": 3.85
   },
   {
    "n": 10,
    "count": 1,
-   "pct": 7.14
+   "pct": 3.85
   },
   {
    "n": 12,
-   "count": 3,
-   "pct": 21.43
+   "count": 7,
+   "pct": 26.92
   }
  ],
  "ob_detail": [
   {
    "name": "Regulando as Emoções",
    "count": 7,
-   "val": 1421.0
-  },
-  {
-   "name": "Recursos Exclusivos Divertidamente 2",
-   "count": 4,
-   "val": 421.0
+   "val": 1440.0
   },
   {
    "name": "O Mapa da Avaliação - Autismo",
-   "count": 1,
-   "val": 98.0
+   "count": 5,
+   "val": 559.0
+  },
+  {
+   "name": "Recursos Exclusivos Divertidamente 2",
+   "count": 6,
+   "val": 558.0
   }
  ],
  "insights": [
@@ -18611,29 +18841,29 @@
    "level": "positivo",
    "icon": "star",
    "tag": "ESCALAR AGORA",
-   "title": "RE · Frio · Estáticos: ROAS 2.64x — candidata ao escalonamento",
-   "body": "R$574 investidos geraram R$1,519 (9 vendas) com ROAS 2.64x. Atenção: freq 1.85 — monitorar saturação. Aumentar 15-20% do orçamento a cada 2-3 dias enquanto ROAS ≥ 3x."
+   "title": "RE · Frio · Estáticos: ROAS 2.78x — candidata ao escalonamento",
+   "body": "R$810 investidos geraram R$2,254 (14 vendas) com ROAS 2.78x. Atenção: freq 1.85 — monitorar saturação. Aumentar 15-20% do orçamento a cada 2-3 dias enquanto ROAS ≥ 3x."
   },
   {
    "level": "atencao",
    "icon": "image",
    "tag": "SATURAÇÃO",
    "title": "Freq 1.85 em 'RE · Frio · Estáticos' — renovar criativos",
-   "body": "Com R$574 investidos e freq 1.85 (limiar ≥ 1.5), CTR tende a cair e CPM a subir. Preparar 3-5 novos criativos e substituir antes que a performance caia."
+   "body": "Com R$810 investidos e freq 1.85 (limiar ≥ 1.5), CTR tende a cair e CPM a subir. Preparar 3-5 novos criativos e substituir antes que a performance caia."
   },
   {
    "level": "positivo",
    "icon": "plus",
    "tag": "ORDER BUMP",
-   "title": "Order Bumps adicionam +29% ao faturamento — 12 compras complementares",
-   "body": "12 order bumps aceitos em 29 faturas (41.4% de adesão), adicionando R$1,597 ao faturamento."
+   "title": "Order Bumps adicionam +22% ao faturamento — 18 compras complementares",
+   "body": "18 order bumps aceitos em 45 faturas (40.0% de adesão), adicionando R$1,871 ao faturamento."
   },
   {
    "level": "atencao",
    "icon": "cart",
    "tag": "RECUPERAÇÃO",
-   "title": "22 carrinhos abandonados — R$4,218 em receita potencial",
-   "body": "Taxa de conversão do checkout: 56.9% (29 compras / 51 checkouts). Sequência de WhatsApp + e-mail em 1h-24h pode recuperar 15-30% dos leads."
+   "title": "35 carrinhos abandonados — R$6,710 em receita potencial",
+   "body": "Taxa de conversão do checkout: 56.2% (45 compras / 80 checkouts). Sequência de WhatsApp + e-mail em 1h-24h pode recuperar 15-30% dos leads."
   },
   {
    "level": "positivo",
@@ -18646,14 +18876,14 @@
    "level": "info",
    "icon": "profit",
    "tag": "MARGEM",
-   "title": "Margem líquida (após Hubla): 89.1% — R$4,954 de 29 vendas",
-   "body": "De R$5,561 faturados, R$4,954 chega líquido (margem 89.1%). Com R$1,300 em mídia, o lucro operacional é R$3,654 (ROI 281%). Para cada R$1 investido, retornam R$4.28."
+   "title": "Margem líquida (após Hubla): 88.4% — R$7,627 de 45 vendas",
+   "body": "De R$8,626 faturados, R$7,627 chega líquido (margem 88.4%). Com R$1,815 em mídia, o lucro operacional é R$5,813 (ROI 320%). Para cada R$1 investido, retornam R$4.75."
   }
  ],
  "fb_split": {
   "frio": {
-   "faturas": 16,
-   "fat": 2896.7699999999995
+   "faturas": 24,
+   "fat": 4373.57
   },
   "quente": {
    "faturas": 3,
@@ -18663,5 +18893,63 @@
    "faturas": 0,
    "fat": 0.0
   }
+ },
+ "_validation": {
+  "period_label": "01 a 4 de junho de 2026",
+  "period_start": "2026-06-01",
+  "period_end": "2026-06-04",
+  "generated_at": "2026-06-04 09:07:18",
+  "checks": [
+   {
+    "name": "Período cobre mês corrente",
+    "ok": true,
+    "expected": null,
+    "got": null,
+    "critical": true
+   },
+   {
+    "name": "Faturas RE (XLSX → JSON)",
+    "ok": true,
+    "expected": 39,
+    "got": 39,
+    "critical": true
+   },
+   {
+    "name": "Faturas PSI (XLSX → JSON)",
+    "ok": true,
+    "expected": 0,
+    "got": 0,
+    "critical": true
+   },
+   {
+    "name": "Faturamento RE bruto",
+    "ok": true,
+    "expected": 7065.81,
+    "got": 7065.81,
+    "critical": true
+   },
+   {
+    "name": "Faturamento PSI bruto",
+    "ok": true,
+    "expected": 0,
+    "got": 0.0,
+    "critical": true
+   },
+   {
+    "name": "daily[] tem entradas",
+    "ok": true,
+    "expected": null,
+    "got": null,
+    "critical": false
+   },
+   {
+    "name": "Soma daily[mês] == totals.fat",
+    "ok": true,
+    "expected": 8626.44,
+    "got": 8626.44,
+    "critical": false
+   }
+  ],
+  "warnings": []
  }
 }

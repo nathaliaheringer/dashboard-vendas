@@ -1441,7 +1441,108 @@ out = {
     "fb_split":      fb_split,
 }
 
+# ── STEP 17b: Auto-validação ─────────────────────────────────────
+# Verifica consistência antes de salvar. Se algo crítico estiver errado,
+# aborta com sys.exit() para evitar publicar dados quebrados.
+import sys
+
+validation = {
+    "period_label": PERIOD_LABEL,
+    "period_start": PERIOD_START.strftime('%Y-%m-%d'),
+    "period_end":   PERIOD_END.strftime('%Y-%m-%d'),
+    "generated_at": datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+    "checks": [],
+    "warnings": [],
+}
+
+def vcheck(name, ok, expected=None, got=None, critical=False):
+    validation["checks"].append({
+        "name": name, "ok": bool(ok),
+        "expected": expected, "got": got, "critical": critical
+    })
+    icon = "✓" if ok else ("❌" if critical else "⚠️")
+    detail = ""
+    if expected is not None or got is not None:
+        detail = f" (esperado={expected}, obtido={got})"
+    print(f"  {icon} {name}{detail}")
+    return ok
+
+print("\n🔍 Auto-validação:")
+
+# 1. Período válido
+vcheck("Período cobre mês corrente",
+       PERIOD_START.month == PERIOD_MONTH and PERIOD_START.year == PERIOD_YEAR,
+       critical=True)
+
+# 2. Faturas do mês corrente coincidem com invoices
+hubla_re = sum(1 for i in invoices if is_re_prod(i['prod']) or is_re_prod(i['ob']))
+hubla_psi= sum(1 for i in invoices if is_psi_prod(i['prod']) or is_psi_prod(i['ob']))
+vcheck(f"Faturas RE (XLSX → JSON)", re_count == hubla_re,
+       expected=hubla_re, got=re_count, critical=True)
+vcheck(f"Faturas PSI (XLSX → JSON)", psi_count == hubla_psi,
+       expected=hubla_psi, got=psi_count, critical=True)
+
+# 3. Faturamento RE/PSI bate com soma de Valor total das invoices
+hubla_re_fat  = round(sum(i['total'] for i in invoices if is_re_prod(i['prod']) or is_re_prod(i['ob'])), 2)
+hubla_psi_fat = round(sum(i['total'] for i in invoices if is_psi_prod(i['prod']) or is_psi_prod(i['ob'])), 2)
+vcheck(f"Faturamento RE bruto", abs(round(re_fat,2) - hubla_re_fat) < 0.01,
+       expected=hubla_re_fat, got=round(re_fat,2), critical=True)
+vcheck(f"Faturamento PSI bruto", abs(round(psi_fat,2) - hubla_psi_fat) < 0.01,
+       expected=hubla_psi_fat, got=round(psi_fat,2), critical=True)
+
+# 4. Daily array não está vazio (a menos que seja dia 1 com 0 dados — ok)
+vcheck(f"daily[] tem entradas", len(daily_arr) > 0)
+
+# 5. Mês corrente está representado no daily[] mesmo que com 0 dados
+days_cur = [d for d in daily_arr if d.get('year')==PERIOD_YEAR and d.get('month')==PERIOD_MONTH]
+if not days_cur and DAYS_ELAPSED > 0:
+    validation["warnings"].append(
+        f"daily[] não tem dias do mês corrente (PERIOD={PERIOD_LABEL}). "
+        "Pode ser dia 1 sem vendas — não é erro crítico.")
+
+# 6. Sanity check: totals batem com soma do daily do mês corrente
+day_fat_cur = sum(d.get('fat',0) for d in days_cur)
+diff_fat = abs(day_fat_cur - total_fat)
+vcheck(f"Soma daily[mês] == totals.fat",
+       diff_fat < 1.0,  # tolerância R$1 por arredondamentos
+       expected=round(total_fat,2), got=round(day_fat_cur,2))
+
+# 7. ads_daily.csv presente? (não crítico — dashboard funciona sem)
+if not ads_arr:
+    validation["warnings"].append(
+        "ads_daily.csv ausente ou vazio. Tabela de anúncios mostrará "
+        "instruções de export até o CSV ser provido. Dashboard funciona normalmente.")
+    print("  ⚠️  ads_daily.csv não encontrado — tabela de anúncios ficará vazia")
+
+# 8. Spend total RE/PSI > 0 quando há vendas
+if re_count > 0 and re_sp == 0:
+    validation["warnings"].append(
+        f"RE tem {re_count} vendas mas spend=0. Confira se DADOS RE.csv tem dados do mês corrente.")
+    print(f"  ⚠️  RE: {re_count} vendas mas spend=0 — confira DADOS RE.csv")
+if psi_count > 0 and psi_sp == 0:
+    validation["warnings"].append(
+        f"PSI tem {psi_count} vendas mas spend=0. Confira se DADOS PSI08.csv tem dados do mês corrente.")
+    print(f"  ⚠️  PSI: {psi_count} vendas mas spend=0 — confira DADOS PSI08.csv")
+
+# Aborta se algum check CRÍTICO falhou
+critical_failed = [c for c in validation["checks"] if c["critical"] and not c["ok"]]
+if critical_failed:
+    print(f"\n❌ ABORTADO: {len(critical_failed)} check(s) crítico(s) falharam:")
+    for c in critical_failed:
+        print(f"   - {c['name']}: esperado={c['expected']}, obtido={c['got']}")
+    print("\nO dados.json NÃO foi salvo para evitar publicar dados quebrados.")
+    print("Verifique os relatórios em dashboard-vendas/ e rode de novo.\n")
+    sys.exit(2)
+
+if validation["warnings"]:
+    print(f"\n⚠️  {len(validation['warnings'])} aviso(s) não-crítico(s):")
+    for w in validation["warnings"]:
+        print(f"   - {w}")
+
+out["_validation"] = validation
+
 out_path = f'{BASE_OUT}/dados.json'
 with open(out_path,'w',encoding='utf-8') as f:
     json.dump(out,f,ensure_ascii=False,indent=1)
 print(f"\n✅ Salvo: {out_path} ({len(json.dumps(out)):,} bytes)")
+print(f"   {len([c for c in validation['checks'] if c['ok']])}/{len(validation['checks'])} checks OK")

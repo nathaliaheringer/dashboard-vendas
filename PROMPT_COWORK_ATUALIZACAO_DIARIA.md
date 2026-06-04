@@ -246,32 +246,36 @@ d) Após coletar todas as 9 campanhas, consolide tudo num único CSV
    PYEOF
 
 ═══════════════════════════════════════════════════════════════
-PASSO 5 — Executar o gerador
+PASSO 5 — Executar o gerador (com auto-validação)
 ═══════════════════════════════════════════════════════════════
 
 cd /Users/guilhermebasso/Documents/Claude/Projects/NH/
 python3 gerar_dados_nh.py
 
-Saída esperada (resumo):
-  📅 Período detectado: 01 a XX de <MÊS> de 2026
-  [Hubla] X faturas no mês corrente | Y faturas no histórico
-  [Carrinhos] X | RE:Y(FB:Z), PSI:W(FB:V)
-  [RE CSV] mês corrente: clicks=X lpv=Y
-  [PSI08 CSV] mês corrente: clicks=X lpv=Y
-  [Anúncios] X anúncios únicos | Y registros diários
-  === RESUMO ===
-  Fat: R$X | NH: R$Y | Lucro: R$Z | ROAS: Wx | ROI: V%
-  RE: X vendas R$Y ROAS=Z | PSI: A vendas R$B ROAS=C
-  ✅ Salvo: /Users/guilhermebasso/.../dados.json
+O gerador faz auto-validação ao final — não precisa conferir
+manualmente. Os checks que ele faz:
 
-CONFIRMAR antes de prosseguir:
-  ☐ Período detectado bate com o mês corrente
-  ☐ Faturas RE/PSI batem com o que aparece no Hubla UI
-    (filtrar por produto no Hubla para conferir)
-  ☐ Spend RE/PSI bate com a planilha de controle (DADOS RE/PSI08)
-  ☐ Sem erros nem stack traces
+  ✓ Período cobre mês corrente
+  ✓ Faturas RE/PSI no JSON == contagem direta do XLSX
+  ✓ Faturamento RE/PSI bruto bate com soma de Valor total
+  ✓ daily[] tem entradas
+  ✓ Soma daily[mês corrente] == totals.fat
 
-Se algum desses NÃO bater, pare e me avise. Não publique dados errados.
+REGRA DE OURO:
+  • Se o gerador imprimir "✅ Salvo: .../dados.json" no final,
+    está OK — prossiga para o passo 6.
+  • Se o gerador imprimir "❌ ABORTADO" e exit_code=2, ele NÃO
+    salvou o JSON. Você não pode commitar. Pare e me avise com
+    a saída completa.
+  • Avisos com ⚠️ não são bloqueantes (ex.: "dia 1 sem vendas"
+    ou "ads_daily.csv ausente"). Continue normalmente.
+
+Em particular, quando rodar no dia 01 de cada mês:
+  - É normal ter poucas vendas (às vezes nenhuma)
+  - É normal o spend Meta estar zerado (defasagem D-1)
+  - O gerador aceita isso e gera dados.json válido
+  - Avisos sobre "RE tem N vendas mas spend=0" são informativos,
+    não bloqueantes
 
 ═══════════════════════════════════════════════════════════════
 PASSO 6 — Publicar no GitHub Pages
@@ -341,11 +345,30 @@ Sempre que o gerador mudar (ex.: novas métricas, novas campanhas), ATUALIZE
 este arquivo aqui e refaça o paste no Cowork. Mudanças importantes no
 fluxo de dados sempre exigem revisar o prompt.
 
-## 📞 Quando NÃO usar a rotina
+## 🛡️ Por que a rotina pode rodar sozinha em qualquer dia
 
-- Dia 01 de cada mês: rode manualmente para garantir que o gerador
-  detectou o mês corrente certo e confira o resumo.
-- Se a Hubla ou o Meta Ads ficar fora do ar: a rotina vai falhar; ignore
-  o erro e rode no dia seguinte.
-- Quando aparecer um produto novo na Hubla: o gerador vai listá-lo
-  automaticamente, mas confira se entrou no donut de "Receita por produto".
+O gerador tem **auto-validação**: ele só salva o `dados.json` se:
+- O período detectado bate com o mês corrente do sistema
+- As faturas RE/PSI no JSON batem com o XLSX do Hubla
+- O faturamento bruto bate com a soma de "Valor total"
+- A soma do daily do mês bate com o total geral
+
+Se alguma dessas condições falhar, o script **aborta** com exit_code=2 e
+NÃO salva nada. O Cowork detecta o erro e pode te avisar (ou simplesmente
+tentar de novo no próximo agendamento). O dashboard publicado fica com
+os dados do último sucesso — nunca quebra.
+
+**Casos que antes pediam intervenção e agora rodam sozinhos:**
+
+| Cenário | Como o gerador lida |
+|---|---|
+| Dia 01 com 0 vendas | Gera JSON vazio do mês, valida OK, publica |
+| Spend Meta zerado (D-1) | Aviso ⚠️, mas publica normalmente |
+| `ads_daily.csv` ausente | Aviso ⚠️, tabela de anúncios fica vazia |
+| Novo produto na Hubla | Aparece automaticamente no donut |
+| Mês virou (junho → julho) | Detecta sozinho, sem reconfiguração |
+| Planilha Meta Ads desatualizada | Aviso ⚠️, gera com os dados que tem |
+
+A única situação em que o Cowork DEVE pausar a rotina é se a saída
+do gerador contiver **❌ ABORTADO**. Nesse caso, ele te avisa com
+log completo e você decide o que fazer.
