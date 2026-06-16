@@ -236,34 +236,43 @@ _HOTMART_PAY_MAP = {
     'Boleto Bancário': 'Boleto', 'Boleto': 'Boleto',
 }
 hotmart_invoices = []
-for _hf in sorted(_hg.glob(_hop.join(BASE_DATA, '*.csv'))):
+# Coleta candidatos Hotmart (cabeçalho com 'Nome do Produtor') e usa o MAIS RECENTE
+# por mtime — mesmo critério dos outros CSVs (export-leads, DADOS RE/PSI). Antes pegava
+# o primeiro em ordem alfabética, o que selecionava arquivos antigos por engano.
+_hot_candidates = []
+for _hf in _hg.glob(_hop.join(BASE_DATA, '*.csv')):
     try:
-        with open(_hf, encoding='utf-8') as _f:
+        with open(_hf, encoding='utf-8-sig') as _f:
             _h1 = _f.readline()
         if 'Nome do Produtor' in _h1 and ';' in _h1:
-            with open(_hf, encoding='utf-8') as _f:
-                _rd = csv.DictReader(_f, delimiter=';')
-                for _row in _rd:
-                    if _row.get('Status','') not in ('Aprovado','Completo'): continue
-                    _date_str = (_row.get('Data de Confirmação') or _row.get('Data de Venda') or '').strip()
-                    _dt = parse_dt(_date_str) if _date_str else None
-                    if not _dt: continue
-                    _d = _dt.replace(hour=0,minute=0,second=0)
-                    if not (PERIOD_START <= _d <= PERIOD_END): continue
-                    _fat = float((_row.get('Preço do Produto') or '0').replace(',','.'))
-                    _nh  = float((_row.get('Faturamento líquido') or '0').replace(',','.'))
-                    _pm  = _HOTMART_PAY_MAP.get((_row.get('Tipo de Pagamento') or '').strip(), 'Outros')
-                    _uf  = (_row.get('Estado') or '').strip().upper()
-                    _prod_name = (_row.get('Nome do Produto') or 'PRO').strip()
-                    hotmart_invoices.append(dict(
-                        day=_d.day, fat=_fat, nh=_nh, pay=_pm, estado=_uf, prod=_prod_name
-                    ))
-            print(f"[Hotmart] {_hf.split('/')[-1]}: {len(hotmart_invoices)} faturas")
-            break   # usa o primeiro arquivo Hotmart encontrado
-    except Exception as _he:
+            _hot_candidates.append(_hf)
+    except Exception:
         pass
+if _hot_candidates:
+    _hf = max(_hot_candidates, key=_hop.getmtime)
+    try:
+        with open(_hf, encoding='utf-8-sig') as _f:
+            _rd = csv.DictReader(_f, delimiter=';')
+            for _row in _rd:
+                if _row.get('Status','') not in ('Aprovado','Completo'): continue
+                _date_str = (_row.get('Data de Confirmação') or _row.get('Data de Venda') or '').strip()
+                _dt = parse_dt(_date_str) if _date_str else None
+                if not _dt: continue
+                _d = _dt.replace(hour=0,minute=0,second=0)
+                if not (PERIOD_START <= _d <= PERIOD_END): continue
+                _fat = float((_row.get('Preço do Produto') or '0').replace(',','.'))
+                _nh  = float((_row.get('Faturamento líquido') or '0').replace(',','.'))
+                _pm  = _HOTMART_PAY_MAP.get((_row.get('Tipo de Pagamento') or '').strip(), 'Outros')
+                _uf  = (_row.get('Estado') or '').strip().upper()
+                _prod_name = (_row.get('Nome do Produto') or 'PRO').strip()
+                hotmart_invoices.append(dict(
+                    day=_d.day, fat=_fat, nh=_nh, pay=_pm, estado=_uf, prod=_prod_name
+                ))
+        print(f"[Hotmart] {_hop.basename(_hf)} (mais recente): {len(hotmart_invoices)} faturas no mês corrente")
+    except Exception as _he:
+        print(f"[Hotmart] Erro ao ler {_hop.basename(_hf)}: {_he}")
 if not hotmart_invoices:
-    print("[Hotmart] Nenhum CSV Hotmart encontrado.")
+    print("[Hotmart] Nenhuma fatura Hotmart no mês corrente.")
 
 # ── STEP 3: Funnel clicks/LPV from RE CSV ────────────────────────
 # Mantém DOIS índices: por dia do mês (mês corrente) e por data ISO (histórico)
