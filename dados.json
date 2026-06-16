@@ -6,16 +6,16 @@
   "days_elapsed": 16,
   "days_month": 30
  },
- "_v": 1781617050949,
+ "_v": 1781617594480,
  "totals": {
   "spend": 8540.67,
   "spend_sales": 8540.67,
   "spend_insta": 0.0,
   "impressions": 424182,
   "impressions_sales": 424182,
-  "fat": 34645.5,
+  "fat": 34958.31,
   "total": 33510.4,
-  "nh": 30205.18,
+  "nh": 30459.55,
   "hubla_fee": 4322.11,
   "faturas": 170,
   "units": 238,
@@ -25,11 +25,11 @@
   "ob_val": 7642.0,
   "fat_with_ob": 58,
   "cpa": 50.24,
-  "roas": 4.06,
-  "roas_sales": 4.06,
-  "lucro": 21664.51,
-  "roi": 253.66,
-  "ticket": 203.8,
+  "roas": 4.09,
+  "roas_sales": 4.09,
+  "lucro": 21918.88,
+  "roi": 256.64,
+  "ticket": 205.64,
   "conv_checkout": 59.85
  },
  "daily": [
@@ -12769,8 +12769,8 @@
    "impressions": 4134,
    "faturas": 3,
    "units": 3,
-   "fat": 247.6,
-   "nh": 205.35,
+   "fat": 560.41,
+   "nh": 459.72,
    "abandoned": 3,
    "checkouts": 6,
    "fat_re": 183.6,
@@ -12847,7 +12847,7 @@
     },
     {
      "name": "Hotmart",
-     "fat": 64.0,
+     "fat": 376.81,
      "faturas": 2
     }
    ],
@@ -12868,7 +12868,7 @@
    "regioes": [
     {
      "name": "Não informado",
-     "fat": 247.6,
+     "fat": 560.41,
      "faturas": 3
     }
    ],
@@ -12945,15 +12945,15 @@
    "d1": 21,
    "spend": 719.58,
    "spend_sales": 719.58,
-   "fat": 2065.36,
+   "fat": 2378.17,
    "units": 16,
    "faturas": 14,
-   "nh": 1785.18,
+   "nh": 2039.55,
    "abandoned": 11,
    "checkouts": 25,
    "cpa": 51.4,
-   "roas": 2.87,
-   "lucro": 1065.6,
+   "roas": 3.3,
+   "lucro": 1319.97,
    "conv_checkout": 56.0,
    "fat_re": 1483.8,
    "fat_psi": 0.0,
@@ -23298,8 +23298,8 @@
   {
    "name": "Hotmart",
    "faturas": 9,
-   "fat": 1135.1,
-   "nh": 1016.89
+   "fat": 1447.91,
+   "nh": 1271.26
   },
   {
    "name": "Sem origem",
@@ -23312,7 +23312,7 @@
   {
    "name": "Regulando as Emoções",
    "faturas": 120,
-   "fat": 20233.97,
+   "fat": 20365.94,
    "units": 151,
    "recorrente": false,
    "plataforma": "hotmart"
@@ -23368,7 +23368,7 @@
   {
    "name": "Curso Psi 0-8",
    "faturas": 1,
-   "fat": 37.0,
+   "fat": 217.84,
    "units": 1,
    "recorrente": false,
    "plataforma": "hotmart"
@@ -23403,7 +23403,7 @@
   {
    "name": "Não informado",
    "faturas": 136,
-   "fat": 24430.83
+   "fat": 24743.64
   }
  ],
  "estados": [
@@ -23448,6 +23448,11 @@
    "fat": 499.5
   },
   {
+   "uf": "PT",
+   "faturas": 2,
+   "fat": 376.81
+  },
+  {
    "uf": "GO",
    "faturas": 2,
    "fat": 333.0
@@ -23476,11 +23481,6 @@
    "uf": "RN",
    "faturas": 1,
    "fat": 83.09
-  },
-  {
-   "uf": "PT",
-   "faturas": 2,
-   "fat": 64.0
   }
  ],
  "payment_dist": [
@@ -23607,15 +23607,15 @@
    "level": "atencao",
    "icon": "cart",
    "tag": "RECUPERAÇÃO",
-   "title": "108 carrinhos abandonados — R$22,010 em receita potencial",
+   "title": "108 carrinhos abandonados — R$22,209 em receita potencial",
    "body": "Taxa de conversão do checkout: 63.2% (170 compras / 269 checkouts). Sequência de WhatsApp + e-mail em 1h-24h pode recuperar 15-30% dos leads."
   },
   {
    "level": "info",
    "icon": "profit",
    "tag": "MARGEM",
-   "title": "Margem líquida (após Hubla): 87.2% — R$30,205 de 170 vendas",
-   "body": "De R$34,646 faturados, R$30,205 chega líquido (margem 87.2%). Com R$8,541 em mídia, o lucro operacional é R$21,665 (ROI 254%). Para cada R$1 investido, retornam R$4.06."
+   "title": "Margem líquida (após Hubla): 87.1% — R$30,460 de 170 vendas",
+   "body": "De R$34,958 faturados, R$30,460 chega líquido (margem 87.1%). Com R$8,541 em mídia, o lucro operacional é R$21,919 (ROI 257%). Para cada R$1 investido, retornam R$4.09."
   }
  ],
  "fb_split": {
@@ -23636,7 +23636,7 @@
   "period_label": "01 a 16 de junho de 2026",
   "period_start": "2026-06-01",
   "period_end": "2026-06-16",
-  "generated_at": "2026-06-16 10:37:30",
+  "generated_at": "2026-06-16 10:46:34",
   "checks": [
    {
     "name": "Período cobre mês corrente",
@@ -23683,8 +23683,8 @@
    {
     "name": "Soma daily[mês] == totals.fat",
     "ok": true,
-    "expected": 34645.5,
-    "got": 34645.5,
+    "expected": 34958.31,
+    "got": 34958.31,
     "critical": false
    }
   ],

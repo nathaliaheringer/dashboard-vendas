@@ -260,8 +260,19 @@ if _hot_candidates:
                 if not _dt: continue
                 _d = _dt.replace(hour=0,minute=0,second=0)
                 if not (PERIOD_START <= _d <= PERIOD_END): continue
-                _fat = float((_row.get('Preço do Produto') or '0').replace(',','.'))
-                _nh  = float((_row.get('Faturamento líquido') or '0').replace(',','.'))
+                # Conversão de moeda: vendas internacionais têm 'Preço Original' (bruto em BRL)
+                # e 'Valor que você recebeu convertido' (líquido em BRL) já convertidos pela
+                # Hotmart na cotação do momento da venda (mais preciso que cotação spot do dia;
+                # validado em 2026-06-16: 1 EUR embutido R$5,8876 vs mercado R$5,8928). Para
+                # vendas em BRL essas colunas vêm vazias → usa Preço do Produto / Faturamento líq.
+                _preco_orig = (_row.get('Preço Original') or '').strip().replace(',', '.')
+                _val_receb  = (_row.get('Valor que você recebeu convertido') or '').strip().replace(',', '.')
+                if _preco_orig:  # venda em moeda estrangeira → valores já em BRL
+                    _fat = float(_preco_orig)
+                    _nh  = float(_val_receb) if _val_receb else float((_row.get('Faturamento líquido') or '0').replace(',','.'))
+                else:            # venda em BRL
+                    _fat = float((_row.get('Preço do Produto') or '0').replace(',','.'))
+                    _nh  = float((_row.get('Faturamento líquido') or '0').replace(',','.'))
                 _pm  = _HOTMART_PAY_MAP.get((_row.get('Tipo de Pagamento') or '').strip(), 'Outros')
                 _uf  = (_row.get('Estado') or '').strip().upper()
                 _prod_name = (_row.get('Nome do Produto') or 'PRO').strip()
