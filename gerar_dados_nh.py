@@ -668,8 +668,25 @@ hubla_fee       = total_total - total_nh
 # ── STEP 6c: Integrar Hotmart nas métricas globais e diárias ─────
 hotmart_fat=0.0; hotmart_nh=0.0; hotmart_count=0
 hotmart_by_prod=defaultdict(lambda:{'fat':0.0,'nh':0.0,'count':0})
+# Consolidação de produto entre plataformas: Hubla e Hotmart às vezes nomeiam o mesmo
+# produto de formas levemente diferentes (ex.: "Curso Psi: 0-8" na Hubla vs "Curso Psi 0-8"
+# na Hotmart). Normaliza ignorando pontuação/caixa/espaços e mapeia o nome Hotmart para o
+# nome canônico já cadastrado pela Hubla, evitando entradas duplicadas no donut de produtos.
+def _norm_prod(n):
+    s = (n or '').lower()
+    s = re.sub(r'[:\-–—.,;/]', ' ', s)
+    s = re.sub(r'\s+', ' ', s).strip()
+    return s
+_prod_canon = {}
+for _k in list(prod_fat.keys()):
+    _prod_canon.setdefault(_norm_prod(_k), _k)
 for _hi in hotmart_invoices:
     _d=_hi['day']; _f=_hi['fat']; _n=_hi['nh']; _pn=_hi['prod']
+    _nk=_norm_prod(_pn)
+    if _nk in _prod_canon:
+        _pn=_prod_canon[_nk]   # mesmo produto já cadastrado → usa o nome canônico (Hubla)
+    else:
+        _prod_canon[_nk]=_pn   # produto novo → este nome vira o canônico
     # Adicionar aos totais globais
     total_fat+=_f; total_nh+=_n; total_faturas+=1; total_units+=1
     # Produto → integrar direto em prod_fat
