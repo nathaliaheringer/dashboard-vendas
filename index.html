@@ -971,11 +971,11 @@ function renderComposicaoInline(){
      '<div class="donut-center"><div class="dc-v" id="prodDonutCenter">'+brl0(totalFat)+'</div><div class="dc-l" id="prodDonutLabel">'+(perActive?'no período':DATA.products.length+' produto'+(DATA.products.length>1?'s':''))+'</div></div></div>'+
      '<div class="dlist" id="prodList2"></div><div class="rec-note" id="recNote2"></div></div>'+
    '<div class="panel"><div class="p-head"><div><h3>Receita por canal de venda</h3></div></div>'+
-     '<div class="p-sub">Origem das vendas — Frio e Quente vêm do Facebook Ads.</div>'+
+     '<div class="p-sub">Origem das vendas — Facebook em Frio/Quente; Instagram separado por Bio, Stories e Direct (DM).</div>'+
      '<div class="donut-wrap"><div class="chart-box h230"><canvas id="cChan2"></canvas></div>'+
      '<div class="donut-center"><div class="dc-v" id="chanCount2">—</div><div class="dc-l">canais</div></div></div>'+
      '<div class="dlist" id="chanList2"></div>'+
-     '<div class="rec-note">As vendas de <b>Facebook Ads — Frio</b> são de públicos frios (prospecção); as de <b>Quente</b> são de remarketing.</div></div>'+
+     '<div class="rec-note">As vendas de <b>Facebook Ads — Frio</b> são de públicos frios (prospecção); as de <b>Quente</b> são de remarketing. O <b>Instagram</b> é separado pela mídia da UTM: <b>Bio</b>, <b>Stories</b> e <b>Direct (DM)</b>.</div></div>'+
    '<div class="panel"><div class="p-head"><div><h3>Receita por região</h3></div></div>'+
      '<div class="p-sub" id="regSub2">Faturamento por macrorregião do Brasil.</div>'+
      '<div class="rbars" id="regBars2"></div></div>'+
@@ -1121,7 +1121,7 @@ function renderChanDonutInline(agg){
    items.push({name:nm,fat:o.fat,faturas:o.faturas});
   }
  });
- var chanColors=[PAL.blue,PAL.teal,PAL.greenD,PAL.green,PAL.gold,PAL.terra,PAL.brown];
+ var chanColors=[PAL.blue,PAL.teal,PAL.greenD,PAL.green,PAL.gold,PAL.terra,PAL.brown,PAL.sage,PAL.peach,PAL.mist];
  var cols=chanColors.slice(0,items.length);
  var dcv=document.getElementById('chanCount2');
  if(dcv)dcv.textContent=items.length;
@@ -1963,11 +1963,11 @@ function renderComposicao(){
      '<div class="donut-center"><div class="dc-v">'+brl0(DATA.totals.fat)+'</div><div class="dc-l">'+DATA.products.length+' produtos</div></div></div>'+
      '<div class="dlist" id="prodList"></div><div class="rec-note" id="recNote"></div></div>'+
    '<div class="panel"><div class="p-head"><div><h3>Receita por canal de venda</h3></div></div>'+
-     '<div class="p-sub">Origem das vendas — Frio e Quente vêm do Facebook Ads.</div>'+
+     '<div class="p-sub">Origem das vendas — Facebook em Frio/Quente; Instagram separado por Bio, Stories e Direct (DM).</div>'+
      '<div class="donut-wrap"><div class="chart-box h230"><canvas id="cChan"></canvas></div>'+
      '<div class="donut-center"><div class="dc-v" id="chanCount">—</div><div class="dc-l">canais</div></div></div>'+
      '<div class="dlist" id="chanList"></div>'+
-     '<div class="rec-note">As vendas de <b>Facebook Ads — Frio</b> são de públicos frios (prospecção); as de <b>Quente</b> são de remarketing. As demais são orgânicas (Instagram/bio), por WhatsApp ou sem UTM registrada.</div></div>'+
+     '<div class="rec-note">As vendas de <b>Facebook Ads — Frio</b> são de públicos frios (prospecção); as de <b>Quente</b> são de remarketing. O <b>Instagram</b> é separado pela mídia da UTM em <b>Bio</b>, <b>Stories</b> e <b>Direct (DM)</b>; as demais vêm por WhatsApp ou sem UTM registrada.</div></div>'+
    '<div class="panel"><div class="p-head"><div><h3>Receita por região</h3></div></div>'+
      '<div class="p-sub" id="regSub">Faturamento por macrorregião do Brasil.</div>'+
      '<div class="rbars" id="regBars"></div></div>'+
@@ -2020,7 +2020,7 @@ function renderChanDonut(){
    items.push({name:nm,fat:o.fat,faturas:o.faturas});
   }
  });
- var chanColors=[PAL.blue,PAL.teal,PAL.greenD,PAL.green,PAL.gold,PAL.terra,PAL.brown];
+ var chanColors=[PAL.blue,PAL.teal,PAL.greenD,PAL.green,PAL.gold,PAL.terra,PAL.brown,PAL.sage,PAL.peach,PAL.mist];
  var cols=chanColors.slice(0,items.length);
  /* update donut center count */
  var dcv=document.getElementById('chanCount');

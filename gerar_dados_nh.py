@@ -63,6 +63,19 @@ def dedup(s):
             if a==b: return a
     return s
 
+def classify_orig(src, med):
+    """Canal de venda a partir de UTM Origem (src) e UTM Mídia (med),
+    ambos já normalizados (lower, sem espaço). Instagram é subdividido
+    por mídia: bio / stories / direct (DM); sem mídia conhecida → orgânico."""
+    if 'facebook' in src or src=='facebookads': return 'facebook ads'
+    if 'instagram' in src or 'bio' in src:
+        if 'stories' in med: return 'instagram_stories'
+        if 'direct' in med:  return 'instagram_direct'
+        if 'bio' in med:     return 'instagram_bio'
+        return 'instagram'
+    if 'whatsapp' in src: return 'whatsapp'
+    return 'sem origem'
+
 def parse_dt(s):
     s=str(s).strip()
     for fmt in ('%d/%m/%Y %H:%M:%S','%d/%m/%Y %H:%M','%d/%m/%Y','%Y-%m-%d %H:%M:%S','%Y-%m-%d'):
@@ -483,7 +496,7 @@ day_fat_re_c=defaultdict(int); day_fat_psi_c=defaultdict(int)
 day_units_re_d=defaultdict(int); day_units_psi_d=defaultdict(int)
 day_prod_fat_d=defaultdict(lambda: defaultdict(lambda: {'fat':0.0,'faturas':0,'units':0}))
 prod_fat=defaultdict(float); prod_fat_c=defaultdict(int); prod_units_d=defaultdict(int)
-origins_map={k:{'faturas':0,'fat':0.0,'nh':0.0} for k in ('facebook ads','instagram','whatsapp','sem origem','hotmart')}
+origins_map={k:{'faturas':0,'fat':0.0,'nh':0.0} for k in ('facebook ads','instagram','instagram_bio','instagram_stories','instagram_direct','whatsapp','sem origem','hotmart')}
 fb_split={k:{'faturas':0,'fat':0.0} for k in ('frio','quente','outros')}
 reg_fat=defaultdict(float); reg_count=defaultdict(int)
 state_fat=defaultdict(float); state_count=defaultdict(int)
@@ -505,6 +518,8 @@ psi_ob_val_total=0.0
 
 # Per-day breakdowns
 ORIG_LABELS = {'facebook ads':'Facebook Ads','instagram':'Instagram (orgânico)',
+               'instagram_bio':'Instagram — Bio','instagram_stories':'Instagram — Stories',
+               'instagram_direct':'Instagram — Direct (DM)',
                'whatsapp':'WhatsApp','sem origem':'Sem origem','hotmart':'Hotmart'}
 day_orig_d   = defaultdict(lambda: defaultdict(lambda: {'fat':0.0,'faturas':0}))
 day_fbsp_d   = defaultdict(lambda: {'frio':{'fat':0.0,'faturas':0},'quente':{'fat':0.0,'faturas':0},'outros':{'fat':0.0,'faturas':0}})
@@ -545,10 +560,7 @@ for inv in invoices:
                     ob_names_detail[ob_name_clean]['count'] += 1
                     ob_names_detail[ob_name_clean]['val'] += ob_val_item
     src=inv['src']; camp_l=inv['camp'].lower() if inv['camp'] else ''
-    if 'facebook' in src or src=='facebookads': orig='facebook ads'
-    elif src in ('instagram','bio','biografia') or 'instagram' in src or 'bio' in src: orig='instagram'
-    elif 'whatsapp' in src: orig='whatsapp'
-    else: orig='sem origem'
+    orig=classify_orig(src, inv['med'])
     origins_map[orig]['faturas']+=1; origins_map[orig]['fat']+=tot; origins_map[orig]['nh']+=nh
     # Chave 'hotmart' será adicionada pelo STEP 6c
     if orig=='facebook ads':
@@ -987,10 +999,7 @@ for inv in hist_invoices:
                     _hd['ob_psi'][ob_name_clean]['count'] += 1
     # Origem
     src = inv['src']
-    if 'facebook' in src: orig='facebook ads'
-    elif 'instagram' in src or 'bio' in src: orig='instagram'
-    elif 'whatsapp' in src: orig='whatsapp'
-    else: orig='sem origem'
+    orig = classify_orig(src, inv['med'])
     _hd['origins'][orig]['fat']+=tot; _hd['origins'][orig]['faturas']+=1
     if orig=='facebook ads':
         cl = inv['camp'].lower() if inv['camp'] else ''
@@ -1136,18 +1145,17 @@ products_paid={
 }
 
 # ── STEP 12: Origins, products, regions ──────────────────────────
-origins_arr=[
-    {"name":"Facebook Ads","faturas":origins_map['facebook ads']['faturas'],
-     "fat":r2(origins_map['facebook ads']['fat']),"nh":r2(origins_map['facebook ads']['nh'])},
-    {"name":"Instagram (orgânico)","faturas":origins_map['instagram']['faturas'],
-     "fat":r2(origins_map['instagram']['fat']),"nh":r2(origins_map['instagram']['nh'])},
-    {"name":"WhatsApp","faturas":origins_map['whatsapp']['faturas'],
-     "fat":r2(origins_map['whatsapp']['fat']),"nh":r2(origins_map['whatsapp']['nh'])},
-    {"name":"Hotmart","faturas":origins_map['hotmart']['faturas'],
-     "fat":r2(origins_map['hotmart']['fat']),"nh":r2(origins_map['hotmart']['nh'])},
-    {"name":"Sem origem","faturas":origins_map['sem origem']['faturas'],
-     "fat":r2(origins_map['sem origem']['fat']),"nh":r2(origins_map['sem origem']['nh'])}
-]
+def _orig_entry(key):
+    v=origins_map[key]
+    return {"name":ORIG_LABELS[key],"faturas":v['faturas'],
+            "fat":r2(v['fat']),"nh":r2(v['nh'])}
+# Facebook primeiro; depois Instagram subdividido (Bio/Stories/Direct/orgânico,
+# só os que tiveram venda no mês); por fim WhatsApp, Hotmart e Sem origem.
+origins_arr=[_orig_entry('facebook ads')]
+for _igk in ('instagram_bio','instagram_stories','instagram_direct','instagram'):
+    if origins_map[_igk]['faturas']>0 or origins_map[_igk]['fat']>0:
+        origins_arr.append(_orig_entry(_igk))
+origins_arr += [_orig_entry('whatsapp'),_orig_entry('hotmart'),_orig_entry('sem origem')]
 products_arr=[{"name":p,"faturas":prod_fat_c[p],"fat":r2(prod_fat[p]),"units":prod_units_d[p],
                "recorrente":('Turma 09' in p),
                "plataforma": "hotmart" if p in hotmart_by_prod and p not in [k for k in prod_fat if prod_fat[k]>0 and k not in hotmart_by_prod] else "hubla"}
