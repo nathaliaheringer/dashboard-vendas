@@ -2329,7 +2329,7 @@ function renderAdsTbl(){
  if(!ads.length){
   /* Placeholder — instrução de como exportar */
   wrap.innerHTML='<div class="sec"><div class="sec-head"><span class="bar"></span><h2>Desempenho por anúncio</h2>'+
-   '<div class="note">Identifique os anúncios campeões — criativos com melhor CTR, menor CPM e maior LPV%.</div></div>'+
+   '<div class="note">Identifique os anúncios campeões — criativos com melhor CTR, menor CPM e maior frequência saudável.</div></div>'+
    '<div class="ads-empty">'+svg(IC.info)+
    '<div><b>Dados de anúncio não disponíveis ainda.</b><br>'+
    'Para popular esta tabela, exporte do Meta Ads Manager um relatório no nível <b>Anúncio</b> com o período do mês '+
@@ -2351,8 +2351,6 @@ function renderAdsTbl(){
   {k:'clicks',     t:'Cliques',        num:true},
   {k:'ctr',        t:'CTR',            num:true},
   {k:'cpc',        t:'CPC',            num:true},
-  {k:'lpv',        t:'LPV',            num:true},
-  {k:'lpv_rate',   t:'LPV%',           num:true},
   {k:'faturas',    t:'Vendas',          num:true},
   {k:'fat',        t:'Receita',         num:true},
   {k:'roas',       t:'ROAS',            num:true}
@@ -2423,7 +2421,7 @@ function renderAdsTbl(){
  th+='</tr></thead>';
 
  var body='<tbody>';
- var totals={spend:0,impressions:0,clicks:0,lpv:0,faturas:0,fat:0};
+ var totals={spend:0,impressions:0,clicks:0,faturas:0,fat:0};
  campNames.forEach(function(camp){
   var group=sortRows(rows.filter(function(r){return r.campaign===camp;}));
   if(!group.length)return;
@@ -2436,7 +2434,7 @@ function renderAdsTbl(){
    var cpmColor=a.cpm<=25?'var(--good)':a.cpm<=40?'var(--warn)':'var(--bad)';
    var roasColor=a.roas>=2?'var(--good)':a.roas>=1?'var(--warn)':'var(--bad)';
    totals.spend+=a.spend; totals.impressions+=a.impressions;
-   totals.clicks+=a.clicks; totals.lpv+=a.lpv;
+   totals.clicks+=a.clicks;
    totals.faturas+=a.faturas||0; totals.fat+=a.fat||0;
    var copiesTag=a.merged?' <span class="badge b-off" title="Inclui '+a.copies_count+' cópia'+(a.copies_count>1?'s':'')+'">+'+a.copies_count+' cópia'+(a.copies_count>1?'s':'')+'</span>':'';
    var nameTd='<td>'+a.name+copiesTag+(isChamp?' <span class="badge b-champ">campeão</span>':'')+'</td>';
@@ -2449,8 +2447,6 @@ function renderAdsTbl(){
     '<td>'+num(a.clicks)+'</td>'+
     '<td style="color:'+ctrColor+';font-weight:700">'+nf2.format(a.ctr)+'%</td>'+
     '<td>'+brl(a.cpc)+'</td>'+
-    '<td>'+num(a.lpv)+'</td>'+
-    '<td>'+nf1.format(a.lpv_rate)+'%</td>'+
     '<td>'+(a.faturas||0)+'</td>'+
     '<td>'+brl0(a.fat||0)+'</td>'+
     '<td style="color:'+roasColor+';font-weight:700">'+(a.roas?nf2.format(a.roas)+'x':'—')+'</td>'+
@@ -2461,7 +2457,6 @@ function renderAdsTbl(){
  var totCpm=totals.impressions>0?r2(totals.spend/totals.impressions*1000):0;
  var totCtr=totals.impressions>0?r2(totals.clicks/totals.impressions*100):0;
  var totCpc=totals.clicks>0?r2(totals.spend/totals.clicks):0;
- var totLpvR=totals.clicks>0?r2(totals.lpv/totals.clicks*100):0;
  var totRoas=totals.spend>0?r2(totals.fat/totals.spend):0;
  body+='<tr class="tot"><td>TOTAL · '+ads.length+' anúncio'+(ads.length>1?'s':'')+'</td>'+
   '<td>—</td>'+
@@ -2472,8 +2467,6 @@ function renderAdsTbl(){
   '<td>'+num(totals.clicks)+'</td>'+
   '<td>'+nf2.format(totCtr)+'%</td>'+
   '<td>'+brl(totCpc)+'</td>'+
-  '<td>'+num(totals.lpv)+'</td>'+
-  '<td>'+nf1.format(totLpvR)+'%</td>'+
   '<td>'+totals.faturas+'</td>'+
   '<td>'+brl0(totals.fat)+'</td>'+
   '<td>'+nf2.format(totRoas)+'x</td>'+
