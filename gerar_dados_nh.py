@@ -196,6 +196,7 @@ for row in ws.iter_rows(min_row=2, values_only=True):
     src   = dedup(str(row[ci('UTM Origem')] or '')).lower().replace(' ','')
     med   = dedup(str(row[ci('UTM Mídia')] or '')).lower().replace(' ','')
     camp  = dedup(str(row[ci('UTM Campanha')] or ''))
+    conteudo = dedup(str(row[ci('UTM Conteúdo')] or '')) if ci('UTM Conteúdo') >= 0 else ''
     estado= str(row[ci('Endereço Estado')] or '').strip().upper()
     pay_method = str(row[ci('Método de pagamento')] or '').strip() if ci('Método de pagamento') >= 0 else ''
     num_parcelas_raw = row[ci('Parcelas')] if ci('Parcelas') >= 0 else None
@@ -205,7 +206,7 @@ for row in ws.iter_rows(min_row=2, values_only=True):
         date=dt.strftime('%Y-%m-%d'),
         prod=prod, ob=ob if ob!='None' else '',
         items=items, fat=fat, nh=nh, total=total,
-        recorrente=recor, src=src, med=med, camp=camp, estado=estado,
+        recorrente=recor, src=src, med=med, camp=camp, conteudo=conteudo, estado=estado,
         pay_method=pay_method, num_parcelas=num_parcelas)
     invoices_hist.append(_inv)
     if PERIOD_START <= d <= PERIOD_END:
@@ -792,6 +793,19 @@ for inv in invoices:
         camp_hubla[c3]['nh']      += inv['nh']
         camp_day_hubla[c3][inv['day']]['faturas'] += 1
         camp_day_hubla[c3][inv['day']]['fat']     += inv['fat']
+
+# Atribuição REAL por anúncio: (UTM Campanha, base(UTM Conteúdo)) → por data ISO.
+# base() funde cópias ("— Cópia") no anúncio-base, igual à chave dos ads_arr.
+# Usa invoices_hist (janela completa) p/ cobrir também semanas de meses passados.
+def _ad_base(name):
+    return re.sub(r'\s*[—\-]{1,2}\s*C[oó]pia.*$', '', str(name or '').strip()).strip()
+ad_day_hubla = defaultdict(lambda: defaultdict(lambda: {'faturas':0,'fat':0.0}))
+for inv in invoices_hist:
+    c3 = inv['camp']; cont = inv.get('conteudo','')
+    if c3 in camp_hubla and cont and cont.lower() not in ('bio','stories','whats','organico',''):
+        key = (c3, _ad_base(cont))
+        ad_day_hubla[key][inv['date']]['faturas'] += 1
+        ad_day_hubla[key][inv['date']]['fat']     += inv['fat']
 
 # ── STEP 8: Weeks ────────────────────────────────────────────────
 def build_week(wid,label,d0,d1):
@@ -1390,20 +1404,6 @@ if _AD_FILE:
                     'clicks':_cl,'lpv':_lp,'reach':_rc,'cpm':r2(_cpm),
                 })
 
-    # Índice de vendas Hubla por campanha (mês corrente)
-    _camp_hubla = {}
-    for _c in campaigns_arr:
-        _camp_hubla[_c['name']] = {
-            'faturas': _c.get('faturas', 0),
-            'fat':     _c.get('fat', 0.0),
-            'nh':      _c.get('nh', 0.0),
-            'spend':   _c.get('spend', 0.0),
-        }
-    # Total de link clicks por campanha (todos os anúncios)
-    _camp_cl_tot = defaultdict(int)
-    for (_c, _), _v2 in _ads_map.items():
-        _camp_cl_tot[_c] += _v2['clicks']
-
     for (_camp, _aname), _v in sorted(_ads_map.items(), key=lambda x: -x[1]['spend']):
         _sp  = r2(_v['spend']); _imp = _v['impressions']
         _rc  = _v['reach'];     _cl  = _v['clicks']; _lp = _v['lpv']
@@ -1412,14 +1412,28 @@ if _AD_FILE:
         _ctr  = r2(_cl/_imp*100) if _imp else 0
         _cpc  = r2(_sp/_cl)      if _cl  else 0
         _lpvr = r2(_lp/_cl*100)  if _cl  else 0
-        # Estimativas Hubla (proporcional aos clicks vs total da campanha)
-        _ch = _camp_hubla.get(_camp, {})
-        _c_cl = _camp_cl_tot[_camp]
-        _prop = _cl/_c_cl if _c_cl else 0.0
-        _ef   = r2(_ch.get('fat', 0.0) * _prop)
-        _ec   = int(round(_ch.get('faturas', 0) * _prop))
-        _er   = r2(_ef/_sp) if _sp else 0
         _copies = len(_v['names']) - 1
+        # Consolida daily por data (cópias fundidas geram >1 entrada/data) e
+        # anexa a receita/vendas REAIS atribuídas por UTM de anúncio (ad_day_hubla).
+        _adh = ad_day_hubla.get((_camp, _aname), {})
+        _byd = {}
+        for _e in _v['daily']:
+            _k = _e['date']
+            if _k not in _byd: _byd[_k] = {'spend':0.0,'impressions':0,'clicks':0,'lpv':0,'reach':0,'cpm_x_imp':0.0}
+            _byd[_k]['spend']      += _e['spend'];       _byd[_k]['impressions'] += _e['impressions']
+            _byd[_k]['clicks']     += _e['clicks'];      _byd[_k]['lpv']         += _e['lpv']
+            _byd[_k]['reach']      += _e['reach'];       _byd[_k]['cpm_x_imp']   += _e['cpm']*_e['impressions']
+        _daily = []
+        for _k in sorted(_byd):
+            _eb = _byd[_k]; _di = _adh.get(_k, {})
+            _daily.append({'date':_k,'spend':r2(_eb['spend']),'impressions':_eb['impressions'],
+                'clicks':_eb['clicks'],'lpv':_eb['lpv'],'reach':_eb['reach'],
+                'cpm':r2(_eb['cpm_x_imp']/_eb['impressions']) if _eb['impressions'] else 0,
+                'fat':r2(_di.get('fat',0.0)),'faturas':_di.get('faturas',0)})
+        # Totais reais do anúncio (mesma janela do spend acumulado = histórica)
+        _fat = r2(sum(vv['fat'] for vv in _adh.values()))
+        _fc  = sum(vv['faturas'] for vv in _adh.values())
+        _roas = r2(_fat/_sp) if _sp else 0
         ads_arr.append({
             "campaign":    _camp,  "name": _aname,
             "spend":       _sp,    "impressions": _imp,
@@ -1427,11 +1441,11 @@ if _AD_FILE:
             "cpm":         _cpm,   "clicks": _cl,
             "ctr":         _ctr,   "cpc": _cpc,
             "lpv":         _lp,    "lpv_rate": _lpvr,
-            "fat_est":     _ef,    "faturas_est": _ec, "roas_est": _er,
+            "fat":         _fat,   "faturas": _fc, "roas": _roas,
             "merged":      _copies > 0,
             "copies_count":_copies,
-            # Daily breakdown — permite filtro por período no dashboard
-            "daily":       sorted(_v['daily'], key=lambda x:x['date']),
+            # Daily breakdown (1 entrada/data, com fat/faturas reais) — filtro por período
+            "daily":       _daily,
         })
     print(f"[Anúncios] {len(ads_arr)} anúncios únicos | "
           f"{sum(len(a['daily']) for a in ads_arr)} registros diários")

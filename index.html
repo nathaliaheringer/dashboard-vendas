@@ -2060,7 +2060,7 @@ function renderRegion(){
    ABA 3 · CAMPANHAS
    ============================================================ */
 var sortK='spend',sortD=-1;
-var adSortK='faturas_est',adSortD=-1;
+var adSortK='faturas',adSortD=-1;
 /* ── Helper: filtrar array com campo 'day' pelo período selecionado ── */
 function filterByPeriod(arr,d0,d1){
  /* d0 e d1 são números de dia do mês (1-31), ou null para mês completo */
@@ -2288,41 +2288,20 @@ function aggregateAdsForPeriod(srcAds){
  var pd=periodDays();
  if(!pd.from_date){return srcAds.slice();}
  var out=[];
- /* Totais por campanha no período (para denominador da estimativa Hubla) */
- var campCl={}, campFat={}, campFaturas={};
- var campMap={}; /* camp_name → DATA.campaigns entry (para spend total) */
- (DATA.campaigns||[]).forEach(function(c){campMap[c.name]=c;});
- /* Vendas/fat por campanha no período: extrai de DATA.daily via fração de spend */
- var dailyP=DATA.daily.filter(function(d){return d.date>=pd.from_date&&d.date<=pd.to_date;});
- /* Per campaign: spend, e via campDataForPeriod (já existe) → fat/faturas */
- srcAds.forEach(function(a){
-  if(campCl[a.campaign]==null){
-   campCl[a.campaign]=0;
-   var c=campMap[a.campaign];
-   var cd=c?campDataForPeriod(c):null;
-   campFat[a.campaign]=cd?cd.fat:0;
-   campFaturas[a.campaign]=cd?cd.faturas:0;
-  }
- });
- /* Soma total de clicks por campanha no período (todos anúncios) */
- srcAds.forEach(function(a){
-  (a.daily||[]).forEach(function(dd){
-   if(dd.date>=pd.from_date && dd.date<=pd.to_date){
-    campCl[a.campaign]+=(dd.clicks||0);
-   }
-  });
- });
- /* Construir ad ajustado por período */
+ /* Constrói ad ajustado por período. Receita/vendas REAIS por anúncio vêm de
+    daily[].fat/faturas — atribuição por UTM de anúncio (UTM Campanha + UTM
+    Conteúdo) na Hubla. Não há mais estimativa proporcional a cliques. */
  srcAds.forEach(function(a){
   var daily=(a.daily||[]).filter(function(dd){return dd.date>=pd.from_date&&dd.date<=pd.to_date;});
   if(!daily.length){
    /* Sem daily breakdown: anúncio agregado (sem coluna Day) — não inclui no filtro */
    return;
   }
-  var spend=0,imp=0,clicks=0,lpv=0,reach=0,cpmXimp=0;
+  var spend=0,imp=0,clicks=0,lpv=0,reach=0,cpmXimp=0,fat=0,faturas=0;
   daily.forEach(function(d){
    spend+=d.spend||0; imp+=d.impressions||0; clicks+=d.clicks||0;
    lpv+=d.lpv||0; reach+=d.reach||0; cpmXimp+=(d.cpm||0)*(d.impressions||0);
+   fat+=d.fat||0; faturas+=d.faturas||0;
   });
   if(spend===0 && imp===0) return;
   var cpm=imp>0?(cpmXimp/imp):0;
@@ -2330,17 +2309,12 @@ function aggregateAdsForPeriod(srcAds){
   var ctr=imp>0?clicks/imp*100:0;
   var cpc=clicks>0?spend/clicks:0;
   var lpvR=clicks>0?lpv/clicks*100:0;
-  /* Estimativas Hubla via proporção de clicks */
-  var ccl=campCl[a.campaign]||0;
-  var prop=ccl>0?clicks/ccl:0;
-  var fatEst=(campFat[a.campaign]||0)*prop;
-  var faturasEst=Math.round((campFaturas[a.campaign]||0)*prop);
-  var roasEst=spend>0?fatEst/spend:0;
+  var roas=spend>0?fat/spend:0;
   out.push(Object.assign({},a,{
    spend:r2(spend), impressions:Math.round(imp), reach:Math.round(reach),
    freq:r2(freq), cpm:r2(cpm), clicks:clicks,
    ctr:r2(ctr), cpc:r2(cpc), lpv:lpv, lpv_rate:r2(lpvR),
-   fat_est:r2(fatEst), faturas_est:faturasEst, roas_est:r2(roasEst),
+   fat:r2(fat), faturas:faturas, roas:r2(roas),
   }));
  });
  return out;
@@ -2366,7 +2340,7 @@ function renderAdsTbl(){
   return;
  }
 
- /* Colunas — vendas estimadas vêm da Hubla (proporcional ao spend da campanha) */
+ /* Colunas — vendas/receita REAIS por anúncio (atribuição UTM de anúncio na Hubla) */
  var cols=[
   {k:'name',       t:'Anúncio',       num:false},
   {k:'camp_lbl',   t:'Campanha',      num:false},
@@ -2379,9 +2353,9 @@ function renderAdsTbl(){
   {k:'cpc',        t:'CPC',            num:true},
   {k:'lpv',        t:'LPV',            num:true},
   {k:'lpv_rate',   t:'LPV%',           num:true},
-  {k:'faturas_est',t:'Vendas est.',     num:true},
-  {k:'fat_est',    t:'Receita est.',    num:true},
-  {k:'roas_est',   t:'ROAS est.',       num:true}
+  {k:'faturas',    t:'Vendas',          num:true},
+  {k:'fat',        t:'Receita',         num:true},
+  {k:'roas',       t:'ROAS',            num:true}
  ];
 
  /* Helper: rótulo curto de campanha */
@@ -2421,13 +2395,13 @@ function renderAdsTbl(){
  rows.forEach(function(r){if(campNames.indexOf(r.campaign)<0)campNames.push(r.campaign);});
  campNames.sort(function(a,b){return campPriority(a)-campPriority(b);});
 
- /* Campeão por grupo = maior faturas_est (vendas estimadas Hubla) */
+ /* Campeão por grupo = maior nº de vendas reais (faturas) no grupo */
  var champMap={};
  campNames.forEach(function(c){
   var group=rows.filter(function(r){return r.campaign===c;});
   if(!group.length)return;
   champMap[c]=group.reduce(function(best,r){
-   return (r.faturas_est||0)>(best.faturas_est||0)?r:best;
+   return (r.faturas||0)>(best.faturas||0)?r:best;
   }).name;
  });
 
@@ -2449,7 +2423,7 @@ function renderAdsTbl(){
  th+='</tr></thead>';
 
  var body='<tbody>';
- var totals={spend:0,impressions:0,clicks:0,lpv:0,faturas_est:0,fat_est:0};
+ var totals={spend:0,impressions:0,clicks:0,lpv:0,faturas:0,fat:0};
  campNames.forEach(function(camp){
   var group=sortRows(rows.filter(function(r){return r.campaign===camp;}));
   if(!group.length)return;
@@ -2460,10 +2434,10 @@ function renderAdsTbl(){
    var isChamp=(a.name===champ);
    var ctrColor=a.ctr>=2?'var(--good)':a.ctr>=1?'var(--warn)':'inherit';
    var cpmColor=a.cpm<=25?'var(--good)':a.cpm<=40?'var(--warn)':'var(--bad)';
-   var roasColor=a.roas_est>=2?'var(--good)':a.roas_est>=1?'var(--warn)':'var(--bad)';
+   var roasColor=a.roas>=2?'var(--good)':a.roas>=1?'var(--warn)':'var(--bad)';
    totals.spend+=a.spend; totals.impressions+=a.impressions;
    totals.clicks+=a.clicks; totals.lpv+=a.lpv;
-   totals.faturas_est+=a.faturas_est||0; totals.fat_est+=a.fat_est||0;
+   totals.faturas+=a.faturas||0; totals.fat+=a.fat||0;
    var copiesTag=a.merged?' <span class="badge b-off" title="Inclui '+a.copies_count+' cópia'+(a.copies_count>1?'s':'')+'">+'+a.copies_count+' cópia'+(a.copies_count>1?'s':'')+'</span>':'';
    var nameTd='<td>'+a.name+copiesTag+(isChamp?' <span class="badge b-champ">campeão</span>':'')+'</td>';
    body+='<tr>'+nameTd+
@@ -2477,9 +2451,9 @@ function renderAdsTbl(){
     '<td>'+brl(a.cpc)+'</td>'+
     '<td>'+num(a.lpv)+'</td>'+
     '<td>'+nf1.format(a.lpv_rate)+'%</td>'+
-    '<td>'+(a.faturas_est||0)+'</td>'+
-    '<td>'+brl0(a.fat_est||0)+'</td>'+
-    '<td style="color:'+roasColor+';font-weight:700">'+(a.roas_est?nf2.format(a.roas_est)+'x':'—')+'</td>'+
+    '<td>'+(a.faturas||0)+'</td>'+
+    '<td>'+brl0(a.fat||0)+'</td>'+
+    '<td style="color:'+roasColor+';font-weight:700">'+(a.roas?nf2.format(a.roas)+'x':'—')+'</td>'+
     '</tr>';
   });
  });
@@ -2488,7 +2462,7 @@ function renderAdsTbl(){
  var totCtr=totals.impressions>0?r2(totals.clicks/totals.impressions*100):0;
  var totCpc=totals.clicks>0?r2(totals.spend/totals.clicks):0;
  var totLpvR=totals.clicks>0?r2(totals.lpv/totals.clicks*100):0;
- var totRoas=totals.spend>0?r2(totals.fat_est/totals.spend):0;
+ var totRoas=totals.spend>0?r2(totals.fat/totals.spend):0;
  body+='<tr class="tot"><td>TOTAL · '+ads.length+' anúncio'+(ads.length>1?'s':'')+'</td>'+
   '<td>—</td>'+
   '<td>'+brl0(totals.spend)+'</td>'+
@@ -2500,21 +2474,21 @@ function renderAdsTbl(){
   '<td>'+brl(totCpc)+'</td>'+
   '<td>'+num(totals.lpv)+'</td>'+
   '<td>'+nf1.format(totLpvR)+'%</td>'+
-  '<td>'+totals.faturas_est+'</td>'+
-  '<td>'+brl0(totals.fat_est)+'</td>'+
+  '<td>'+totals.faturas+'</td>'+
+  '<td>'+brl0(totals.fat)+'</td>'+
   '<td>'+nf2.format(totRoas)+'x</td>'+
   '</tr></tbody>';
 
  wrap.innerHTML='<div class="sec"><div class="sec-head"><span class="bar"></span><h2>Desempenho por anúncio</h2>'+
-  '<div class="note">Mídia (Meta Ads) + vendas estimadas por anúncio. <b>Fonte de vendas: Hubla</b> — atribuição UTM por campanha, distribuída proporcionalmente ao invest. de cada anúncio. '+
-  '<b>Campeão</b> = maior CTR no grupo.</div></div>'+
+  '<div class="note">Mídia (Meta Ads) + vendas reais por anúncio. <b>Fonte de vendas: Hubla</b> — atribuição pela UTM do anúncio (UTM Campanha + UTM Conteúdo). '+
+  '<b>Campeão</b> = mais vendas no grupo.</div></div>'+
   '<div class="panel" style="padding:15px">'+
   '<div class="tbl-wrap"><table id="adsTbl">'+th+body+'</table></div>'+
   '<div class="legend">'+
   '<span><i style="background:var(--good)"></i>CTR &ge; 2% · CPM &le; R$25 · ROAS &ge; 2x</span>'+
   '<span><i style="background:var(--warn)"></i>CTR 1–2% · CPM R$25–40 · ROAS 1–2x</span>'+
   '<span><i style="background:var(--bad)"></i>CTR &lt; 1% · CPM &gt; R$40 · ROAS &lt; 1x</span>'+
-  '<span style="margin-left:auto;font-size:11px;opacity:.65">Vendas/Receita/ROAS: estimados via Hubla ÷ spend da campanha</span>'+
+  '<span style="margin-left:auto;font-size:11px;opacity:.65">Vendas/Receita/ROAS: reais por anúncio (UTM Conteúdo na Hubla)</span>'+
   '</div></div></div>';
 
  /* Eventos de ordenação */
