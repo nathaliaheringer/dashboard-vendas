@@ -2111,38 +2111,24 @@ function campDataForPeriod(c){
   return {spend:c.spend,impressions:c.impressions,cpm:c.cpm,freq:c.freq,
    faturas:c.faturas,fat:c.fat,nh:c.nh,cpa:c.cpa,roas:c.roas,lucro:c.lucro};
  }
- /* Período histórico/intervalo: agrega camps_dia do daily filtrado pelo período */
+ /* Período histórico/intervalo: agrega camps_dia do daily filtrado pelo período.
+    fat/faturas vêm da atribuição real por (campanha, dia) — UTM de campanha na
+    Hubla — gerada no camps_dia. Assim o ROAS é específico de cada campanha
+    (e não distribuído proporcionalmente ao spend, que dava o mesmo ROAS p/ todas). */
  var dailyFiltered=DATA.daily.filter(function(d){return d.date>=pd.from_date&&d.date<=pd.to_date;});
- var spend=0,imp=0,reach=0;
+ var spend=0,imp=0,reach=0,fat=0,faturas=0;
  dailyFiltered.forEach(function(d){
   (d.camps_dia||[]).forEach(function(cd){
    if(cd.name===c.name){
     spend+=cd.spend; imp+=cd.impressions; reach+=cd.reach||0;
+    fat+=cd.fat||0; faturas+=cd.faturas||0;
    }
   });
  });
  if(spend===0 && imp===0) return null; /* campanha sem dados no período */
  var cpm=imp?spend/imp*1000:0;
  var freq=reach?imp/reach:c.freq;
- /* Para fat/faturas: proporcional ao spend da campanha sobre o spend total
-    do produto (RE/PSI) no período. Os totais reais de fat/faturas vêm do daily. */
- var prodSpend=0, prodFat=0, prodFaturas=0;
- if(c.prod==='RE'){
-  dailyFiltered.forEach(function(d){
-   prodSpend  += d.spend_re||0;
-   prodFat    += d.fat_re||0;
-   prodFaturas+= d.faturas_re||0;
-  });
- }else if(c.prod==='PSI'){
-  dailyFiltered.forEach(function(d){
-   prodSpend  += d.spend_psi||0;
-   prodFat    += d.fat_psi||0;
-   prodFaturas+= d.faturas_psi||0;
-  });
- } /* INSTA / outros: sem atribuição de vendas */
- var frac = prodSpend>0 ? spend/prodSpend : 0;
- var faturas = Math.round(prodFaturas * frac);
- var fat = r2(prodFat * frac);
+ fat=r2(fat);
  var nhRatio = c.fat>0 ? c.nh/c.fat : 0.94;
  var nh = r2(fat * nhRatio);
  var cpa=faturas>0?r2(spend/faturas):null;

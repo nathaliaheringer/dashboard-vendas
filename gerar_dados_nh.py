@@ -781,12 +781,17 @@ CAMP_UTM_MAP = {
     '[PSI08] [Initiate Checkout] [Frio] [ADV+] - ABO':      None,
 }
 camp_hubla = {k:{'faturas':0,'fat':0.0,'nh':0.0} for k in CAMP_UTM_MAP}
+# Atribuição por (campanha, dia) — para ROAS real por período no front (camps_dia).
+# Usa inv['fat'] (mesma base de camp_hubla) p/ que a soma dos dias == total mensal da campanha.
+camp_day_hubla = defaultdict(lambda: defaultdict(lambda: {'faturas':0,'fat':0.0}))
 for inv in invoices:
     c3 = inv['camp']
     if c3 in camp_hubla:
         camp_hubla[c3]['faturas'] += 1
         camp_hubla[c3]['fat']     += inv['fat']
         camp_hubla[c3]['nh']      += inv['nh']
+        camp_day_hubla[c3][inv['day']]['faturas'] += 1
+        camp_day_hubla[c3][inv['day']]['fat']     += inv['fat']
 
 # ── STEP 8: Weeks ────────────────────────────────────────────────
 def build_week(wid,label,d0,d1):
@@ -896,7 +901,9 @@ for _entry in daily_arr:
             _camp_day[_mr['campaign']]['spend'] += _mr['spend']
             _camp_day[_mr['campaign']]['imp']   += _mr['impressions']
             _camp_day[_mr['campaign']]['reach'] += _mr['reach']
-    _entry['camps_dia']  = [{"name":cn,"spend":r2(cv['spend']),"impressions":r0(cv['imp']),"reach":r0(cv['reach'])}
+    _entry['camps_dia']  = [{"name":cn,"spend":r2(cv['spend']),"impressions":r0(cv['imp']),"reach":r0(cv['reach']),
+                             "fat":r2(camp_day_hubla.get(cn,{}).get(_d,{}).get('fat',0.0)),
+                             "faturas":camp_day_hubla.get(cn,{}).get(_d,{}).get('faturas',0)}
                             for cn,cv in _camp_day.items() if cv['spend']>0 or cv['imp']>0]
     # Funil por produto
     _entry['funnel_clicks_re']  = day_funnel_re[_d]['clicks']
