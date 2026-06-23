@@ -173,6 +173,14 @@ def ci(nm):
     try: return H.index(nm)
     except: return -1
 
+# Alias de UTM Campanha: campanhas renomeadas no Meta cujo UTM antigo ainda
+# aparece em faturas da Hubla. Mapeia o nome antigo → nome canônico atual p/
+# que vendas+anúncios atribuam à campanha certa. (Estáticos]-CBO foi renomeada
+# p/ [Melhores Criativos]-CBO; sem isso suas vendas ficavam órfãs.)
+CAMP_ALIAS = {
+    '[RE] [Compra] [Frio] [Melhores Criativos] [Estáticos] - CBO': '[RE] [Compra] [Frio] [Melhores Criativos] - CBO',
+}
+
 # invoices = só do mês corrente (usado em totals, weeks, products_paid, etc.)
 # invoices_hist = histórico completo (usado para construir daily[] do ano)
 invoices = []
@@ -196,6 +204,7 @@ for row in ws.iter_rows(min_row=2, values_only=True):
     src   = dedup(str(row[ci('UTM Origem')] or '')).lower().replace(' ','')
     med   = dedup(str(row[ci('UTM Mídia')] or '')).lower().replace(' ','')
     camp  = dedup(str(row[ci('UTM Campanha')] or ''))
+    camp  = CAMP_ALIAS.get(camp, camp)
     conteudo = dedup(str(row[ci('UTM Conteúdo')] or '')) if ci('UTM Conteúdo') >= 0 else ''
     estado= str(row[ci('Endereço Estado')] or '').strip().upper()
     pay_method = str(row[ci('Método de pagamento')] or '').strip() if ci('Método de pagamento') >= 0 else ''
@@ -359,6 +368,10 @@ RE_FREQ = {
     '[RE] [Compra] [Quente] [Validação] [Vídeos] - ABO': 1.25,
     '[RE] [Compra] [Frio] [Validação] [Vídeos] - ABO': 1.35,
     '[RE] [Compra] [Frio] [Validação] [Estáticos] - ABO': 1.85,
+    '[RE] [Compra] [Frio] [Melhores Criativos] - CBO': 1.40,
+    '[RE] [Compra] [Frio] [Melhores Criativos] [Teste LAL] - ABO': 1.35,
+    '[RE] [Compra] [Frio] [Novos Criativos] [Estáticos] - ABO': 1.40,
+    '[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO': 1.25,
 }
 PSI_NAME_MAP = {
     '[PSI08] [Compra] [Quente] [Teste Criativos] [Estáticos] - AB': '[PSI08] [Compra] [Quente] [Teste Criativos] [Estáticos] - ABO',
@@ -777,6 +790,10 @@ CAMP_UTM_MAP = {
     '[RE] [Compra] [Quente] [Validação] [Vídeos] - ABO':    None,
     '[RE] [Compra] [Frio] [Validação] [Vídeos] - ABO':      None,
     '[RE] [Compra] [Frio] [Validação] [Estáticos] - ABO':   None,
+    '[RE] [Compra] [Frio] [Melhores Criativos] - CBO':      None,
+    '[RE] [Compra] [Frio] [Melhores Criativos] [Teste LAL] - ABO': None,
+    '[RE] [Compra] [Frio] [Novos Criativos] [Estáticos] - ABO':    None,
+    '[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO':       None,
     '[PSI08] [Compra] [Frio] - ABO':                        None,
     '[PSI08] [Compra] [Quente] [Teste Criativos] [Estáticos] - ABO': None,
     '[PSI08] [Initiate Checkout] [Frio] [ADV+] - ABO':      None,
@@ -861,6 +878,10 @@ CAMP_META={
     "[RE] [Compra] [Quente] [Validação] [Vídeos] - ABO":    {"prod":"RE","aud":"Quente","creat":"Vídeos","obj":"sales","status":"ACTIVE"},
     "[RE] [Compra] [Frio] [Validação] [Vídeos] - ABO":      {"prod":"RE","aud":"Frio","creat":"Vídeos","obj":"sales","status":"ACTIVE"},
     "[RE] [Compra] [Frio] [Validação] [Estáticos] - ABO":   {"prod":"RE","aud":"Frio","creat":"Estáticos","obj":"sales","status":"ACTIVE"},
+    "[RE] [Compra] [Frio] [Melhores Criativos] - CBO":      {"prod":"RE","aud":"Frio","creat":"Misto","obj":"sales","status":"PAUSED"},
+    "[RE] [Compra] [Frio] [Melhores Criativos] [Teste LAL] - ABO": {"prod":"RE","aud":"Frio","creat":"Misto","obj":"sales","status":"ACTIVE"},
+    "[RE] [Compra] [Frio] [Novos Criativos] [Estáticos] - ABO":    {"prod":"RE","aud":"Frio","creat":"Estáticos","obj":"sales","status":"ACTIVE"},
+    "[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO":       {"prod":"RE","aud":"Frio","creat":"Vídeos","obj":"sales","status":"ACTIVE"},
 }
 campaigns_arr=[]
 fid=120243000000000001
