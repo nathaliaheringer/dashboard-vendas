@@ -210,9 +210,12 @@ main{max-width:1340px;margin:0 auto;padding:26px 30px 80px}
 .donut-center .dc-l{font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--brown);
   opacity:.75;margin-top:2px}
 .dlist{display:flex;flex-direction:column;gap:9px;margin-top:14px}
-.dlist .di{display:grid;grid-template-columns:13px 1fr auto auto;gap:9px;align-items:center;font-size:12px}
+.dlist .di{display:grid;grid-template-columns:13px 1fr auto auto auto;gap:9px;align-items:center;font-size:12px}
 .dlist .di i{width:11px;height:11px;border-radius:3px}
 .dlist .di .dn{font-weight:500;color:var(--ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.dlist .di .dq{font-family:'Spline Sans Mono';font-size:10.5px;color:var(--brown);white-space:nowrap;
+  text-align:right;font-weight:600}
+.dlist .di .dq small{font-weight:400;opacity:.65;font-size:9.5px;margin-left:3px}
 .dlist .di .dv{font-family:'Spline Sans Mono';font-weight:600;font-size:11.5px}
 .dlist .di .dp{font-family:'Spline Sans Mono';font-size:10.5px;color:var(--brown);opacity:.7;
   min-width:38px;text-align:right}
@@ -1070,21 +1073,26 @@ function renderProdDonutInline(){
   var prodMap={};
   filtered.forEach(function(d){
    (d.prods_dia||[]).forEach(function(p){
-    if(!prodMap[p.name])prodMap[p.name]=0;
-    prodMap[p.name]+=p.fat;
+    if(!prodMap[p.name])prodMap[p.name]={fat:0,faturas:0};
+    prodMap[p.name].fat+=p.fat;
+    prodMap[p.name].faturas+=(p.faturas||0);
    });
   });
-  items=Object.keys(prodMap).sort(function(a,b){return prodMap[b]-prodMap[a];})
-                            .map(function(n){return {name:n.replace('Curso Psi:','Curso PSI'),fat:prodMap[n]};});
+  items=Object.keys(prodMap).sort(function(a,b){return prodMap[b].fat-prodMap[a].fat;})
+                            .map(function(n){return {name:n.replace('Curso Psi:','Curso PSI'),fat:prodMap[n].fat,faturas:prodMap[n].faturas};});
   tot=items.reduce(function(a,p){return a+p.fat;},0);
   if(!items.length){
    /* fallback: agrega RE/PSI direto se prods_dia não existir */
    var fat_re =filtered.reduce(function(a,d){return a+(d.fat_re||0); },0);
    var fat_psi=filtered.reduce(function(a,d){return a+(d.fat_psi||0);},0);
    var fat_tot=filtered.reduce(function(a,d){return a+(d.fat||0);    },0);
+   var ft_re =filtered.reduce(function(a,d){return a+(d.faturas_re||0); },0);
+   var ft_psi=filtered.reduce(function(a,d){return a+(d.faturas_psi||0);},0);
    var fat_out=Math.max(0,fat_tot-fat_re-fat_psi);
-   items=[{name:'Regulando as Emoções',fat:fat_re},{name:'Curso PSI 0-8',fat:fat_psi}];
-   if(fat_out>1)items.push({name:'Outros produtos',fat:fat_out});
+   var ft_tot=filtered.reduce(function(a,d){return a+(d.faturas||0);},0);
+   var ft_out=Math.max(0,ft_tot-ft_re-ft_psi);
+   items=[{name:'Regulando as Emoções',fat:fat_re,faturas:ft_re},{name:'Curso PSI 0-8',fat:fat_psi,faturas:ft_psi}];
+   if(fat_out>1)items.push({name:'Outros produtos',fat:fat_out,faturas:ft_out});
    tot=fat_tot;
   }
   var rn=document.getElementById('recNote2');
@@ -1092,7 +1100,7 @@ function renderProdDonutInline(){
  }else{
   /* Mostrar todos os produtos individualmente — sem agrupamento em "Outros" */
   var ps=DATA.products.slice();
-  items=ps.map(function(p){return {name:p.name.replace('Curso Psi:','Curso PSI'),fat:p.fat};});
+  items=ps.map(function(p){return {name:p.name.replace('Curso Psi:','Curso PSI'),fat:p.fat,faturas:p.faturas};});
   tot=DATA.totals.fat;
   var rn=document.getElementById('recNote2');
   var rec=ps.filter(function(p){return p.recorrente;});
@@ -1128,7 +1136,8 @@ function renderChanDonutInline(agg){
  makeDonut('cChan2',items.map(function(i){return i.name;}),items.map(function(i){return i.fat;}),cols);
  var h='';
  items.forEach(function(it,i){
-  h+='<div class="di"><i style="background:'+cols[i]+'"></i><span class="dn">'+it.name+'</span>'+
+  var q=(it.faturas!=null)?'<span class="dq">'+nf0.format(it.faturas)+'<small>'+(it.faturas===1?'venda':'vendas')+'</small></span>':'<span class="dq"></span>';
+  h+='<div class="di"><i style="background:'+cols[i]+'"></i><span class="dn">'+it.name+'</span>'+q+
    '<span class="dv">'+brl0(it.fat)+'</span><span class="dp">'+pct(it.fat/tot*100)+'</span></div>';
  });
  var cl=document.getElementById('chanList2');
@@ -1988,15 +1997,16 @@ function makeDonut(canvasId,labels,vals,colors){
 function dlist(elId,items,colors,tot){
  var h='';
  items.forEach(function(it,i){
-  h+='<div class="di"><i style="background:'+colors[i]+'"></i><span class="dn">'+it.name+'</span>'+
+  var q=(it.faturas!=null)?'<span class="dq">'+nf0.format(it.faturas)+'<small>'+(it.faturas===1?'venda':'vendas')+'</small></span>':'<span class="dq"></span>';
+  h+='<div class="di"><i style="background:'+colors[i]+'"></i><span class="dn">'+it.name+'</span>'+q+
    '<span class="dv">'+brl0(it.fat)+'</span><span class="dp">'+pct(it.fat/tot*100)+'</span></div>';
  });
  document.getElementById(elId).innerHTML=h;
 }
 function renderProdDonut(){
  var ps=DATA.products.slice(),top=ps.slice(0,6),rest=ps.slice(6);
- var items=top.map(function(p){return {name:p.name.replace('Curso Psi:','Curso PSI'),fat:p.fat};});
- if(rest.length)items.push({name:'Outros ('+rest.length+')',fat:rest.reduce(function(a,b){return a+b.fat;},0)});
+ var items=top.map(function(p){return {name:p.name.replace('Curso Psi:','Curso PSI'),fat:p.fat,faturas:p.faturas};});
+ if(rest.length)items.push({name:'Outros ('+rest.length+')',fat:rest.reduce(function(a,b){return a+b.fat;},0),faturas:rest.reduce(function(a,b){return a+(b.faturas||0);},0)});
  var tot=DATA.totals.fat,cols=DONUT_P.slice(0,items.length);
  makeDonut('cProd',items.map(function(i){return i.name;}),items.map(function(i){return i.fat;}),cols);
  dlist('prodList',items,cols,tot);
@@ -2029,7 +2039,8 @@ function renderChanDonut(){
  /* custom dlist with faturas */
  var h='';
  items.forEach(function(it,i){
-  h+='<div class="di"><i style="background:'+cols[i]+'"></i><span class="dn">'+it.name+'</span>'+
+  var q=(it.faturas!=null)?'<span class="dq">'+nf0.format(it.faturas)+'<small>'+(it.faturas===1?'venda':'vendas')+'</small></span>':'<span class="dq"></span>';
+  h+='<div class="di"><i style="background:'+cols[i]+'"></i><span class="dn">'+it.name+'</span>'+q+
    '<span class="dv">'+brl0(it.fat)+'</span><span class="dp">'+pct(it.fat/tot*100)+'</span></div>';
  });
  document.getElementById('chanList').innerHTML=h;
