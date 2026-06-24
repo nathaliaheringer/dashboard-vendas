@@ -1,36 +1,36 @@
 {
  "period": {
   "start": "2026-06-01",
-  "end": "2026-06-23",
-  "label": "01 a 23 de junho de 2026",
-  "days_elapsed": 23,
+  "end": "2026-06-24",
+  "label": "01 a 24 de junho de 2026",
+  "days_elapsed": 24,
   "days_month": 30
  },
- "_v": 1782234206790,
+ "_v": 1782304524306,
  "totals": {
-  "spend": 11670.27,
-  "spend_sales": 11670.27,
+  "spend": 12075.74,
+  "spend_sales": 12075.74,
   "spend_insta": 0.0,
-  "impressions": 602313,
-  "impressions_sales": 602313,
-  "fat": 49640.78,
-  "total": 48034.86,
-  "nh": 43474.36,
-  "hubla_fee": 5964.17,
-  "faturas": 252,
-  "units": 351,
-  "abandoned": 157,
-  "checkouts": 399,
-  "ob_count": 99,
-  "ob_val": 11376.0,
-  "fat_with_ob": 81,
-  "cpa": 46.31,
-  "roas": 4.25,
-  "roas_sales": 4.25,
-  "lucro": 31804.09,
-  "roi": 272.52,
-  "ticket": 196.99,
-  "conv_checkout": 60.65
+  "impressions": 626183,
+  "impressions_sales": 626183,
+  "fat": 54233.63,
+  "total": 52627.71,
+  "nh": 47691.03,
+  "hubla_fee": 6340.35,
+  "faturas": 266,
+  "units": 370,
+  "abandoned": 161,
+  "checkouts": 417,
+  "ob_count": 104,
+  "ob_val": 14995.0,
+  "fat_with_ob": 85,
+  "cpa": 45.4,
+  "roas": 4.49,
+  "roas_sales": 4.49,
+  "lucro": 35615.29,
+  "roi": 294.93,
+  "ticket": 203.89,
+  "conv_checkout": 61.39
  },
  "daily": [
   {
@@ -10173,8 +10173,8 @@
    "units": 19,
    "fat": 2471.13,
    "nh": 2213.58,
-   "abandoned": 9,
-   "checkouts": 22,
+   "abandoned": 8,
+   "checkouts": 21,
    "fat_re": 1846.63,
    "fat_psi": 0.0,
    "spend_re": 595.07,
@@ -10186,21 +10186,21 @@
    "prods_dia": [
     {
      "name": "Regulando as Emoções",
-     "fat": 1579.23,
-     "faturas": 9,
-     "units": 13
+     "fat": 1120.52,
+     "faturas": 7,
+     "units": 8
+    },
+    {
+     "name": "Recursos Exclusivos Divertidamente 2",
+     "fat": 726.11,
+     "faturas": 3,
+     "units": 8
     },
     {
      "name": "Formação Primeira Infância",
      "fat": 325.0,
      "faturas": 1,
      "units": 1
-    },
-    {
-     "name": "Recursos Exclusivos Divertidamente 2",
-     "fat": 267.4,
-     "faturas": 1,
-     "units": 3
     },
     {
      "name": "Formação Primeira Infância • Turma 09",
@@ -10348,12 +10348,12 @@
     {
      "name": "Recursos Exclusivos Divertidamente 2",
      "count": 4,
-     "val": 176.0
+     "val": 39.0
     },
     {
      "name": "O Mapa da Avaliação - Autismo",
      "count": 2,
-     "val": 98.0
+     "val": 0.0
     }
    ],
    "ob_detail_psi": [],
@@ -10384,27 +10384,21 @@
    "prods_dia": [
     {
      "name": "Regulando as Emoções",
-     "fat": 1374.9,
+     "fat": 1303.62,
      "faturas": 8,
      "units": 10
     },
     {
      "name": "O Mapa da Avaliação - Autismo",
-     "fat": 463.28,
-     "faturas": 2,
-     "units": 4
+     "fat": 720.56,
+     "faturas": 3,
+     "units": 6
     },
     {
      "name": "Formação Primeira Infância",
      "fat": 325.0,
      "faturas": 1,
      "units": 1
-    },
-    {
-     "name": "Recursos Exclusivos Divertidamente 2",
-     "fat": 186.0,
-     "faturas": 1,
-     "units": 2
     }
    ],
    "camps_dia": [
@@ -10545,12 +10539,12 @@
     {
      "name": "O Mapa da Avaliação - Autismo",
      "count": 3,
-     "val": 59.0
+     "val": 0.0
     },
     {
      "name": "Recursos Exclusivos Divertidamente 2",
      "count": 2,
-     "val": 39.0
+     "val": 78.0
     }
    ],
    "ob_detail_psi": [],
@@ -10581,9 +10575,15 @@
    "prods_dia": [
     {
      "name": "Regulando as Emoções",
-     "fat": 1788.96,
-     "faturas": 11,
-     "units": 13
+     "fat": 1585.96,
+     "faturas": 10,
+     "units": 11
+    },
+    {
+     "name": "Recursos Exclusivos Divertidamente 2",
+     "fat": 389.0,
+     "faturas": 2,
+     "units": 4
     },
     {
      "name": "Formação Primeira Infância",
@@ -10602,12 +10602,6 @@
      "fat": 245.0,
      "faturas": 1,
      "units": 3
-    },
-    {
-     "name": "Recursos Exclusivos Divertidamente 2",
-     "fat": 186.0,
-     "faturas": 1,
-     "units": 2
     },
     {
      "name": "PRO",
@@ -10763,7 +10757,7 @@
     {
      "name": "Recursos Exclusivos Divertidamente 2",
      "count": 4,
-     "val": 78.0
+     "val": 39.0
     },
     {
      "name": "O Mapa da Avaliação - Autismo",
@@ -10799,21 +10793,15 @@
    "prods_dia": [
     {
      "name": "Regulando as Emoções",
-     "fat": 1451.44,
-     "faturas": 9,
-     "units": 9
+     "fat": 1757.32,
+     "faturas": 10,
+     "units": 12
     },
     {
      "name": "Formação Primeira Infância",
      "fat": 499.5,
      "faturas": 1,
      "units": 1
-    },
-    {
-     "name": "O Mapa da Avaliação - Autismo",
-     "fat": 305.88,
-     "faturas": 1,
-     "units": 3
     },
     {
      "name": "Recursos Exclusivos Divertidamente 2",
@@ -10950,12 +10938,12 @@
     {
      "name": "Recursos Exclusivos Divertidamente 2",
      "count": 2,
-     "val": 0.0
+     "val": 98.0
     },
     {
      "name": "O Mapa da Avaliação - Autismo",
      "count": 1,
-     "val": 0.0
+     "val": 98.0
     }
    ],
    "ob_detail_psi": [],
@@ -11300,15 +11288,21 @@
    "prods_dia": [
     {
      "name": "Regulando as Emoções",
-     "fat": 993.44,
-     "faturas": 6,
-     "units": 8
+     "fat": 868.84,
+     "faturas": 5,
+     "units": 7
+    },
+    {
+     "name": "O Mapa da Avaliação - Autismo",
+     "fat": 206.0,
+     "faturas": 1,
+     "units": 2
     },
     {
      "name": "Recursos Exclusivos Divertidamente 2",
-     "fat": 267.4,
+     "fat": 186.0,
      "faturas": 1,
-     "units": 3
+     "units": 2
     }
    ],
    "camps_dia": [
@@ -11421,12 +11415,12 @@
     {
      "name": "O Mapa da Avaliação - Autismo",
      "count": 2,
-     "val": 59.0
+     "val": 98.0
     },
     {
      "name": "Recursos Exclusivos Divertidamente 2",
      "count": 2,
-     "val": 39.0
+     "val": 98.0
     }
    ],
    "ob_detail_psi": [],
@@ -11456,10 +11450,16 @@
    "units_psi": 0,
    "prods_dia": [
     {
+     "name": "O Mapa da Avaliação - Autismo",
+     "fat": 648.0,
+     "faturas": 3,
+     "units": 6
+    },
+    {
      "name": "Regulando as Emoções",
-     "fat": 1241.44,
-     "faturas": 7,
-     "units": 10
+     "fat": 624.6,
+     "faturas": 4,
+     "units": 4
     },
     {
      "name": "Formação Primeira Infância • Turma 09",
@@ -11468,8 +11468,8 @@
      "units": 2
     },
     {
-     "name": "O Mapa da Avaliação - Autismo",
-     "fat": 523.04,
+     "name": "Recursos Exclusivos Divertidamente 2",
+     "fat": 491.88,
      "faturas": 2,
      "units": 5
     }
@@ -11614,12 +11614,12 @@
     {
      "name": "O Mapa da Avaliação - Autismo",
      "count": 4,
-     "val": 118.0
+     "val": 0.0
     },
     {
      "name": "Recursos Exclusivos Divertidamente 2",
      "count": 2,
-     "val": 39.0
+     "val": 0.0
     }
    ],
    "ob_detail_psi": [],
@@ -11650,15 +11650,9 @@
    "prods_dia": [
     {
      "name": "Regulando as Emoções",
-     "fat": 1304.19,
-     "faturas": 8,
-     "units": 9
-    },
-    {
-     "name": "Recursos Exclusivos Divertidamente 2",
-     "fat": 186.0,
-     "faturas": 1,
-     "units": 2
+     "fat": 1490.19,
+     "faturas": 9,
+     "units": 11
     }
    ],
    "camps_dia": [
@@ -11787,7 +11781,7 @@
     {
      "name": "Recursos Exclusivos Divertidamente 2",
      "count": 1,
-     "val": 0.0
+     "val": 39.0
     },
     {
      "name": "O Mapa da Avaliação - Autismo",
@@ -11829,19 +11823,19 @@
     },
     {
      "name": "Regulando as Emoções",
-     "fat": 1780.27,
-     "faturas": 11,
-     "units": 12
-    },
-    {
-     "name": "Recursos Exclusivos Divertidamente 2",
-     "fat": 372.0,
-     "faturas": 2,
-     "units": 4
+     "fat": 1966.27,
+     "faturas": 12,
+     "units": 14
     },
     {
      "name": "O Mapa da Avaliação - Autismo",
      "fat": 206.0,
+     "faturas": 1,
+     "units": 2
+    },
+    {
+     "name": "Recursos Exclusivos Divertidamente 2",
+     "fat": 186.0,
      "faturas": 1,
      "units": 2
     }
@@ -11999,7 +11993,7 @@
     {
      "name": "Recursos Exclusivos Divertidamente 2",
      "count": 3,
-     "val": 39.0
+     "val": 78.0
     },
     {
      "name": "O Mapa da Avaliação - Autismo",
@@ -12035,21 +12029,21 @@
    "prods_dia": [
     {
      "name": "Regulando as Emoções",
-     "fat": 2550.28,
+     "fat": 2444.66,
      "faturas": 14,
-     "units": 20
+     "units": 19
     },
     {
-     "name": "Recursos Exclusivos Divertidamente 2",
-     "fat": 438.7,
+     "name": "O Mapa da Avaliação - Autismo",
+     "fat": 463.28,
      "faturas": 2,
      "units": 4
     },
     {
-     "name": "O Mapa da Avaliação - Autismo",
-     "fat": 224.84,
+     "name": "Recursos Exclusivos Divertidamente 2",
+     "fat": 305.88,
      "faturas": 1,
-     "units": 2
+     "units": 3
     }
    ],
    "camps_dia": [
@@ -12185,12 +12179,12 @@
     {
      "name": "O Mapa da Avaliação - Autismo",
      "count": 5,
-     "val": 275.0
+     "val": 118.0
     },
     {
      "name": "Recursos Exclusivos Divertidamente 2",
      "count": 4,
-     "val": 137.0
+     "val": 117.0
     }
    ],
    "ob_detail_psi": [],
@@ -12221,9 +12215,15 @@
    "prods_dia": [
     {
      "name": "Regulando as Emoções",
-     "fat": 888.2,
-     "faturas": 5,
-     "units": 8
+     "fat": 682.2,
+     "faturas": 4,
+     "units": 6
+    },
+    {
+     "name": "O Mapa da Avaliação - Autismo",
+     "fat": 206.0,
+     "faturas": 1,
+     "units": 2
     },
     {
      "name": "Recursos Exclusivos Divertidamente 2",
@@ -12368,7 +12368,7 @@
     {
      "name": "O Mapa da Avaliação - Autismo",
      "count": 1,
-     "val": 59.0
+     "val": 0.0
     }
    ],
    "ob_detail_psi": [],
@@ -12399,21 +12399,21 @@
    "prods_dia": [
     {
      "name": "Regulando as Emoções",
-     "fat": 1200.72,
-     "faturas": 7,
-     "units": 10
+     "fat": 1014.72,
+     "faturas": 6,
+     "units": 8
     },
     {
-     "name": "O Mapa da Avaliação - Autismo",
-     "fat": 788.0,
+     "name": "Recursos Exclusivos Divertidamente 2",
+     "fat": 677.88,
      "faturas": 3,
      "units": 7
     },
     {
-     "name": "Recursos Exclusivos Divertidamente 2",
-     "fat": 186.0,
-     "faturas": 1,
-     "units": 2
+     "name": "O Mapa da Avaliação - Autismo",
+     "fat": 482.12,
+     "faturas": 2,
+     "units": 4
     }
    ],
    "camps_dia": [
@@ -12551,7 +12551,7 @@
     {
      "name": "Recursos Exclusivos Divertidamente 2",
      "count": 4,
-     "val": 78.0
+     "val": 39.0
     },
     {
      "name": "O Mapa da Avaliação - Autismo",
@@ -12587,21 +12587,27 @@
    "prods_dia": [
     {
      "name": "Regulando as Emoções",
-     "fat": 1236.6,
-     "faturas": 7,
-     "units": 10
+     "fat": 1045.08,
+     "faturas": 6,
+     "units": 7
     },
     {
-     "name": "O Mapa da Avaliação - Autismo",
-     "fat": 514.56,
+     "name": "Recursos Exclusivos Divertidamente 2",
+     "fat": 448.8,
      "faturas": 2,
-     "units": 4
+     "units": 5
     },
     {
      "name": "Curso Psi: 0-8",
      "fat": 335.46,
      "faturas": 1,
      "units": 1
+    },
+    {
+     "name": "O Mapa da Avaliação - Autismo",
+     "fat": 257.28,
+     "faturas": 1,
+     "units": 2
     }
    ],
    "camps_dia": [
@@ -12752,12 +12758,12 @@
     {
      "name": "O Mapa da Avaliação - Autismo",
      "count": 3,
-     "val": 98.0
+     "val": 59.0
     },
     {
      "name": "Recursos Exclusivos Divertidamente 2",
      "count": 2,
-     "val": 137.0
+     "val": 0.0
     }
    ],
    "ob_detail_psi": [],
@@ -12788,9 +12794,9 @@
    "prods_dia": [
     {
      "name": "Regulando as Emoções",
-     "fat": 882.0,
-     "faturas": 6,
-     "units": 6
+     "fat": 1114.2,
+     "faturas": 7,
+     "units": 8
     },
     {
      "name": "PRO",
@@ -12800,9 +12806,9 @@
     },
     {
      "name": "Recursos Exclusivos Divertidamente 2",
-     "fat": 418.2,
-     "faturas": 2,
-     "units": 4
+     "fat": 186.0,
+     "faturas": 1,
+     "units": 2
     }
    ],
    "camps_dia": [
@@ -12946,7 +12952,7 @@
     {
      "name": "Recursos Exclusivos Divertidamente 2",
      "count": 2,
-     "val": 0.0
+     "val": 39.0
     }
    ],
    "ob_detail_psi": [],
@@ -12977,9 +12983,15 @@
    "prods_dia": [
     {
      "name": "Regulando as Emoções",
-     "fat": 1686.32,
-     "faturas": 10,
-     "units": 12
+     "fat": 1500.32,
+     "faturas": 9,
+     "units": 10
+    },
+    {
+     "name": "Recursos Exclusivos Divertidamente 2",
+     "fat": 186.0,
+     "faturas": 1,
+     "units": 2
     }
    ],
    "camps_dia": [
@@ -13130,7 +13142,7 @@
     {
      "name": "Recursos Exclusivos Divertidamente 2",
      "count": 2,
-     "val": 78.0
+     "val": 39.0
     }
    ],
    "ob_detail_psi": [],
@@ -13161,19 +13173,19 @@
    "prods_dia": [
     {
      "name": "Regulando as Emoções",
-     "fat": 2286.95,
+     "fat": 2299.75,
      "faturas": 13,
-     "units": 16
-    },
-    {
-     "name": "O Mapa da Avaliação - Autismo",
-     "fat": 1001.88,
-     "faturas": 4,
-     "units": 11
+     "units": 17
     },
     {
      "name": "Recursos Exclusivos Divertidamente 2",
-     "fat": 206.5,
+     "fat": 989.58,
+     "faturas": 4,
+     "units": 10
+    },
+    {
+     "name": "O Mapa da Avaliação - Autismo",
+     "fat": 206.0,
      "faturas": 1,
      "units": 2
     }
@@ -13334,12 +13346,12 @@
     {
      "name": "Recursos Exclusivos Divertidamente 2",
      "count": 6,
-     "val": 78.0
+     "val": 137.0
     },
     {
      "name": "O Mapa da Avaliação - Autismo",
      "count": 5,
-     "val": 59.0
+     "val": 157.0
     }
    ],
    "ob_detail_psi": [],
@@ -13370,13 +13382,13 @@
    "prods_dia": [
     {
      "name": "Regulando as Emoções",
-     "fat": 2344.39,
+     "fat": 2321.64,
      "faturas": 15,
      "units": 17
     },
     {
      "name": "O Mapa da Avaliação - Autismo",
-     "fat": 206.0,
+     "fat": 228.75,
      "faturas": 1,
      "units": 2
     },
@@ -13563,22 +13575,16 @@
    "units_psi": 0,
    "prods_dia": [
     {
+     "name": "O Mapa da Avaliação - Autismo",
+     "fat": 708.0,
+     "faturas": 3,
+     "units": 7
+    },
+    {
      "name": "Regulando as Emoções",
      "fat": 660.44,
      "faturas": 4,
      "units": 5
-    },
-    {
-     "name": "O Mapa da Avaliação - Autismo",
-     "fat": 412.0,
-     "faturas": 2,
-     "units": 4
-    },
-    {
-     "name": "Recursos Exclusivos Divertidamente 2",
-     "fat": 296.0,
-     "faturas": 1,
-     "units": 3
     }
    ],
    "camps_dia": [
@@ -13731,8 +13737,8 @@
    "units": 6,
    "fat": 804.68,
    "nh": 736.05,
-   "abandoned": 5,
-   "checkouts": 10,
+   "abandoned": 4,
+   "checkouts": 9,
    "fat_re": 804.68,
    "fat_psi": 0.0,
    "spend_re": 385.19,
@@ -13744,15 +13750,9 @@
    "prods_dia": [
     {
      "name": "Regulando as Emoções",
-     "fat": 598.68,
-     "faturas": 4,
-     "units": 4
-    },
-    {
-     "name": "O Mapa da Avaliação - Autismo",
-     "fat": 206.0,
-     "faturas": 1,
-     "units": 2
+     "fat": 804.68,
+     "faturas": 5,
+     "units": 6
     }
    ],
    "camps_dia": [
@@ -13873,7 +13873,7 @@
     {
      "name": "O Mapa da Avaliação - Autismo",
      "count": 1,
-     "val": 0.0
+     "val": 59.0
     }
    ],
    "ob_detail_psi": [],
@@ -13904,21 +13904,21 @@
    "prods_dia": [
     {
      "name": "Regulando as Emoções",
-     "fat": 1200.12,
-     "faturas": 8,
-     "units": 8
-    },
-    {
-     "name": "O Mapa da Avaliação - Autismo",
-     "fat": 541.0,
-     "faturas": 2,
-     "units": 6
+     "fat": 1496.12,
+     "faturas": 9,
+     "units": 11
     },
     {
      "name": "Formação Primeira Infância",
      "fat": 466.66,
      "faturas": 1,
      "units": 1
+    },
+    {
+     "name": "O Mapa da Avaliação - Autismo",
+     "fat": 245.0,
+     "faturas": 1,
+     "units": 3
     },
     {
      "name": "Recursos Exclusivos Divertidamente 2",
@@ -14053,12 +14053,12 @@
     {
      "name": "O Mapa da Avaliação - Autismo",
      "count": 3,
-     "val": 0.0
+     "val": 98.0
     },
     {
      "name": "Recursos Exclusivos Divertidamente 2",
      "count": 3,
-     "val": 0.0
+     "val": 98.0
     }
    ],
    "ob_detail_psi": [],
@@ -14069,9 +14069,9 @@
   {
    "day": 22,
    "date": "2026-06-22",
-   "spend": 458.96,
-   "spend_sales": 458.96,
-   "impressions": 26148,
+   "spend": 459.2,
+   "spend_sales": 459.2,
+   "impressions": 26159,
    "faturas": 12,
    "units": 15,
    "fat": 2036.52,
@@ -14080,7 +14080,7 @@
    "checkouts": 18,
    "fat_re": 2036.52,
    "fat_psi": 0.0,
-   "spend_re": 458.96,
+   "spend_re": 459.2,
    "spend_psi": 0.0,
    "faturas_re": 12,
    "faturas_psi": 0,
@@ -14094,7 +14094,7 @@
      "units": 12
     },
     {
-     "name": "O Mapa da Avaliação - Autismo",
+     "name": "Recursos Exclusivos Divertidamente 2",
      "fat": 305.88,
      "faturas": 1,
      "units": 3
@@ -14111,17 +14111,17 @@
     },
     {
      "name": "[RE] [Compra] [Frio] [Validação] [Vídeos] - ABO",
-     "spend": 51.82,
-     "impressions": 1573,
-     "reach": 1165,
+     "spend": 52.02,
+     "impressions": 1575,
+     "reach": 1167,
      "fat": 588.0,
      "faturas": 4
     },
     {
      "name": "[RE] [Compra] [Frio] [Validação] [Estáticos] - ABO",
      "spend": 94.11,
-     "impressions": 7175,
-     "reach": 3878,
+     "impressions": 7178,
+     "reach": 3880,
      "fat": 0.0,
      "faturas": 0
     },
@@ -14135,32 +14135,32 @@
     },
     {
      "name": "[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO",
-     "spend": 45.13,
-     "impressions": 2736,
-     "reach": 2189,
+     "spend": 45.14,
+     "impressions": 2739,
+     "reach": 2191,
      "fat": 0.0,
      "faturas": 0
     },
     {
      "name": "[RE] [Compra] [Frio] [Melhores Criativos] [Teste LAL] - ABO",
      "spend": 96.71,
-     "impressions": 5487,
-     "reach": 4064,
+     "impressions": 5488,
+     "reach": 4065,
      "fat": 147.0,
      "faturas": 1
     },
     {
      "name": "[RE] [Compra] [Frio] [Novos Criativos] [Estáticos] - ABO",
-     "spend": 71.64,
-     "impressions": 3898,
-     "reach": 2784,
+     "spend": 71.67,
+     "impressions": 3900,
+     "reach": 2786,
      "fat": 539.0,
      "faturas": 3
     }
    ],
    "funnel_clicks_re": 201,
    "funnel_lpv_re": 168,
-   "funnel_imp_re": 26148,
+   "funnel_imp_re": 26159,
    "funnel_clicks_psi": 0,
    "funnel_lpv_psi": 0,
    "funnel_imp_psi": 0,
@@ -14246,102 +14246,306 @@
   {
    "day": 23,
    "date": "2026-06-23",
-   "spend": 109.93,
-   "spend_sales": 109.93,
-   "impressions": 4467,
-   "faturas": 2,
-   "units": 2,
-   "fat": 330.6,
-   "nh": 278.7,
-   "abandoned": 6,
-   "checkouts": 8,
-   "fat_re": 330.6,
+   "spend": 424.49,
+   "spend_sales": 424.49,
+   "impressions": 23813,
+   "faturas": 14,
+   "units": 18,
+   "fat": 4416.39,
+   "nh": 4041.52,
+   "abandoned": 9,
+   "checkouts": 23,
+   "fat_re": 2169.39,
    "fat_psi": 0.0,
-   "spend_re": 109.93,
+   "spend_re": 424.49,
    "spend_psi": 0.0,
-   "faturas_re": 2,
+   "faturas_re": 13,
    "faturas_psi": 0,
-   "units_re": 2,
+   "units_re": 16,
    "units_psi": 0,
    "prods_dia": [
     {
-     "name": "Regulando as Emoções",
-     "fat": 330.6,
-     "faturas": 2,
+     "name": "Formação Primeira Infância",
+     "fat": 2247.0,
+     "faturas": 1,
      "units": 2
+    },
+    {
+     "name": "Regulando as Emoções",
+     "fat": 1691.71,
+     "faturas": 11,
+     "units": 11
+    },
+    {
+     "name": "O Mapa da Avaliação - Autismo",
+     "fat": 477.68,
+     "faturas": 2,
+     "units": 5
     }
    ],
    "camps_dia": [
     {
      "name": "[RE] [Compra] [Quente] [Validação] [Vídeos] - ABO",
-     "spend": 15.58,
-     "impressions": 715,
-     "reach": 572,
-     "fat": 0.0,
-     "faturas": 0
+     "spend": 74.83,
+     "impressions": 4521,
+     "reach": 3617,
+     "fat": 147.0,
+     "faturas": 1
     },
     {
      "name": "[RE] [Compra] [Frio] [Validação] [Vídeos] - ABO",
-     "spend": 14.54,
-     "impressions": 326,
-     "reach": 241,
+     "spend": 52.04,
+     "impressions": 1724,
+     "reach": 1277,
      "fat": 0.0,
      "faturas": 0
     },
     {
      "name": "[RE] [Compra] [Frio] [Validação] [Estáticos] - ABO",
-     "spend": 10.64,
-     "impressions": 629,
-     "reach": 340,
-     "fat": 0.0,
-     "faturas": 0
+     "spend": 60.23,
+     "impressions": 4406,
+     "reach": 2382,
+     "fat": 206.0,
+     "faturas": 1
     },
     {
      "name": "[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO",
-     "spend": 10.37,
-     "impressions": 444,
-     "reach": 355,
+     "spend": 38.1,
+     "impressions": 2343,
+     "reach": 1874,
      "fat": 0.0,
      "faturas": 0
     },
     {
      "name": "[RE] [Compra] [Frio] [Melhores Criativos] [Teste LAL] - ABO",
-     "spend": 28.09,
-     "impressions": 1305,
-     "reach": 967,
-     "fat": 147.0,
-     "faturas": 1
+     "spend": 101.09,
+     "impressions": 5963,
+     "reach": 4417,
+     "fat": 441.0,
+     "faturas": 3
     },
     {
      "name": "[RE] [Compra] [Frio] [Novos Criativos] [Estáticos] - ABO",
-     "spend": 30.71,
-     "impressions": 1048,
-     "reach": 749,
-     "fat": 0.0,
-     "faturas": 0
+     "spend": 98.2,
+     "impressions": 4856,
+     "reach": 3469,
+     "fat": 147.0,
+     "faturas": 1
     }
    ],
-   "funnel_clicks_re": 28,
-   "funnel_lpv_re": 22,
-   "funnel_imp_re": 4467,
+   "funnel_clicks_re": 172,
+   "funnel_lpv_re": 135,
+   "funnel_imp_re": 23813,
    "funnel_clicks_psi": 0,
    "funnel_lpv_psi": 0,
    "funnel_imp_psi": 0,
    "origins": [
     {
      "name": "Instagram — Stories",
-     "fat": 183.6,
-     "faturas": 1
+     "fat": 477.6,
+     "faturas": 3
     },
     {
      "name": "Facebook Ads",
-     "fat": 147.0,
+     "fat": 983.88,
+     "faturas": 6
+    },
+    {
+     "name": "Instagram — Bio",
+     "fat": 707.91,
+     "faturas": 4
+    },
+    {
+     "name": "Sem origem",
+     "fat": 2247.0,
      "faturas": 1
     }
    ],
    "fb_split": {
     "frio": {
+     "fat": 836.88,
+     "faturas": 5
+    },
+    "quente": {
      "fat": 147.0,
+     "faturas": 1
+    },
+    "outros": {
+     "fat": 0.0,
+     "faturas": 0
+    }
+   },
+   "regioes": [
+    {
+     "name": "Sudeste",
+     "fat": 147.0,
+     "faturas": 1
+    },
+    {
+     "name": "Sul",
+     "fat": 147.0,
+     "faturas": 1
+    },
+    {
+     "name": "Não informado",
+     "fat": 4122.39,
+     "faturas": 12
+    }
+   ],
+   "pay_dist": [
+    {
+     "method": "PIX",
+     "count": 9
+    },
+    {
+     "method": "Cartão de Crédito",
+     "count": 5
+    }
+   ],
+   "parc_dist": [
+    {
+     "n": 1,
+     "count": 1
+    },
+    {
+     "n": 5,
+     "count": 1
+    },
+    {
+     "n": 6,
+     "count": 1
+    },
+    {
+     "n": 7,
+     "count": 1
+    },
+    {
+     "n": 12,
+     "count": 1
+    }
+   ],
+   "ob_detail_re": [
+    {
+     "name": "O Mapa da Avaliação - Autismo",
+     "count": 2,
+     "val": 0.0
+    },
+    {
+     "name": "Recursos Exclusivos Divertidamente 2",
+     "count": 1,
+     "val": 0.0
+    }
+   ],
+   "ob_detail_psi": [],
+   "mes_corrente": true,
+   "month": 6,
+   "year": 2026
+  },
+  {
+   "day": 24,
+   "date": "2026-06-24",
+   "spend": 90.67,
+   "spend_sales": 90.67,
+   "impressions": 4513,
+   "faturas": 2,
+   "units": 3,
+   "fat": 507.06,
+   "nh": 453.85,
+   "abandoned": 3,
+   "checkouts": 5,
+   "fat_re": 210.06,
+   "fat_psi": 297.0,
+   "spend_re": 90.67,
+   "spend_psi": 0.0,
+   "faturas_re": 1,
+   "faturas_psi": 1,
+   "units_re": 2,
+   "units_psi": 1,
+   "prods_dia": [
+    {
+     "name": "Curso Psi: 0-8",
+     "fat": 297.0,
+     "faturas": 1,
+     "units": 1
+    },
+    {
+     "name": "Recursos Exclusivos Divertidamente 2",
+     "fat": 210.06,
+     "faturas": 1,
+     "units": 2
+    }
+   ],
+   "camps_dia": [
+    {
+     "name": "[RE] [Compra] [Quente] [Validação] [Vídeos] - ABO",
+     "spend": 17.78,
+     "impressions": 858,
+     "reach": 686,
+     "fat": 0.0,
+     "faturas": 0
+    },
+    {
+     "name": "[RE] [Compra] [Frio] [Validação] [Vídeos] - ABO",
+     "spend": 12.51,
+     "impressions": 325,
+     "reach": 241,
+     "fat": 186.0,
+     "faturas": 1
+    },
+    {
+     "name": "[RE] [Compra] [Frio] [Validação] [Estáticos] - ABO",
+     "spend": 10.09,
+     "impressions": 592,
+     "reach": 320,
+     "fat": 0.0,
+     "faturas": 0
+    },
+    {
+     "name": "[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO",
+     "spend": 9.81,
+     "impressions": 577,
+     "reach": 462,
+     "fat": 0.0,
+     "faturas": 0
+    },
+    {
+     "name": "[RE] [Compra] [Frio] [Melhores Criativos] [Teste LAL] - ABO",
+     "spend": 19.62,
+     "impressions": 990,
+     "reach": 733,
+     "fat": 0.0,
+     "faturas": 0
+    },
+    {
+     "name": "[RE] [Compra] [Frio] [Novos Criativos] [Estáticos] - ABO",
+     "spend": 20.86,
+     "impressions": 1171,
+     "reach": 836,
+     "fat": 0.0,
+     "faturas": 0
+    }
+   ],
+   "funnel_clicks_re": 25,
+   "funnel_lpv_re": 14,
+   "funnel_imp_re": 4513,
+   "funnel_clicks_psi": 0,
+   "funnel_lpv_psi": 0,
+   "funnel_imp_psi": 0,
+   "origins": [
+    {
+     "name": "Sem origem",
+     "fat": 297.0,
+     "faturas": 1
+    },
+    {
+     "name": "Facebook Ads",
+     "fat": 210.06,
+     "faturas": 1
+    }
+   ],
+   "fb_split": {
+    "frio": {
+     "fat": 210.06,
      "faturas": 1
     },
     "quente": {
@@ -14355,28 +14559,39 @@
    },
    "regioes": [
     {
+     "name": "Centro-Oeste",
+     "fat": 297.0,
+     "faturas": 1
+    },
+    {
      "name": "Não informado",
-     "fat": 330.6,
-     "faturas": 2
+     "fat": 210.06,
+     "faturas": 1
     }
    ],
    "pay_dist": [
     {
-     "method": "Cartão de Crédito",
+     "method": "PIX",
      "count": 1
     },
     {
-     "method": "PIX",
+     "method": "Cartão de Crédito",
      "count": 1
     }
    ],
    "parc_dist": [
     {
-     "n": 12,
+     "n": 6,
      "count": 1
     }
    ],
-   "ob_detail_re": [],
+   "ob_detail_re": [
+    {
+     "name": "Recursos Exclusivos Divertidamente 2",
+     "count": 1,
+     "val": 0.0
+    }
+   ],
    "ob_detail_psi": [],
    "mes_corrente": true,
    "month": 6,
@@ -14395,12 +14610,12 @@
    "units": 101,
    "faturas": 74,
    "nh": 12748.72,
-   "abandoned": 54,
-   "checkouts": 128,
+   "abandoned": 53,
+   "checkouts": 127,
    "cpa": 52.58,
    "roas": 3.71,
    "lucro": 8857.87,
-   "conv_checkout": 57.81,
+   "conv_checkout": 58.27,
    "fat_re": 11446.77,
    "fat_psi": 0.0,
    "has_data": true
@@ -14437,12 +14652,12 @@
    "units": 114,
    "faturas": 83,
    "nh": 13167.25,
-   "abandoned": 52,
-   "checkouts": 135,
+   "abandoned": 51,
+   "checkouts": 134,
    "cpa": 39.52,
    "roas": 4.54,
    "lucro": 9886.96,
-   "conv_checkout": 61.48,
+   "conv_checkout": 61.94,
    "fat_re": 13377.48,
    "fat_psi": 0.0,
    "has_data": true
@@ -14452,20 +14667,20 @@
    "label": "22–28 jun",
    "d0": 22,
    "d1": 28,
-   "spend": 568.89,
-   "spend_sales": 568.89,
-   "fat": 2367.12,
-   "units": 17,
-   "faturas": 14,
-   "nh": 2062.86,
-   "abandoned": 12,
-   "checkouts": 26,
-   "cpa": 40.63,
-   "roas": 4.16,
-   "lucro": 1493.97,
-   "conv_checkout": 53.85,
-   "fat_re": 2367.12,
-   "fat_psi": 0.0,
+   "spend": 974.36,
+   "spend_sales": 974.36,
+   "fat": 6959.97,
+   "units": 36,
+   "faturas": 28,
+   "nh": 6279.53,
+   "abandoned": 18,
+   "checkouts": 46,
+   "cpa": 34.8,
+   "roas": 7.14,
+   "lucro": 5305.17,
+   "conv_checkout": 60.87,
+   "fat_re": 4415.97,
+   "fat_psi": 297.0,
    "has_data": true
   },
   {
@@ -14493,31 +14708,31 @@
  "products_paid": {
   "RE": {
    "code": "RE",
-   "spend": 11670.27,
-   "impressions": 602313,
-   "reach": 399138,
-   "faturas": 229,
-   "units": 328,
-   "fat": 41018.21,
-   "nh": 36067.26,
-   "total": 41018.21,
-   "ob": 81,
-   "cpa": 50.96,
-   "roas": 3.51,
-   "roas_nh": 3.09,
-   "lucro": 24396.99,
-   "roi": 209.05,
-   "ticket": 179.12,
-   "cpm": 19.38,
-   "abandoned": 144,
-   "checkouts": 373,
-   "compras": 229,
-   "funnel_clicks": 4361,
-   "funnel_lpv": 3434,
+   "spend": 12075.74,
+   "impressions": 626183,
+   "reach": 416237,
+   "faturas": 241,
+   "units": 344,
+   "fat": 43067.06,
+   "nh": 37897.55,
+   "total": 43067.06,
+   "ob": 84,
+   "cpa": 50.11,
+   "roas": 3.57,
+   "roas_nh": 3.14,
+   "lucro": 25821.81,
+   "roi": 213.83,
+   "ticket": 178.7,
+   "cpm": 19.28,
+   "abandoned": 149,
+   "checkouts": 390,
+   "compras": 241,
+   "funnel_clicks": 4530,
+   "funnel_lpv": 3561,
    "funnel_ctr": 0.72,
-   "funnel_cpc": 2.68,
+   "funnel_cpc": 2.67,
    "funnel_source": "planilha",
-   "conv_checkout": 61.39,
+   "conv_checkout": 61.79,
    "weeks": [
     {
      "id": "S1",
@@ -14563,12 +14778,12 @@
      "label": "22–28 jun",
      "d0": 22,
      "d1": 28,
-     "spend": 568.89,
-     "fat": 2367.12,
-     "faturas": 14,
-     "nh": 2083.07,
-     "lucro": 1514.18,
-     "impressions": 30615,
+     "spend": 974.36,
+     "fat": 4415.97,
+     "faturas": 26,
+     "nh": 3886.05,
+     "lucro": 2911.69,
+     "impressions": 54485,
      "has_data": true
     },
     {
@@ -14616,78 +14831,78 @@
    "pay_dist": [
     {
      "method": "PIX",
-     "count": 92,
+     "count": 94,
      "pct": 50.0
     },
     {
      "method": "Cartão de Crédito",
-     "count": 92,
+     "count": 94,
      "pct": 50.0
     }
    ],
    "parc_dist": [
     {
      "n": 1,
-     "count": 20,
-     "pct": 21.74
+     "count": 21,
+     "pct": 22.34
     },
     {
      "n": 2,
      "count": 9,
-     "pct": 9.78
+     "pct": 9.57
     },
     {
      "n": 3,
-     "count": 11,
-     "pct": 11.96
+     "count": 10,
+     "pct": 10.64
     },
     {
      "n": 4,
      "count": 9,
-     "pct": 9.78
+     "pct": 9.57
     },
     {
      "n": 5,
-     "count": 8,
-     "pct": 8.7
+     "count": 9,
+     "pct": 9.57
     },
     {
      "n": 6,
      "count": 5,
-     "pct": 5.43
+     "pct": 5.32
     },
     {
      "n": 7,
      "count": 4,
-     "pct": 4.35
+     "pct": 4.26
     },
     {
      "n": 8,
      "count": 2,
-     "pct": 2.17
+     "pct": 2.13
     },
     {
      "n": 10,
-     "count": 1,
-     "pct": 1.09
+     "count": 2,
+     "pct": 2.13
     },
     {
      "n": 12,
      "count": 23,
-     "pct": 25.0
+     "pct": 24.47
     }
    ],
-   "ob_val": 2135.0,
+   "ob_val": 2017.0,
    "ob_detail": [
     {
      "name": "Recursos Exclusivos Divertidamente 2",
-     "count": 54,
-     "val": 1074.0
+     "count": 56,
+     "val": 1094.0
     },
     {
      "name": "O Mapa da Avaliação - Autismo",
-     "count": 45,
-     "val": 1061.0
+     "count": 47,
+     "val": 923.0
     }
    ]
   },
@@ -14696,28 +14911,28 @@
    "spend": 0.0,
    "impressions": 0,
    "reach": 0,
-   "faturas": 1,
-   "units": 1,
-   "fat": 335.46,
-   "nh": 284.38,
-   "total": 335.46,
+   "faturas": 2,
+   "units": 2,
+   "fat": 632.46,
+   "nh": 561.07,
+   "total": 632.46,
    "ob": 0,
    "cpa": 0.0,
    "roas": 0,
    "roas_nh": 0,
-   "lucro": 284.38,
+   "lucro": 561.07,
    "roi": 0,
-   "ticket": 335.46,
+   "ticket": 316.23,
    "cpm": 0.0,
    "abandoned": 3,
-   "checkouts": 4,
-   "compras": 1,
+   "checkouts": 5,
+   "compras": 2,
    "funnel_clicks": 0,
    "funnel_lpv": 0,
    "funnel_ctr": 0,
    "funnel_cpc": 0,
    "funnel_source": "planilha",
-   "conv_checkout": 25.0,
+   "conv_checkout": 40.0,
    "weeks": [
     {
      "id": "S1",
@@ -14740,8 +14955,8 @@
      "spend": 0.0,
      "fat": 335.46,
      "faturas": 1,
-     "nh": 285.14,
-     "lucro": 285.14,
+     "nh": 298.56,
+     "lucro": 298.56,
      "impressions": 0,
      "has_data": true
     },
@@ -14764,12 +14979,12 @@
      "d0": 22,
      "d1": 28,
      "spend": 0.0,
-     "fat": 0.0,
-     "faturas": 0,
-     "nh": 0.0,
-     "lucro": 0.0,
+     "fat": 297.0,
+     "faturas": 1,
+     "nh": 264.33,
+     "lucro": 264.33,
      "impressions": 0,
-     "has_data": false
+     "has_data": true
     },
     {
      "id": "S5",
@@ -14817,7 +15032,12 @@
     {
      "method": "Cartão de Crédito",
      "count": 1,
-     "pct": 100.0
+     "pct": 50.0
+    },
+    {
+     "method": "PIX",
+     "count": 1,
+     "pct": 50.0
     }
    ],
    "parc_dist": [
@@ -14840,10 +15060,10 @@
    "creat": "Vídeos",
    "obj": "sales",
    "status": "ACTIVE",
-   "spend": 1466.81,
-   "impressions": 77701,
-   "reach": 62162,
-   "cpm": 18.88,
+   "spend": 1543.84,
+   "impressions": 82365,
+   "reach": 65893,
+   "cpm": 18.74,
    "freq": 1.25,
    "days": [
     1,
@@ -14868,15 +15088,16 @@
     20,
     21,
     22,
-    23
+    23,
+    24
    ],
-   "faturas": 29,
-   "units": 29,
-   "fat": 4988.0,
-   "nh": 4680.88,
-   "cpa": 50.58,
-   "roas": 3.4,
-   "lucro": 3214.07,
+   "faturas": 30,
+   "units": 30,
+   "fat": 5135.0,
+   "nh": 4816.57,
+   "cpa": 51.46,
+   "roas": 3.33,
+   "lucro": 3272.73,
    "daily": [
     {
      "day": 1,
@@ -15012,9 +15233,15 @@
     },
     {
      "day": 23,
-     "spend": 15.58,
-     "impressions": 715,
-     "cpm": 21.79
+     "spend": 74.83,
+     "impressions": 4521,
+     "cpm": 16.55
+    },
+    {
+     "day": 24,
+     "spend": 17.78,
+     "impressions": 858,
+     "cpm": 20.72
     }
    ]
   },
@@ -15026,10 +15253,10 @@
    "creat": "Vídeos",
    "obj": "sales",
    "status": "ACTIVE",
-   "spend": 1193.5,
-   "impressions": 44059,
-   "reach": 32634,
-   "cpm": 27.09,
+   "spend": 1243.71,
+   "impressions": 45784,
+   "reach": 33913,
+   "cpm": 27.16,
    "freq": 1.35,
    "days": [
     1,
@@ -15054,15 +15281,16 @@
     20,
     21,
     22,
-    23
+    23,
+    24
    ],
-   "faturas": 19,
-   "units": 19,
-   "fat": 2891.0,
-   "nh": 2726.25,
-   "cpa": 62.82,
-   "roas": 2.42,
-   "lucro": 1532.75,
+   "faturas": 20,
+   "units": 20,
+   "fat": 3077.0,
+   "nh": 2903.41,
+   "cpa": 62.19,
+   "roas": 2.47,
+   "lucro": 1659.7,
    "daily": [
     {
      "day": 1,
@@ -15192,15 +15420,21 @@
     },
     {
      "day": 22,
-     "spend": 51.82,
-     "impressions": 1573,
-     "cpm": 32.94
+     "spend": 52.02,
+     "impressions": 1575,
+     "cpm": 33.03
     },
     {
      "day": 23,
-     "spend": 14.54,
-     "impressions": 326,
-     "cpm": 44.6
+     "spend": 52.04,
+     "impressions": 1724,
+     "cpm": 30.19
+    },
+    {
+     "day": 24,
+     "spend": 12.51,
+     "impressions": 325,
+     "cpm": 38.49
     }
    ]
   },
@@ -15212,10 +15446,10 @@
    "creat": "Estáticos",
    "obj": "sales",
    "status": "ACTIVE",
-   "spend": 3852.96,
-   "impressions": 250550,
-   "reach": 135433,
-   "cpm": 15.38,
+   "spend": 3912.64,
+   "impressions": 254922,
+   "reach": 137797,
+   "cpm": 15.35,
    "freq": 1.85,
    "days": [
     1,
@@ -15240,15 +15474,16 @@
     20,
     21,
     22,
-    23
+    23,
+    24
    ],
-   "faturas": 48,
-   "units": 48,
-   "fat": 7958.0,
-   "nh": 7472.14,
-   "cpa": 80.27,
-   "roas": 2.07,
-   "lucro": 3619.18,
+   "faturas": 49,
+   "units": 49,
+   "fat": 8164.0,
+   "nh": 7668.63,
+   "cpa": 79.85,
+   "roas": 2.09,
+   "lucro": 3755.99,
    "daily": [
     {
      "day": 1,
@@ -15379,14 +15614,20 @@
     {
      "day": 22,
      "spend": 94.11,
-     "impressions": 7175,
-     "cpm": 13.12
+     "impressions": 7178,
+     "cpm": 13.11
     },
     {
      "day": 23,
-     "spend": 10.64,
-     "impressions": 629,
-     "cpm": 16.92
+     "spend": 60.23,
+     "impressions": 4406,
+     "cpm": 13.67
+    },
+    {
+     "day": 24,
+     "spend": 10.09,
+     "impressions": 592,
+     "cpm": 17.04
     }
    ]
   },
@@ -15577,10 +15818,10 @@
    "creat": "Misto",
    "obj": "sales",
    "status": "ACTIVE",
-   "spend": 1363.27,
-   "impressions": 65390,
-   "reach": 48436,
-   "cpm": 20.85,
+   "spend": 1455.89,
+   "impressions": 71039,
+   "reach": 52620,
+   "cpm": 20.49,
    "freq": 1.35,
    "days": [
     10,
@@ -15596,15 +15837,16 @@
     20,
     21,
     22,
-    23
+    23,
+    24
    ],
-   "faturas": 19,
-   "units": 19,
-   "fat": 3205.0,
-   "nh": 2992.64,
-   "cpa": 71.75,
-   "roas": 2.35,
-   "lucro": 1629.37,
+   "faturas": 21,
+   "units": 21,
+   "fat": 3499.0,
+   "nh": 3264.02,
+   "cpa": 69.33,
+   "roas": 2.4,
+   "lucro": 1808.13,
    "daily": [
     {
      "day": 10,
@@ -15681,14 +15923,20 @@
     {
      "day": 22,
      "spend": 96.71,
-     "impressions": 5487,
-     "cpm": 17.63
+     "impressions": 5488,
+     "cpm": 17.62
     },
     {
      "day": 23,
-     "spend": 28.09,
-     "impressions": 1305,
-     "cpm": 21.52
+     "spend": 101.09,
+     "impressions": 5963,
+     "cpm": 16.95
+    },
+    {
+     "day": 24,
+     "spend": 19.62,
+     "impressions": 990,
+     "cpm": 19.82
     }
    ]
   },
@@ -15700,10 +15948,10 @@
    "creat": "Estáticos",
    "obj": "sales",
    "status": "ACTIVE",
-   "spend": 1439.31,
-   "impressions": 55621,
-   "reach": 39729,
-   "cpm": 25.88,
+   "spend": 1527.69,
+   "impressions": 60602,
+   "reach": 43287,
+   "cpm": 25.21,
    "freq": 1.4,
    "days": [
     2,
@@ -15723,15 +15971,16 @@
     16,
     17,
     22,
-    23
+    23,
+    24
    ],
-   "faturas": 15,
-   "units": 15,
-   "fat": 2518.0,
-   "nh": 2375.23,
-   "cpa": 95.95,
-   "roas": 1.75,
-   "lucro": 935.92,
+   "faturas": 16,
+   "units": 16,
+   "fat": 2665.0,
+   "nh": 2514.16,
+   "cpa": 95.48,
+   "roas": 1.74,
+   "lucro": 986.47,
    "daily": [
     {
      "day": 2,
@@ -15831,15 +16080,21 @@
     },
     {
      "day": 22,
-     "spend": 71.64,
-     "impressions": 3898,
+     "spend": 71.67,
+     "impressions": 3900,
      "cpm": 18.38
     },
     {
      "day": 23,
-     "spend": 30.71,
-     "impressions": 1048,
-     "cpm": 29.3
+     "spend": 98.2,
+     "impressions": 4856,
+     "cpm": 20.22
+    },
+    {
+     "day": 24,
+     "spend": 20.86,
+     "impressions": 1171,
+     "cpm": 17.81
     }
    ]
   },
@@ -15851,10 +16106,10 @@
    "creat": "Vídeos",
    "obj": "sales",
    "status": "ACTIVE",
-   "spend": 685.99,
-   "impressions": 33750,
-   "reach": 27000,
-   "cpm": 20.33,
+   "spend": 723.54,
+   "impressions": 36229,
+   "reach": 28983,
+   "cpm": 19.97,
    "freq": 1.25,
    "days": [
     8,
@@ -15872,15 +16127,16 @@
     20,
     21,
     22,
-    23
+    23,
+    24
    ],
    "faturas": 7,
    "units": 7,
    "fat": 1166.0,
    "nh": 1093.57,
-   "cpa": 98.0,
-   "roas": 1.7,
-   "lucro": 407.58,
+   "cpa": 103.36,
+   "roas": 1.61,
+   "lucro": 370.03,
    "daily": [
     {
      "day": 8,
@@ -15968,15 +16224,21 @@
     },
     {
      "day": 22,
-     "spend": 45.13,
-     "impressions": 2736,
-     "cpm": 16.49
+     "spend": 45.14,
+     "impressions": 2739,
+     "cpm": 16.48
     },
     {
      "day": 23,
-     "spend": 10.37,
-     "impressions": 444,
-     "cpm": 23.36
+     "spend": 38.1,
+     "impressions": 2343,
+     "cpm": 16.26
+    },
+    {
+     "day": 24,
+     "spend": 9.81,
+     "impressions": 577,
+     "cpm": 17.0
     }
    ]
   },
@@ -16008,19 +16270,19 @@
   {
    "campaign": "[RE] [Compra] [Frio] [Validação] [Estáticos] - ABO",
    "name": "[RE] AD-E: 01",
-   "spend": 5875.29,
-   "impressions": 371058,
-   "reach": 188594,
+   "spend": 5923.48,
+   "impressions": 374682,
+   "reach": 190601,
    "freq": 1.97,
-   "cpm": 15.83,
-   "clicks": 3313,
+   "cpm": 15.81,
+   "clicks": 3346,
    "ctr": 0.89,
    "cpc": 1.77,
    "lpv": 0,
    "lpv_rate": 0.0,
    "fat": 11691.0,
    "faturas": 71,
-   "roas": 1.99,
+   "roas": 1.97,
    "merged": true,
    "copies_count": 1,
    "daily": [
@@ -16500,22 +16762,33 @@
     {
      "date": "2026-06-22",
      "spend": 87.55,
-     "impressions": 6753,
+     "impressions": 6755,
      "clicks": 50,
      "lpv": 0,
-     "reach": 4203,
-     "cpm": 12.97,
+     "reach": 4206,
+     "cpm": 12.96,
      "fat": 0.0,
      "faturas": 0
     },
     {
      "date": "2026-06-23",
-     "spend": 16.98,
-     "impressions": 1086,
-     "clicks": 7,
+     "spend": 58.25,
+     "impressions": 4284,
+     "clicks": 39,
      "lpv": 0,
-     "reach": 869,
-     "cpm": 15.64,
+     "reach": 2504,
+     "cpm": 13.6,
+     "fat": 0.0,
+     "faturas": 0
+    },
+    {
+     "date": "2026-06-24",
+     "spend": 6.92,
+     "impressions": 424,
+     "clicks": 1,
+     "lpv": 0,
+     "reach": 369,
+     "cpm": 16.32,
      "fat": 0.0,
      "faturas": 0
     }
@@ -16524,19 +16797,19 @@
   {
    "campaign": "[RE] [Compra] [Quente] [Validação] [Vídeos] - ABO",
    "name": "[RE] AD-V: 02",
-   "spend": 3902.81,
-   "impressions": 206579,
-   "reach": 100561,
-   "freq": 2.05,
-   "cpm": 18.89,
-   "clicks": 4225,
-   "ctr": 2.05,
+   "spend": 3956.37,
+   "impressions": 209976,
+   "reach": 103690,
+   "freq": 2.03,
+   "cpm": 18.84,
+   "clicks": 4286,
+   "ctr": 2.04,
    "cpc": 0.92,
    "lpv": 0,
    "lpv_rate": 0.0,
    "fat": 11327.0,
    "faturas": 68,
-   "roas": 2.9,
+   "roas": 2.86,
    "merged": true,
    "copies_count": 1,
    "daily": [
@@ -17059,12 +17332,23 @@
     },
     {
      "date": "2026-06-23",
-     "spend": 10.55,
-     "impressions": 478,
-     "clicks": 10,
+     "spend": 48.79,
+     "impressions": 3095,
+     "clicks": 57,
      "lpv": 0,
-     "reach": 454,
-     "cpm": 22.07,
+     "reach": 2830,
+     "cpm": 15.76,
+     "fat": 0.0,
+     "faturas": 0
+    },
+    {
+     "date": "2026-06-24",
+     "spend": 15.32,
+     "impressions": 780,
+     "clicks": 14,
+     "lpv": 0,
+     "reach": 753,
+     "cpm": 19.64,
      "fat": 0.0,
      "faturas": 0
     }
@@ -17073,19 +17357,19 @@
   {
    "campaign": "[RE] [Compra] [Frio] [Validação] [Vídeos] - ABO",
    "name": "[RE] AD-V: 01",
-   "spend": 3368.38,
-   "impressions": 128830,
-   "reach": 67291,
-   "freq": 1.91,
-   "cpm": 26.14,
-   "clicks": 2100,
+   "spend": 3410.02,
+   "impressions": 130287,
+   "reach": 68543,
+   "freq": 1.9,
+   "cpm": 26.17,
+   "clicks": 2120,
    "ctr": 1.63,
-   "cpc": 1.6,
+   "cpc": 1.61,
    "lpv": 0,
    "lpv_rate": 0.0,
    "fat": 8359.0,
    "faturas": 53,
-   "roas": 2.48,
+   "roas": 2.45,
    "merged": false,
    "copies_count": 0,
    "daily": [
@@ -17465,23 +17749,34 @@
     },
     {
      "date": "2026-06-22",
-     "spend": 46.92,
-     "impressions": 1375,
+     "spend": 47.12,
+     "impressions": 1377,
      "clicks": 20,
      "lpv": 0,
-     "reach": 1286,
-     "cpm": 34.12,
+     "reach": 1288,
+     "cpm": 34.22,
      "fat": 147.0,
      "faturas": 1
     },
     {
      "date": "2026-06-23",
-     "spend": 18.98,
-     "impressions": 440,
-     "clicks": 4,
+     "spend": 52.04,
+     "impressions": 1724,
+     "clicks": 18,
      "lpv": 0,
-     "reach": 396,
-     "cpm": 43.14,
+     "reach": 1480,
+     "cpm": 30.19,
+     "fat": 0.0,
+     "faturas": 0
+    },
+    {
+     "date": "2026-06-24",
+     "spend": 8.38,
+     "impressions": 171,
+     "clicks": 6,
+     "lpv": 0,
+     "reach": 166,
+     "cpm": 49.01,
      "fat": 0.0,
      "faturas": 0
     }
@@ -17490,19 +17785,19 @@
   {
    "campaign": "[RE] [Compra] [Frio] [Validação] [Estáticos] - ABO",
    "name": "[RE] AD-E: 02",
-   "spend": 3012.93,
-   "impressions": 141365,
-   "reach": 34492,
-   "freq": 4.1,
+   "spend": 3014.91,
+   "impressions": 141488,
+   "reach": 34593,
+   "freq": 4.09,
    "cpm": 21.31,
-   "clicks": 1288,
+   "clicks": 1290,
    "ctr": 0.91,
    "cpc": 2.34,
    "lpv": 0,
    "lpv_rate": 0.0,
-   "fat": 4355.0,
-   "faturas": 25,
-   "roas": 1.45,
+   "fat": 4561.0,
+   "faturas": 26,
+   "roas": 1.51,
    "merged": true,
    "copies_count": 1,
    "daily": [
@@ -17956,6 +18251,17 @@
      "cpm": 30.0,
      "fat": 0.0,
      "faturas": 0
+    },
+    {
+     "date": "2026-06-23",
+     "spend": 1.98,
+     "impressions": 123,
+     "clicks": 2,
+     "lpv": 0,
+     "reach": 101,
+     "cpm": 16.1,
+     "fat": 206.0,
+     "faturas": 1
     }
    ]
   },
@@ -19167,19 +19473,19 @@
   {
    "campaign": "[RE] [Compra] [Frio] [Melhores Criativos] [Teste LAL] - ABO",
    "name": "[RE] AD-V: 02",
-   "spend": 954.46,
-   "impressions": 51577,
-   "reach": 49063,
+   "spend": 1032.3,
+   "impressions": 56264,
+   "reach": 53419,
    "freq": 1.05,
-   "cpm": 18.51,
-   "clicks": 866,
-   "ctr": 1.68,
-   "cpc": 1.1,
+   "cpm": 18.35,
+   "clicks": 954,
+   "ctr": 1.7,
+   "cpc": 1.08,
    "lpv": 0,
    "lpv_rate": 0.0,
-   "fat": 2627.0,
-   "faturas": 16,
-   "roas": 2.75,
+   "fat": 2921.0,
+   "faturas": 18,
+   "roas": 2.83,
    "merged": false,
    "copies_count": 0,
    "daily": [
@@ -19328,33 +19634,252 @@
     },
     {
      "date": "2026-06-23",
-     "spend": 61.59,
-     "impressions": 3300,
-     "clicks": 57,
+     "spend": 101.09,
+     "impressions": 5963,
+     "clicks": 107,
      "lpv": 0,
-     "reach": 3081,
-     "cpm": 18.66,
-     "fat": 147.0,
-     "faturas": 1
+     "reach": 5517,
+     "cpm": 16.95,
+     "fat": 441.0,
+     "faturas": 3
+    },
+    {
+     "date": "2026-06-24",
+     "spend": 38.34,
+     "impressions": 2024,
+     "clicks": 38,
+     "lpv": 0,
+     "reach": 1920,
+     "cpm": 18.95,
+     "fat": 0.0,
+     "faturas": 0
+    }
+   ]
+  },
+  {
+   "campaign": "[INSTA] [Seguidores] [Frio] - ABO",
+   "name": "[INSTA] AD-V: Flexibilidade Cognitiva",
+   "spend": 630.09,
+   "impressions": 102368,
+   "reach": 100767,
+   "freq": 1.02,
+   "cpm": 6.16,
+   "clicks": 10292,
+   "ctr": 10.05,
+   "cpc": 0.06,
+   "lpv": 0,
+   "lpv_rate": 0.0,
+   "fat": 0.0,
+   "faturas": 0,
+   "roas": 0.0,
+   "merged": false,
+   "copies_count": 0,
+   "daily": [
+    {
+     "date": "2026-06-08",
+     "spend": 43.66,
+     "impressions": 5537,
+     "clicks": 371,
+     "lpv": 0,
+     "reach": 5486,
+     "cpm": 7.89,
+     "fat": 0.0,
+     "faturas": 0
+    },
+    {
+     "date": "2026-06-09",
+     "spend": 42.03,
+     "impressions": 7502,
+     "clicks": 602,
+     "lpv": 0,
+     "reach": 7370,
+     "cpm": 5.6,
+     "fat": 0.0,
+     "faturas": 0
+    },
+    {
+     "date": "2026-06-10",
+     "spend": 34.38,
+     "impressions": 6726,
+     "clicks": 576,
+     "lpv": 0,
+     "reach": 6726,
+     "cpm": 5.11,
+     "fat": 0.0,
+     "faturas": 0
+    },
+    {
+     "date": "2026-06-11",
+     "spend": 32.68,
+     "impressions": 5742,
+     "clicks": 551,
+     "lpv": 0,
+     "reach": 5687,
+     "cpm": 5.69,
+     "fat": 0.0,
+     "faturas": 0
+    },
+    {
+     "date": "2026-06-12",
+     "spend": 44.19,
+     "impressions": 6710,
+     "clicks": 695,
+     "lpv": 0,
+     "reach": 6593,
+     "cpm": 6.59,
+     "fat": 0.0,
+     "faturas": 0
+    },
+    {
+     "date": "2026-06-13",
+     "spend": 23.85,
+     "impressions": 3724,
+     "clicks": 430,
+     "lpv": 0,
+     "reach": 3628,
+     "cpm": 6.4,
+     "fat": 0.0,
+     "faturas": 0
+    },
+    {
+     "date": "2026-06-14",
+     "spend": 48.61,
+     "impressions": 8719,
+     "clicks": 942,
+     "lpv": 0,
+     "reach": 8452,
+     "cpm": 5.58,
+     "fat": 0.0,
+     "faturas": 0
+    },
+    {
+     "date": "2026-06-15",
+     "spend": 37.47,
+     "impressions": 7315,
+     "clicks": 725,
+     "lpv": 0,
+     "reach": 6995,
+     "cpm": 5.12,
+     "fat": 0.0,
+     "faturas": 0
+    },
+    {
+     "date": "2026-06-16",
+     "spend": 39.14,
+     "impressions": 6949,
+     "clicks": 683,
+     "lpv": 0,
+     "reach": 6949,
+     "cpm": 5.63,
+     "fat": 0.0,
+     "faturas": 0
+    },
+    {
+     "date": "2026-06-17",
+     "spend": 35.68,
+     "impressions": 6133,
+     "clicks": 647,
+     "lpv": 0,
+     "reach": 6110,
+     "cpm": 5.82,
+     "fat": 0.0,
+     "faturas": 0
+    },
+    {
+     "date": "2026-06-18",
+     "spend": 37.37,
+     "impressions": 5514,
+     "clicks": 651,
+     "lpv": 0,
+     "reach": 5261,
+     "cpm": 6.78,
+     "fat": 0.0,
+     "faturas": 0
+    },
+    {
+     "date": "2026-06-19",
+     "spend": 40.9,
+     "impressions": 6097,
+     "clicks": 612,
+     "lpv": 0,
+     "reach": 6046,
+     "cpm": 6.71,
+     "fat": 0.0,
+     "faturas": 0
+    },
+    {
+     "date": "2026-06-20",
+     "spend": 40.83,
+     "impressions": 5543,
+     "clicks": 682,
+     "lpv": 0,
+     "reach": 5537,
+     "cpm": 7.37,
+     "fat": 0.0,
+     "faturas": 0
+    },
+    {
+     "date": "2026-06-21",
+     "spend": 40.81,
+     "impressions": 5933,
+     "clicks": 699,
+     "lpv": 0,
+     "reach": 5933,
+     "cpm": 6.88,
+     "fat": 0.0,
+     "faturas": 0
+    },
+    {
+     "date": "2026-06-22",
+     "spend": 37.93,
+     "impressions": 6397,
+     "clicks": 644,
+     "lpv": 0,
+     "reach": 6397,
+     "cpm": 5.93,
+     "fat": 0.0,
+     "faturas": 0
+    },
+    {
+     "date": "2026-06-23",
+     "spend": 40.33,
+     "impressions": 6359,
+     "clicks": 636,
+     "lpv": 0,
+     "reach": 6185,
+     "cpm": 6.34,
+     "fat": 0.0,
+     "faturas": 0
+    },
+    {
+     "date": "2026-06-24",
+     "spend": 10.23,
+     "impressions": 1468,
+     "clicks": 146,
+     "lpv": 0,
+     "reach": 1412,
+     "cpm": 6.97,
+     "fat": 0.0,
+     "faturas": 0
     }
    ]
   },
   {
    "campaign": "[RE] [Compra] [Frio] [Validação] [Estáticos] - ABO",
    "name": "[RE] AD-E: 03",
-   "spend": 599.83,
-   "impressions": 28691,
-   "reach": 13391,
-   "freq": 2.14,
-   "cpm": 20.91,
-   "clicks": 288,
-   "ctr": 1.0,
-   "cpc": 2.08,
+   "spend": 612.52,
+   "impressions": 29423,
+   "reach": 13883,
+   "freq": 2.12,
+   "cpm": 20.82,
+   "clicks": 290,
+   "ctr": 0.99,
+   "cpc": 2.11,
    "lpv": 0,
    "lpv_rate": 0.0,
    "fat": 1891.0,
    "faturas": 11,
-   "roas": 3.15,
+   "roas": 3.09,
    "merged": true,
    "copies_count": 1,
    "daily": [
@@ -19841,201 +20366,15 @@
      "cpm": 13.07,
      "fat": 0.0,
      "faturas": 0
-    }
-   ]
-  },
-  {
-   "campaign": "[INSTA] [Seguidores] [Frio] - ABO",
-   "name": "[INSTA] AD-V: Flexibilidade Cognitiva",
-   "spend": 586.23,
-   "impressions": 95624,
-   "reach": 94170,
-   "freq": 1.02,
-   "cpm": 6.13,
-   "clicks": 9626,
-   "ctr": 10.07,
-   "cpc": 0.06,
-   "lpv": 0,
-   "lpv_rate": 0.0,
-   "fat": 0.0,
-   "faturas": 0,
-   "roas": 0.0,
-   "merged": false,
-   "copies_count": 0,
-   "daily": [
-    {
-     "date": "2026-06-08",
-     "spend": 43.66,
-     "impressions": 5537,
-     "clicks": 371,
-     "lpv": 0,
-     "reach": 5486,
-     "cpm": 7.89,
-     "fat": 0.0,
-     "faturas": 0
     },
     {
-     "date": "2026-06-09",
-     "spend": 42.03,
-     "impressions": 7502,
-     "clicks": 602,
+     "date": "2026-06-24",
+     "spend": 12.69,
+     "impressions": 732,
+     "clicks": 2,
      "lpv": 0,
-     "reach": 7370,
-     "cpm": 5.6,
-     "fat": 0.0,
-     "faturas": 0
-    },
-    {
-     "date": "2026-06-10",
-     "spend": 34.38,
-     "impressions": 6726,
-     "clicks": 576,
-     "lpv": 0,
-     "reach": 6726,
-     "cpm": 5.11,
-     "fat": 0.0,
-     "faturas": 0
-    },
-    {
-     "date": "2026-06-11",
-     "spend": 32.68,
-     "impressions": 5742,
-     "clicks": 551,
-     "lpv": 0,
-     "reach": 5687,
-     "cpm": 5.69,
-     "fat": 0.0,
-     "faturas": 0
-    },
-    {
-     "date": "2026-06-12",
-     "spend": 44.19,
-     "impressions": 6710,
-     "clicks": 695,
-     "lpv": 0,
-     "reach": 6593,
-     "cpm": 6.59,
-     "fat": 0.0,
-     "faturas": 0
-    },
-    {
-     "date": "2026-06-13",
-     "spend": 23.85,
-     "impressions": 3724,
-     "clicks": 430,
-     "lpv": 0,
-     "reach": 3628,
-     "cpm": 6.4,
-     "fat": 0.0,
-     "faturas": 0
-    },
-    {
-     "date": "2026-06-14",
-     "spend": 48.61,
-     "impressions": 8719,
-     "clicks": 942,
-     "lpv": 0,
-     "reach": 8452,
-     "cpm": 5.58,
-     "fat": 0.0,
-     "faturas": 0
-    },
-    {
-     "date": "2026-06-15",
-     "spend": 37.47,
-     "impressions": 7315,
-     "clicks": 725,
-     "lpv": 0,
-     "reach": 6995,
-     "cpm": 5.12,
-     "fat": 0.0,
-     "faturas": 0
-    },
-    {
-     "date": "2026-06-16",
-     "spend": 39.14,
-     "impressions": 6949,
-     "clicks": 683,
-     "lpv": 0,
-     "reach": 6949,
-     "cpm": 5.63,
-     "fat": 0.0,
-     "faturas": 0
-    },
-    {
-     "date": "2026-06-17",
-     "spend": 35.68,
-     "impressions": 6133,
-     "clicks": 647,
-     "lpv": 0,
-     "reach": 6110,
-     "cpm": 5.82,
-     "fat": 0.0,
-     "faturas": 0
-    },
-    {
-     "date": "2026-06-18",
-     "spend": 37.37,
-     "impressions": 5514,
-     "clicks": 651,
-     "lpv": 0,
-     "reach": 5261,
-     "cpm": 6.78,
-     "fat": 0.0,
-     "faturas": 0
-    },
-    {
-     "date": "2026-06-19",
-     "spend": 40.9,
-     "impressions": 6097,
-     "clicks": 612,
-     "lpv": 0,
-     "reach": 6046,
-     "cpm": 6.71,
-     "fat": 0.0,
-     "faturas": 0
-    },
-    {
-     "date": "2026-06-20",
-     "spend": 40.83,
-     "impressions": 5543,
-     "clicks": 682,
-     "lpv": 0,
-     "reach": 5537,
-     "cpm": 7.37,
-     "fat": 0.0,
-     "faturas": 0
-    },
-    {
-     "date": "2026-06-21",
-     "spend": 40.81,
-     "impressions": 5933,
-     "clicks": 699,
-     "lpv": 0,
-     "reach": 5933,
-     "cpm": 6.88,
-     "fat": 0.0,
-     "faturas": 0
-    },
-    {
-     "date": "2026-06-22",
-     "spend": 37.93,
-     "impressions": 6397,
-     "clicks": 644,
-     "lpv": 0,
-     "reach": 6397,
-     "cpm": 5.93,
-     "fat": 0.0,
-     "faturas": 0
-    },
-    {
-     "date": "2026-06-23",
-     "spend": 6.7,
-     "impressions": 1083,
-     "clicks": 116,
-     "lpv": 0,
-     "reach": 1000,
-     "cpm": 6.19,
+     "reach": 492,
+     "cpm": 17.34,
      "fat": 0.0,
      "faturas": 0
     }
@@ -20044,9 +20383,9 @@
   {
    "campaign": "[RE] [Compra] [Quente] [Validação] [Vídeos] - ABO",
    "name": "[RE] AD-V: 07",
-   "spend": 585.83,
-   "impressions": 17337,
-   "reach": 5699,
+   "spend": 585.88,
+   "impressions": 17341,
+   "reach": 5712,
    "freq": 3.04,
    "cpm": 33.79,
    "clicks": 161,
@@ -20480,12 +20819,12 @@
     },
     {
      "date": "2026-06-23",
-     "spend": 0.93,
-     "impressions": 42,
+     "spend": 0.98,
+     "impressions": 46,
      "clicks": 1,
      "lpv": 0,
-     "reach": 27,
-     "cpm": 22.14,
+     "reach": 40,
+     "cpm": 21.3,
      "fat": 0.0,
      "faturas": 0
     }
@@ -20876,19 +21215,19 @@
   {
    "campaign": "[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO",
    "name": "[RE] AD-V: 09",
-   "spend": 347.72,
-   "impressions": 19972,
-   "reach": 17697,
-   "freq": 1.13,
-   "cpm": 17.41,
-   "clicks": 254,
-   "ctr": 1.27,
-   "cpc": 1.37,
+   "spend": 374.29,
+   "impressions": 21872,
+   "reach": 19260,
+   "freq": 1.14,
+   "cpm": 17.11,
+   "clicks": 279,
+   "ctr": 1.28,
+   "cpc": 1.34,
    "lpv": 0,
    "lpv_rate": 0.0,
    "fat": 725.0,
    "faturas": 4,
-   "roas": 2.09,
+   "roas": 1.94,
    "merged": false,
    "copies_count": 0,
    "daily": [
@@ -21027,7 +21366,7 @@
     {
      "date": "2026-06-22",
      "spend": 44.71,
-     "impressions": 2721,
+     "impressions": 2722,
      "clicks": 31,
      "lpv": 0,
      "reach": 2342,
@@ -21037,99 +21376,23 @@
     },
     {
      "date": "2026-06-23",
-     "spend": 23.57,
-     "impressions": 1192,
-     "clicks": 16,
-     "lpv": 0,
-     "reach": 1059,
-     "cpm": 19.77,
-     "fat": 0.0,
-     "faturas": 0
-    }
-   ]
-  },
-  {
-   "campaign": "[PSI08] [Compra] [Quente] [Teste Criativos] [Estáticos] - ABO",
-   "name": "[PSI] AD-V: Você já saiu",
-   "spend": 346.82,
-   "impressions": 16212,
-   "reach": 3895,
-   "freq": 4.16,
-   "cpm": 21.39,
-   "clicks": 218,
-   "ctr": 1.34,
-   "cpc": 1.59,
-   "lpv": 0,
-   "lpv_rate": 0.0,
-   "fat": 0.0,
-   "faturas": 0,
-   "roas": 0.0,
-   "merged": false,
-   "copies_count": 0,
-   "daily": [
-    {
-     "date": "2026-05-01",
-     "spend": 173.41,
-     "impressions": 8106,
-     "clicks": 109,
-     "lpv": 0,
-     "reach": 3895,
-     "cpm": 21.39,
-     "fat": 0.0,
-     "faturas": 0
-    },
-    {
-     "date": "2026-05-06",
-     "spend": 59.51,
-     "impressions": 2543,
-     "clicks": 28,
-     "lpv": 0,
-     "reach": 0,
-     "cpm": 23.4,
-     "fat": 0.0,
-     "faturas": 0
-    },
-    {
-     "date": "2026-05-07",
-     "spend": 45.34,
-     "impressions": 1969,
-     "clicks": 25,
-     "lpv": 0,
-     "reach": 0,
-     "cpm": 23.03,
-     "fat": 0.0,
-     "faturas": 0
-    },
-    {
-     "date": "2026-05-08",
-     "spend": 41.62,
-     "impressions": 2078,
+     "spend": 35.51,
+     "impressions": 2207,
      "clicks": 29,
      "lpv": 0,
-     "reach": 0,
-     "cpm": 20.03,
+     "reach": 1830,
+     "cpm": 16.09,
      "fat": 0.0,
      "faturas": 0
     },
     {
-     "date": "2026-05-09",
-     "spend": 16.92,
-     "impressions": 1027,
-     "clicks": 11,
+     "date": "2026-06-24",
+     "spend": 14.63,
+     "impressions": 884,
+     "clicks": 12,
      "lpv": 0,
-     "reach": 0,
-     "cpm": 16.48,
-     "fat": 0.0,
-     "faturas": 0
-    },
-    {
-     "date": "2026-05-10",
-     "spend": 10.02,
-     "impressions": 489,
-     "clicks": 16,
-     "lpv": 0,
-     "reach": 0,
-     "cpm": 20.49,
+     "reach": 792,
+     "cpm": 16.55,
      "fat": 0.0,
      "faturas": 0
     }
@@ -21138,19 +21401,19 @@
   {
    "campaign": "[RE] [Compra] [Frio] [Validação] [Vídeos] - ABO",
    "name": "[RE] AD-V: 02",
-   "spend": 340.64,
-   "impressions": 13698,
-   "reach": 9921,
-   "freq": 1.38,
-   "cpm": 24.87,
-   "clicks": 311,
-   "ctr": 2.27,
-   "cpc": 1.1,
+   "spend": 354.58,
+   "impressions": 14267,
+   "reach": 10451,
+   "freq": 1.37,
+   "cpm": 24.85,
+   "clicks": 319,
+   "ctr": 2.24,
+   "cpc": 1.11,
    "lpv": 0,
    "lpv_rate": 0.0,
-   "fat": 774.0,
-   "faturas": 5,
-   "roas": 2.27,
+   "fat": 960.0,
+   "faturas": 6,
+   "roas": 2.71,
    "merged": false,
    "copies_count": 0,
    "daily": [
@@ -21461,6 +21724,104 @@
      "cpm": 24.75,
      "fat": 441.0,
      "faturas": 3
+    },
+    {
+     "date": "2026-06-24",
+     "spend": 13.94,
+     "impressions": 569,
+     "clicks": 8,
+     "lpv": 0,
+     "reach": 530,
+     "cpm": 24.5,
+     "fat": 186.0,
+     "faturas": 1
+    }
+   ]
+  },
+  {
+   "campaign": "[PSI08] [Compra] [Quente] [Teste Criativos] [Estáticos] - ABO",
+   "name": "[PSI] AD-V: Você já saiu",
+   "spend": 346.82,
+   "impressions": 16212,
+   "reach": 3895,
+   "freq": 4.16,
+   "cpm": 21.39,
+   "clicks": 218,
+   "ctr": 1.34,
+   "cpc": 1.59,
+   "lpv": 0,
+   "lpv_rate": 0.0,
+   "fat": 0.0,
+   "faturas": 0,
+   "roas": 0.0,
+   "merged": false,
+   "copies_count": 0,
+   "daily": [
+    {
+     "date": "2026-05-01",
+     "spend": 173.41,
+     "impressions": 8106,
+     "clicks": 109,
+     "lpv": 0,
+     "reach": 3895,
+     "cpm": 21.39,
+     "fat": 0.0,
+     "faturas": 0
+    },
+    {
+     "date": "2026-05-06",
+     "spend": 59.51,
+     "impressions": 2543,
+     "clicks": 28,
+     "lpv": 0,
+     "reach": 0,
+     "cpm": 23.4,
+     "fat": 0.0,
+     "faturas": 0
+    },
+    {
+     "date": "2026-05-07",
+     "spend": 45.34,
+     "impressions": 1969,
+     "clicks": 25,
+     "lpv": 0,
+     "reach": 0,
+     "cpm": 23.03,
+     "fat": 0.0,
+     "faturas": 0
+    },
+    {
+     "date": "2026-05-08",
+     "spend": 41.62,
+     "impressions": 2078,
+     "clicks": 29,
+     "lpv": 0,
+     "reach": 0,
+     "cpm": 20.03,
+     "fat": 0.0,
+     "faturas": 0
+    },
+    {
+     "date": "2026-05-09",
+     "spend": 16.92,
+     "impressions": 1027,
+     "clicks": 11,
+     "lpv": 0,
+     "reach": 0,
+     "cpm": 16.48,
+     "fat": 0.0,
+     "faturas": 0
+    },
+    {
+     "date": "2026-05-10",
+     "spend": 10.02,
+     "impressions": 489,
+     "clicks": 16,
+     "lpv": 0,
+     "reach": 0,
+     "cpm": 20.49,
+     "fat": 0.0,
+     "faturas": 0
     }
    ]
   },
@@ -22447,119 +22808,21 @@
    ]
   },
   {
-   "campaign": "[RE] [Compra] [Frio] [Novos Criativos] [Estáticos] - ABO",
-   "name": "[RE] AD-E: 11",
-   "spend": 191.82,
-   "impressions": 5151,
-   "reach": 4086,
-   "freq": 1.26,
-   "cpm": 37.24,
-   "clicks": 43,
-   "ctr": 0.83,
-   "cpc": 4.46,
-   "lpv": 0,
-   "lpv_rate": 0.0,
-   "fat": 392.0,
-   "faturas": 2,
-   "roas": 2.04,
-   "merged": false,
-   "copies_count": 0,
-   "daily": [
-    {
-     "date": "2026-06-02",
-     "spend": 24.68,
-     "impressions": 953,
-     "clicks": 12,
-     "lpv": 0,
-     "reach": 703,
-     "cpm": 25.9,
-     "fat": 0.0,
-     "faturas": 0
-    },
-    {
-     "date": "2026-06-03",
-     "spend": 18.13,
-     "impressions": 564,
-     "clicks": 6,
-     "lpv": 0,
-     "reach": 439,
-     "cpm": 32.15,
-     "fat": 0.0,
-     "faturas": 0
-    },
-    {
-     "date": "2026-06-04",
-     "spend": 27.41,
-     "impressions": 846,
-     "clicks": 5,
-     "lpv": 0,
-     "reach": 642,
-     "cpm": 32.4,
-     "fat": 147.0,
-     "faturas": 1
-    },
-    {
-     "date": "2026-06-05",
-     "spend": 35.32,
-     "impressions": 832,
-     "clicks": 5,
-     "lpv": 0,
-     "reach": 674,
-     "cpm": 42.45,
-     "fat": 0.0,
-     "faturas": 0
-    },
-    {
-     "date": "2026-06-06",
-     "spend": 38.62,
-     "impressions": 1120,
-     "clicks": 6,
-     "lpv": 0,
-     "reach": 909,
-     "cpm": 34.48,
-     "fat": 0.0,
-     "faturas": 0
-    },
-    {
-     "date": "2026-06-07",
-     "spend": 34.61,
-     "impressions": 601,
-     "clicks": 8,
-     "lpv": 0,
-     "reach": 499,
-     "cpm": 57.59,
-     "fat": 245.0,
-     "faturas": 1
-    },
-    {
-     "date": "2026-06-08",
-     "spend": 13.05,
-     "impressions": 235,
-     "clicks": 1,
-     "lpv": 0,
-     "reach": 220,
-     "cpm": 55.53,
-     "fat": 0.0,
-     "faturas": 0
-    }
-   ]
-  },
-  {
    "campaign": "[RE] [Compra] [Quente] [Validação] [Vídeos] - ABO",
    "name": "[RE] AD-V: 03",
-   "spend": 174.76,
-   "impressions": 8179,
-   "reach": 6192,
-   "freq": 1.32,
-   "cpm": 21.37,
-   "clicks": 101,
+   "spend": 195.0,
+   "impressions": 9259,
+   "reach": 6971,
+   "freq": 1.33,
+   "cpm": 21.06,
+   "clicks": 114,
    "ctr": 1.23,
-   "cpc": 1.73,
+   "cpc": 1.71,
    "lpv": 0,
    "lpv_rate": 0.0,
-   "fat": 725.0,
-   "faturas": 4,
-   "roas": 4.15,
+   "fat": 872.0,
+   "faturas": 5,
+   "roas": 4.47,
    "merged": false,
    "copies_count": 0,
    "daily": [
@@ -22807,12 +23070,121 @@
     },
     {
      "date": "2026-06-23",
-     "spend": 9.96,
-     "impressions": 474,
-     "clicks": 7,
+     "spend": 22.36,
+     "impressions": 1175,
+     "clicks": 17,
      "lpv": 0,
-     "reach": 379,
-     "cpm": 21.01,
+     "reach": 862,
+     "cpm": 19.03,
+     "fat": 147.0,
+     "faturas": 1
+    },
+    {
+     "date": "2026-06-24",
+     "spend": 7.84,
+     "impressions": 379,
+     "clicks": 3,
+     "lpv": 0,
+     "reach": 296,
+     "cpm": 20.69,
+     "fat": 0.0,
+     "faturas": 0
+    }
+   ]
+  },
+  {
+   "campaign": "[RE] [Compra] [Frio] [Novos Criativos] [Estáticos] - ABO",
+   "name": "[RE] AD-E: 11",
+   "spend": 191.82,
+   "impressions": 5151,
+   "reach": 4086,
+   "freq": 1.26,
+   "cpm": 37.24,
+   "clicks": 43,
+   "ctr": 0.83,
+   "cpc": 4.46,
+   "lpv": 0,
+   "lpv_rate": 0.0,
+   "fat": 392.0,
+   "faturas": 2,
+   "roas": 2.04,
+   "merged": false,
+   "copies_count": 0,
+   "daily": [
+    {
+     "date": "2026-06-02",
+     "spend": 24.68,
+     "impressions": 953,
+     "clicks": 12,
+     "lpv": 0,
+     "reach": 703,
+     "cpm": 25.9,
+     "fat": 0.0,
+     "faturas": 0
+    },
+    {
+     "date": "2026-06-03",
+     "spend": 18.13,
+     "impressions": 564,
+     "clicks": 6,
+     "lpv": 0,
+     "reach": 439,
+     "cpm": 32.15,
+     "fat": 0.0,
+     "faturas": 0
+    },
+    {
+     "date": "2026-06-04",
+     "spend": 27.41,
+     "impressions": 846,
+     "clicks": 5,
+     "lpv": 0,
+     "reach": 642,
+     "cpm": 32.4,
+     "fat": 147.0,
+     "faturas": 1
+    },
+    {
+     "date": "2026-06-05",
+     "spend": 35.32,
+     "impressions": 832,
+     "clicks": 5,
+     "lpv": 0,
+     "reach": 674,
+     "cpm": 42.45,
+     "fat": 0.0,
+     "faturas": 0
+    },
+    {
+     "date": "2026-06-06",
+     "spend": 38.62,
+     "impressions": 1120,
+     "clicks": 6,
+     "lpv": 0,
+     "reach": 909,
+     "cpm": 34.48,
+     "fat": 0.0,
+     "faturas": 0
+    },
+    {
+     "date": "2026-06-07",
+     "spend": 34.61,
+     "impressions": 601,
+     "clicks": 8,
+     "lpv": 0,
+     "reach": 499,
+     "cpm": 57.59,
+     "fat": 245.0,
+     "faturas": 1
+    },
+    {
+     "date": "2026-06-08",
+     "spend": 13.05,
+     "impressions": 235,
+     "clicks": 1,
+     "lpv": 0,
+     "reach": 220,
+     "cpm": 55.53,
      "fat": 0.0,
      "faturas": 0
     }
@@ -22821,14 +23193,14 @@
   {
    "campaign": "[RE] [Compra] [Quente] [Validação] [Vídeos] - ABO",
    "name": "[RE] AD-V: 04",
-   "spend": 172.45,
-   "impressions": 6031,
-   "reach": 4464,
+   "spend": 172.73,
+   "impressions": 6039,
+   "reach": 4471,
    "freq": 1.35,
-   "cpm": 28.59,
+   "cpm": 28.6,
    "clicks": 51,
-   "ctr": 0.85,
-   "cpc": 3.38,
+   "ctr": 0.84,
+   "cpc": 3.39,
    "lpv": 0,
    "lpv_rate": 0.0,
    "fat": 206.0,
@@ -23219,6 +23591,28 @@
      "lpv": 0,
      "reach": 1,
      "cpm": 60.0,
+     "fat": 0.0,
+     "faturas": 0
+    },
+    {
+     "date": "2026-06-23",
+     "spend": 0.03,
+     "impressions": 4,
+     "clicks": 0,
+     "lpv": 0,
+     "reach": 4,
+     "cpm": 7.5,
+     "fat": 0.0,
+     "faturas": 0
+    },
+    {
+     "date": "2026-06-24",
+     "spend": 0.25,
+     "impressions": 4,
+     "clicks": 0,
+     "lpv": 0,
+     "reach": 3,
+     "cpm": 62.5,
      "fat": 0.0,
      "faturas": 0
     }
@@ -23835,21 +24229,75 @@
    ]
   },
   {
+   "campaign": "[RE] [Compra] [Frio] [Novos Criativos] [Estáticos] - ABO",
+   "name": "[RE] AD-E: 18",
+   "spend": 94.73,
+   "impressions": 6003,
+   "reach": 4519,
+   "freq": 1.33,
+   "cpm": 15.78,
+   "clicks": 50,
+   "ctr": 0.83,
+   "cpc": 1.89,
+   "lpv": 0,
+   "lpv_rate": 0.0,
+   "fat": 441.0,
+   "faturas": 3,
+   "roas": 4.66,
+   "merged": false,
+   "copies_count": 0,
+   "daily": [
+    {
+     "date": "2026-06-22",
+     "spend": 33.77,
+     "impressions": 2027,
+     "clicks": 24,
+     "lpv": 0,
+     "reach": 1617,
+     "cpm": 16.66,
+     "fat": 294.0,
+     "faturas": 2
+    },
+    {
+     "date": "2026-06-23",
+     "spend": 45.18,
+     "impressions": 2897,
+     "clicks": 22,
+     "lpv": 0,
+     "reach": 2016,
+     "cpm": 15.6,
+     "fat": 147.0,
+     "faturas": 1
+    },
+    {
+     "date": "2026-06-24",
+     "spend": 15.78,
+     "impressions": 1079,
+     "clicks": 4,
+     "lpv": 0,
+     "reach": 886,
+     "cpm": 14.62,
+     "fat": 0.0,
+     "faturas": 0
+    }
+   ]
+  },
+  {
    "campaign": "[RE] [Compra] [Quente] [Validação] [Vídeos] - ABO",
    "name": "[RE] AD-V: 05",
-   "spend": 88.02,
-   "impressions": 2866,
-   "reach": 1665,
-   "freq": 1.72,
-   "cpm": 30.71,
-   "clicks": 62,
-   "ctr": 2.16,
-   "cpc": 1.42,
+   "spend": 90.54,
+   "impressions": 3063,
+   "reach": 1826,
+   "freq": 1.68,
+   "cpm": 29.56,
+   "clicks": 63,
+   "ctr": 2.06,
+   "cpc": 1.44,
    "lpv": 0,
    "lpv_rate": 0.0,
    "fat": 147.0,
    "faturas": 1,
-   "roas": 1.67,
+   "roas": 1.62,
    "merged": false,
    "copies_count": 0,
    "daily": [
@@ -24240,12 +24688,66 @@
     },
     {
      "date": "2026-06-23",
-     "spend": 0.15,
-     "impressions": 5,
-     "clicks": 0,
+     "spend": 2.67,
+     "impressions": 202,
+     "clicks": 1,
      "lpv": 0,
-     "reach": 5,
-     "cpm": 30.0,
+     "reach": 166,
+     "cpm": 13.22,
+     "fat": 0.0,
+     "faturas": 0
+    }
+   ]
+  },
+  {
+   "campaign": "[RE] [Compra] [Frio] [Novos Criativos] [Estáticos] - ABO",
+   "name": "[RE] AD-E: 13",
+   "spend": 83.91,
+   "impressions": 3612,
+   "reach": 2752,
+   "freq": 1.31,
+   "cpm": 23.23,
+   "clicks": 21,
+   "ctr": 0.58,
+   "cpc": 4.0,
+   "lpv": 0,
+   "lpv_rate": 0.0,
+   "fat": 245.0,
+   "faturas": 1,
+   "roas": 2.92,
+   "merged": false,
+   "copies_count": 0,
+   "daily": [
+    {
+     "date": "2026-06-22",
+     "spend": 34.32,
+     "impressions": 1653,
+     "clicks": 8,
+     "lpv": 0,
+     "reach": 1307,
+     "cpm": 20.76,
+     "fat": 245.0,
+     "faturas": 1
+    },
+    {
+     "date": "2026-06-23",
+     "spend": 37.14,
+     "impressions": 1433,
+     "clicks": 12,
+     "lpv": 0,
+     "reach": 996,
+     "cpm": 25.92,
+     "fat": 0.0,
+     "faturas": 0
+    },
+    {
+     "date": "2026-06-24",
+     "spend": 12.45,
+     "impressions": 526,
+     "clicks": 1,
+     "lpv": 0,
+     "reach": 449,
+     "cpm": 23.67,
      "fat": 0.0,
      "faturas": 0
     }
@@ -24362,19 +24864,19 @@
   {
    "campaign": "[RE] [Compra] [Frio] [Melhores Criativos] [Teste LAL] - ABO",
    "name": "[RE] AD-E: 01",
-   "spend": 63.56,
-   "impressions": 3215,
-   "reach": 2878,
+   "spend": 63.82,
+   "impressions": 3222,
+   "reach": 2882,
    "freq": 1.12,
-   "cpm": 19.77,
+   "cpm": 19.81,
    "clicks": 28,
    "ctr": 0.87,
-   "cpc": 2.27,
+   "cpc": 2.28,
    "lpv": 0,
    "lpv_rate": 0.0,
    "fat": 186.0,
    "faturas": 1,
-   "roas": 2.93,
+   "roas": 2.91,
    "merged": false,
    "copies_count": 0,
    "daily": [
@@ -24487,47 +24989,15 @@
      "cpm": 17.33,
      "fat": 0.0,
      "faturas": 0
-    }
-   ]
-  },
-  {
-   "campaign": "[RE] [Compra] [Frio] [Novos Criativos] [Estáticos] - ABO",
-   "name": "[RE] AD-E: 18",
-   "spend": 56.71,
-   "impressions": 3378,
-   "reach": 2691,
-   "freq": 1.26,
-   "cpm": 16.79,
-   "clicks": 38,
-   "ctr": 1.12,
-   "cpc": 1.49,
-   "lpv": 0,
-   "lpv_rate": 0.0,
-   "fat": 294.0,
-   "faturas": 2,
-   "roas": 5.18,
-   "merged": false,
-   "copies_count": 0,
-   "daily": [
-    {
-     "date": "2026-06-22",
-     "spend": 33.77,
-     "impressions": 2027,
-     "clicks": 24,
-     "lpv": 0,
-     "reach": 1617,
-     "cpm": 16.66,
-     "fat": 294.0,
-     "faturas": 2
     },
     {
-     "date": "2026-06-23",
-     "spend": 22.94,
-     "impressions": 1351,
-     "clicks": 14,
+     "date": "2026-06-24",
+     "spend": 0.26,
+     "impressions": 7,
+     "clicks": 0,
      "lpv": 0,
-     "reach": 1074,
-     "cpm": 16.98,
+     "reach": 4,
+     "cpm": 37.14,
      "fat": 0.0,
      "faturas": 0
     }
@@ -24692,49 +25162,6 @@
      "lpv": 0,
      "reach": 186,
      "cpm": 16.81,
-     "fat": 0.0,
-     "faturas": 0
-    }
-   ]
-  },
-  {
-   "campaign": "[RE] [Compra] [Frio] [Novos Criativos] [Estáticos] - ABO",
-   "name": "[RE] AD-E: 13",
-   "spend": 54.14,
-   "impressions": 2257,
-   "reach": 1797,
-   "freq": 1.26,
-   "cpm": 23.99,
-   "clicks": 9,
-   "ctr": 0.4,
-   "cpc": 6.02,
-   "lpv": 0,
-   "lpv_rate": 0.0,
-   "fat": 245.0,
-   "faturas": 1,
-   "roas": 4.53,
-   "merged": false,
-   "copies_count": 0,
-   "daily": [
-    {
-     "date": "2026-06-22",
-     "spend": 34.31,
-     "impressions": 1652,
-     "clicks": 8,
-     "lpv": 0,
-     "reach": 1305,
-     "cpm": 20.77,
-     "fat": 245.0,
-     "faturas": 1
-    },
-    {
-     "date": "2026-06-23",
-     "spend": 19.83,
-     "impressions": 605,
-     "clicks": 1,
-     "lpv": 0,
-     "reach": 492,
-     "cpm": 32.78,
      "fat": 0.0,
      "faturas": 0
     }
@@ -25427,14 +25854,14 @@
   {
    "campaign": "[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO",
    "name": "[RE] AD-V: 08",
-   "spend": 20.59,
-   "impressions": 709,
-   "reach": 631,
-   "freq": 1.12,
-   "cpm": 29.04,
-   "clicks": 10,
-   "ctr": 1.41,
-   "cpc": 2.06,
+   "spend": 23.18,
+   "impressions": 845,
+   "reach": 751,
+   "freq": 1.13,
+   "cpm": 27.43,
+   "clicks": 14,
+   "ctr": 1.66,
+   "cpc": 1.66,
    "lpv": 0,
    "lpv_rate": 0.0,
    "fat": 0.0,
@@ -25530,6 +25957,17 @@
      "cpm": 25.29,
      "fat": 0.0,
      "faturas": 0
+    },
+    {
+     "date": "2026-06-23",
+     "spend": 2.59,
+     "impressions": 136,
+     "clicks": 4,
+     "lpv": 0,
+     "reach": 120,
+     "cpm": 19.04,
+     "fat": 0.0,
+     "faturas": 0
     }
    ]
   },
@@ -25577,6 +26015,60 @@
    ]
   },
   {
+   "campaign": "[RE] [Compra] [Frio] [Novos Criativos] [Estáticos] - ABO",
+   "name": "[RE] AD-E: 15",
+   "spend": 9.9,
+   "impressions": 274,
+   "reach": 236,
+   "freq": 1.16,
+   "cpm": 36.13,
+   "clicks": 1,
+   "ctr": 0.36,
+   "cpc": 9.9,
+   "lpv": 0,
+   "lpv_rate": 0.0,
+   "fat": 0.0,
+   "faturas": 0,
+   "roas": 0.0,
+   "merged": false,
+   "copies_count": 0,
+   "daily": [
+    {
+     "date": "2026-06-22",
+     "spend": 0.77,
+     "impressions": 30,
+     "clicks": 1,
+     "lpv": 0,
+     "reach": 28,
+     "cpm": 25.67,
+     "fat": 0.0,
+     "faturas": 0
+    },
+    {
+     "date": "2026-06-23",
+     "spend": 8.88,
+     "impressions": 231,
+     "clicks": 0,
+     "lpv": 0,
+     "reach": 196,
+     "cpm": 38.44,
+     "fat": 0.0,
+     "faturas": 0
+    },
+    {
+     "date": "2026-06-24",
+     "spend": 0.25,
+     "impressions": 13,
+     "clicks": 0,
+     "lpv": 0,
+     "reach": 12,
+     "cpm": 19.23,
+     "fat": 0.0,
+     "faturas": 0
+    }
+   ]
+  },
+  {
    "campaign": "[RE] [Compra] [Frio] [Validação] [Vídeos] - ABO",
    "name": "[RE] AD-V: 04",
    "spend": 8.18,
@@ -25610,55 +26102,12 @@
   },
   {
    "campaign": "[RE] [Compra] [Frio] [Novos Criativos] [Estáticos] - ABO",
-   "name": "[RE] AD-E: 15",
-   "spend": 8.18,
-   "impressions": 209,
-   "reach": 184,
-   "freq": 1.14,
-   "cpm": 39.14,
-   "clicks": 1,
-   "ctr": 0.48,
-   "cpc": 8.18,
-   "lpv": 0,
-   "lpv_rate": 0.0,
-   "fat": 0.0,
-   "faturas": 0,
-   "roas": 0.0,
-   "merged": false,
-   "copies_count": 0,
-   "daily": [
-    {
-     "date": "2026-06-22",
-     "spend": 0.77,
-     "impressions": 30,
-     "clicks": 1,
-     "lpv": 0,
-     "reach": 28,
-     "cpm": 25.67,
-     "fat": 0.0,
-     "faturas": 0
-    },
-    {
-     "date": "2026-06-23",
-     "spend": 7.41,
-     "impressions": 179,
-     "clicks": 0,
-     "lpv": 0,
-     "reach": 156,
-     "cpm": 41.4,
-     "fat": 0.0,
-     "faturas": 0
-    }
-   ]
-  },
-  {
-   "campaign": "[RE] [Compra] [Frio] [Novos Criativos] [Estáticos] - ABO",
    "name": "[RE] AD-E: 17",
-   "spend": 4.26,
-   "impressions": 176,
-   "reach": 150,
+   "spend": 4.36,
+   "impressions": 182,
+   "reach": 155,
    "freq": 1.17,
-   "cpm": 24.2,
+   "cpm": 23.96,
    "clicks": 0,
    "ctr": 0.0,
    "cpc": 0,
@@ -25683,12 +26132,12 @@
     },
     {
      "date": "2026-06-23",
-     "spend": 4.11,
-     "impressions": 168,
+     "spend": 4.21,
+     "impressions": 174,
      "clicks": 0,
      "lpv": 0,
-     "reach": 142,
-     "cpm": 24.46,
+     "reach": 147,
+     "cpm": 24.2,
      "fat": 0.0,
      "faturas": 0
     }
@@ -25697,14 +26146,14 @@
   {
    "campaign": "[RE] [Compra] [Frio] [Novos Criativos] [Estáticos] - ABO",
    "name": "[RE] AD-E: 18 B",
-   "spend": 4.17,
-   "impressions": 255,
-   "reach": 214,
+   "spend": 4.26,
+   "impressions": 262,
+   "reach": 221,
    "freq": 1.19,
-   "cpm": 16.35,
+   "cpm": 16.26,
    "clicks": 2,
-   "ctr": 0.78,
-   "cpc": 2.08,
+   "ctr": 0.76,
+   "cpc": 2.13,
    "lpv": 0,
    "lpv_rate": 0.0,
    "fat": 0.0,
@@ -25732,6 +26181,17 @@
      "lpv": 0,
      "reach": 75,
      "cpm": 18.89,
+     "fat": 0.0,
+     "faturas": 0
+    },
+    {
+     "date": "2026-06-24",
+     "spend": 0.09,
+     "impressions": 7,
+     "clicks": 0,
+     "lpv": 0,
+     "reach": 7,
+     "cpm": 12.86,
      "fat": 0.0,
      "faturas": 0
     }
@@ -25802,6 +26262,49 @@
    ]
   },
   {
+   "campaign": "[RE] [Compra] [Frio] [Novos Criativos] [Estáticos] - ABO",
+   "name": "[RE] AD-E: 14",
+   "spend": 1.36,
+   "impressions": 33,
+   "reach": 32,
+   "freq": 1.03,
+   "cpm": 41.21,
+   "clicks": 0,
+   "ctr": 0.0,
+   "cpc": 0,
+   "lpv": 0,
+   "lpv_rate": 0,
+   "fat": 0.0,
+   "faturas": 0,
+   "roas": 0.0,
+   "merged": false,
+   "copies_count": 0,
+   "daily": [
+    {
+     "date": "2026-06-23",
+     "spend": 1.08,
+     "impressions": 24,
+     "clicks": 0,
+     "lpv": 0,
+     "reach": 23,
+     "cpm": 45.0,
+     "fat": 0.0,
+     "faturas": 0
+    },
+    {
+     "date": "2026-06-24",
+     "spend": 0.28,
+     "impressions": 9,
+     "clicks": 0,
+     "lpv": 0,
+     "reach": 9,
+     "cpm": 31.11,
+     "fat": 0.0,
+     "faturas": 0
+    }
+   ]
+  },
+  {
    "campaign": "[PSI08] [Compra] [Quente] [Teste Criativos] [Estáticos] - ABO",
    "name": "[PSI] AD-E 07",
    "spend": 1.05,
@@ -25835,44 +26338,12 @@
   },
   {
    "campaign": "[RE] [Compra] [Frio] [Novos Criativos] [Estáticos] - ABO",
-   "name": "[RE] AD-E: 14",
-   "spend": 0.46,
-   "impressions": 4,
-   "reach": 4,
-   "freq": 1.0,
-   "cpm": 115.0,
-   "clicks": 0,
-   "ctr": 0.0,
-   "cpc": 0,
-   "lpv": 0,
-   "lpv_rate": 0,
-   "fat": 0.0,
-   "faturas": 0,
-   "roas": 0.0,
-   "merged": false,
-   "copies_count": 0,
-   "daily": [
-    {
-     "date": "2026-06-23",
-     "spend": 0.46,
-     "impressions": 4,
-     "clicks": 0,
-     "lpv": 0,
-     "reach": 4,
-     "cpm": 115.0,
-     "fat": 0.0,
-     "faturas": 0
-    }
-   ]
-  },
-  {
-   "campaign": "[RE] [Compra] [Frio] [Novos Criativos] [Estáticos] - ABO",
    "name": "[RE] AD-E: 16",
-   "spend": 0.13,
-   "impressions": 18,
-   "reach": 17,
-   "freq": 1.06,
-   "cpm": 7.22,
+   "spend": 0.21,
+   "impressions": 28,
+   "reach": 27,
+   "freq": 1.04,
+   "cpm": 7.5,
    "clicks": 0,
    "ctr": 0.0,
    "cpc": 0,
@@ -25897,12 +26368,23 @@
     },
     {
      "date": "2026-06-23",
-     "spend": 0.11,
-     "impressions": 10,
+     "spend": 0.18,
+     "impressions": 16,
      "clicks": 0,
      "lpv": 0,
-     "reach": 10,
-     "cpm": 11.0,
+     "reach": 16,
+     "cpm": 11.25,
+     "fat": 0.0,
+     "faturas": 0
+    },
+    {
+     "date": "2026-06-24",
+     "spend": 0.01,
+     "impressions": 4,
+     "clicks": 0,
+     "lpv": 0,
+     "reach": 4,
+     "cpm": 2.5,
      "fat": 0.0,
      "faturas": 0
     }
@@ -25949,7 +26431,7 @@
   "reach": 0,
   "cpm": 0.0,
   "freq": 0.0,
-  "days": 23,
+  "days": 24,
   "pct_invest": 0.0,
   "cost_per_1k_reach": 0,
   "daily": [],
@@ -25994,21 +26476,21 @@
  "origins": [
   {
    "name": "Facebook Ads",
-   "faturas": 157,
-   "fat": 28151.1,
-   "nh": 24652.5
+   "faturas": 163,
+   "fat": 29198.04,
+   "nh": 25572.15
   },
   {
    "name": "Instagram — Bio",
-   "faturas": 52,
-   "fat": 9462.7,
-   "nh": 8376.46
+   "faturas": 56,
+   "fat": 10170.61,
+   "nh": 9015.72
   },
   {
    "name": "Instagram — Stories",
-   "faturas": 12,
-   "fat": 2025.13,
-   "nh": 1796.68
+   "faturas": 14,
+   "fat": 2319.13,
+   "nh": 2068.06
   },
   {
    "name": "WhatsApp",
@@ -26024,41 +26506,41 @@
   },
   {
    "name": "Sem origem",
-   "faturas": 14,
-   "fat": 6985.67,
-   "nh": 5963.92
+   "faturas": 16,
+   "fat": 9529.67,
+   "nh": 8350.3
   }
  ],
  "products": [
   {
    "name": "Regulando as Emoções",
-   "faturas": 186,
-   "fat": 30883.75,
+   "faturas": 190,
+   "fat": 31297.42,
    "units": 225,
    "recorrente": false,
    "plataforma": "hotmart"
   },
   {
-   "name": "O Mapa da Avaliação - Autismo",
-   "faturas": 25,
-   "fat": 6249.24,
-   "units": 61,
-   "recorrente": false,
-   "plataforma": "hubla"
-  },
-  {
    "name": "Formação Primeira Infância",
-   "faturas": 6,
-   "fat": 5108.06,
-   "units": 6,
+   "faturas": 7,
+   "fat": 7355.06,
+   "units": 8,
    "recorrente": false,
    "plataforma": "hubla"
   },
   {
    "name": "Recursos Exclusivos Divertidamente 2",
-   "faturas": 20,
-   "fat": 4202.2,
-   "units": 44,
+   "faturas": 29,
+   "fat": 6481.07,
+   "units": 68,
+   "recorrente": false,
+   "plataforma": "hubla"
+  },
+  {
+   "name": "O Mapa da Avaliação - Autismo",
+   "faturas": 24,
+   "fat": 5605.55,
+   "units": 53,
    "recorrente": false,
    "plataforma": "hubla"
   },
@@ -26080,9 +26562,9 @@
   },
   {
    "name": "Curso Psi: 0-8",
-   "faturas": 2,
-   "fat": 553.3,
-   "units": 2,
+   "faturas": 3,
+   "fat": 850.3,
+   "units": 3,
    "recorrente": false,
    "plataforma": "hotmart"
   }
@@ -26090,13 +26572,13 @@
  "regioes": [
   {
    "name": "Sudeste",
-   "faturas": 23,
-   "fat": 7189.89
+   "faturas": 24,
+   "fat": 7336.89
   },
   {
    "name": "Sul",
-   "faturas": 7,
-   "fat": 2226.31
+   "faturas": 8,
+   "fat": 2373.31
   },
   {
    "name": "Nordeste",
@@ -26105,8 +26587,8 @@
   },
   {
    "name": "Centro-Oeste",
-   "faturas": 4,
-   "fat": 1016.1
+   "faturas": 5,
+   "fat": 1313.1
   },
   {
    "name": "Norte",
@@ -26115,8 +26597,8 @@
   },
   {
    "name": "Não informado",
-   "faturas": 208,
-   "fat": 37731.31
+   "faturas": 219,
+   "fat": 41733.16
   }
  ],
  "estados": [
@@ -26126,14 +26608,19 @@
    "fat": 3117.24
   },
   {
+   "uf": "LUXEMBURGO",
+   "faturas": 1,
+   "fat": 2247.0
+  },
+  {
    "uf": "SP",
    "faturas": 9,
    "fat": 1676.28
   },
   {
    "uf": "RS",
-   "faturas": 3,
-   "fat": 1273.41
+   "faturas": 4,
+   "fat": 1420.41
   },
   {
    "uf": "RJ",
@@ -26142,13 +26629,18 @@
   },
   {
    "uf": "MG",
-   "faturas": 8,
-   "fat": 1124.51
+   "faturas": 9,
+   "fat": 1271.51
   },
   {
    "uf": "PR",
    "faturas": 4,
    "fat": 952.9
+  },
+  {
+   "uf": "MS",
+   "faturas": 2,
+   "fat": 796.5
   },
   {
    "uf": "CE",
@@ -26159,11 +26651,6 @@
    "uf": "PT",
    "faturas": 3,
    "fat": 534.82
-  },
-  {
-   "uf": "MS",
-   "faturas": 1,
-   "fat": 499.5
   },
   {
    "uf": "GO",
@@ -26204,136 +26691,141 @@
  "payment_dist": [
   {
    "method": "Cartão de Crédito",
-   "count": 133,
-   "pct": 52.78
+   "count": 138,
+   "pct": 51.88
   },
   {
    "method": "PIX",
-   "count": 114,
-   "pct": 45.24
+   "count": 123,
+   "pct": 46.24
   },
   {
    "method": "Outros",
    "count": 3,
-   "pct": 1.19
+   "pct": 1.13
   },
   {
    "method": "Boleto",
    "count": 2,
-   "pct": 0.79
+   "pct": 0.75
   }
  ],
  "parc_dist": [
   {
    "n": 1,
-   "count": 30,
-   "pct": 22.56
+   "count": 31,
+   "pct": 22.46
   },
   {
    "n": 2,
    "count": 10,
-   "pct": 7.52
+   "pct": 7.25
   },
   {
    "n": 3,
    "count": 11,
-   "pct": 8.27
+   "pct": 7.97
   },
   {
    "n": 4,
    "count": 14,
-   "pct": 10.53
+   "pct": 10.14
   },
   {
    "n": 5,
-   "count": 10,
-   "pct": 7.52
+   "count": 11,
+   "pct": 7.97
   },
   {
    "n": 6,
-   "count": 6,
-   "pct": 4.51
+   "count": 8,
+   "pct": 5.8
   },
   {
    "n": 7,
-   "count": 4,
-   "pct": 3.01
+   "count": 5,
+   "pct": 3.62
   },
   {
    "n": 8,
    "count": 2,
-   "pct": 1.5
+   "pct": 1.45
   },
   {
    "n": 10,
    "count": 3,
-   "pct": 2.26
+   "pct": 2.17
   },
   {
    "n": 12,
    "count": 37,
-   "pct": 27.82
+   "pct": 26.81
   }
  ],
  "ob_detail": [
   {
    "name": "Regulando as Emoções",
-   "count": 45,
-   "val": 9535.0
-  },
-  {
-   "name": "Recursos Exclusivos Divertidamente 2",
-   "count": 34,
-   "val": 3769.0
+   "count": 53,
+   "val": 11123.0
   },
   {
    "name": "O Mapa da Avaliação - Autismo",
-   "count": 20,
-   "val": 2041.0
+   "count": 23,
+   "val": 3373.0
+  },
+  {
+   "name": "Recursos Exclusivos Divertidamente 2",
+   "count": 27,
+   "val": 2319.0
+  },
+  {
+   "name": "PRO",
+   "count": 1,
+   "val": 2247.0
   }
  ],
  "insights": [
   {
    "level": "positivo",
-   "icon": "trending-up",
-   "tag": "BOM RITMO",
-   "title": "Semana 4 (22–23/jun): ROAS 4.2x e 14 vendas em 2 dias",
-   "body": "Dias 22–23/jun: R$2,367 faturados com R$569 investidos. CPA R$41. Se mantiver o ritmo, semana completa estimada em ~R$8,284."
+   "icon": "star",
+   "tag": "MELHOR SEMANA",
+   "title": "Semana 4 (22–24/jun): ROAS 7.1x e CPA R$35 — performance crescente",
+   "body": "Os 3 dias de 22–24/jun já entregaram R$6,960 com R$974 investidos (ROAS 7.1x). CPA caiu de R$40 (S3) para R$35 — eficiência crescente. Sinal para aumentar orçamento gradualmente: +15–20% a cada 2–3 dias enquanto ROAS ≥ 4x."
   },
   {
    "level": "positivo",
    "icon": "star",
    "tag": "ESCALAR AGORA",
-   "title": "RE · Quente · Vídeos: ROAS 3.40x — candidata ao escalonamento",
-   "body": "R$1,467 investidos geraram R$4,988 (29 vendas) com ROAS 3.40x. Frequência ainda controlada. Aumentar 15-20% do orçamento a cada 2-3 dias enquanto ROAS ≥ 3x."
+   "title": "RE · Quente · Vídeos: ROAS 3.33x — candidata ao escalonamento",
+   "body": "R$1,544 investidos geraram R$5,135 (30 vendas) com ROAS 3.33x. Frequência ainda controlada. Aumentar 15-20% do orçamento a cada 2-3 dias enquanto ROAS ≥ 3x."
   },
   {
    "level": "atencao",
    "icon": "image",
    "tag": "SATURAÇÃO",
    "title": "Freq 1.85 em 'RE · Frio · Estáticos' — renovar criativos",
-   "body": "Com R$3,853 investidos e freq 1.85 (limiar ≥ 1.5), CTR tende a cair e CPM a subir. Preparar 3-5 novos criativos e substituir antes que a performance caia."
+   "body": "Com R$3,913 investidos e freq 1.85 (limiar ≥ 1.5), CTR tende a cair e CPM a subir. Preparar 3-5 novos criativos e substituir antes que a performance caia."
   },
   {
    "level": "info",
    "icon": "funnel",
    "tag": "PORTFÓLIO",
-   "title": "RE lidera: ROAS 3.51x vs PSI 0.00x — priorizar alocação no RE",
-   "body": "Regulando as Emoções gerou R$41,018 (229 vendas, ticket R$179) vs PSI08 R$335 (1 vendas, ticket R$335). Dado o ROAS superior do RE, concentrar escala no RE enquanto testa novas campanhas PSI."
+   "title": "RE lidera: ROAS 3.57x vs PSI 0.00x — priorizar alocação no RE",
+   "body": "Regulando as Emoções gerou R$43,067 (241 vendas, ticket R$179) vs PSI08 R$632 (2 vendas, ticket R$316). Dado o ROAS superior do RE, concentrar escala no RE enquanto testa novas campanhas PSI."
   },
   {
    "level": "positivo",
    "icon": "plus",
    "tag": "ORDER BUMP",
-   "title": "Order Bumps adicionam +23% ao faturamento — 99 compras complementares",
-   "body": "99 order bumps aceitos em 252 faturas (39.3% de adesão), adicionando R$11,376 ao faturamento."
+   "title": "Order Bumps adicionam +28% ao faturamento — 104 compras complementares",
+   "body": "104 order bumps aceitos em 266 faturas (39.1% de adesão), adicionando R$14,995 ao faturamento."
   },
   {
    "level": "atencao",
    "icon": "cart",
    "tag": "RECUPERAÇÃO",
-   "title": "157 carrinhos abandonados — R$30,927 em receita potencial",
-   "body": "Taxa de conversão do checkout: 63.2% (252 compras / 399 checkouts). Sequência de WhatsApp + e-mail em 1h-24h pode recuperar 15-30% dos leads."
+   "title": "161 carrinhos abandonados — R$32,826 em receita potencial",
+   "body": "Taxa de conversão do checkout: 63.8% (266 compras / 417 checkouts). Sequência de WhatsApp + e-mail em 1h-24h pode recuperar 15-30% dos leads."
   },
   {
    "level": "positivo",
@@ -26346,18 +26838,18 @@
    "level": "info",
    "icon": "profit",
    "tag": "MARGEM",
-   "title": "Margem líquida (após Hubla): 87.6% — R$43,474 de 252 vendas",
-   "body": "De R$49,641 faturados, R$43,474 chega líquido (margem 87.6%). Com R$11,670 em mídia, o lucro operacional é R$31,804 (ROI 273%). Para cada R$1 investido, retornam R$4.25."
+   "title": "Margem líquida (após Hubla): 87.9% — R$47,691 de 266 vendas",
+   "body": "De R$54,234 faturados, R$47,691 chega líquido (margem 87.9%). Com R$12,076 em mídia, o lucro operacional é R$35,615 (ROI 295%). Para cada R$1 investido, retornam R$4.49."
   }
  ],
  "fb_split": {
   "frio": {
-   "faturas": 127,
-   "fat": 22694.280000000002
+   "faturas": 132,
+   "fat": 23594.220000000005
   },
   "quente": {
-   "faturas": 29,
-   "fat": 5309.82
+   "faturas": 30,
+   "fat": 5456.82
   },
   "outros": {
    "faturas": 1,
@@ -26365,10 +26857,10 @@
   }
  },
  "_validation": {
-  "period_label": "01 a 23 de junho de 2026",
+  "period_label": "01 a 24 de junho de 2026",
   "period_start": "2026-06-01",
-  "period_end": "2026-06-23",
-  "generated_at": "2026-06-23 14:03:26",
+  "period_end": "2026-06-24",
+  "generated_at": "2026-06-24 09:35:24",
   "checks": [
    {
     "name": "Período cobre mês corrente",
@@ -26380,29 +26872,29 @@
    {
     "name": "Faturas RE (XLSX → JSON)",
     "ok": true,
-    "expected": 229,
-    "got": 229,
+    "expected": 241,
+    "got": 241,
     "critical": true
    },
    {
     "name": "Faturas PSI (XLSX → JSON)",
     "ok": true,
-    "expected": 1,
-    "got": 1,
+    "expected": 2,
+    "got": 2,
     "critical": true
    },
    {
     "name": "Faturamento RE bruto",
     "ok": true,
-    "expected": 41018.21,
-    "got": 41018.21,
+    "expected": 43067.06,
+    "got": 43067.06,
     "critical": true
    },
    {
     "name": "Faturamento PSI bruto",
     "ok": true,
-    "expected": 335.46,
-    "got": 335.46,
+    "expected": 632.46,
+    "got": 632.46,
     "critical": true
    },
    {
@@ -26415,13 +26907,13 @@
    {
     "name": "Soma daily[mês] == totals.fat",
     "ok": true,
-    "expected": 49640.78,
-    "got": 49640.78,
+    "expected": 54233.63,
+    "got": 54233.63,
     "critical": false
    }
   ],
   "warnings": [
-   "PSI tem 1 vendas mas spend=0. Confira se DADOS PSI08.csv tem dados do mês corrente."
+   "PSI tem 2 vendas mas spend=0. Confira se DADOS PSI08.csv tem dados do mês corrente."
   ]
  }
 }
