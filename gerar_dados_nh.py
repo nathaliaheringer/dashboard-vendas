@@ -509,6 +509,11 @@ day_fat_re=defaultdict(float); day_fat_psi=defaultdict(float)
 day_fat_re_c=defaultdict(int); day_fat_psi_c=defaultdict(int)
 day_units_re_d=defaultdict(int); day_units_psi_d=defaultdict(int)
 day_prod_fat_d=defaultdict(lambda: defaultdict(lambda: {'fat':0.0,'faturas':0,'units':0}))
+# Quebra por produto RESTRITA a cada funil (RE/PSI) — keyed pelo produto principal da
+# fatura. Soma == day_fat_re/day_fat_psi (mesma definição do card "Faturamento RE/PSI"
+# e "Vendas pagas"), garantindo que o donut "Receita por produto" bata com os KPIs.
+day_prod_re_d =defaultdict(lambda: defaultdict(lambda: {'fat':0.0,'faturas':0,'units':0}))
+day_prod_psi_d=defaultdict(lambda: defaultdict(lambda: {'fat':0.0,'faturas':0,'units':0}))
 prod_fat=defaultdict(float); prod_fat_c=defaultdict(int); prod_units_d=defaultdict(int)
 origins_map={k:{'faturas':0,'fat':0.0,'nh':0.0} for k in ('facebook ads','instagram','instagram_bio','instagram_stories','instagram_direct','whatsapp','sem origem','hotmart')}
 fb_split={k:{'faturas':0,'fat':0.0} for k in ('frio','quente','outros')}
@@ -617,6 +622,9 @@ for inv in invoices:
         re_count+=1; re_units+=inv['items']
         day_fat_re_c[d]+=1
         day_units_re_d[d]+=inv['items']
+        day_prod_re_d[d][p]['fat']+=tot
+        day_prod_re_d[d][p]['faturas']+=1
+        day_prod_re_d[d][p]['units']+=inv['items']
         if has_ob: re_ob+=1
         # OB product detail for RE
         if prod_is_re:
@@ -646,6 +654,9 @@ for inv in invoices:
         psi_count+=1; psi_units+=inv['items']
         day_fat_psi_c[d]+=1
         day_units_psi_d[d]+=inv['items']
+        day_prod_psi_d[d][p]['fat']+=tot
+        day_prod_psi_d[d][p]['faturas']+=1
+        day_prod_psi_d[d][p]['units']+=inv['items']
         if has_ob: psi_ob+=1
         # OB product detail for PSI
         if prod_is_psi:
@@ -929,6 +940,11 @@ for _entry in daily_arr:
     # Produtos individuais do dia (para "Receita por produto" funcionar por intervalo)
     _entry['prods_dia']  = [{"name":pn,"fat":r2(pv['fat']),"faturas":pv['faturas'],"units":pv['units']}
                             for pn,pv in sorted(day_prod_fat_d[_d].items(),key=lambda x:-x[1]['fat']) if pv['fat']>0]
+    # Quebra por produto restrita ao funil (donut "Receita por produto" filtrado por RE/PSI)
+    _entry['prods_dia_re']  = [{"name":pn,"fat":r2(pv['fat']),"faturas":pv['faturas'],"units":pv['units']}
+                               for pn,pv in sorted(day_prod_re_d[_d].items(),key=lambda x:-x[1]['fat']) if pv['fat']>0]
+    _entry['prods_dia_psi'] = [{"name":pn,"fat":r2(pv['fat']),"faturas":pv['faturas'],"units":pv['units']}
+                               for pn,pv in sorted(day_prod_psi_d[_d].items(),key=lambda x:-x[1]['fat']) if pv['fat']>0]
     # Campanhas Meta do dia (para Campanhas e Seguidores funcionarem por intervalo)
     _camp_day = defaultdict(lambda: {'spend':0.0,'imp':0,'reach':0})
     for _mr in meta_raw:
@@ -982,6 +998,8 @@ hist_by_date = defaultdict(lambda: {
     'ob_re':defaultdict(lambda: {'count':0,'val':0.0}),
     'ob_psi':defaultdict(lambda: {'count':0,'val':0.0}),
     'prods':defaultdict(lambda: {'fat':0.0,'faturas':0,'units':0}),
+    'prods_re':defaultdict(lambda: {'fat':0.0,'faturas':0,'units':0}),
+    'prods_psi':defaultdict(lambda: {'fat':0.0,'faturas':0,'units':0}),
 })
 
 # Precisa de avg_re/avg_psi para estimar valor de OB (recalcular no histórico)
@@ -1001,8 +1019,10 @@ for inv in hist_invoices:
     _is_psi = prod_is_psi or ob_is_psi
     if _is_re:
         _hd['fat_re']+=tot; _hd['faturas_re']+=1; _hd['units_re']+=inv['items']
+        _hd['prods_re'][p]['fat']+=tot; _hd['prods_re'][p]['faturas']+=1; _hd['prods_re'][p]['units']+=inv['items']
     if _is_psi:
         _hd['fat_psi']+=tot; _hd['faturas_psi']+=1; _hd['units_psi']+=inv['items']
+        _hd['prods_psi'][p]['fat']+=tot; _hd['prods_psi'][p]['faturas']+=1; _hd['prods_psi'][p]['units']+=inv['items']
     # Produto individual
     _hd['prods'][p]['fat']    += tot
     _hd['prods'][p]['faturas']+= 1
@@ -1098,6 +1118,10 @@ for date_str, h in sorted(hist_by_date.items()):
                          for k,v in sorted(h['ob_psi'].items(),key=lambda x:-x[1]['count']) if v['count']>0],
         "prods_dia":[{"name":pn,"fat":r2(pv['fat']),"faturas":pv['faturas'],"units":pv['units']}
                      for pn,pv in sorted(h['prods'].items(),key=lambda x:-x[1]['fat']) if pv['fat']>0],
+        "prods_dia_re":[{"name":pn,"fat":r2(pv['fat']),"faturas":pv['faturas'],"units":pv['units']}
+                        for pn,pv in sorted(h['prods_re'].items(),key=lambda x:-x[1]['fat']) if pv['fat']>0],
+        "prods_dia_psi":[{"name":pn,"fat":r2(pv['fat']),"faturas":pv['faturas'],"units":pv['units']}
+                         for pn,pv in sorted(h['prods_psi'].items(),key=lambda x:-x[1]['fat']) if pv['fat']>0],
         "camps_dia":[{"name":mr['campaign'],"spend":r2(mr['spend']),
                       "impressions":r0(mr['impressions']),"reach":r0(mr['reach'])}
                      for mr in meta_raw if mr['date']==date_str],

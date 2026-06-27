@@ -1067,7 +1067,26 @@ function renderComposicaoInline(){
 function renderProdDonutInline(){
  var pd=periodDays();
  var items,tot,cols;
- if(pd.d0!=null){
+ if(viewProd==='re'||viewProd==='psi'){
+  /* Funil RE/PSI: agrega a quebra por produto RESTRITA ao funil (prods_dia_re/psi)
+     do daily filtrado — vale para período e mês completo. A soma bate exatamente
+     com o card "Faturamento RE/PSI" e com o total de "Vendas pagas" do funil. */
+  var pkeyF=viewProd==='re'?'prods_dia_re':'prods_dia_psi';
+  var filteredF=DATA.daily.filter(function(d){return d.date>=pd.from_date&&d.date<=pd.to_date;});
+  var prodMapF={};
+  filteredF.forEach(function(d){
+   (d[pkeyF]||[]).forEach(function(p){
+    if(!prodMapF[p.name])prodMapF[p.name]={fat:0,faturas:0};
+    prodMapF[p.name].fat+=p.fat;
+    prodMapF[p.name].faturas+=(p.faturas||0);
+   });
+  });
+  items=Object.keys(prodMapF).sort(function(a,b){return prodMapF[b].fat-prodMapF[a].fat;})
+                             .map(function(n){return {name:n.replace('Curso Psi:','Curso PSI'),fat:prodMapF[n].fat,faturas:prodMapF[n].faturas};});
+  tot=items.reduce(function(a,p){return a+p.fat;},0);
+  var rnF=document.getElementById('recNote2');
+  if(rnF)rnF.style.display='none';
+ }else if(pd.d0!=null){
   /* Período ativo: agrega prods_dia (produto individual) do daily filtrado */
   var filtered=DATA.daily.filter(function(d){return d.date>=pd.from_date&&d.date<=pd.to_date;});
   var prodMap={};
@@ -1112,6 +1131,9 @@ function renderProdDonutInline(){
  cols=DONUT_P.slice(0,items.length);
  makeDonut('cProd2',items.map(function(i){return i.name;}),items.map(function(i){return i.fat;}),cols);
  dlist('prodList2',items,cols,tot);
+ /* Rótulo do centro coerente com o que o donut mostra (funil ou consolidado) */
+ var dl=document.getElementById('prodDonutLabel');
+ if(dl)dl.textContent=(pd.d0!=null)?'no período':(items.length+' produto'+(items.length>1?'s':''));
 }
 function renderChanDonutInline(agg){
  var useAgg=agg&&agg.origins&&agg.origins.length>0;
