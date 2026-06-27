@@ -222,6 +222,62 @@ for row in ws.iter_rows(min_row=2, values_only=True):
         invoices.append(_inv)
 print(f"[Hubla] {len(invoices)} faturas no mês corrente | {len(invoices_hist)} faturas no histórico")
 
+# ── Faturamento = "Valor do produto" (inv['fat']), SEM juros de parcelamento ──
+# Os juros de parcelamento (Valor total − Valor do produto) ficam com a Hubla,
+# não com a NH; por isso a receita parte sempre do Valor do produto.
+#
+# Catálogo de preços unitários, para decompor faturas-bundle no donut por funil.
+# Cada item recebe seu preço de tabela; o principal (RE/PSI) absorve eventual
+# desconto/resíduo. Preços derivados da PRÓPRIA base (não estimados): venda
+# avulsa (1 item) dá o preço direto; produtos que só existem como order bump
+# (ex.: Recursos, Mapa — 0 vendas avulsas) saem por álgebra de bundle.
+from collections import Counter as _Counter
+def _items_of(inv):
+    nm = [inv['prod']] + [x.strip() for x in (inv['ob'] or '').split(',')
+                          if x.strip() and x.strip().lower() not in ('none','')]
+    return [n for n in nm if n]
+def build_unit_prices(invs):
+    price = {}
+    solo = defaultdict(_Counter)
+    for inv in invs:
+        nm = _items_of(inv)
+        if len(nm) == 1:
+            solo[nm[0]][round(inv['fat'],2)] += 1
+    for pn, c in solo.items():
+        price[pn] = c.most_common(1)[0][0]
+    for _ in range(8):  # resolve bundles com exatamente 1 desconhecido (iterativo)
+        cand = defaultdict(_Counter)
+        for inv in invs:
+            nm = _items_of(inv)
+            unknown = [n for n in nm if n not in price]
+            if len(unknown) == 1:
+                resid = round(inv['fat'] - sum(price[n] for n in nm if n in price), 2)
+                if resid > 0: cand[unknown[0]][resid] += 1
+        if not cand: break
+        for pn, c in cand.items():
+            price[pn] = c.most_common(1)[0][0]
+    return price
+UNIT_PRICE = build_unit_prices(invoices_hist)
+def _accum_items(bucket, inv, is_principal):
+    """Decompõe a fatura por ITEM no donut do funil: principal absorve resíduo;
+    cada bump entra pelo seu preço de tabela. Soma == inv['fat'] (Valor do produto)."""
+    nm = _items_of(inv)
+    bumps = [x for x in nm if not is_principal(x)]
+    princ = [x for x in nm if is_principal(x)]
+    pname = princ[0] if princ else (nm[0] if nm else '')
+    if not pname: return
+    bump_val = sum(UNIT_PRICE.get(b, 0.0) for b in bumps)
+    bucket[pname]['fat'] += inv['fat'] - bump_val
+    bucket[pname]['faturas'] += 1
+    bucket[pname]['units'] += 1
+    for b in bumps:
+        bucket[b]['fat'] += UNIT_PRICE.get(b, 0.0)
+        bucket[b]['faturas'] += 1
+        bucket[b]['units'] += 1
+print(f"[Catálogo] {len(UNIT_PRICE)} preços derivados | " +
+      ", ".join(f"{k.split('•')[0].strip()[:20]}=R${v:.0f}"
+                for k,v in sorted(UNIT_PRICE.items(),key=lambda x:-x[1])[:6]))
+
 # ── STEP 2: Carrinhos abandonados ───────────────────────────────
 # Auto-detecta o export-leads-*.csv mais recente
 _cart_candidates = sorted(glob.glob(f'{BASE_DATA}/export-leads-*.csv'),
@@ -557,10 +613,11 @@ avg_psi = sum(psi_solo)/len(psi_solo) if psi_solo else 297.0
 print(f"[Tickets] avg_re={avg_re:.2f}  avg_psi={avg_psi:.2f}")
 
 for inv in invoices:
-    p=inv['prod']; f=inv['fat']; nh=inv['nh']; tot=inv['total']; d=inv['day']
+    p=inv['prod']; f=inv['fat']; nh=inv['nh']; tot=inv['fat']; d=inv['day']
     ob_col=inv['ob']  # OB column value
-    # v8: use tot (Valor total inclui OBs) para fat global
-    total_fat+=tot; total_nh+=nh; total_total+=tot
+    # Faturamento = Valor do produto (tot=inv['fat'], SEM juros). total_total
+    # guarda o Valor total real só para o cálculo da taxa Hubla (hubla_fee).
+    total_fat+=tot; total_nh+=nh; total_total+=inv['total']
     total_faturas+=1; total_units+=inv['items']
     day_fat[d]+=tot; day_nh[d]+=nh; day_fat_c[d]+=1; day_units[d]+=inv['items']
     has_ob = bool(ob_col) or inv['items']>1
@@ -622,9 +679,7 @@ for inv in invoices:
         re_count+=1; re_units+=inv['items']
         day_fat_re_c[d]+=1
         day_units_re_d[d]+=inv['items']
-        day_prod_re_d[d][p]['fat']+=tot
-        day_prod_re_d[d][p]['faturas']+=1
-        day_prod_re_d[d][p]['units']+=inv['items']
+        _accum_items(day_prod_re_d[d], inv, is_re_prod)
         if has_ob: re_ob+=1
         # OB product detail for RE
         if prod_is_re:
@@ -654,9 +709,7 @@ for inv in invoices:
         psi_count+=1; psi_units+=inv['items']
         day_fat_psi_c[d]+=1
         day_units_psi_d[d]+=inv['items']
-        day_prod_psi_d[d][p]['fat']+=tot
-        day_prod_psi_d[d][p]['faturas']+=1
-        day_prod_psi_d[d][p]['units']+=inv['items']
+        _accum_items(day_prod_psi_d[d], inv, is_psi_prod)
         if has_ob: psi_ob+=1
         # OB product detail for PSI
         if prod_is_psi:
@@ -1009,9 +1062,9 @@ _avg_re_hist  = sum(_re_solo_hist)/len(_re_solo_hist)   if _re_solo_hist  else 1
 _avg_psi_hist = sum(_psi_solo_hist)/len(_psi_solo_hist) if _psi_solo_hist else 297.0
 
 for inv in hist_invoices:
-    p,ob_col,tot,nh,f = inv['prod'],inv['ob'],inv['total'],inv['nh'],inv['fat']
+    p,ob_col,tot,nh,f = inv['prod'],inv['ob'],inv['fat'],inv['nh'],inv['fat']
     _hd = hist_by_date[inv['date']]
-    _hd['fat']+=tot; _hd['nh']+=nh; _hd['total']+=tot
+    _hd['fat']+=tot; _hd['nh']+=nh; _hd['total']+=inv['total']
     _hd['faturas']+=1; _hd['units']+=inv['items']
     prod_is_re  = is_re_prod(p);  ob_is_re  = is_re_prod(ob_col)
     prod_is_psi = is_psi_prod(p); ob_is_psi = is_psi_prod(ob_col)
@@ -1019,10 +1072,10 @@ for inv in hist_invoices:
     _is_psi = prod_is_psi or ob_is_psi
     if _is_re:
         _hd['fat_re']+=tot; _hd['faturas_re']+=1; _hd['units_re']+=inv['items']
-        _hd['prods_re'][p]['fat']+=tot; _hd['prods_re'][p]['faturas']+=1; _hd['prods_re'][p]['units']+=inv['items']
+        _accum_items(_hd['prods_re'], inv, is_re_prod)
     if _is_psi:
         _hd['fat_psi']+=tot; _hd['faturas_psi']+=1; _hd['units_psi']+=inv['items']
-        _hd['prods_psi'][p]['fat']+=tot; _hd['prods_psi'][p]['faturas']+=1; _hd['prods_psi'][p]['units']+=inv['items']
+        _accum_items(_hd['prods_psi'], inv, is_psi_prod)
     # Produto individual
     _hd['prods'][p]['fat']    += tot
     _hd['prods'][p]['faturas']+= 1
@@ -1593,9 +1646,9 @@ vcheck(f"Faturas RE (XLSX → JSON)", re_count == hubla_re,
 vcheck(f"Faturas PSI (XLSX → JSON)", psi_count == hubla_psi,
        expected=hubla_psi, got=psi_count, critical=True)
 
-# 3. Faturamento RE/PSI bate com soma de Valor total das invoices
-hubla_re_fat  = round(sum(i['total'] for i in invoices if is_re_prod(i['prod']) or is_re_prod(i['ob'])), 2)
-hubla_psi_fat = round(sum(i['total'] for i in invoices if is_psi_prod(i['prod']) or is_psi_prod(i['ob'])), 2)
+# 3. Faturamento RE/PSI bate com soma do Valor do produto das invoices (sem juros)
+hubla_re_fat  = round(sum(i['fat'] for i in invoices if is_re_prod(i['prod']) or is_re_prod(i['ob'])), 2)
+hubla_psi_fat = round(sum(i['fat'] for i in invoices if is_psi_prod(i['prod']) or is_psi_prod(i['ob'])), 2)
 vcheck(f"Faturamento RE bruto", abs(round(re_fat,2) - hubla_re_fat) < 0.01,
        expected=hubla_re_fat, got=round(re_fat,2), critical=True)
 vcheck(f"Faturamento PSI bruto", abs(round(psi_fat,2) - hubla_psi_fat) < 0.01,
