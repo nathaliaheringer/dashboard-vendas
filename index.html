@@ -1181,9 +1181,18 @@ function renderRegionInline(agg){
  });
  var rb2=document.getElementById('regBars2');
  if(rb2)rb2.innerHTML=h;
- var semInfo=DATA.regiao_sem_info!=null?DATA.regiao_sem_info:0;
+ /* Nota "sem endereço": no funil/período usa a contagem do próprio agg; senão, totais globais */
+ var semInfo,totReg;
+ if(agg&&agg.regioes){
+  var semR=agg.regioes.filter(function(r){return r.name==='Não informado';})[0];
+  semInfo=semR?semR.faturas:0;
+  totReg=agg.regioes.reduce(function(s,r){return s+r.faturas;},0);
+ }else{
+  semInfo=DATA.regiao_sem_info!=null?DATA.regiao_sem_info:0;
+  totReg=DATA.totals.faturas;
+ }
  var rs2=document.getElementById('regSub2');
- if(rs2)rs2.innerHTML='Faturamento por macrorregião — '+semInfo+' de '+DATA.totals.faturas+' vendas sem endereço registrado na Hubla.';
+ if(rs2)rs2.innerHTML='Faturamento por macrorregião — '+semInfo+' de '+totReg+' vendas sem endereço registrado na Hubla.';
  setTimeout(function(){
   document.querySelectorAll('#regBars2 .rb-fill').forEach(function(f){f.style.width=f.dataset.w+'%';});
  },200);
@@ -1309,7 +1318,7 @@ function renderObChartsInline(allObNames,shortNames,reData,psiData){
      var ob=reData.ob_detail.filter(function(x){return x.name===n;})[0];
      return ob?ob.count:0;
     });
-    revDatasets.push({label:'RE',data:reQtys,backgroundColor:RE_COL+'CC',borderRadius:4,maxBarThickness:28});
+    revDatasets.push({label:'RE',data:reQtys,backgroundColor:RE_COL,borderRadius:4,maxBarThickness:28});
    }
   }
   if(viewProd==='all'||viewProd==='psi'){
@@ -1318,7 +1327,7 @@ function renderObChartsInline(allObNames,shortNames,reData,psiData){
      var ob=psiData.ob_detail.filter(function(x){return x.name===n;})[0];
      return ob?ob.count:0;
     });
-    revDatasets.push({label:'PSI 0-8',data:psiQtys,backgroundColor:PSI_COL+'CC',borderRadius:4,maxBarThickness:28});
+    revDatasets.push({label:'PSI 0-8',data:psiQtys,backgroundColor:PSI_COL,borderRadius:4,maxBarThickness:28});
    }
   }
   charts.cObRevInline=new Chart(cvRev.getContext('2d'),{type:'bar',
@@ -1358,8 +1367,7 @@ function renderObChartsInline(allObNames,shortNames,reData,psiData){
     reConvCounts.push(reTot);
     reRates.push(Math.round(reTot/reData.faturas*1000)/10);
     convDatasets.push({label:'RE',data:reRates,
-     backgroundColor:reRates.map(function(v,i){return i===reRates.length-1?RE_COL:RE_COL+'99';}),
-     borderRadius:4,maxBarThickness:40});
+     backgroundColor:RE_COL,borderRadius:4,maxBarThickness:40});
    }
   }
   if(viewProd==='all'||viewProd==='psi'){
@@ -1373,8 +1381,7 @@ function renderObChartsInline(allObNames,shortNames,reData,psiData){
     psiConvCounts.push(psiTot);
     psiRates.push(Math.round(psiTot/psiData.faturas*1000)/10);
     convDatasets.push({label:'PSI 0-8',data:psiRates,
-     backgroundColor:psiRates.map(function(v,i){return i===psiRates.length-1?PSI_COL:PSI_COL+'99';}),
-     borderRadius:4,maxBarThickness:40});
+     backgroundColor:PSI_COL,borderRadius:4,maxBarThickness:40});
    }
   }
   charts.cObConvInline=new Chart(cvConv.getContext('2d'),{type:'bar',
@@ -1401,12 +1408,17 @@ function renderObChartsInline(allObNames,shortNames,reData,psiData){
 /* Agrega os campos diários (origins, regioes, pay_dist, parc_dist, ob_detail, funil)
    para o intervalo [pd.d0, pd.d1]. Retorna null se pd.d0 == null (mês completo). */
 function getPeriodDailyAgg(pd){
- if(!pd||pd.d0==null)return null;
+ if(!pd)return null;
+ /* Sufixo do funil: '' (consolidado), '_re' ou '_psi'. No funil, canal/região/
+    pagamento/parcelamento são agregados das versões POR FUNIL do daily, valendo
+    para período E mês completo. No consolidado mês completo, mantém null (usa totais globais). */
+ var fun=(viewProd==='re')?'_re':(viewProd==='psi')?'_psi':'';
+ if(pd.d0==null && !fun)return null;
  var daily=DATA.daily.filter(function(d){return d.date>=pd.from_date&&d.date<=pd.to_date;});
  /* origins */
  var origMap={};
  daily.forEach(function(d){
-  (d.origins||[]).forEach(function(o){
+  (d['origins'+fun]||[]).forEach(function(o){
    if(!origMap[o.name])origMap[o.name]={fat:0,faturas:0};
    origMap[o.name].fat+=o.fat; origMap[o.name].faturas+=o.faturas;
   });
@@ -1414,25 +1426,25 @@ function getPeriodDailyAgg(pd){
  /* fb_split */
  var fbSp={frio:{fat:0,faturas:0},quente:{fat:0,faturas:0},outros:{fat:0,faturas:0}};
  daily.forEach(function(d){
-  if(!d.fb_split)return;
+  var fb=d['fb_split'+fun]; if(!fb)return;
   ['frio','quente','outros'].forEach(function(k){
-   if(d.fb_split[k]){fbSp[k].fat+=d.fb_split[k].fat||0;fbSp[k].faturas+=d.fb_split[k].faturas||0;}
+   if(fb[k]){fbSp[k].fat+=fb[k].fat||0;fbSp[k].faturas+=fb[k].faturas||0;}
   });
  });
  /* regioes */
  var regMap={};
  daily.forEach(function(d){
-  (d.regioes||[]).forEach(function(r){
+  (d['regioes'+fun]||[]).forEach(function(r){
    if(!regMap[r.name])regMap[r.name]={fat:0,faturas:0};
    regMap[r.name].fat+=r.fat; regMap[r.name].faturas+=r.faturas;
   });
  });
  /* pay_dist */
  var payMap={};
- daily.forEach(function(d){(d.pay_dist||[]).forEach(function(p){payMap[p.method]=(payMap[p.method]||0)+p.count;});});
+ daily.forEach(function(d){(d['pay_dist'+fun]||[]).forEach(function(p){payMap[p.method]=(payMap[p.method]||0)+p.count;});});
  /* parc_dist */
  var parcMap={};
- daily.forEach(function(d){(d.parc_dist||[]).forEach(function(p){parcMap[p.n]=(parcMap[p.n]||0)+p.count;});});
+ daily.forEach(function(d){(d['parc_dist'+fun]||[]).forEach(function(p){parcMap[p.n]=(parcMap[p.n]||0)+p.count;});});
  /* ob_detail per product */
  var obReMap={},obPsiMap={};
  daily.forEach(function(d){

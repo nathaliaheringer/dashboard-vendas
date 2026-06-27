@@ -601,6 +601,19 @@ day_fbsp_d   = defaultdict(lambda: {'frio':{'fat':0.0,'faturas':0},'quente':{'fa
 day_reg_d    = defaultdict(lambda: defaultdict(lambda: {'fat':0.0,'faturas':0}))
 day_pay_d    = defaultdict(lambda: defaultdict(int))
 day_parc_d   = defaultdict(lambda: defaultdict(int))
+# Versões por FUNIL (RE/PSI) — para canal de venda, região, pagamento e
+# parcelamento respeitarem o filtro de funil no dashboard (período E mês completo).
+def _fbsp0(): return {'frio':{'fat':0.0,'faturas':0},'quente':{'fat':0.0,'faturas':0},'outros':{'fat':0.0,'faturas':0}}
+day_orig_re_d = defaultdict(lambda: defaultdict(lambda: {'fat':0.0,'faturas':0}))
+day_orig_psi_d= defaultdict(lambda: defaultdict(lambda: {'fat':0.0,'faturas':0}))
+day_fbsp_re_d = defaultdict(_fbsp0)
+day_fbsp_psi_d= defaultdict(_fbsp0)
+day_reg_re_d  = defaultdict(lambda: defaultdict(lambda: {'fat':0.0,'faturas':0}))
+day_reg_psi_d = defaultdict(lambda: defaultdict(lambda: {'fat':0.0,'faturas':0}))
+day_pay_re_d  = defaultdict(lambda: defaultdict(int))
+day_pay_psi_d = defaultdict(lambda: defaultdict(int))
+day_parc_re_d = defaultdict(lambda: defaultdict(int))
+day_parc_psi_d= defaultdict(lambda: defaultdict(int))
 day_ob_re_d  = defaultdict(lambda: defaultdict(lambda: {'count':0,'val':0.0}))
 day_ob_psi_d = defaultdict(lambda: defaultdict(lambda: {'count':0,'val':0.0}))
 
@@ -680,6 +693,12 @@ for inv in invoices:
         day_fat_re_c[d]+=1
         day_units_re_d[d]+=inv['items']
         _accum_items(day_prod_re_d[d], inv, is_re_prod)
+        # Canal/região/pagamento/parcelamento restritos ao funil RE
+        day_orig_re_d[d][orig]['fat']+=tot; day_orig_re_d[d][orig]['faturas']+=1
+        if fk: day_fbsp_re_d[d][fk]['fat']+=tot; day_fbsp_re_d[d][fk]['faturas']+=1
+        day_reg_re_d[d][reg]['fat']+=tot; day_reg_re_d[d][reg]['faturas']+=1
+        day_pay_re_d[d][pm_key]+=1
+        if pm_key=='Cartão de Crédito': day_parc_re_d[d][inv.get('num_parcelas',1)]+=1
         if has_ob: re_ob+=1
         # OB product detail for RE
         if prod_is_re:
@@ -710,6 +729,12 @@ for inv in invoices:
         day_fat_psi_c[d]+=1
         day_units_psi_d[d]+=inv['items']
         _accum_items(day_prod_psi_d[d], inv, is_psi_prod)
+        # Canal/região/pagamento/parcelamento restritos ao funil PSI
+        day_orig_psi_d[d][orig]['fat']+=tot; day_orig_psi_d[d][orig]['faturas']+=1
+        if fk: day_fbsp_psi_d[d][fk]['fat']+=tot; day_fbsp_psi_d[d][fk]['faturas']+=1
+        day_reg_psi_d[d][reg]['fat']+=tot; day_reg_psi_d[d][reg]['faturas']+=1
+        day_pay_psi_d[d][pm_key]+=1
+        if pm_key=='Cartão de Crédito': day_parc_psi_d[d][inv.get('num_parcelas',1)]+=1
         if has_ob: psi_ob+=1
         # OB product detail for PSI
         if prod_is_psi:
@@ -982,6 +1007,13 @@ for c4 in campaigns_arr:
 
 # ── STEP 11: Enriquecer daily_arr ────────────────────────────────
 REG_ORDER = ['Sudeste','Sul','Nordeste','Centro-Oeste','Norte','Não informado']
+def _emit_orig(dd): return [{"name":ORIG_LABELS.get(k,k),"fat":r2(v['fat']),"faturas":v['faturas']}
+                            for k,v in dd.items() if v['fat']>0 or v['faturas']>0]
+def _emit_fb(dd):   return {k:{"fat":r2(v['fat']),"faturas":v['faturas']} for k,v in dd.items()}
+def _emit_reg(dd):  return [{"name":k,"fat":r2(dd.get(k,{}).get('fat',0)),"faturas":dd.get(k,{}).get('faturas',0)}
+                            for k in REG_ORDER if dd.get(k,{}).get('fat',0)>0]
+def _emit_pay(dd):  return [{"method":k,"count":v} for k,v in sorted(dd.items(),key=lambda x:-x[1]) if v>0]
+def _emit_parc(dd): return [{"n":k,"count":v} for k,v in sorted(dd.items()) if v>0]
 for _entry in daily_arr:
     _d = _entry['day']
     _entry['spend_re']   = r2(sum(r['spend'] for r in meta_raw_cur if r['campaign'] in RE_CAMPS  and int(r['date'][8:10])==_d))
@@ -1027,6 +1059,12 @@ for _entry in daily_arr:
     # Pagamento e parcelamento
     _entry['pay_dist']  = [{"method":k,"count":v} for k,v in sorted(day_pay_d[_d].items(),key=lambda x:-x[1]) if v>0]
     _entry['parc_dist'] = [{"n":k,"count":v} for k,v in sorted(day_parc_d[_d].items()) if v>0]
+    # Versões por funil (canal/região/pagamento/parcelamento respeitam o filtro RE/PSI)
+    _entry['origins_re']   = _emit_orig(day_orig_re_d[_d]);  _entry['origins_psi']   = _emit_orig(day_orig_psi_d[_d])
+    _entry['fb_split_re']  = _emit_fb(day_fbsp_re_d[_d]);    _entry['fb_split_psi']  = _emit_fb(day_fbsp_psi_d[_d])
+    _entry['regioes_re']   = _emit_reg(day_reg_re_d[_d]);    _entry['regioes_psi']   = _emit_reg(day_reg_psi_d[_d])
+    _entry['pay_dist_re']  = _emit_pay(day_pay_re_d[_d]);    _entry['pay_dist_psi']  = _emit_pay(day_pay_psi_d[_d])
+    _entry['parc_dist_re'] = _emit_parc(day_parc_re_d[_d]);  _entry['parc_dist_psi'] = _emit_parc(day_parc_psi_d[_d])
     # OBs por produto
     _entry['ob_detail_re']  = [{"name":k,"count":v['count'],"val":r2(v['val'])}
                                for k,v in sorted(day_ob_re_d[_d].items(),key=lambda x:-x[1]['count']) if v['count']>0]
@@ -1053,6 +1091,14 @@ hist_by_date = defaultdict(lambda: {
     'prods':defaultdict(lambda: {'fat':0.0,'faturas':0,'units':0}),
     'prods_re':defaultdict(lambda: {'fat':0.0,'faturas':0,'units':0}),
     'prods_psi':defaultdict(lambda: {'fat':0.0,'faturas':0,'units':0}),
+    'origins_re':defaultdict(lambda: {'fat':0.0,'faturas':0}),
+    'origins_psi':defaultdict(lambda: {'fat':0.0,'faturas':0}),
+    'fb_split_re':{'frio':{'fat':0.0,'faturas':0},'quente':{'fat':0.0,'faturas':0},'outros':{'fat':0.0,'faturas':0}},
+    'fb_split_psi':{'frio':{'fat':0.0,'faturas':0},'quente':{'fat':0.0,'faturas':0},'outros':{'fat':0.0,'faturas':0}},
+    'regioes_re':defaultdict(lambda: {'fat':0.0,'faturas':0}),
+    'regioes_psi':defaultdict(lambda: {'fat':0.0,'faturas':0}),
+    'pay_dist_re':defaultdict(int),  'pay_dist_psi':defaultdict(int),
+    'parc_dist_re':defaultdict(int), 'parc_dist_psi':defaultdict(int),
 })
 
 # Precisa de avg_re/avg_psi para estimar valor de OB (recalcular no histórico)
@@ -1129,6 +1175,19 @@ for inv in hist_invoices:
     _hd['pay_dist'][pm]+=1
     if pm=='Cartão de Crédito':
         _hd['parc_dist'][inv['num_parcelas']]+=1
+    # Versões por funil (canal/região/pagamento/parcelamento)
+    if _is_re:
+        _hd['origins_re'][orig]['fat']+=tot; _hd['origins_re'][orig]['faturas']+=1
+        if orig=='facebook ads': _hd['fb_split_re'][fk]['fat']+=tot; _hd['fb_split_re'][fk]['faturas']+=1
+        _hd['regioes_re'][reg]['fat']+=tot; _hd['regioes_re'][reg]['faturas']+=1
+        _hd['pay_dist_re'][pm]+=1
+        if pm=='Cartão de Crédito': _hd['parc_dist_re'][inv['num_parcelas']]+=1
+    if _is_psi:
+        _hd['origins_psi'][orig]['fat']+=tot; _hd['origins_psi'][orig]['faturas']+=1
+        if orig=='facebook ads': _hd['fb_split_psi'][fk]['fat']+=tot; _hd['fb_split_psi'][fk]['faturas']+=1
+        _hd['regioes_psi'][reg]['fat']+=tot; _hd['regioes_psi'][reg]['faturas']+=1
+        _hd['pay_dist_psi'][pm]+=1
+        if pm=='Cartão de Crédito': _hd['parc_dist_psi'][inv['num_parcelas']]+=1
 
 # Garantir que TODOS os dias com qualquer dado (vendas OU spend Meta) estejam em hist_by_date
 for _iso in meta_by_date_iso:
@@ -1175,6 +1234,11 @@ for date_str, h in sorted(hist_by_date.items()):
                         for pn,pv in sorted(h['prods_re'].items(),key=lambda x:-x[1]['fat']) if pv['fat']>0],
         "prods_dia_psi":[{"name":pn,"fat":r2(pv['fat']),"faturas":pv['faturas'],"units":pv['units']}
                          for pn,pv in sorted(h['prods_psi'].items(),key=lambda x:-x[1]['fat']) if pv['fat']>0],
+        "origins_re":_emit_orig(h['origins_re']),   "origins_psi":_emit_orig(h['origins_psi']),
+        "fb_split_re":_emit_fb(h['fb_split_re']),    "fb_split_psi":_emit_fb(h['fb_split_psi']),
+        "regioes_re":_emit_reg(h['regioes_re']),     "regioes_psi":_emit_reg(h['regioes_psi']),
+        "pay_dist_re":_emit_pay(h['pay_dist_re']),   "pay_dist_psi":_emit_pay(h['pay_dist_psi']),
+        "parc_dist_re":_emit_parc(h['parc_dist_re']),"parc_dist_psi":_emit_parc(h['parc_dist_psi']),
         "camps_dia":[{"name":mr['campaign'],"spend":r2(mr['spend']),
                       "impressions":r0(mr['impressions']),"reach":r0(mr['reach'])}
                      for mr in meta_raw if mr['date']==date_str],
