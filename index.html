@@ -1503,12 +1503,15 @@ function getProductPeriodData(prodKey){
    var wClicks=wDays.reduce(function(a,d){return a+(d[cKey]||0);},0);
    var wLpv   =wDays.reduce(function(a,d){return a+(d[lKey]||0);},0);
    var wImp   =wDays.reduce(function(a,d){return a+(d[iKey]||0);},0);
-   var fcF=pp.faturas>0?faturas/pp.faturas:0;
+   /* Checkouts iniciados = compras (pagas) + carrinhos abandonados REAIS do
+      período (por dia/funil na Hubla), não estimativa proporcional ao spend. */
+   var wAbKey=prodKey==='RE'?'abandoned_re':'abandoned_psi';
+   var wAb   =wDays.reduce(function(a,d){return a+(d[wAbKey]||0);},0);
    return Object.assign({},pp,{
     spend:spend,fat:fat,nh:pw.nh!=null?pw.nh:r2(fat*nhRatio),
     faturas:faturas,lucro:pw.lucro!=null?pw.lucro:r2((pw.nh||fat*nhRatio)-spend),
     impressions:wImp,funnel_clicks:wClicks,funnel_lpv:wLpv,
-    checkouts:Math.round(pp.checkouts*fcF),compras:faturas,_scaled:false
+    checkouts:faturas+wAb,compras:faturas,_scaled:false
    });
   }
  }
@@ -1526,12 +1529,16 @@ function getProductPeriodData(prodKey){
  var filtClicks=daily.reduce(function(a,d){return a+(d[cKey]||0);},0);
  var filtLpv   =daily.reduce(function(a,d){return a+(d[lKey]||0);},0);
  var filtImp   =daily.reduce(function(a,d){return a+(d[iKey]||0);},0);
- var fcF=pp.faturas>0?faturas/pp.faturas:0;
+ /* Checkouts iniciados = compras pagas + carrinhos abandonados REAIS do período
+    (por dia/funil na Hubla). Antes escalava pp.checkouts pela razão de faturas, o
+    que estourava ao filtrar um mês diferente do corrente (pp = mês corrente). */
+ var abKey =prodKey==='RE'?'abandoned_re':'abandoned_psi';
+ var filtAb =daily.reduce(function(a,d){return a+(d[abKey]||0);},0);
  var nh=r2(fat*nhRatio);
  return Object.assign({},pp,{
   spend:r2(spend),fat:r2(fat),nh:nh,faturas:faturas,lucro:r2(nh-spend),
   impressions:filtImp,funnel_clicks:filtClicks,funnel_lpv:filtLpv,
-  checkouts:Math.round(pp.checkouts*fcF),compras:faturas,_scaled:false
+  checkouts:faturas+filtAb,compras:faturas,_scaled:false
  });
 }
 

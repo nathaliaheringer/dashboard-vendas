@@ -300,31 +300,49 @@ print(f"[Catálogo] {len(UNIT_PRICE)} preços derivados | " +
                 for k,v in sorted(UNIT_PRICE.items(),key=lambda x:-x[1])[:6]))
 
 # ── STEP 2: Carrinhos abandonados ───────────────────────────────
-# Auto-detecta o export-leads-*.csv mais recente
-_cart_candidates = sorted(glob.glob(f'{BASE_DATA}/export-leads-*.csv'),
-                          key=lambda p: os.path.getmtime(p), reverse=True)
-if not _cart_candidates:
+# Lê TODOS os export-leads-*.csv e bucketiza cada carrinho pela DATA REAL de
+# criação ('Criado em') + funil. Cada export cobre ~30 dias; juntos preservam o
+# histórico (ex.: o export de 01/jul contém os carrinhos criados em junho). Antes
+# lia só o mais recente e contava TODOS os carrinhos como do mês corrente — o que
+# inflava o "checkouts iniciados" do funil ao filtrar um mês passado. Dedup por
+# (email/celular, produto, data) evita contagem dupla entre exports sobrepostos.
+_cart_files = sorted(glob.glob(f'{BASE_DATA}/export-leads-*.csv'),
+                     key=lambda p: os.path.getmtime(p))
+if not _cart_files:
     raise SystemExit(f"❌ Nenhum export-leads-*.csv encontrado em {BASE_DATA}")
-CART_FILE = _cart_candidates[0]
-print(f"[Carrinhos] CSV: {os.path.basename(CART_FILE)}")
 carts = []
+ab_by_iso     = defaultdict(int)   # total de carrinhos por dia (qualquer produto)
+ab_re_by_iso  = defaultdict(int)   # carrinhos RE por dia
+ab_psi_by_iso = defaultdict(int)   # carrinhos PSI por dia
+_seen_cart = set()
+for _cf in _cart_files:
+    with open(_cf, encoding='utf-8') as f:
+        for row in csv.DictReader(f, delimiter=';'):
+            prod = (row.get('Produto') or '').strip().strip('"')
+            src  = dedup((row.get('UTM Origem') or '').strip()).lower().replace(' ','')
+            camp = dedup((row.get('UTM Campanha') or '').strip())
+            date_s = (row.get('Criado em') or '').strip()
+            _idkey = ((row.get('E-mail') or row.get('Celular') or '').strip().lower(), prod, date_s)
+            if _idkey in _seen_cart: continue
+            _seen_cart.add(_idkey)
+            dt2 = parse_dt(date_s)
+            iso = dt2.strftime('%Y-%m-%d') if dt2 else ''
+            carts.append(dict(prod=prod, src=src, camp=camp, iso=iso))
+            if iso and HIST_START <= dt2.replace(hour=0,minute=0,second=0) <= HIST_END:
+                ab_by_iso[iso] += 1
+                if is_re_prod(prod):  ab_re_by_iso[iso]  += 1
+                if is_psi_prod(prod): ab_psi_by_iso[iso] += 1
+# Agregados do MÊS CORRENTE (carrinhos CRIADOS no mês) p/ products_paid e totais
+_cur_ym = f"{PERIOD_YEAR}-{PERIOD_MONTH:02d}"
 cart_by_day = defaultdict(int)
-with open(CART_FILE, encoding='utf-8') as f:
-    reader = csv.DictReader(f, delimiter=';')
-    for row in reader:
-        prod = (row.get('Produto') or '').strip().strip('"')
-        src  = dedup((row.get('UTM Origem') or '').strip()).lower().replace(' ','')
-        camp = dedup((row.get('UTM Campanha') or '').strip())
-        date_s = (row.get('Criado em') or '').strip()
-        carts.append(dict(prod=prod, src=src, camp=camp))
-        dt2 = parse_dt(date_s)
-        if dt2 and PERIOD_START <= dt2.replace(hour=0,minute=0,second=0) <= PERIOD_END:
-            cart_by_day[dt2.day] += 1
-ab_re     = sum(1 for c in carts if is_re_prod(c['prod']))
-ab_psi    = sum(1 for c in carts if is_psi_prod(c['prod']))
-ab_re_fb  = sum(1 for c in carts if is_re_prod(c['prod']) and 'facebook' in c['src'])
-ab_psi_fb = sum(1 for c in carts if is_psi_prod(c['prod']) and 'facebook' in c['src'])
-print(f"[Carrinhos] {len(carts)} | RE:{ab_re}(FB:{ab_re_fb}), PSI:{ab_psi}(FB:{ab_psi_fb})")
+for _iso,_c in ab_by_iso.items():
+    if _iso[:7] == _cur_ym: cart_by_day[int(_iso[8:10])] += _c
+ab_re     = sum(v for k,v in ab_re_by_iso.items()  if k[:7]==_cur_ym)
+ab_psi    = sum(v for k,v in ab_psi_by_iso.items() if k[:7]==_cur_ym)
+ab_re_fb  = sum(1 for c in carts if c['iso'][:7]==_cur_ym and is_re_prod(c['prod'])  and 'facebook' in c['src'])
+ab_psi_fb = sum(1 for c in carts if c['iso'][:7]==_cur_ym and is_psi_prod(c['prod']) and 'facebook' in c['src'])
+print(f"[Carrinhos] {len(_cart_files)} arquivo(s), {len(carts)} carrinhos únicos | "
+      f"mês corrente RE:{ab_re}(FB:{ab_re_fb}), PSI:{ab_psi}(FB:{ab_psi_fb})")
 
 # ── STEP 2c: Hotmart CSV (produto PRO — assinatura) ──────────────
 # Detecta qualquer CSV em BASE_DATA com delimitador ';' e coluna 'Nome do Produtor'
@@ -989,13 +1007,15 @@ for w in weeks:
 daily_arr=[]
 for d in range(1, DAYS_ELAPSED+1):
     ab=day_ab[d]; fc=day_fat_c[d]
-    daily_arr.append({"day":d,"date":f"{PERIOD_YEAR}-{PERIOD_MONTH:02d}-{d:02d}",
+    _iso_cur=f"{PERIOD_YEAR}-{PERIOD_MONTH:02d}-{d:02d}"
+    daily_arr.append({"day":d,"date":_iso_cur,
         "spend":r2(meta_by_day[d]['spend']),
         "spend_sales":r2(meta_by_day[d]['spend_sales']),
         "impressions":meta_by_day[d]['imp'],
         "faturas":fc,"units":day_units[d],
         "fat":r2(day_fat[d]),"nh":r2(day_nh[d]),
         "abandoned":ab,"checkouts":fc+ab,
+        "abandoned_re":ab_re_by_iso.get(_iso_cur,0),"abandoned_psi":ab_psi_by_iso.get(_iso_cur,0),
         "fat_re":r2(day_fat_re[d]),"fat_psi":r2(day_fat_psi[d])})
 
 # ── STEP 10: Campaigns ────────────────────────────────────────────
@@ -1275,7 +1295,10 @@ for date_str, h in sorted(hist_by_date.items()):
         "impressions":r0(_mt['imp']),
         "faturas":h['faturas'], "units":h['units'],
         "fat":r2(h['fat']), "nh":r2(h['nh']),
-        "abandoned":0, "checkouts":h['faturas'],
+        "abandoned":ab_by_iso.get(date_str,0),
+        "checkouts":h['faturas']+ab_by_iso.get(date_str,0),
+        "abandoned_re":ab_re_by_iso.get(date_str,0),
+        "abandoned_psi":ab_psi_by_iso.get(date_str,0),
         "fat_re":r2(h['fat_re']), "fat_psi":r2(h['fat_psi']),
         "spend_re":r2(_mt['spend_re']), "spend_psi":r2(_mt['spend_psi']),
         "faturas_re":h['faturas_re'], "faturas_psi":h['faturas_psi'],
