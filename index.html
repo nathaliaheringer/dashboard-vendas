@@ -2228,14 +2228,15 @@ function buildCriativosSection(){
  var byAud=groupByPeriod('aud');
  function tblRows(g){
   var keys=Object.keys(g).sort(function(a,b){return g[b].spend-g[a].spend;});
-  var rows='<tr><th>Tipo</th><th>Invest.</th><th class="num">CPM</th><th class="num">ROAS</th><th class="num">Vendas</th></tr>';
+  var rows='<tr><th>Tipo</th><th>Invest.</th><th class="num">CPM</th><th class="num">Vendas</th><th class="num">Receita</th><th class="num">ROAS</th></tr>';
   keys.forEach(function(k){
    var r=g[k];
    var cpm=r.impressions>0?r2(r.spend/r.impressions*1000):0;
    var roas=r.spend>0?r2(r.fat/r.spend):0;
    rows+='<tr><td>'+k+'</td><td>'+brl0(r.spend)+'</td><td class="num">'+brl(cpm)+'</td>'+
-    '<td class="num" style="color:'+(roas>=2?'var(--good)':roas>=1?'var(--warn)':'var(--bad)')+';font-weight:700">'+nf2.format(roas)+'x</td>'+
-    '<td class="num">'+r.faturas+'</td></tr>';
+    '<td class="num">'+r.faturas+'</td>'+
+    '<td class="num">'+brl0(r.fat)+'</td>'+
+    '<td class="num" style="color:'+(roas>=2?'var(--good)':roas>=1?'var(--warn)':'var(--bad)')+';font-weight:700">'+nf2.format(roas)+'x</td></tr>';
   });
   return rows;
  }
@@ -2266,8 +2267,11 @@ function renderCampTbl(){
  var groups=[['RE','Regulando as Emoções'],['PSI','Curso PSI 0-8'],['INSTA','Campanha de Seguidores']];
  var body='<tbody>',TOT={impressions:0,faturas:0,fat:0,spend:0};
  var periodoLabel=(period==='all')?'mês completo':(typeof period==='object'?'intervalo personalizado':'semana selecionada');
+ /* Campanhas hist_only (ativas só em meses passados) aparecem ao filtrar um período,
+    mas NÃO no "Mês completo" (onde teriam números zerados do mês corrente). */
+ var baseCampaigns=DATA.campaigns.filter(function(c){return !(period==='all' && c.hist_only);});
  groups.forEach(function(g){
-  var cs=DATA.campaigns.filter(function(c){return c.prod===g[0];});
+  var cs=baseCampaigns.filter(function(c){return c.prod===g[0];});
   if(!cs.length)return;
   /* Calcular dados filtrados por período */
   var csData=cs.map(function(c){return {c:c,d:campDataForPeriod(c)};});
@@ -2306,12 +2310,12 @@ function renderCampTbl(){
     '<td style="color:'+roasc+';font-weight:700">'+(c.obj==='followers'?'—':nf2.format(cd.roas)+'x')+'</td></tr>';
   });
  });
- var nAtivas=DATA.campaigns.filter(function(c){return c.status==='ACTIVE';}).length;
+ var nAtivas=baseCampaigns.filter(function(c){return c.status==='ACTIVE';}).length;
  var totRoas=TOT.spend>0?TOT.fat/TOT.spend:0;
  var totCpa=TOT.faturas>0?TOT.spend/TOT.faturas:0;
- body+='<tr class="tot"><td>TOTAL · '+DATA.campaigns.length+' campanhas</td>'+
+ body+='<tr class="tot"><td>TOTAL · '+baseCampaigns.length+' campanhas</td>'+
   '<td style="text-align:left">—</td><td style="text-align:left">—</td>'+
-  '<td style="text-align:left">'+nAtivas+' de '+DATA.campaigns.length+'</td>'+
+  '<td style="text-align:left">'+nAtivas+' de '+baseCampaigns.length+'</td>'+
   '<td>'+brl0(TOT.spend)+'</td><td>'+num(TOT.impressions)+'</td><td>—</td><td>—</td>'+
   '<td>'+TOT.faturas+'</td><td>'+brl0(TOT.fat)+'</td>'+
   '<td>'+brl0(totCpa)+'</td><td>'+nf2.format(totRoas)+'x</td></tr></tbody>';

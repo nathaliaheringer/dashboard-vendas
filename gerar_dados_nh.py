@@ -913,6 +913,18 @@ for inv in invoices_hist:
         ad_day_hubla[key][inv['date']]['faturas'] += 1
         ad_day_hubla[key][inv['date']]['fat']     += inv['fat']
 
+# Atribuição por (campanha, data ISO) na janela histórica completa. Espelha
+# camp_day_hubla (que é chaveado por dia-do-mês, só p/ o mês corrente) mas com
+# chave ISO, p/ preencher fat/faturas no camps_dia dos meses passados. Sem isso,
+# ao filtrar um mês encerrado o front soma camps_dia sem vendas → ROAS/vendas
+# zerados na tabela de campanhas e na análise de criativos. Ver [[gerador-dados-nh]].
+camp_day_hubla_iso = defaultdict(lambda: defaultdict(lambda: {'faturas':0,'fat':0.0}))
+for inv in invoices_hist:
+    c3 = inv['camp']
+    if c3 in camp_hubla:
+        camp_day_hubla_iso[c3][inv['date']]['faturas'] += 1
+        camp_day_hubla_iso[c3][inv['date']]['fat']     += inv['fat']
+
 # ── STEP 8: Weeks ────────────────────────────────────────────────
 def build_week(wid,label,d0,d1):
     dr=range(d0,d1+1)
@@ -999,6 +1011,25 @@ campaigns_arr.append({
     "days":sorted(set(e['day'] for e in icd['daily'])),"faturas":0,"units":0,"fat":0,"nh":0,
     "cpa":None,"roas":0,"lucro":r2(-icd['spend']),
     "daily":sorted(icd['daily'],key=lambda x:x['day'])})
+
+# Campanhas SEM atividade no mês corrente mas COM atividade na janela histórica
+# (ex.: pausadas ao virar o mês). Emitidas com hist_only=True e números do mês
+# corrente zerados. O front só as inclui ao filtrar um período (usa camps_dia p/
+# ROAS/vendas reais); no "Mês completo" elas são ocultadas. Sem isso, ao filtrar
+# um mês encerrado a tabela de campanhas e a análise de criativos ficariam
+# INCOMPLETAS (faltando campanhas ativas só naquele mês). Ver [[gerador-dados-nh]].
+_emitted = {c4['name'] for c4 in campaigns_arr}
+_hist_active = set(r['campaign'] for r in meta_raw) | set(camp_day_hubla_iso.keys())
+for cname, mc in CAMP_META.items():
+    if cname in _emitted or cname not in _hist_active: continue
+    fid += 1
+    campaigns_arr.append({
+        "id":str(fid),"name":cname,"prod":mc['prod'],"aud":mc['aud'],
+        "creat":mc['creat'],"obj":mc['obj'],"status":mc['status'],
+        "spend":0,"impressions":0,"reach":0,"cpm":0,
+        "freq":r2(RE_FREQ.get(cname, PSI_FREQ.get(cname, 1.4))),
+        "days":[],"faturas":0,"units":0,"fat":0,"nh":0,
+        "cpa":None,"roas":0,"lucro":0,"daily":[],"hist_only":True})
 
 print("\nCampanhas (atribuição Hubla):")
 for c4 in campaigns_arr:
@@ -1240,7 +1271,9 @@ for date_str, h in sorted(hist_by_date.items()):
         "pay_dist_re":_emit_pay(h['pay_dist_re']),   "pay_dist_psi":_emit_pay(h['pay_dist_psi']),
         "parc_dist_re":_emit_parc(h['parc_dist_re']),"parc_dist_psi":_emit_parc(h['parc_dist_psi']),
         "camps_dia":[{"name":mr['campaign'],"spend":r2(mr['spend']),
-                      "impressions":r0(mr['impressions']),"reach":r0(mr['reach'])}
+                      "impressions":r0(mr['impressions']),"reach":r0(mr['reach']),
+                      "fat":r2(camp_day_hubla_iso.get(mr['campaign'],{}).get(date_str,{}).get('fat',0.0)),
+                      "faturas":camp_day_hubla_iso.get(mr['campaign'],{}).get(date_str,{}).get('faturas',0)}
                      for mr in meta_raw if mr['date']==date_str],
         "mes_corrente":False,
     })
