@@ -274,6 +274,27 @@ def _accum_items(bucket, inv, is_principal):
         bucket[b]['fat'] += UNIT_PRICE.get(b, 0.0)
         bucket[b]['faturas'] += 1
         bucket[b]['units'] += 1
+def _accum_items_all(bucket, inv):
+    """Decomposição do donut CONSOLIDADO: 1 principal por fatura escolhido por
+    prioridade RE > PSI > produto principal da Hubla (col14); cada order bump entra
+    pelo preço de tabela e o principal absorve o resíduo. Soma == inv['fat'].
+    Assim, no Consolidado, RE conta em TODA fatura onde aparece (= 308, igual ao
+    funil) e os order bumps (Mapa/Recursos) aparecem com suas vendas/receita reais.
+    Espelha o comportamento de _accum_items dos funis, mas com principal único."""
+    nm = _items_of(inv)
+    if not nm: return
+    princ = next((x for x in nm if is_re_prod(x)), None)
+    if princ is None: princ = next((x for x in nm if is_psi_prod(x)), None)
+    if princ is None: princ = nm[0]
+    bumps = list(nm); bumps.remove(princ)
+    bump_val = sum(UNIT_PRICE.get(b, 0.0) for b in bumps)
+    bucket[princ]['fat'] += inv['fat'] - bump_val
+    bucket[princ]['faturas'] += 1
+    bucket[princ]['units'] += 1
+    for b in bumps:
+        bucket[b]['fat'] += UNIT_PRICE.get(b, 0.0)
+        bucket[b]['faturas'] += 1
+        bucket[b]['units'] += 1
 print(f"[Catálogo] {len(UNIT_PRICE)} preços derivados | " +
       ", ".join(f"{k.split('•')[0].strip()[:20]}=R${v:.0f}"
                 for k,v in sorted(UNIT_PRICE.items(),key=lambda x:-x[1])[:6]))
@@ -570,6 +591,9 @@ day_prod_fat_d=defaultdict(lambda: defaultdict(lambda: {'fat':0.0,'faturas':0,'u
 # e "Vendas pagas"), garantindo que o donut "Receita por produto" bata com os KPIs.
 day_prod_re_d =defaultdict(lambda: defaultdict(lambda: {'fat':0.0,'faturas':0,'units':0}))
 day_prod_psi_d=defaultdict(lambda: defaultdict(lambda: {'fat':0.0,'faturas':0,'units':0}))
+# Quebra por produto do donut CONSOLIDADO decomposta (RE>PSI>principal, bumps por preço
+# de tabela) — para o Consolidado bater com os funis (RE=308) e mostrar order bumps.
+day_prod_all_d=defaultdict(lambda: defaultdict(lambda: {'fat':0.0,'faturas':0,'units':0}))
 prod_fat=defaultdict(float); prod_fat_c=defaultdict(int); prod_units_d=defaultdict(int)
 origins_map={k:{'faturas':0,'fat':0.0,'nh':0.0} for k in ('facebook ads','instagram','instagram_bio','instagram_stories','instagram_direct','whatsapp','sem origem','hotmart')}
 fb_split={k:{'faturas':0,'fat':0.0} for k in ('frio','quente','outros')}
@@ -666,6 +690,8 @@ for inv in invoices:
     day_prod_fat_d[d][p]['fat']    += tot
     day_prod_fat_d[d][p]['faturas']+= 1
     day_prod_fat_d[d][p]['units']  += inv['items']
+    # Consolidado decomposto (RE>PSI>principal; bumps pelo preço de tabela)
+    _accum_items_all(day_prod_all_d[d], inv)
     uf=inv['estado']; reg=REGION_MAP.get(uf,'Não informado') if uf else 'Não informado'
     reg_fat[reg]+=tot; reg_count[reg]+=1
     if uf: state_fat[uf]+=tot; state_count[uf]+=1
@@ -806,6 +832,8 @@ for _hi in hotmart_invoices:
     total_fat+=_f; total_nh+=_n; total_faturas+=1; total_units+=1
     # Produto → integrar direto em prod_fat
     prod_fat[_pn]+=_f; prod_fat_c[_pn]+=1; prod_units_d[_pn]+=1
+    # Consolidado decomposto diário: Hotmart entra como principal (sem order bump)
+    day_prod_all_d[_d][_pn]['fat']+=_f; day_prod_all_d[_d][_pn]['faturas']+=1; day_prod_all_d[_d][_pn]['units']+=1
     # Adicionar ao breakdown diário
     day_fat[_d]+=_f; day_nh[_d]+=_n; day_fat_c[_d]+=1; day_units[_d]+=1
     # Pagamento global
@@ -1056,6 +1084,9 @@ for _entry in daily_arr:
     # Produtos individuais do dia (para "Receita por produto" funcionar por intervalo)
     _entry['prods_dia']  = [{"name":pn,"fat":r2(pv['fat']),"faturas":pv['faturas'],"units":pv['units']}
                             for pn,pv in sorted(day_prod_fat_d[_d].items(),key=lambda x:-x[1]['fat']) if pv['fat']>0]
+    # Consolidado decomposto (RE/PSI como principal em toda fatura + order bumps)
+    _entry['prods_dia_all'] = [{"name":pn,"fat":r2(pv['fat']),"faturas":pv['faturas'],"units":pv['units']}
+                               for pn,pv in sorted(day_prod_all_d[_d].items(),key=lambda x:-x[1]['fat']) if pv['fat']>0]
     # Quebra por produto restrita ao funil (donut "Receita por produto" filtrado por RE/PSI)
     _entry['prods_dia_re']  = [{"name":pn,"fat":r2(pv['fat']),"faturas":pv['faturas'],"units":pv['units']}
                                for pn,pv in sorted(day_prod_re_d[_d].items(),key=lambda x:-x[1]['fat']) if pv['fat']>0]
@@ -1120,6 +1151,7 @@ hist_by_date = defaultdict(lambda: {
     'ob_re':defaultdict(lambda: {'count':0,'val':0.0}),
     'ob_psi':defaultdict(lambda: {'count':0,'val':0.0}),
     'prods':defaultdict(lambda: {'fat':0.0,'faturas':0,'units':0}),
+    'prods_all':defaultdict(lambda: {'fat':0.0,'faturas':0,'units':0}),
     'prods_re':defaultdict(lambda: {'fat':0.0,'faturas':0,'units':0}),
     'prods_psi':defaultdict(lambda: {'fat':0.0,'faturas':0,'units':0}),
     'origins_re':defaultdict(lambda: {'fat':0.0,'faturas':0}),
@@ -1157,6 +1189,8 @@ for inv in hist_invoices:
     _hd['prods'][p]['fat']    += tot
     _hd['prods'][p]['faturas']+= 1
     _hd['prods'][p]['units']  += inv['items']
+    # Consolidado decomposto (RE>PSI>principal; bumps pelo preço de tabela)
+    _accum_items_all(_hd['prods_all'], inv)
     # OB detail RE
     if _is_re:
         if prod_is_re:
@@ -1261,6 +1295,8 @@ for date_str, h in sorted(hist_by_date.items()):
                          for k,v in sorted(h['ob_psi'].items(),key=lambda x:-x[1]['count']) if v['count']>0],
         "prods_dia":[{"name":pn,"fat":r2(pv['fat']),"faturas":pv['faturas'],"units":pv['units']}
                      for pn,pv in sorted(h['prods'].items(),key=lambda x:-x[1]['fat']) if pv['fat']>0],
+        "prods_dia_all":[{"name":pn,"fat":r2(pv['fat']),"faturas":pv['faturas'],"units":pv['units']}
+                     for pn,pv in sorted(h['prods_all'].items(),key=lambda x:-x[1]['fat']) if pv['fat']>0],
         "prods_dia_re":[{"name":pn,"fat":r2(pv['fat']),"faturas":pv['faturas'],"units":pv['units']}
                         for pn,pv in sorted(h['prods_re'].items(),key=lambda x:-x[1]['fat']) if pv['fat']>0],
         "prods_dia_psi":[{"name":pn,"fat":r2(pv['fat']),"faturas":pv['faturas'],"units":pv['units']}

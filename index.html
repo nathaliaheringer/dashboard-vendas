@@ -1086,12 +1086,15 @@ function renderProdDonutInline(){
   tot=items.reduce(function(a,p){return a+p.fat;},0);
   var rnF=document.getElementById('recNote2');
   if(rnF)rnF.style.display='none';
- }else if(pd.d0!=null){
-  /* Período ativo: agrega prods_dia (produto individual) do daily filtrado */
+ }else{
+  /* Consolidado: agrega prods_dia_all (decomposto — RE/PSI são PRINCIPAL em toda
+     fatura onde aparecem + order bumps pelo preço de tabela) do daily filtrado.
+     Vale p/ período E mês completo (periodDays sempre devolve from/to), igual às
+     views RE/PSI. Soma == card Faturamento; RE bate com o funil (ex.: 308). */
   var filtered=DATA.daily.filter(function(d){return d.date>=pd.from_date&&d.date<=pd.to_date;});
   var prodMap={};
   filtered.forEach(function(d){
-   (d.prods_dia||[]).forEach(function(p){
+   (d.prods_dia_all||[]).forEach(function(p){
     if(!prodMap[p.name])prodMap[p.name]={fat:0,faturas:0};
     prodMap[p.name].fat+=p.fat;
     prodMap[p.name].faturas+=(p.faturas||0);
@@ -1101,30 +1104,15 @@ function renderProdDonutInline(){
                             .map(function(n){return {name:n.replace('Curso Psi:','Curso PSI'),fat:prodMap[n].fat,faturas:prodMap[n].faturas};});
   tot=items.reduce(function(a,p){return a+p.fat;},0);
   if(!items.length){
-   /* fallback: agrega RE/PSI direto se prods_dia não existir */
-   var fat_re =filtered.reduce(function(a,d){return a+(d.fat_re||0); },0);
-   var fat_psi=filtered.reduce(function(a,d){return a+(d.fat_psi||0);},0);
-   var fat_tot=filtered.reduce(function(a,d){return a+(d.fat||0);    },0);
-   var ft_re =filtered.reduce(function(a,d){return a+(d.faturas_re||0); },0);
-   var ft_psi=filtered.reduce(function(a,d){return a+(d.faturas_psi||0);},0);
-   var fat_out=Math.max(0,fat_tot-fat_re-fat_psi);
-   var ft_tot=filtered.reduce(function(a,d){return a+(d.faturas||0);},0);
-   var ft_out=Math.max(0,ft_tot-ft_re-ft_psi);
-   items=[{name:'Regulando as Emoções',fat:fat_re,faturas:ft_re},{name:'Curso PSI 0-8',fat:fat_psi,faturas:ft_psi}];
-   if(fat_out>1)items.push({name:'Outros produtos',fat:fat_out,faturas:ft_out});
-   tot=fat_tot;
+   /* fallback: sem prods_dia_all no período — usa DATA.products (mês completo) */
+   var ps0=DATA.products.slice();
+   items=ps0.map(function(p){return {name:p.name.replace('Curso Psi:','Curso PSI'),fat:p.fat,faturas:p.faturas};});
+   tot=DATA.totals.fat;
   }
   var rn=document.getElementById('recNote2');
-  if(rn)rn.style.display='none';
- }else{
-  /* Mostrar todos os produtos individualmente — sem agrupamento em "Outros" */
-  var ps=DATA.products.slice();
-  items=ps.map(function(p){return {name:p.name.replace('Curso Psi:','Curso PSI'),fat:p.fat,faturas:p.faturas};});
-  tot=DATA.totals.fat;
-  var rn=document.getElementById('recNote2');
-  var rec=ps.filter(function(p){return p.recorrente;});
+  var rec=DATA.products.filter(function(p){return p.recorrente;});
   if(rn){
-   if(rec.length)rn.innerHTML='<b>'+rec[0].name+'</b> não é venda nova: são <b>parcelas de alunos na recorrência</b>.';
+   if(rec.length && pd.d0==null)rn.innerHTML='<b>'+rec[0].name+'</b> não é venda nova: são <b>parcelas de alunos na recorrência</b>.';
    else rn.style.display='none';
   }
  }
