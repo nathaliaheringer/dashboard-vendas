@@ -852,12 +852,19 @@ function renderGeral(){
   var _fatLbl=viewProd==='re'?'Faturamento RE':viewProd==='psi'?'Faturamento PSI':'Faturamento';
   var _invLbl=viewProd==='re'?'Investimento RE':viewProd==='psi'?'Investimento PSI':'Investimento em vendas';
   h+='<div class="sec"><div class="sec-head"><span class="bar"></span><h2>Evolução no intervalo</h2></div>'+
-   '<div class="panel"><div class="p-head"><div><h3>Faturamento &times; Investimento</h3></div></div>'+
+   '<div class="grid g-2">'+
+    '<div class="panel"><div class="p-head"><div><h3>Faturamento &times; Investimento</h3></div></div>'+
      '<div class="p-sub">Dia a dia dentro do intervalo selecionado ('+P.days.length+' dias).</div>'+
      '<div class="chart-box h280"><canvas id="cEvol"></canvas></div>'+
      '<div class="legend"><span><i style="background:#37644F"></i>'+_fatLbl+' (R$)</span>'+
      '<span><i class="ln" style="background:#B57353"></i>'+_invLbl+' (R$)</span></div></div>'+
-   '</div>';
+    '<div class="panel"><div class="p-head"><div><h3>Receita &times; Lucro</h3></div></div>'+
+     '<div class="p-sub">Evolução semanal — receita e lucro do funil na mesma escala.</div>'+
+     '<div class="chart-box h280"><canvas id="cProfit"></canvas></div>'+
+     '<div class="legend"><span><i class="ln" style="background:#37644F"></i>Receita</span>'+
+     '<span><i class="ln" style="background:#B57353"></i>Lucro do funil</span>'+
+     '<span><i style="background:#A3A983"></i>Investimento</span></div></div>'+
+   '</div></div>';
  }else{
   h+='<div class="sec"><div class="sec-head"><span class="bar"></span><h2>Evolução no período</h2></div>'+
    '<div class="grid g-2">'+
@@ -906,7 +913,7 @@ function renderGeral(){
  if(P.kind==='dia'){
   renderRangeCampTbl(P.days);
  }else if(P.kind==='intervalo'){
-  buildEvolRange(P.days);
+  buildEvolRange(P.days); buildProfitRange(P.days);
  }else{
   var evMode='dia';
   /* sync evProd from viewProd state */
@@ -1978,6 +1985,53 @@ function buildProfit(){
     y:{position:'left',grid:{color:GRID},ticks:{color:TICK,font:{family:'Spline Sans Mono',size:10},
      callback:function(v){return 'R$'+nf0.format(v);}}}}}
 
+ });
+}
+/* Receita × Lucro semanal para um INTERVALO custom (ex.: mês passado). DATA.weeks
+   só existe p/ o mês corrente, então aqui as semanas são calculadas dos próprios
+   dias filtrados, agrupados por dia-do-mês (S1:1-7 ... S5:29-31) e por mês presente
+   no intervalo. Assim o gráfico semanal acompanha o "Faturamento × Investimento"
+   também ao filtrar um mês encerrado. Total (não por funil), igual ao buildProfit. */
+function buildProfitRange(days){
+ destroyChart('profit');
+ var el=document.getElementById('cProfit'); if(!el)return;
+ var MES=['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'];
+ var defs=[[1,7],[8,14],[15,21],[22,28],[29,31]];
+ var buckets={};
+ (days||[]).forEach(function(d){
+  for(var i=0;i<defs.length;i++){
+   if(d.day>=defs[i][0]&&d.day<=defs[i][1]){
+    var mo=d.date.substring(0,7),key=mo+'|'+i;
+    if(!buckets[key]){var mm=parseInt(d.date.substring(5,7),10);
+     buckets[key]={mes:MES[mm-1],minD:d.day,maxD:d.day,fat:0,spend:0,nh:0,order:mo+String(i)};}
+    var b=buckets[key];
+    b.minD=Math.min(b.minD,d.day); b.maxD=Math.max(b.maxD,d.day);
+    b.fat+=d.fat||0; b.spend+=d.spend_sales||0; b.nh+=d.nh||0;
+    break;
+   }
+  }
+ });
+ function pad(n){return String(n).padStart(2,'0');}
+ var ws=Object.keys(buckets).map(function(k){return buckets[k];})
+   .filter(function(w){return w.fat>0||w.spend>0;})
+   .sort(function(a,b){return a.order<b.order?-1:a.order>b.order?1:0;});
+ var labels=ws.map(function(w){return pad(w.minD)+'–'+pad(w.maxD)+' '+w.mes;});
+ charts.profit=new Chart(el.getContext('2d'),{
+  data:{labels:labels,datasets:[
+   {type:'bar',label:'Investimento',data:ws.map(function(w){return w.spend;}),
+    backgroundColor:'rgba(163,169,131,.55)',borderRadius:5,maxBarThickness:30,yAxisID:'y',order:3},
+   {type:'line',label:'Receita',data:ws.map(function(w){return w.fat;}),borderColor:'#37644F',
+    backgroundColor:'rgba(55,100,79,.10)',borderWidth:3,tension:.36,pointRadius:4,pointHoverRadius:6,
+    fill:true,yAxisID:'y',order:1},
+   {type:'line',label:'Lucro do funil',data:ws.map(function(w){return w.nh-w.spend;}),
+    borderColor:'#B57353',backgroundColor:'#B57353',borderWidth:3,tension:.36,pointRadius:4,
+    pointHoverRadius:6,borderDash:[5,3],yAxisID:'y',order:2}
+  ]},
+  options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},
+   plugins:{legend:{display:false},tooltip:tip(function(c){return ' '+c.dataset.label+': '+brl0(c.raw);})},
+   scales:{x:{grid:{display:false},ticks:{color:TICK,font:{family:'Spline Sans Mono',size:10}}},
+    y:{position:'left',grid:{color:GRID},ticks:{color:TICK,font:{family:'Spline Sans Mono',size:10},
+     callback:function(v){return 'R$'+nf0.format(v);}}}}}
  });
 }
 
