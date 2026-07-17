@@ -1612,14 +1612,17 @@ function renderFunBodyInline(prodKey){
  fh+='<div class="fn-scale-div">'+
   '<span class="fn-scale-label">Escala ampliada — CTR: '+pct2(ctr_val)+'</span></div>';
  /* Largura mínima por posição para as etapas finais (texto sempre dentro da barra) */
- var STAGE_MIN_W=[0,0,65,50]; /* [Cliques, LPV, Checkouts, Compras] */
+ var STAGE_MIN_W=[65,65,65,50]; /* [Cliques, LPV, Checkouts, Compras] */
  var NARROW_THR=30; /* abaixo deste % raw, aplica mínimo e centra a barra */
  botStages.forEach(function(s,i){
   var rawW=s.v/maxBot*100;
   var minW=STAGE_MIN_W[i]||0;
+  /* Etapa zerada (ex.: produto sem campanha ativa): barra cheia como a de
+     impressões, para o rótulo e o "0" ficarem legíveis dentro da barra. */
+  var isZero=!s.v;
   var isNarrow=rawW<NARROW_THR;
-  var w=isNarrow?Math.max(rawW,minW):rawW;
-  var wrapStyle='width:'+w+'%'+(isNarrow?';margin:0 auto':'');
+  var w=isZero?100:(isNarrow?Math.max(rawW,minW):rawW);
+  var wrapStyle='width:'+w+'%'+((isNarrow&&!isZero)?';margin:0 auto':'');
   var inner;
   if(s.edit){
    inner='<div class="fn-n">'+s.n+'</div>'+
