@@ -66,7 +66,14 @@ def dedup(s):
 def classify_orig(src, med):
     """Canal de venda a partir de UTM Origem (src) e UTM Mídia (med),
     ambos já normalizados (lower, sem espaço). Instagram é subdividido
-    por mídia: bio / stories / direct (DM); sem mídia conhecida → orgânico."""
+    por mídia: bio / stories / direct (DM); sem mídia conhecida → orgânico.
+
+    IMPORTANTE: só cai em 'sem origem' quando a UTM Origem está REALMENTE
+    vazia. Qualquer outra origem real e não-mapeada (ex.: 'themembers',
+    'google', 'youtube', 'tiktok', 'email'…) vira seu PRÓPRIO canal
+    automaticamente — assim um canal novo aparece no gráfico sozinho, sem
+    precisar editar este arquivo. Ver ORIG_NICE/orig_label p/ o rótulo."""
+    if not src: return 'sem origem'                 # UTM Origem vazia de fato
     if 'facebook' in src or src=='facebookads': return 'facebook ads'
     if 'instagram' in src or 'bio' in src:
         if 'stories' in med: return 'instagram_stories'
@@ -74,7 +81,7 @@ def classify_orig(src, med):
         if 'bio' in med:     return 'instagram_bio'
         return 'instagram'
     if 'whatsapp' in src: return 'whatsapp'
-    return 'sem origem'
+    return src   # origem real não-mapeada → canal próprio (dinâmico)
 
 def parse_dt(s):
     s=str(s).strip()
@@ -613,7 +620,11 @@ day_prod_psi_d=defaultdict(lambda: defaultdict(lambda: {'fat':0.0,'faturas':0,'u
 # de tabela) — para o Consolidado bater com os funis (RE=308) e mostrar order bumps.
 day_prod_all_d=defaultdict(lambda: defaultdict(lambda: {'fat':0.0,'faturas':0,'units':0}))
 prod_fat=defaultdict(float); prod_fat_c=defaultdict(int); prod_units_d=defaultdict(int)
-origins_map={k:{'faturas':0,'fat':0.0,'nh':0.0} for k in ('facebook ads','instagram','instagram_bio','instagram_stories','instagram_direct','whatsapp','sem origem','hotmart')}
+# defaultdict → um canal de origem NOVO (ex.: 'themembers') se auto-cria aqui
+# sem KeyError; as chaves conhecidas ficam pré-semeadas p/ ordem/rótulo estáveis.
+origins_map=defaultdict(lambda: {'faturas':0,'fat':0.0,'nh':0.0})
+for _ok in ('facebook ads','instagram','instagram_bio','instagram_stories','instagram_direct','whatsapp','sem origem','hotmart'):
+    origins_map[_ok]
 fb_split={k:{'faturas':0,'fat':0.0} for k in ('frio','quente','outros')}
 reg_fat=defaultdict(float); reg_count=defaultdict(int)
 state_fat=defaultdict(float); state_count=defaultdict(int)
@@ -638,6 +649,20 @@ ORIG_LABELS = {'facebook ads':'Facebook Ads','instagram':'Instagram (orgânico)'
                'instagram_bio':'Instagram — Bio','instagram_stories':'Instagram — Stories',
                'instagram_direct':'Instagram — Direct (DM)',
                'whatsapp':'WhatsApp','sem origem':'Sem origem','hotmart':'Hotmart'}
+# Rótulos "bonitos" para origens previsíveis. NÃO é obrigatório: um canal fora
+# desta lista ainda aparece sozinho, com rótulo Title Case automático. A lista
+# só deixa o nome mais apresentável para as plataformas que já conhecemos.
+ORIG_NICE = {'themembers':'TheMembers','google':'Google','youtube':'YouTube',
+             'tiktok':'TikTok','kwai':'Kwai','email':'E-mail','linktree':'Linktree',
+             'telegram':'Telegram','manychat':'ManyChat','pinterest':'Pinterest',
+             'linkedin':'LinkedIn','hotmart':'Hotmart'}
+def orig_label(k):
+    """Rótulo de um canal de origem. Conhecidos → ORIG_LABELS/ORIG_NICE;
+    qualquer origem nova → Title Case automático (ex.: 'themembers'→'Themembers',
+    'google_ads'→'Google Ads'). Sempre retorna algo legível, nunca KeyError."""
+    if k in ORIG_LABELS: return ORIG_LABELS[k]
+    if k in ORIG_NICE:   return ORIG_NICE[k]
+    return str(k).replace('_',' ').replace('-',' ').strip().title() or 'Sem origem'
 day_orig_d   = defaultdict(lambda: defaultdict(lambda: {'fat':0.0,'faturas':0}))
 day_fbsp_d   = defaultdict(lambda: {'frio':{'fat':0.0,'faturas':0},'quente':{'fat':0.0,'faturas':0},'outros':{'fat':0.0,'faturas':0}})
 day_reg_d    = defaultdict(lambda: defaultdict(lambda: {'fat':0.0,'faturas':0}))
@@ -1086,7 +1111,7 @@ for c4 in campaigns_arr:
 
 # ── STEP 11: Enriquecer daily_arr ────────────────────────────────
 REG_ORDER = ['Sudeste','Sul','Nordeste','Centro-Oeste','Norte','Não informado']
-def _emit_orig(dd): return [{"name":ORIG_LABELS.get(k,k),"fat":r2(v['fat']),"faturas":v['faturas']}
+def _emit_orig(dd): return [{"name":orig_label(k),"fat":r2(v['fat']),"faturas":v['faturas']}
                             for k,v in dd.items() if v['fat']>0 or v['faturas']>0]
 def _emit_fb(dd):   return {k:{"fat":r2(v['fat']),"faturas":v['faturas']} for k,v in dd.items()}
 def _emit_reg(dd):  return [{"name":k,"fat":r2(dd.get(k,{}).get('fat',0)),"faturas":dd.get(k,{}).get('faturas',0)}
@@ -1131,7 +1156,7 @@ for _entry in daily_arr:
     _entry['funnel_lpv_psi']    = day_funnel_psi[_d]['lpv']
     _entry['funnel_imp_psi']    = day_funnel_psi[_d]['imp']
     # Origem (canal de venda)
-    _entry['origins'] = [{"name":ORIG_LABELS.get(k,k),"fat":r2(v['fat']),"faturas":v['faturas']}
+    _entry['origins'] = [{"name":orig_label(k),"fat":r2(v['fat']),"faturas":v['faturas']}
                          for k,v in day_orig_d[_d].items() if v['fat']>0 or v['faturas']>0]
     _entry['fb_split'] = {k:{"fat":r2(v['fat']),"faturas":v['faturas']} for k,v in day_fbsp_d[_d].items()}
     # Região
@@ -1305,7 +1330,7 @@ for date_str, h in sorted(hist_by_date.items()):
         "units_re":h['units_re'], "units_psi":h['units_psi'],
         "funnel_clicks_re":_fre['clicks'],"funnel_lpv_re":_fre['lpv'],"funnel_imp_re":_fre['imp'],
         "funnel_clicks_psi":_fps['clicks'],"funnel_lpv_psi":_fps['lpv'],"funnel_imp_psi":_fps['imp'],
-        "origins":[{"name":ORIG_LABELS.get(k,k),"fat":r2(v['fat']),"faturas":v['faturas']}
+        "origins":[{"name":orig_label(k),"fat":r2(v['fat']),"faturas":v['faturas']}
                    for k,v in h['origins'].items() if v['fat']>0],
         "fb_split":{k:{"fat":r2(v['fat']),"faturas":v['faturas']} for k,v in h['fb_split'].items()},
         "regioes":[{"name":k,"fat":r2(h['regioes'][k]['fat']),"faturas":h['regioes'][k]['faturas']}
@@ -1422,15 +1447,29 @@ products_paid={
 # ── STEP 12: Origins, products, regions ──────────────────────────
 def _orig_entry(key):
     v=origins_map[key]
-    return {"name":ORIG_LABELS[key],"faturas":v['faturas'],
+    return {"name":orig_label(key),"faturas":v['faturas'],
             "fat":r2(v['fat']),"nh":r2(v['nh'])}
 # Facebook primeiro; depois Instagram subdividido (Bio/Stories/Direct/orgânico,
-# só os que tiveram venda no mês); por fim WhatsApp, Hotmart e Sem origem.
+# só os que tiveram venda no mês); WhatsApp; em seguida QUALQUER canal novo
+# (origem real não-mapeada, ex.: TheMembers) — automático, ordenado por
+# faturamento; por fim Hotmart e Sem origem como baldes finais.
+_KNOWN_ORIG = {'facebook ads','instagram_bio','instagram_stories',
+               'instagram_direct','instagram','whatsapp','hotmart','sem origem'}
 origins_arr=[_orig_entry('facebook ads')]
 for _igk in ('instagram_bio','instagram_stories','instagram_direct','instagram'):
     if origins_map[_igk]['faturas']>0 or origins_map[_igk]['fat']>0:
         origins_arr.append(_orig_entry(_igk))
-origins_arr += [_orig_entry('whatsapp'),_orig_entry('hotmart'),_orig_entry('sem origem')]
+origins_arr += [_orig_entry('whatsapp')]
+# canais NOVOS detectados na base (aparecem sozinhos, sem editar o gerador)
+_extra_orig=sorted([k for k,v in origins_map.items()
+                    if k not in _KNOWN_ORIG and (v['fat']>0 or v['faturas']>0)],
+                   key=lambda k:-origins_map[k]['fat'])
+for _k in _extra_orig:
+    origins_arr.append(_orig_entry(_k))
+if _extra_orig:
+    print(f"[Canais] {len(_extra_orig)} canal(is) novo(s) detectado(s) na base: "
+          + ', '.join(f"{orig_label(k)} (R${origins_map[k]['fat']:,.0f}, {origins_map[k]['faturas']}v)" for k in _extra_orig))
+origins_arr += [_orig_entry('hotmart'),_orig_entry('sem origem')]
 products_arr=[{"name":p,"faturas":prod_fat_c[p],"fat":r2(prod_fat[p]),"units":prod_units_d[p],
                "recorrente":('Turma 09' in p),
                "plataforma": "hotmart" if p in hotmart_by_prod and p not in [k for k in prod_fat if prod_fat[k]>0 and k not in hotmart_by_prod] else "hubla"}

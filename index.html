@@ -1147,7 +1147,7 @@ function renderChanDonutInline(agg){
   }
  });
  var chanColors=[PAL.blue,PAL.teal,PAL.greenD,PAL.green,PAL.gold,PAL.terra,PAL.brown,PAL.sage,PAL.peach,PAL.mist];
- var cols=chanColors.slice(0,items.length);
+ var cols=items.map(function(_ci,ci){return chanColors[ci%chanColors.length];});
  var dcv=document.getElementById('chanCount2');
  if(dcv)dcv.textContent=items.length;
  makeDonut('cChan2',items.map(function(i){return i.name;}),items.map(function(i){return i.fat;}),cols);
@@ -2117,7 +2117,7 @@ function renderChanDonut(){
   }
  });
  var chanColors=[PAL.blue,PAL.teal,PAL.greenD,PAL.green,PAL.gold,PAL.terra,PAL.brown,PAL.sage,PAL.peach,PAL.mist];
- var cols=chanColors.slice(0,items.length);
+ var cols=items.map(function(_ci,ci){return chanColors[ci%chanColors.length];});
  /* update donut center count */
  var dcv=document.getElementById('chanCount');
  if(dcv)dcv.textContent=items.length;

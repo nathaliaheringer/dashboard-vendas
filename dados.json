@@ -6,7 +6,7 @@
   "days_elapsed": 23,
   "days_month": 31
  },
- "_v": 1784806101792,
+ "_v": 1784807562010,
  "totals": {
   "spend": 10373.99,
   "spend_sales": 10373.99,
@@ -15802,8 +15802,13 @@
     },
     {
      "name": "Sem origem",
-     "fat": 1129.57,
-     "faturas": 6
+     "fat": 505.33,
+     "faturas": 3
+    },
+    {
+     "name": "Cpl",
+     "fat": 624.24,
+     "faturas": 3
     },
     {
      "name": "Instagram — Bio",
@@ -25545,9 +25550,19 @@
      "faturas": 9
     },
     {
+     "name": "Gaio",
+     "fat": 336.0,
+     "faturas": 1
+    },
+    {
      "name": "Sem origem",
-     "fat": 1315.57,
-     "faturas": 6
+     "fat": 355.33,
+     "faturas": 2
+    },
+    {
+     "name": "Cpl",
+     "fat": 624.24,
+     "faturas": 3
     },
     {
      "name": "Instagram — Stories",
@@ -25754,7 +25769,7 @@
    ],
    "origins_psi": [
     {
-     "name": "Sem origem",
+     "name": "Gaio",
      "fat": 336.0,
      "faturas": 1
     }
@@ -34193,7 +34208,7 @@
      "faturas": 2
     },
     {
-     "name": "Sem origem",
+     "name": "TheMembers",
      "fat": 333.0,
      "faturas": 2
     }
@@ -34265,7 +34280,7 @@
      "faturas": 2
     },
     {
-     "name": "Sem origem",
+     "name": "TheMembers",
      "fat": 333.0,
      "faturas": 2
     }
@@ -34529,13 +34544,18 @@
     },
     {
      "name": "Sem origem",
-     "fat": 641.0,
-     "faturas": 3
+     "fat": 494.0,
+     "faturas": 2
     },
     {
      "name": "Instagram — Bio",
      "fat": 392.0,
      "faturas": 2
+    },
+    {
+     "name": "TheMembers",
+     "fat": 147.0,
+     "faturas": 1
     },
     {
      "name": "Hotmart",
@@ -34631,7 +34651,7 @@
      "faturas": 2
     },
     {
-     "name": "Sem origem",
+     "name": "TheMembers",
      "fat": 147.0,
      "faturas": 1
     }
@@ -51643,6 +51663,12 @@
    "nh": 1063.89
   },
   {
+   "name": "TheMembers",
+   "faturas": 3,
+   "fat": 480.0,
+   "nh": 452.97
+  },
+  {
    "name": "Hotmart",
    "faturas": 10,
    "fat": 1436.85,
@@ -51650,9 +51676,9 @@
   },
   {
    "name": "Sem origem",
-   "faturas": 30,
-   "fat": 17751.2,
-   "nh": 16996.28
+   "faturas": 27,
+   "fat": 17271.2,
+   "nh": 16543.31
   }
  ],
  "products": [
@@ -52022,7 +52048,7 @@
   "period_label": "01 a 23 de julho de 2026",
   "period_start": "2026-07-01",
   "period_end": "2026-07-23",
-  "generated_at": "2026-07-23 08:28:21",
+  "generated_at": "2026-07-23 08:52:42",
   "checks": [
    {
     "name": "Período cobre mês corrente",
