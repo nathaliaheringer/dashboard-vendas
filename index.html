@@ -844,8 +844,9 @@ function renderGeral(){
  h+='</div></div>';
 
  if(P.kind==='dia'){
-  h+='<div class="sec"><div class="sec-head"><span class="bar"></span><h2>Campanhas no dia '+P.label+'</h2></div>'+
-    '<div class="panel" style="padding:15px"><div class="tbl-wrap"><table id="rangeCampTbl"></table></div></div></div>';
+  /* Dia único: nenhuma seção de campanhas aqui. Assim como no intervalo, a
+     quebra por campanha pertence à aba Campanhas (que já filtra pelo período
+     selecionado). Na Visão Geral ficam só os KPIs do dia. */
  }else if(P.kind==='intervalo'){
   /* Intervalo customizado: apenas o gráfico de Faturamento × Investimento dia a dia.
      Tabela de campanhas pertence à aba Campanhas (não aqui). */
@@ -911,7 +912,10 @@ function renderGeral(){
  });
 
  if(P.kind==='dia'){
-  renderRangeCampTbl(P.days);
+  /* Dia único: nada a montar aqui. Não há gráficos nem tabela de campanhas
+     nesta visão — os canvases cEvol/cProfit sequer existem no markup do dia,
+     então NÃO deixe cair no else (mês), que chamaria buildEvol e quebraria o
+     render de Composição/Funil/Insights logo abaixo. */
  }else if(P.kind==='intervalo'){
   buildEvolRange(P.days); buildProfitRange(P.days);
  }else{
@@ -1874,33 +1878,6 @@ function renderGeralInsights(){
  });
  h+='</div></div>';
  wrap.innerHTML=h;
-}
-function renderRangeCampTbl(days){
- var dayNums={};days.forEach(function(d){dayNums[d.day]=1;});
- var rows=[];
- DATA.campaigns.forEach(function(c){
-  var sp=0,im=0,n=0;
-  (c.daily||[]).forEach(function(x){if(dayNums[x.day]){sp+=x.spend;im+=x.impressions;n++;}});
-  if(n>0)rows.push({c:c,spend:sp,impr:im,cpm:im?sp/im*1000:0,dias:n});
- });
- rows.sort(function(a,b){return b.spend-a.spend;});
- var h='<thead><tr><th>Campanha</th><th>Público</th><th>Investimento</th><th>Impressões</th><th>CPM médio</th></tr></thead><tbody>';
- if(!rows.length){
-  h+='<tr><td colspan="5" style="text-align:center;color:var(--brown);padding:22px">Nenhuma campanha teve veiculação neste período.</td></tr>';
- }else{
-  var ts=0,ti=0;
-  rows.forEach(function(r){
-   ts+=r.spend;ti+=r.impr;
-   var ab=r.c.aud==='Frio'?'b-frio':'b-quente';
-   h+='<tr><td>'+r.c.name.replace(/\s*-\s*ABO$/,'')+'</td>'+
-    '<td style="text-align:left"><span class="badge '+ab+'">'+r.c.aud+'</span></td>'+
-    '<td>'+brl0(r.spend)+'</td><td>'+num(r.impr)+'</td><td>'+brl(r.cpm)+'</td></tr>';
-  });
-  h+='<tr class="tot"><td>TOTAL · '+rows.length+' campanhas</td><td style="text-align:left">—</td>'+
-   '<td>'+brl0(ts)+'</td><td>'+num(ti)+'</td><td>'+brl(ti?ts/ti*1000:0)+'</td></tr>';
- }
- h+='</tbody>';
- document.getElementById('rangeCampTbl').innerHTML=h;
 }
 function buildEvolRange(days){
  destroyChart('evol');
