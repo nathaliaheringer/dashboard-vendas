@@ -360,10 +360,17 @@ _HOTMART_PAY_MAP = {
     'Pix': 'PIX', 'PIX': 'PIX', 'PIX Automático': 'PIX',
     'Boleto Bancário': 'Boleto', 'Boleto': 'Boleto',
 }
-hotmart_invoices = []
-# Coleta candidatos Hotmart (cabeçalho com 'Nome do Produtor') e usa o MAIS RECENTE
-# por mtime — mesmo critério dos outros CSVs (export-leads, DADOS RE/PSI). Antes pegava
-# o primeiro em ordem alfabética, o que selecionava arquivos antigos por engano.
+hotmart_invoices = []   # mês corrente  → totais/KPIs/semanas (STEP 6c)
+hotmart_hist     = []   # meses passados → daily[] histórico (STEP 11b)
+# Lê TODOS os CSVs Hotmart do diretório (cabeçalho com 'Nome do Produtor'), não só o
+# mais recente: cada export cobre um mês, então o histórico do ano só fica completo
+# somando todos. Antes só o mais recente era lido e, na virada de mês, a receita
+# Hotmart do mês anterior sumia do daily[] (medido em 01/ago/2026: julho perdeu 15
+# vendas / R$5.797,91). Faturamento é por venda, não por plataforma — Hubla e Hotmart
+# contam igual no histórico.
+# Dedup por (Transação, Nº da parcela, data): exports de meses diferentes não se
+# sobrepõem, mas o mesmo mês pode ter sido baixado duas vezes com nomes distintos
+# (ex.: hotmart_may2026.csv == sales_history_2026060...csv) — sem dedup, maio dobrava.
 _hot_candidates = []
 for _hf in _hg.glob(_hop.join(BASE_DATA, '*.csv')):
     try:
@@ -373,8 +380,8 @@ for _hf in _hg.glob(_hop.join(BASE_DATA, '*.csv')):
             _hot_candidates.append(_hf)
     except Exception:
         pass
-if _hot_candidates:
-    _hf = max(_hot_candidates, key=_hop.getmtime)
+_hot_seen = {}
+for _hf in sorted(_hot_candidates, key=_hop.getmtime):   # mais antigo → mais novo (último vence)
     try:
         with open(_hf, encoding='utf-8-sig') as _f:
             _rd = csv.DictReader(_f, delimiter=';')
@@ -384,7 +391,7 @@ if _hot_candidates:
                 _dt = parse_dt(_date_str) if _date_str else None
                 if not _dt: continue
                 _d = _dt.replace(hour=0,minute=0,second=0)
-                if not (PERIOD_START <= _d <= PERIOD_END): continue
+                if not (HIST_START <= _d <= HIST_END): continue
                 # Conversão de moeda: vendas internacionais têm 'Preço Original' (bruto em BRL)
                 # e 'Valor que você recebeu convertido' (líquido em BRL) já convertidos pela
                 # Hotmart na cotação do momento da venda (mais preciso que cotação spot do dia;
@@ -401,12 +408,24 @@ if _hot_candidates:
                 _pm  = _HOTMART_PAY_MAP.get((_row.get('Tipo de Pagamento') or '').strip(), 'Outros')
                 _uf  = (_row.get('Estado') or '').strip().upper()
                 _prod_name = (_row.get('Nome do Produto') or 'PRO').strip()
-                hotmart_invoices.append(dict(
-                    day=_d.day, fat=_fat, nh=_nh, pay=_pm, estado=_uf, prod=_prod_name
-                ))
-        print(f"[Hotmart] {_hop.basename(_hf)} (mais recente): {len(hotmart_invoices)} faturas no mês corrente")
+                _key = ((_row.get('Transação') or '').strip(),
+                        (_row.get('Número da Parcela') or '').strip(),
+                        _d.strftime('%Y-%m-%d'))
+                _hot_seen[_key] = dict(
+                    day=_d.day, month=_d.month, year=_d.year,
+                    date=_d.strftime('%Y-%m-%d'),
+                    fat=_fat, nh=_nh, pay=_pm, estado=_uf, prod=_prod_name
+                )
     except Exception as _he:
         print(f"[Hotmart] Erro ao ler {_hop.basename(_hf)}: {_he}")
+for _rec in _hot_seen.values():
+    if _rec['year'] == PERIOD_YEAR and _rec['month'] == PERIOD_MONTH:
+        hotmart_invoices.append(_rec)
+    else:
+        hotmart_hist.append(_rec)
+if _hot_candidates:
+    print(f"[Hotmart] {len(_hot_candidates)} arquivo(s), {len(_hot_seen)} vendas únicas na janela "
+          f"| mês corrente: {len(hotmart_invoices)} | histórico: {len(hotmart_hist)}")
 if not hotmart_invoices:
     print("[Hotmart] Nenhuma fatura Hotmart no mês corrente.")
 
@@ -877,6 +896,10 @@ for _hi in hotmart_invoices:
     prod_fat[_pn]+=_f; prod_fat_c[_pn]+=1; prod_units_d[_pn]+=1
     # Consolidado decomposto diário: Hotmart entra como principal (sem order bump)
     day_prod_all_d[_d][_pn]['fat']+=_f; day_prod_all_d[_d][_pn]['faturas']+=1; day_prod_all_d[_d][_pn]['units']+=1
+    # Donut "Receita por produto" por intervalo de datas: também precisa do Hotmart, senão
+    # o donut fica menor que o card de faturamento (que já soma Hotmart via total_fat) ao
+    # filtrar um período. O donut do mês (products[]/prod_fat, acima) sempre somou.
+    day_prod_fat_d[_d][_pn]['fat']+=_f; day_prod_fat_d[_d][_pn]['faturas']+=1; day_prod_fat_d[_d][_pn]['units']+=1
     # Adicionar ao breakdown diário
     day_fat[_d]+=_f; day_nh[_d]+=_n; day_fat_c[_d]+=1; day_units[_d]+=1
     # Pagamento global
@@ -1298,6 +1321,37 @@ for inv in hist_invoices:
         _hd['regioes_psi'][reg]['fat']+=tot; _hd['regioes_psi'][reg]['faturas']+=1
         _hd['pay_dist_psi'][pm]+=1
         if pm=='Cartão de Crédito': _hd['parc_dist_psi'][inv['num_parcelas']]+=1
+
+# Hotmart dos meses passados → mesmo tratamento que recebe no mês corrente (STEP 6c):
+# entra em faturamento/faturas/unidades, produto, canal 'hotmart', região e pagamento.
+# NÃO entra em fat_re/fat_psi nem nos recortes por funil, igual ao mês corrente — esses
+# recortes são de campanha Meta, e a venda Hotmart não tem UTM de anúncio. Assim o ROAS
+# (fat_re ÷ spend_re) continua comparando o mesmo universo em qualquer mês.
+for _hi in hotmart_hist:
+    _hd = hist_by_date[_hi['date']]
+    _f = _hi['fat']; _n = _hi['nh']
+    _pn = _hi['prod']
+    _nk = _norm_prod(_pn)
+    if _nk in _prod_canon: _pn = _prod_canon[_nk]   # nome canônico (Hubla) se já existir
+    else: _prod_canon[_nk] = _pn
+    _hd['fat'] += _f; _hd['nh'] += _n; _hd['total'] += _f
+    _hd['faturas'] += 1; _hd['units'] += 1
+    _hd['prods'][_pn]['fat'] += _f
+    _hd['prods'][_pn]['faturas'] += 1
+    _hd['prods'][_pn]['units'] += 1
+    _hd['prods_all'][_pn]['fat'] += _f
+    _hd['prods_all'][_pn]['faturas'] += 1
+    _hd['prods_all'][_pn]['units'] += 1
+    _hd['origins']['hotmart']['fat'] += _f
+    _hd['origins']['hotmart']['faturas'] += 1
+    _uf = _hi['estado']
+    _reg = REGION_MAP.get(_uf, 'Não informado') if _uf else 'Não informado'
+    _hd['regioes'][_reg]['fat'] += _f
+    _hd['regioes'][_reg]['faturas'] += 1
+    _hd['pay_dist'][_hi['pay']] += 1
+if hotmart_hist:
+    print(f"[Hotmart] Histórico integrado ao daily[]: {len(hotmart_hist)} vendas | "
+          f"fat=R${sum(h['fat'] for h in hotmart_hist):.2f}")
 
 # Garantir que TODOS os dias com qualquer dado (vendas OU spend Meta) estejam em hist_by_date
 for _iso in meta_by_date_iso:

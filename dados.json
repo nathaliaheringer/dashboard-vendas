@@ -6,7 +6,7 @@
   "days_elapsed": 1,
   "days_month": 31
  },
- "_v": 1785594612622,
+ "_v": 1785598916348,
  "totals": {
   "spend": 64.65,
   "spend_sales": 64.65,
@@ -8831,12 +8831,12 @@
    "spend": 316.64,
    "spend_sales": 268.76,
    "impressions": 12304,
-   "faturas": 1,
-   "units": 2,
-   "fat": 336.0,
-   "nh": 330.05,
+   "faturas": 2,
+   "units": 3,
+   "fat": 385.75,
+   "nh": 373.37,
    "abandoned": 0,
-   "checkouts": 1,
+   "checkouts": 2,
    "abandoned_re": 0,
    "abandoned_psi": 0,
    "fat_re": 0.0,
@@ -8858,6 +8858,11 @@
      "name": "Instagram — Stories",
      "fat": 336.0,
      "faturas": 1
+    },
+    {
+     "name": "Hotmart",
+     "fat": 49.75,
+     "faturas": 1
     }
    ],
    "fb_split": {
@@ -8877,14 +8882,14 @@
    "regioes": [
     {
      "name": "Sudeste",
-     "fat": 336.0,
-     "faturas": 1
+     "fat": 385.75,
+     "faturas": 2
     }
    ],
    "pay_dist": [
     {
      "method": "Cartão de Crédito",
-     "count": 1
+     "count": 2
     }
    ],
    "parc_dist": [
@@ -8907,12 +8912,24 @@
      "fat": 336.0,
      "faturas": 1,
      "units": 2
+    },
+    {
+     "name": "PRO",
+     "fat": 49.75,
+     "faturas": 1,
+     "units": 1
     }
    ],
    "prods_dia_all": [
     {
      "name": "Curso Psi: 0-8",
      "fat": 297.0,
+     "faturas": 1,
+     "units": 1
+    },
+    {
+     "name": "PRO",
+     "fat": 49.75,
      "faturas": 1,
      "units": 1
     },
@@ -9166,12 +9183,12 @@
    "spend": 233.72,
    "spend_sales": 189.79,
    "impressions": 10966,
-   "faturas": 1,
-   "units": 1,
-   "fat": 29.91,
-   "nh": 25.54,
+   "faturas": 2,
+   "units": 2,
+   "fat": 113.0,
+   "nh": 98.9,
    "abandoned": 2,
-   "checkouts": 3,
+   "checkouts": 4,
    "abandoned_re": 0,
    "abandoned_psi": 2,
    "fat_re": 0.0,
@@ -9193,6 +9210,11 @@
      "name": "Sem origem",
      "fat": 29.91,
      "faturas": 1
+    },
+    {
+     "name": "Hotmart",
+     "fat": 83.09,
+     "faturas": 1
     }
    ],
    "fb_split": {
@@ -9211,6 +9233,11 @@
    },
    "regioes": [
     {
+     "name": "Nordeste",
+     "fat": 83.09,
+     "faturas": 1
+    },
+    {
      "name": "Norte",
      "fat": 29.91,
      "faturas": 1
@@ -9219,7 +9246,7 @@
    "pay_dist": [
     {
      "method": "Cartão de Crédito",
-     "count": 1
+     "count": 2
     }
    ],
    "parc_dist": [
@@ -9233,17 +9260,17 @@
    "prods_dia": [
     {
      "name": "PRO",
-     "fat": 29.91,
-     "faturas": 1,
-     "units": 1
+     "fat": 113.0,
+     "faturas": 2,
+     "units": 2
     }
    ],
    "prods_dia_all": [
     {
      "name": "PRO",
-     "fat": 29.91,
-     "faturas": 1,
-     "units": 1
+     "fat": 113.0,
+     "faturas": 2,
+     "units": 2
     }
    ],
    "prods_dia_re": [],
@@ -9767,12 +9794,12 @@
    "spend": 401.7,
    "spend_sales": 363.38,
    "impressions": 18107,
-   "faturas": 3,
-   "units": 3,
-   "fat": 943.75,
-   "nh": 879.65,
+   "faturas": 4,
+   "units": 4,
+   "fat": 983.65,
+   "nh": 914.1,
    "abandoned": 6,
-   "checkouts": 9,
+   "checkouts": 10,
    "abandoned_re": 2,
    "abandoned_psi": 2,
    "fat_re": 0.0,
@@ -9804,6 +9831,11 @@
      "name": "Instagram — Bio",
      "fat": 297.0,
      "faturas": 1
+    },
+    {
+     "name": "Hotmart",
+     "fat": 39.9,
+     "faturas": 1
     }
    ],
    "fb_split": {
@@ -9833,8 +9865,8 @@
     },
     {
      "name": "Nordeste",
-     "fat": 249.75,
-     "faturas": 1
+     "fat": 289.65,
+     "faturas": 2
     }
    ],
    "pay_dist": [
@@ -9844,7 +9876,7 @@
     },
     {
      "method": "Cartão de Crédito",
-     "count": 1
+     "count": 2
     }
    ],
    "parc_dist": [
@@ -9867,6 +9899,12 @@
      "fat": 249.75,
      "faturas": 1,
      "units": 1
+    },
+    {
+     "name": "PRO",
+     "fat": 39.9,
+     "faturas": 1,
+     "units": 1
     }
    ],
    "prods_dia_all": [
@@ -9879,6 +9917,12 @@
     {
      "name": "Formação Primeira Infância • Turma 09",
      "fat": 249.75,
+     "faturas": 1,
+     "units": 1
+    },
+    {
+     "name": "PRO",
+     "fat": 39.9,
      "faturas": 1,
      "units": 1
     }
@@ -10341,12 +10385,12 @@
    "spend": 385.15,
    "spend_sales": 345.46,
    "impressions": 14295,
-   "faturas": 7,
-   "units": 10,
-   "fat": 3271.7,
-   "nh": 3073.47,
+   "faturas": 8,
+   "units": 11,
+   "fat": 3354.79,
+   "nh": 3146.83,
    "abandoned": 4,
-   "checkouts": 11,
+   "checkouts": 12,
    "abandoned_re": 3,
    "abandoned_psi": 1,
    "fat_re": 872.0,
@@ -10373,6 +10417,11 @@
      "name": "Facebook Ads",
      "fat": 872.0,
      "faturas": 5
+    },
+    {
+     "name": "Hotmart",
+     "fat": 83.09,
+     "faturas": 1
     }
    ],
    "fb_split": {
@@ -10401,6 +10450,11 @@
      "faturas": 1
     },
     {
+     "name": "Nordeste",
+     "fat": 83.09,
+     "faturas": 1
+    },
+    {
      "name": "Centro-Oeste",
      "fat": 147.0,
      "faturas": 1
@@ -10417,11 +10471,11 @@
      "count": 5
     },
     {
-     "method": "Boleto",
-     "count": 1
+     "method": "PIX",
+     "count": 2
     },
     {
-     "method": "PIX",
+     "method": "Boleto",
      "count": 1
     }
    ],
@@ -10480,6 +10534,12 @@
      "fat": 245.0,
      "faturas": 1,
      "units": 3
+    },
+    {
+     "name": "PRO",
+     "fat": 83.09,
+     "faturas": 1,
+     "units": 1
     }
    ],
    "prods_dia_all": [
@@ -10498,6 +10558,12 @@
     {
      "name": "Formação Primeira Infância • Turma 09",
      "fat": 299.7,
+     "faturas": 1,
+     "units": 1
+    },
+    {
+     "name": "PRO",
+     "fat": 83.09,
      "faturas": 1,
      "units": 1
     },
@@ -11008,12 +11074,12 @@
    "spend": 294.32,
    "spend_sales": 247.48,
    "impressions": 11836,
-   "faturas": 2,
-   "units": 4,
-   "fat": 392.0,
-   "nh": 373.7,
+   "faturas": 3,
+   "units": 5,
+   "fat": 431.9,
+   "nh": 408.15,
    "abandoned": 1,
-   "checkouts": 3,
+   "checkouts": 4,
    "abandoned_re": 0,
    "abandoned_psi": 1,
    "fat_re": 392.0,
@@ -11035,6 +11101,11 @@
      "name": "Facebook Ads",
      "fat": 392.0,
      "faturas": 2
+    },
+    {
+     "name": "Hotmart",
+     "fat": 39.9,
+     "faturas": 1
     }
    ],
    "fb_split": {
@@ -11054,8 +11125,8 @@
    "regioes": [
     {
      "name": "Sudeste",
-     "fat": 147.0,
-     "faturas": 1
+     "fat": 186.9,
+     "faturas": 2
     },
     {
      "name": "Centro-Oeste",
@@ -11065,11 +11136,11 @@
    ],
    "pay_dist": [
     {
-     "method": "PIX",
-     "count": 1
+     "method": "Cartão de Crédito",
+     "count": 2
     },
     {
-     "method": "Cartão de Crédito",
+     "method": "PIX",
      "count": 1
     }
    ],
@@ -11098,6 +11169,12 @@
      "fat": 392.0,
      "faturas": 2,
      "units": 4
+    },
+    {
+     "name": "PRO",
+     "fat": 39.9,
+     "faturas": 1,
+     "units": 1
     }
    ],
    "prods_dia_all": [
@@ -11110,6 +11187,12 @@
     {
      "name": "O Mapa da Avaliação - Autismo",
      "fat": 59.0,
+     "faturas": 1,
+     "units": 1
+    },
+    {
+     "name": "PRO",
+     "fat": 39.9,
      "faturas": 1,
      "units": 1
     },
@@ -11260,12 +11343,12 @@
    "spend": 258.4,
    "spend_sales": 213.9,
    "impressions": 12193,
-   "faturas": 11,
-   "units": 18,
-   "fat": 2250.0,
-   "nh": 2126.37,
+   "faturas": 12,
+   "units": 19,
+   "fat": 2260.0,
+   "nh": 2131.88,
    "abandoned": 5,
-   "checkouts": 16,
+   "checkouts": 17,
    "abandoned_re": 5,
    "abandoned_psi": 0,
    "fat_re": 1558.0,
@@ -11297,6 +11380,11 @@
      "name": "WhatsApp",
      "fat": 245.0,
      "faturas": 1
+    },
+    {
+     "name": "Hotmart",
+     "fat": 10.0,
+     "faturas": 1
     }
    ],
    "fb_split": {
@@ -11326,8 +11414,8 @@
     },
     {
      "name": "Não informado",
-     "fat": 1019.0,
-     "faturas": 6
+     "fat": 1029.0,
+     "faturas": 7
     }
    ],
    "pay_dist": [
@@ -11337,7 +11425,7 @@
     },
     {
      "method": "PIX",
-     "count": 4
+     "count": 5
     }
    ],
    "parc_dist": [
@@ -11404,6 +11492,12 @@
      "fat": 297.0,
      "faturas": 1,
      "units": 1
+    },
+    {
+     "name": "PRO",
+     "fat": 10.0,
+     "faturas": 1,
+     "units": 1
     }
    ],
    "prods_dia_all": [
@@ -11430,6 +11524,12 @@
      "fat": 156.0,
      "faturas": 4,
      "units": 4
+    },
+    {
+     "name": "PRO",
+     "fat": 10.0,
+     "faturas": 1,
+     "units": 1
     }
    ],
    "prods_dia_re": [
@@ -11956,12 +12056,12 @@
    "spend": 395.26,
    "spend_sales": 356.25,
    "impressions": 16052,
-   "faturas": 11,
-   "units": 16,
-   "fat": 2152.0,
-   "nh": 2020.04,
+   "faturas": 12,
+   "units": 17,
+   "fat": 2191.9,
+   "nh": 2054.49,
    "abandoned": 5,
-   "checkouts": 16,
+   "checkouts": 17,
    "abandoned_re": 4,
    "abandoned_psi": 1,
    "fat_re": 1421.0,
@@ -11998,6 +12098,11 @@
      "name": "Sem origem",
      "fat": 483.0,
      "faturas": 2
+    },
+    {
+     "name": "Hotmart",
+     "fat": 39.9,
+     "faturas": 1
     }
    ],
    "fb_split": {
@@ -12027,8 +12132,8 @@
     },
     {
      "name": "Não informado",
-     "fat": 1127.0,
-     "faturas": 7
+     "fat": 1166.9,
+     "faturas": 8
     }
    ],
    "pay_dist": [
@@ -12039,6 +12144,10 @@
     {
      "method": "Cartão de Crédito",
      "count": 4
+    },
+    {
+     "method": "Boleto",
+     "count": 1
     }
    ],
    "parc_dist": [
@@ -12087,6 +12196,12 @@
      "fat": 731.0,
      "faturas": 2,
      "units": 5
+    },
+    {
+     "name": "PRO",
+     "fat": 39.9,
+     "faturas": 1,
+     "units": 1
     }
    ],
    "prods_dia_all": [
@@ -12113,6 +12228,12 @@
      "fat": 117.0,
      "faturas": 3,
      "units": 3
+    },
+    {
+     "name": "PRO",
+     "fat": 39.9,
+     "faturas": 1,
+     "units": 1
     }
    ],
    "prods_dia_re": [
@@ -12678,12 +12799,12 @@
    "spend": 394.3,
    "spend_sales": 358.45,
    "impressions": 19413,
-   "faturas": 7,
-   "units": 7,
-   "fat": 1179.0,
-   "nh": 1108.98,
+   "faturas": 9,
+   "units": 9,
+   "fat": 1258.8,
+   "nh": 1177.88,
    "abandoned": 9,
-   "checkouts": 16,
+   "checkouts": 18,
    "abandoned_re": 9,
    "abandoned_psi": 0,
    "fat_re": 882.0,
@@ -12710,6 +12831,11 @@
      "name": "Instagram — Bio",
      "fat": 297.0,
      "faturas": 1
+    },
+    {
+     "name": "Hotmart",
+     "fat": 79.8,
+     "faturas": 2
     }
    ],
    "fb_split": {
@@ -12734,8 +12860,8 @@
     },
     {
      "name": "Nordeste",
-     "fat": 297.0,
-     "faturas": 1
+     "fat": 336.9,
+     "faturas": 2
     },
     {
      "name": "Norte",
@@ -12744,14 +12870,14 @@
     },
     {
      "name": "Não informado",
-     "fat": 294.0,
-     "faturas": 2
+     "fat": 333.9,
+     "faturas": 3
     }
    ],
    "pay_dist": [
     {
      "method": "Cartão de Crédito",
-     "count": 4
+     "count": 6
     },
     {
      "method": "PIX",
@@ -12786,6 +12912,12 @@
      "fat": 297.0,
      "faturas": 1,
      "units": 1
+    },
+    {
+     "name": "PRO",
+     "fat": 79.8,
+     "faturas": 2,
+     "units": 2
     }
    ],
    "prods_dia_all": [
@@ -12800,6 +12932,12 @@
      "fat": 297.0,
      "faturas": 1,
      "units": 1
+    },
+    {
+     "name": "PRO",
+     "fat": 79.8,
+     "faturas": 2,
+     "units": 2
     }
    ],
    "prods_dia_re": [
@@ -13881,12 +14019,12 @@
    "spend": 405.68,
    "spend_sales": 366.15,
    "impressions": 21577,
-   "faturas": 12,
-   "units": 14,
-   "fat": 2434.75,
-   "nh": 2300.3,
+   "faturas": 13,
+   "units": 15,
+   "fat": 2474.65,
+   "nh": 2334.75,
    "abandoned": 7,
-   "checkouts": 19,
+   "checkouts": 20,
    "abandoned_re": 5,
    "abandoned_psi": 1,
    "fat_re": 1235.0,
@@ -13923,6 +14061,11 @@
      "name": "Instagram — Bio",
      "fat": 653.0,
      "faturas": 2
+    },
+    {
+     "name": "Hotmart",
+     "fat": 39.9,
+     "faturas": 1
     }
    ],
    "fb_split": {
@@ -13942,8 +14085,8 @@
    "regioes": [
     {
      "name": "Sul",
-     "fat": 605.75,
-     "faturas": 2
+     "fat": 645.65,
+     "faturas": 3
     },
     {
      "name": "Nordeste",
@@ -13964,7 +14107,7 @@
    "pay_dist": [
     {
      "method": "Cartão de Crédito",
-     "count": 10
+     "count": 11
     },
     {
      "method": "PIX",
@@ -14027,6 +14170,12 @@
      "fat": 206.0,
      "faturas": 1,
      "units": 2
+    },
+    {
+     "name": "PRO",
+     "fat": 39.9,
+     "faturas": 1,
+     "units": 1
     }
    ],
    "prods_dia_all": [
@@ -14053,6 +14202,12 @@
      "fat": 118.0,
      "faturas": 2,
      "units": 2
+    },
+    {
+     "name": "PRO",
+     "fat": 39.9,
+     "faturas": 1,
+     "units": 1
     }
    ],
    "prods_dia_re": [
@@ -15767,12 +15922,12 @@
    "spend": 436.03,
    "spend_sales": 398.03,
    "impressions": 22011,
-   "faturas": 17,
-   "units": 18,
-   "fat": 2935.57,
-   "nh": 2773.6,
+   "faturas": 18,
+   "units": 19,
+   "fat": 2975.47,
+   "nh": 2808.05,
    "abandoned": 5,
-   "checkouts": 22,
+   "checkouts": 23,
    "abandoned_re": 4,
    "abandoned_psi": 1,
    "fat_re": 1656.0,
@@ -15814,6 +15969,11 @@
      "name": "Instagram — Bio",
      "fat": 297.0,
      "faturas": 1
+    },
+    {
+     "name": "Hotmart",
+     "fat": 39.9,
+     "faturas": 1
     }
    ],
    "fb_split": {
@@ -15848,14 +16008,14 @@
     },
     {
      "name": "Não informado",
-     "fat": 1512.0,
-     "faturas": 10
+     "fat": 1551.9,
+     "faturas": 11
     }
    ],
    "pay_dist": [
     {
      "method": "Cartão de Crédito",
-     "count": 10
+     "count": 11
     },
     {
      "method": "PIX",
@@ -15910,6 +16070,12 @@
      "fat": 447.0,
      "faturas": 2,
      "units": 2
+    },
+    {
+     "name": "PRO",
+     "fat": 39.9,
+     "faturas": 1,
+     "units": 1
     }
    ],
    "prods_dia_all": [
@@ -15930,6 +16096,12 @@
      "fat": 447.0,
      "faturas": 2,
      "units": 2
+    },
+    {
+     "name": "PRO",
+     "fat": 39.9,
+     "faturas": 1,
+     "units": 1
     },
     {
      "name": "Recursos Exclusivos Divertidamente 2",
@@ -17118,12 +17290,12 @@
    "spend": 576.72,
    "spend_sales": 538.72,
    "impressions": 25325,
-   "faturas": 10,
-   "units": 12,
-   "fat": 1548.0,
-   "nh": 1431.81,
+   "faturas": 11,
+   "units": 13,
+   "fat": 1587.9,
+   "nh": 1466.26,
    "abandoned": 13,
-   "checkouts": 23,
+   "checkouts": 24,
    "abandoned_re": 13,
    "abandoned_psi": 0,
    "fat_re": 1548.0,
@@ -17155,6 +17327,11 @@
      "name": "WhatsApp",
      "fat": 294.0,
      "faturas": 2
+    },
+    {
+     "name": "Hotmart",
+     "fat": 39.9,
+     "faturas": 1
     }
    ],
    "fb_split": {
@@ -17184,14 +17361,14 @@
     },
     {
      "name": "Não informado",
-     "fat": 960.0,
-     "faturas": 6
+     "fat": 999.9,
+     "faturas": 7
     }
    ],
    "pay_dist": [
     {
      "method": "PIX",
-     "count": 9
+     "count": 10
     },
     {
      "method": "Cartão de Crédito",
@@ -17218,6 +17395,12 @@
      "fat": 1548.0,
      "faturas": 10,
      "units": 12
+    },
+    {
+     "name": "PRO",
+     "fat": 39.9,
+     "faturas": 1,
+     "units": 1
     }
    ],
    "prods_dia_all": [
@@ -17232,6 +17415,12 @@
      "fat": 78.0,
      "faturas": 2,
      "units": 2
+    },
+    {
+     "name": "PRO",
+     "fat": 39.9,
+     "faturas": 1,
+     "units": 1
     }
    ],
    "prods_dia_re": [
@@ -17977,12 +18166,12 @@
    "spend": 595.07,
    "spend_sales": 595.07,
    "impressions": 27989,
-   "faturas": 12,
-   "units": 18,
-   "fat": 2318.75,
-   "nh": 2170.26,
+   "faturas": 13,
+   "units": 19,
+   "fat": 2368.5,
+   "nh": 2213.58,
    "abandoned": 10,
-   "checkouts": 22,
+   "checkouts": 23,
    "abandoned_re": 10,
    "abandoned_psi": 0,
    "fat_re": 1744.0,
@@ -18019,6 +18208,11 @@
      "name": "Instagram — Stories",
      "fat": 147.0,
      "faturas": 1
+    },
+    {
+     "name": "Hotmart",
+     "fat": 49.75,
+     "faturas": 1
     }
    ],
    "fb_split": {
@@ -18038,8 +18232,8 @@
    "regioes": [
     {
      "name": "Sudeste",
-     "fat": 147.0,
-     "faturas": 1
+     "fat": 196.75,
+     "faturas": 2
     },
     {
      "name": "Nordeste",
@@ -18060,7 +18254,7 @@
    "pay_dist": [
     {
      "method": "Cartão de Crédito",
-     "count": 7
+     "count": 8
     },
     {
      "method": "PIX",
@@ -18126,6 +18320,12 @@
      "fat": 245.0,
      "faturas": 1,
      "units": 3
+    },
+    {
+     "name": "PRO",
+     "fat": 49.75,
+     "faturas": 1,
+     "units": 1
     }
    ],
    "prods_dia_all": [
@@ -18158,6 +18358,12 @@
      "fat": 118.0,
      "faturas": 2,
      "units": 2
+    },
+    {
+     "name": "PRO",
+     "fat": 49.75,
+     "faturas": 1,
+     "units": 1
     }
    ],
    "prods_dia_re": [
@@ -18323,12 +18529,12 @@
    "spend": 604.48,
    "spend_sales": 604.48,
    "impressions": 33137,
-   "faturas": 12,
-   "units": 17,
-   "fat": 2197.0,
-   "nh": 2065.74,
+   "faturas": 13,
+   "units": 18,
+   "fat": 2975.66,
+   "nh": 2765.81,
    "abandoned": 9,
-   "checkouts": 21,
+   "checkouts": 22,
    "abandoned_re": 9,
    "abandoned_psi": 0,
    "fat_re": 1872.0,
@@ -18360,6 +18566,11 @@
      "name": "Sem origem",
      "fat": 325.0,
      "faturas": 1
+    },
+    {
+     "name": "Hotmart",
+     "fat": 778.66,
+     "faturas": 1
     }
    ],
    "fb_split": {
@@ -18383,6 +18594,11 @@
      "faturas": 1
     },
     {
+     "name": "Sul",
+     "fat": 778.66,
+     "faturas": 1
+    },
+    {
      "name": "Norte",
      "fat": 147.0,
      "faturas": 1
@@ -18400,7 +18616,7 @@
     },
     {
      "method": "Cartão de Crédito",
-     "count": 5
+     "count": 6
     }
    ],
    "parc_dist": [
@@ -18442,6 +18658,12 @@
      "units": 12
     },
     {
+     "name": "PRO",
+     "fat": 778.66,
+     "faturas": 1,
+     "units": 1
+    },
+    {
      "name": "Formação Primeira Infância",
      "fat": 325.0,
      "faturas": 1,
@@ -18466,6 +18688,12 @@
      "fat": 1617.0,
      "faturas": 11,
      "units": 11
+    },
+    {
+     "name": "PRO",
+     "fat": 778.66,
+     "faturas": 1,
+     "units": 1
     },
     {
      "name": "Formação Primeira Infância",
@@ -18639,12 +18867,12 @@
    "spend": 511.94,
    "spend_sales": 511.94,
    "impressions": 26867,
-   "faturas": 16,
-   "units": 21,
-   "fat": 2780.32,
-   "nh": 2592.36,
+   "faturas": 17,
+   "units": 22,
+   "fat": 2863.41,
+   "nh": 2665.72,
    "abandoned": 10,
-   "checkouts": 26,
+   "checkouts": 27,
    "abandoned_re": 6,
    "abandoned_psi": 2,
    "fat_re": 2126.0,
@@ -18681,6 +18909,11 @@
      "name": "WhatsApp",
      "fat": 560.66,
      "faturas": 2
+    },
+    {
+     "name": "Hotmart",
+     "fat": 83.09,
+     "faturas": 1
     }
    ],
    "fb_split": {
@@ -18705,8 +18938,8 @@
     },
     {
      "name": "Nordeste",
-     "fat": 147.0,
-     "faturas": 1
+     "fat": 230.09,
+     "faturas": 2
     },
     {
      "name": "Norte",
@@ -18722,7 +18955,7 @@
    "pay_dist": [
     {
      "method": "Cartão de Crédito",
-     "count": 10
+     "count": 11
     },
     {
      "method": "PIX",
@@ -18797,9 +19030,9 @@
     },
     {
      "name": "PRO",
-     "fat": 29.91,
-     "faturas": 1,
-     "units": 1
+     "fat": 113.0,
+     "faturas": 2,
+     "units": 2
     }
    ],
    "prods_dia_all": [
@@ -18828,14 +19061,14 @@
      "units": 4
     },
     {
-     "name": "O Mapa da Avaliação - Autismo",
-     "fat": 59.0,
-     "faturas": 1,
-     "units": 1
+     "name": "PRO",
+     "fat": 113.0,
+     "faturas": 2,
+     "units": 2
     },
     {
-     "name": "PRO",
-     "fat": 29.91,
+     "name": "O Mapa da Avaliação - Autismo",
+     "fat": 59.0,
      "faturas": 1,
      "units": 1
     }
@@ -20774,12 +21007,12 @@
    "spend": 580.25,
    "spend_sales": 580.25,
    "impressions": 31701,
-   "faturas": 15,
-   "units": 19,
-   "fat": 4731.0,
-   "nh": 4558.71,
+   "faturas": 17,
+   "units": 21,
+   "fat": 4810.8,
+   "nh": 4627.61,
    "abandoned": 3,
-   "checkouts": 18,
+   "checkouts": 20,
    "abandoned_re": 3,
    "abandoned_psi": 0,
    "fat_re": 2234.0,
@@ -20811,6 +21044,11 @@
      "name": "Instagram — Bio",
      "fat": 627.0,
      "faturas": 4
+    },
+    {
+     "name": "Hotmart",
+     "fat": 79.8,
+     "faturas": 2
     }
    ],
    "fb_split": {
@@ -20830,8 +21068,8 @@
    "regioes": [
     {
      "name": "Sudeste",
-     "fat": 2977.0,
-     "faturas": 4
+     "fat": 3016.9,
+     "faturas": 5
     },
     {
      "name": "Norte",
@@ -20840,18 +21078,18 @@
     },
     {
      "name": "Não informado",
-     "fat": 1607.0,
-     "faturas": 10
+     "fat": 1646.9,
+     "faturas": 11
     }
    ],
    "pay_dist": [
     {
      "method": "Cartão de Crédito",
-     "count": 9
+     "count": 10
     },
     {
      "method": "PIX",
-     "count": 6
+     "count": 7
     }
    ],
    "parc_dist": [
@@ -20907,6 +21145,12 @@
      "fat": 186.0,
      "faturas": 1,
      "units": 2
+    },
+    {
+     "name": "PRO",
+     "fat": 79.8,
+     "faturas": 2,
+     "units": 2
     }
    ],
    "prods_dia_all": [
@@ -20927,6 +21171,12 @@
      "fat": 117.0,
      "faturas": 3,
      "units": 3
+    },
+    {
+     "name": "PRO",
+     "fat": 79.8,
+     "faturas": 2,
+     "units": 2
     },
     {
      "name": "O Mapa da Avaliação - Autismo",
@@ -22415,12 +22665,12 @@
    "spend": 616.1,
    "spend_sales": 616.1,
    "impressions": 30059,
-   "faturas": 9,
-   "units": 11,
-   "fat": 1613.0,
-   "nh": 1510.93,
+   "faturas": 11,
+   "units": 13,
+   "fat": 1692.8,
+   "nh": 1579.83,
    "abandoned": 7,
-   "checkouts": 16,
+   "checkouts": 18,
    "abandoned_re": 7,
    "abandoned_psi": 0,
    "fat_re": 1254.0,
@@ -22452,6 +22702,11 @@
      "name": "Facebook Ads",
      "fat": 441.0,
      "faturas": 3
+    },
+    {
+     "name": "Hotmart",
+     "fat": 79.8,
+     "faturas": 2
     }
    ],
    "fb_split": {
@@ -22475,19 +22730,24 @@
      "faturas": 1
     },
     {
+     "name": "Nordeste",
+     "fat": 39.9,
+     "faturas": 1
+    },
+    {
      "name": "Não informado",
-     "fat": 1254.0,
-     "faturas": 8
+     "fat": 1293.9,
+     "faturas": 9
     }
    ],
    "pay_dist": [
     {
-     "method": "PIX",
-     "count": 5
+     "method": "Cartão de Crédito",
+     "count": 6
     },
     {
-     "method": "Cartão de Crédito",
-     "count": 4
+     "method": "PIX",
+     "count": 5
     }
    ],
    "parc_dist": [
@@ -22517,9 +22777,9 @@
     },
     {
      "name": "PRO",
-     "fat": 359.0,
-     "faturas": 1,
-     "units": 1
+     "fat": 438.8,
+     "faturas": 3,
+     "units": 3
     }
    ],
    "prods_dia_all": [
@@ -22531,9 +22791,9 @@
     },
     {
      "name": "PRO",
-     "fat": 359.0,
-     "faturas": 1,
-     "units": 1
+     "fat": 438.8,
+     "faturas": 3,
+     "units": 3
     },
     {
      "name": "Recursos Exclusivos Divertidamente 2",
@@ -22696,12 +22956,12 @@
    "spend": 539.8,
    "spend_sales": 539.8,
    "impressions": 28714,
-   "faturas": 10,
-   "units": 12,
-   "fat": 1548.0,
-   "nh": 1457.88,
+   "faturas": 12,
+   "units": 14,
+   "fat": 1924.81,
+   "nh": 1774.59,
    "abandoned": 7,
-   "checkouts": 17,
+   "checkouts": 19,
    "abandoned_re": 5,
    "abandoned_psi": 0,
    "fat_re": 1548.0,
@@ -22733,6 +22993,11 @@
      "name": "Instagram — Bio",
      "fat": 480.0,
      "faturas": 3
+    },
+    {
+     "name": "Hotmart",
+     "fat": 376.81,
+     "faturas": 2
     }
    ],
    "fb_split": {
@@ -22757,8 +23022,8 @@
     },
     {
      "name": "Não informado",
-     "fat": 1401.0,
-     "faturas": 9
+     "fat": 1777.81,
+     "faturas": 11
     }
    ],
    "pay_dist": [
@@ -22769,6 +23034,10 @@
     {
      "method": "PIX",
      "count": 4
+    },
+    {
+     "method": "Outros",
+     "count": 2
     }
    ],
    "parc_dist": [
@@ -22800,9 +23069,15 @@
    "prods_dia": [
     {
      "name": "Regulando as Emoções",
-     "fat": 1362.0,
-     "faturas": 9,
-     "units": 10
+     "fat": 1520.97,
+     "faturas": 10,
+     "units": 11
+    },
+    {
+     "name": "Curso Psi 0-8",
+     "fat": 217.84,
+     "faturas": 1,
+     "units": 1
     },
     {
      "name": "Recursos Exclusivos Divertidamente 2",
@@ -22814,9 +23089,15 @@
    "prods_dia_all": [
     {
      "name": "Regulando as Emoções",
-     "fat": 1470.0,
-     "faturas": 10,
-     "units": 10
+     "fat": 1628.97,
+     "faturas": 11,
+     "units": 11
+    },
+    {
+     "name": "Curso Psi 0-8",
+     "fat": 217.84,
+     "faturas": 1,
+     "units": 1
     },
     {
      "name": "Recursos Exclusivos Divertidamente 2",
@@ -23349,12 +23630,12 @@
    "spend": 419.95,
    "spend_sales": 419.95,
    "impressions": 25936,
-   "faturas": 17,
-   "units": 21,
-   "fat": 2695.0,
-   "nh": 2499.25,
+   "faturas": 18,
+   "units": 22,
+   "fat": 2853.01,
+   "nh": 2631.66,
    "abandoned": 7,
-   "checkouts": 24,
+   "checkouts": 25,
    "abandoned_re": 7,
    "abandoned_psi": 0,
    "fat_re": 2695.0,
@@ -23386,6 +23667,11 @@
      "name": "Instagram — Bio",
      "fat": 627.0,
      "faturas": 4
+    },
+    {
+     "name": "Hotmart",
+     "fat": 158.01,
+     "faturas": 1
     }
    ],
    "fb_split": {
@@ -23415,8 +23701,8 @@
     },
     {
      "name": "Não informado",
-     "fat": 2401.0,
-     "faturas": 15
+     "fat": 2559.01,
+     "faturas": 16
     }
    ],
    "pay_dist": [
@@ -23427,6 +23713,10 @@
     {
      "method": "Cartão de Crédito",
      "count": 3
+    },
+    {
+     "method": "Outros",
+     "count": 1
     }
    ],
    "parc_dist": [
@@ -23459,9 +23749,9 @@
    "prods_dia": [
     {
      "name": "Regulando as Emoções",
-     "fat": 2303.0,
-     "faturas": 15,
-     "units": 17
+     "fat": 2461.01,
+     "faturas": 16,
+     "units": 18
     },
     {
      "name": "O Mapa da Avaliação - Autismo",
@@ -23479,9 +23769,9 @@
    "prods_dia_all": [
     {
      "name": "Regulando as Emoções",
-     "fat": 2499.0,
-     "faturas": 17,
-     "units": 17
+     "fat": 2657.01,
+     "faturas": 18,
+     "units": 18
     },
     {
      "name": "O Mapa da Avaliação - Autismo",
@@ -23667,12 +23957,12 @@
    "spend": 375.77,
    "spend_sales": 375.77,
    "impressions": 23902,
-   "faturas": 7,
-   "units": 12,
-   "fat": 1304.0,
-   "nh": 1221.22,
+   "faturas": 8,
+   "units": 13,
+   "fat": 1343.9,
+   "nh": 1255.67,
    "abandoned": 8,
-   "checkouts": 15,
+   "checkouts": 16,
    "abandoned_re": 6,
    "abandoned_psi": 0,
    "fat_re": 1304.0,
@@ -23704,6 +23994,11 @@
      "name": "WhatsApp",
      "fat": 147.0,
      "faturas": 1
+    },
+    {
+     "name": "Hotmart",
+     "fat": 39.9,
+     "faturas": 1
     }
    ],
    "fb_split": {
@@ -23727,6 +24022,11 @@
      "faturas": 1
     },
     {
+     "name": "Sul",
+     "fat": 39.9,
+     "faturas": 1
+    },
+    {
      "name": "Não informado",
      "fat": 1157.0,
      "faturas": 6
@@ -23734,12 +24034,12 @@
    ],
    "pay_dist": [
     {
-     "method": "PIX",
+     "method": "Cartão de Crédito",
      "count": 4
     },
     {
-     "method": "Cartão de Crédito",
-     "count": 3
+     "method": "PIX",
+     "count": 4
     }
    ],
    "parc_dist": [
@@ -23781,6 +24081,12 @@
      "fat": 206.0,
      "faturas": 1,
      "units": 2
+    },
+    {
+     "name": "PRO",
+     "fat": 39.9,
+     "faturas": 1,
+     "units": 1
     }
    ],
    "prods_dia_all": [
@@ -23795,6 +24101,12 @@
      "fat": 236.0,
      "faturas": 4,
      "units": 4
+    },
+    {
+     "name": "PRO",
+     "fat": 39.9,
+     "faturas": 1,
+     "units": 1
     },
     {
      "name": "Recursos Exclusivos Divertidamente 2",
@@ -24236,12 +24548,12 @@
    "spend": 441.55,
    "spend_sales": 441.55,
    "impressions": 23369,
-   "faturas": 12,
-   "units": 18,
-   "fat": 2377.66,
-   "nh": 2220.15,
+   "faturas": 13,
+   "units": 19,
+   "fat": 2417.56,
+   "nh": 2254.6,
    "abandoned": 4,
-   "checkouts": 16,
+   "checkouts": 17,
    "abandoned_re": 4,
    "abandoned_psi": 0,
    "fat_re": 1911.0,
@@ -24273,6 +24585,11 @@
      "name": "Facebook Ads",
      "fat": 1127.0,
      "faturas": 7
+    },
+    {
+     "name": "Hotmart",
+     "fat": 39.9,
+     "faturas": 1
     }
    ],
    "fb_split": {
@@ -24291,6 +24608,11 @@
    },
    "regioes": [
     {
+     "name": "Centro-Oeste",
+     "fat": 39.9,
+     "faturas": 1
+    },
+    {
      "name": "Não informado",
      "fat": 2377.66,
      "faturas": 12
@@ -24299,7 +24621,7 @@
    "pay_dist": [
     {
      "method": "PIX",
-     "count": 7
+     "count": 8
     },
     {
      "method": "Cartão de Crédito",
@@ -24355,6 +24677,12 @@
      "fat": 245.0,
      "faturas": 1,
      "units": 3
+    },
+    {
+     "name": "PRO",
+     "fat": 39.9,
+     "faturas": 1,
+     "units": 1
     }
    ],
    "prods_dia_all": [
@@ -24381,6 +24709,12 @@
      "fat": 117.0,
      "faturas": 3,
      "units": 3
+    },
+    {
+     "name": "PRO",
+     "fat": 39.9,
+     "faturas": 1,
+     "units": 1
     }
    ],
    "prods_dia_re": [
@@ -26940,12 +27274,12 @@
    "spend": 441.51,
    "spend_sales": 441.51,
    "impressions": 27667,
-   "faturas": 11,
-   "units": 13,
-   "fat": 3768.0,
-   "nh": 3647.31,
+   "faturas": 12,
+   "units": 14,
+   "fat": 3807.9,
+   "nh": 3681.76,
    "abandoned": 6,
-   "checkouts": 17,
+   "checkouts": 18,
    "abandoned_re": 6,
    "abandoned_psi": 0,
    "fat_re": 1568.0,
@@ -26977,6 +27311,11 @@
      "name": "Sem origem",
      "fat": 2200.0,
      "faturas": 1
+    },
+    {
+     "name": "Hotmart",
+     "fat": 39.9,
+     "faturas": 1
     }
    ],
    "fb_split": {
@@ -27006,8 +27345,8 @@
     },
     {
      "name": "Não informado",
-     "fat": 1274.0,
-     "faturas": 8
+     "fat": 1313.9,
+     "faturas": 9
     }
    ],
    "pay_dist": [
@@ -27017,7 +27356,7 @@
     },
     {
      "method": "PIX",
-     "count": 5
+     "count": 6
     }
    ],
    "parc_dist": [
@@ -27069,6 +27408,12 @@
      "fat": 206.0,
      "faturas": 1,
      "units": 2
+    },
+    {
+     "name": "PRO",
+     "fat": 39.9,
+     "faturas": 1,
+     "units": 1
     }
    ],
    "prods_dia_all": [
@@ -27087,6 +27432,12 @@
     {
      "name": "O Mapa da Avaliação - Autismo",
      "fat": 59.0,
+     "faturas": 1,
+     "units": 1
+    },
+    {
+     "name": "PRO",
+     "fat": 39.9,
      "faturas": 1,
      "units": 1
     },
@@ -27669,12 +28020,12 @@
    "spend": 474.45,
    "spend_sales": 474.45,
    "impressions": 28199,
-   "faturas": 16,
-   "units": 22,
-   "fat": 2966.75,
-   "nh": 2794.8,
+   "faturas": 17,
+   "units": 23,
+   "fat": 3006.65,
+   "nh": 2829.25,
    "abandoned": 6,
-   "checkouts": 22,
+   "checkouts": 23,
    "abandoned_re": 5,
    "abandoned_psi": 0,
    "fat_re": 2392.0,
@@ -27706,6 +28057,11 @@
      "name": "Instagram — Bio",
      "fat": 618.0,
      "faturas": 3
+    },
+    {
+     "name": "Hotmart",
+     "fat": 39.9,
+     "faturas": 1
     }
    ],
    "fb_split": {
@@ -27735,8 +28091,8 @@
     },
     {
      "name": "Não informado",
-     "fat": 2245.0,
-     "faturas": 13
+     "fat": 2284.9,
+     "faturas": 14
     }
    ],
    "pay_dist": [
@@ -27750,6 +28106,10 @@
     },
     {
      "method": "Múltiplos cartões",
+     "count": 1
+    },
+    {
+     "method": "Boleto",
      "count": 1
     }
    ],
@@ -27812,6 +28172,12 @@
      "fat": 249.75,
      "faturas": 1,
      "units": 1
+    },
+    {
+     "name": "PRO",
+     "fat": 39.9,
+     "faturas": 1,
+     "units": 1
     }
    ],
    "prods_dia_all": [
@@ -27836,6 +28202,12 @@
     {
      "name": "Formação Primeira Infância • Turma 09",
      "fat": 249.75,
+     "faturas": 1,
+     "units": 1
+    },
+    {
+     "name": "PRO",
+     "fat": 39.9,
      "faturas": 1,
      "units": 1
     },
@@ -28019,12 +28391,12 @@
    "spend": 454.83,
    "spend_sales": 454.83,
    "impressions": 26597,
-   "faturas": 15,
-   "units": 20,
-   "fat": 2440.0,
-   "nh": 2312.47,
+   "faturas": 16,
+   "units": 21,
+   "fat": 2637.0,
+   "nh": 2486.48,
    "abandoned": 8,
-   "checkouts": 23,
+   "checkouts": 24,
    "abandoned_re": 7,
    "abandoned_psi": 0,
    "fat_re": 2440.0,
@@ -28056,6 +28428,11 @@
      "name": "WhatsApp",
      "fat": 147.0,
      "faturas": 1
+    },
+    {
+     "name": "Hotmart",
+     "fat": 197.0,
+     "faturas": 1
     }
    ],
    "fb_split": {
@@ -28079,6 +28456,11 @@
      "faturas": 1
     },
     {
+     "name": "Nordeste",
+     "fat": 197.0,
+     "faturas": 1
+    },
+    {
      "name": "Não informado",
      "fat": 2293.0,
      "faturas": 14
@@ -28087,7 +28469,7 @@
    "pay_dist": [
     {
      "method": "Cartão de Crédito",
-     "count": 10
+     "count": 11
     },
     {
      "method": "PIX",
@@ -28151,6 +28533,12 @@
      "fat": 372.0,
      "faturas": 2,
      "units": 4
+    },
+    {
+     "name": "O Mapa da Avaliação: Autismo",
+     "fat": 197.0,
+     "faturas": 1,
+     "units": 1
     }
    ],
    "prods_dia_all": [
@@ -28159,6 +28547,12 @@
      "fat": 2205.0,
      "faturas": 15,
      "units": 15
+    },
+    {
+     "name": "O Mapa da Avaliação: Autismo",
+     "fat": 197.0,
+     "faturas": 1,
+     "units": 1
     },
     {
      "name": "O Mapa da Avaliação - Autismo",
@@ -28351,12 +28745,12 @@
    "spend": 403.85,
    "spend_sales": 403.85,
    "impressions": 23788,
-   "faturas": 9,
-   "units": 11,
-   "fat": 1623.75,
-   "nh": 1518.55,
+   "faturas": 10,
+   "units": 12,
+   "fat": 1663.65,
+   "nh": 1553.0,
    "abandoned": 3,
-   "checkouts": 12,
+   "checkouts": 13,
    "abandoned_re": 1,
    "abandoned_psi": 1,
    "fat_re": 1127.0,
@@ -28388,6 +28782,11 @@
      "name": "Instagram — Bio",
      "fat": 392.0,
      "faturas": 2
+    },
+    {
+     "name": "Hotmart",
+     "fat": 39.9,
+     "faturas": 1
     }
    ],
    "fb_split": {
@@ -28411,6 +28810,11 @@
      "faturas": 1
     },
     {
+     "name": "Nordeste",
+     "fat": 39.9,
+     "faturas": 1
+    },
+    {
      "name": "Não informado",
      "fat": 1374.0,
      "faturas": 8
@@ -28419,7 +28823,7 @@
    "pay_dist": [
     {
      "method": "Cartão de Crédito",
-     "count": 5
+     "count": 6
     },
     {
      "method": "PIX",
@@ -28473,6 +28877,12 @@
      "fat": 245.0,
      "faturas": 1,
      "units": 3
+    },
+    {
+     "name": "PRO",
+     "fat": 39.9,
+     "faturas": 1,
+     "units": 1
     }
    ],
    "prods_dia_all": [
@@ -28497,6 +28907,12 @@
     {
      "name": "O Mapa da Avaliação - Autismo",
      "fat": 59.0,
+     "faturas": 1,
+     "units": 1
+    },
+    {
+     "name": "PRO",
+     "fat": 39.9,
      "faturas": 1,
      "units": 1
     },
@@ -30581,12 +30997,12 @@
    "spend": 358.96,
    "spend_sales": 358.96,
    "impressions": 21771,
-   "faturas": 10,
-   "units": 14,
-   "fat": 1646.0,
-   "nh": 1508.58,
+   "faturas": 11,
+   "units": 15,
+   "fat": 1685.9,
+   "nh": 1543.03,
    "abandoned": 5,
-   "checkouts": 15,
+   "checkouts": 16,
    "abandoned_re": 4,
    "abandoned_psi": 0,
    "fat_re": 1646.0,
@@ -30613,6 +31029,11 @@
      "name": "WhatsApp",
      "fat": 294.0,
      "faturas": 2
+    },
+    {
+     "name": "Hotmart",
+     "fat": 39.9,
+     "faturas": 1
     }
    ],
    "fb_split": {
@@ -30632,8 +31053,8 @@
    "regioes": [
     {
      "name": "Sudeste",
-     "fat": 147.0,
-     "faturas": 1
+     "fat": 186.9,
+     "faturas": 2
     },
     {
      "name": "Não informado",
@@ -30644,7 +31065,7 @@
    "pay_dist": [
     {
      "method": "Cartão de Crédito",
-     "count": 6
+     "count": 7
     },
     {
      "method": "PIX",
@@ -30704,6 +31125,12 @@
      "fat": 186.0,
      "faturas": 1,
      "units": 2
+    },
+    {
+     "name": "PRO",
+     "fat": 39.9,
+     "faturas": 1,
+     "units": 1
     }
    ],
    "prods_dia_all": [
@@ -30722,6 +31149,12 @@
     {
      "name": "O Mapa da Avaliação - Autismo",
      "fat": 59.0,
+     "faturas": 1,
+     "units": 1
+    },
+    {
+     "name": "PRO",
+     "fat": 39.9,
      "faturas": 1,
      "units": 1
     }
@@ -32096,12 +32529,12 @@
    "spend": 544.44,
    "spend_sales": 544.44,
    "impressions": 35818,
-   "faturas": 7,
-   "units": 8,
-   "fat": 2918.0,
-   "nh": 2836.86,
+   "faturas": 9,
+   "units": 10,
+   "fat": 2997.8,
+   "nh": 2905.76,
    "abandoned": 8,
-   "checkouts": 15,
+   "checkouts": 17,
    "abandoned_re": 7,
    "abandoned_psi": 0,
    "fat_re": 921.0,
@@ -32133,6 +32566,11 @@
      "name": "Instagram — Bio",
      "fat": 294.0,
      "faturas": 2
+    },
+    {
+     "name": "Hotmart",
+     "fat": 79.8,
+     "faturas": 2
     }
    ],
    "fb_split": {
@@ -32151,15 +32589,20 @@
    },
    "regioes": [
     {
+     "name": "Nordeste",
+     "fat": 39.9,
+     "faturas": 1
+    },
+    {
      "name": "Não informado",
-     "fat": 2918.0,
-     "faturas": 7
+     "fat": 2957.9,
+     "faturas": 8
     }
    ],
    "pay_dist": [
     {
      "method": "Cartão de Crédito",
-     "count": 5
+     "count": 7
     },
     {
      "method": "PIX",
@@ -32210,6 +32653,12 @@
      "fat": 186.0,
      "faturas": 1,
      "units": 2
+    },
+    {
+     "name": "PRO",
+     "fat": 79.8,
+     "faturas": 2,
+     "units": 2
     }
    ],
    "prods_dia_all": [
@@ -32224,6 +32673,12 @@
      "fat": 882.0,
      "faturas": 6,
      "units": 6
+    },
+    {
+     "name": "PRO",
+     "fat": 79.8,
+     "faturas": 2,
+     "units": 2
     },
     {
      "name": "Recursos Exclusivos Divertidamente 2",
@@ -33368,12 +33823,12 @@
    "spend": 493.44,
    "spend_sales": 493.44,
    "impressions": 26959,
-   "faturas": 5,
-   "units": 7,
-   "fat": 833.0,
-   "nh": 772.16,
+   "faturas": 6,
+   "units": 8,
+   "fat": 872.9,
+   "nh": 806.61,
    "abandoned": 6,
-   "checkouts": 11,
+   "checkouts": 12,
    "abandoned_re": 6,
    "abandoned_psi": 0,
    "fat_re": 833.0,
@@ -33400,6 +33855,11 @@
      "name": "Instagram — Bio",
      "fat": 147.0,
      "faturas": 1
+    },
+    {
+     "name": "Hotmart",
+     "fat": 39.9,
+     "faturas": 1
     }
    ],
    "fb_split": {
@@ -33423,6 +33883,11 @@
      "faturas": 1
     },
     {
+     "name": "Sul",
+     "fat": 39.9,
+     "faturas": 1
+    },
+    {
      "name": "Não informado",
      "fat": 627.0,
      "faturas": 4
@@ -33435,7 +33900,7 @@
     },
     {
      "method": "Cartão de Crédito",
-     "count": 1
+     "count": 2
     }
    ],
    "parc_dist": [
@@ -33475,6 +33940,12 @@
      "fat": 186.0,
      "faturas": 1,
      "units": 2
+    },
+    {
+     "name": "PRO",
+     "fat": 39.9,
+     "faturas": 1,
+     "units": 1
     }
    ],
    "prods_dia_all": [
@@ -33487,6 +33958,12 @@
     {
      "name": "O Mapa da Avaliação - Autismo",
      "fat": 59.0,
+     "faturas": 1,
+     "units": 1
+    },
+    {
+     "name": "PRO",
+     "fat": 39.9,
      "faturas": 1,
      "units": 1
     },
@@ -33642,12 +34119,12 @@
    "spend": 536.36,
    "spend_sales": 536.36,
    "impressions": 29308,
-   "faturas": 10,
-   "units": 13,
-   "fat": 1737.0,
-   "nh": 1625.65,
+   "faturas": 11,
+   "units": 14,
+   "fat": 2164.63,
+   "nh": 2009.44,
    "abandoned": 6,
-   "checkouts": 16,
+   "checkouts": 17,
    "abandoned_re": 6,
    "abandoned_psi": 0,
    "fat_re": 1440.0,
@@ -33679,6 +34156,11 @@
      "name": "Instagram — Bio",
      "fat": 372.0,
      "faturas": 2
+    },
+    {
+     "name": "Hotmart",
+     "fat": 427.63,
+     "faturas": 1
     }
    ],
    "fb_split": {
@@ -33696,6 +34178,11 @@
     }
    },
    "regioes": [
+    {
+     "name": "Sudeste",
+     "fat": 427.63,
+     "faturas": 1
+    },
     {
      "name": "Nordeste",
      "fat": 297.0,
@@ -33724,7 +34211,7 @@
     },
     {
      "method": "Cartão de Crédito",
-     "count": 4
+     "count": 5
     }
    ],
    "parc_dist": [
@@ -33761,6 +34248,12 @@
      "units": 8
     },
     {
+     "name": "PRO",
+     "fat": 427.63,
+     "faturas": 1,
+     "units": 1
+    },
+    {
      "name": "Recursos Exclusivos Divertidamente 2",
      "fat": 372.0,
      "faturas": 2,
@@ -33779,6 +34272,12 @@
      "fat": 1323.0,
      "faturas": 9,
      "units": 9
+    },
+    {
+     "name": "PRO",
+     "fat": 427.63,
+     "faturas": 1,
+     "units": 1
     },
     {
      "name": "Curso Psi: 0-8",
@@ -34283,12 +34782,12 @@
    "spend": 536.79,
    "spend_sales": 536.79,
    "impressions": 30341,
-   "faturas": 14,
-   "units": 23,
-   "fat": 2689.0,
-   "nh": 2546.52,
+   "faturas": 16,
+   "units": 25,
+   "fat": 3261.82,
+   "nh": 3051.23,
    "abandoned": 7,
-   "checkouts": 21,
+   "checkouts": 23,
    "abandoned_re": 5,
    "abandoned_psi": 1,
    "fat_re": 2195.0,
@@ -34330,6 +34829,11 @@
      "name": "TheMembers",
      "fat": 147.0,
      "faturas": 1
+    },
+    {
+     "name": "Hotmart",
+     "fat": 572.82,
+     "faturas": 2
     }
    ],
    "fb_split": {
@@ -34349,8 +34853,8 @@
    "regioes": [
     {
      "name": "Sudeste",
-     "fat": 147.0,
-     "faturas": 1
+     "fat": 563.22,
+     "faturas": 2
     },
     {
      "name": "Nordeste",
@@ -34359,18 +34863,22 @@
     },
     {
      "name": "Não informado",
-     "fat": 2395.0,
-     "faturas": 12
+     "fat": 2551.6,
+     "faturas": 13
     }
    ],
    "pay_dist": [
     {
      "method": "Cartão de Crédito",
-     "count": 10
+     "count": 11
     },
     {
      "method": "PIX",
      "count": 4
+    },
+    {
+     "method": "Outros",
+     "count": 1
     }
    ],
    "parc_dist": [
@@ -34415,9 +34923,9 @@
    "prods_dia": [
     {
      "name": "Regulando as Emoções",
-     "fat": 1313.0,
-     "faturas": 8,
-     "units": 11
+     "fat": 1469.6,
+     "faturas": 9,
+     "units": 12
     },
     {
      "name": "Curso Psi: 0-8",
@@ -34436,20 +34944,32 @@
      "fat": 431.0,
      "faturas": 2,
      "units": 5
+    },
+    {
+     "name": "PRO",
+     "fat": 416.22,
+     "faturas": 1,
+     "units": 1
     }
    ],
    "prods_dia_all": [
     {
      "name": "Regulando as Emoções",
-     "fat": 1764.0,
-     "faturas": 12,
-     "units": 12
+     "fat": 1920.6,
+     "faturas": 13,
+     "units": 13
     },
     {
      "name": "Curso Psi: 0-8",
      "fat": 494.0,
      "faturas": 2,
      "units": 2
+    },
+    {
+     "name": "PRO",
+     "fat": 416.22,
+     "faturas": 1,
+     "units": 1
     },
     {
      "name": "O Mapa da Avaliação - Autismo",
@@ -35019,12 +35539,12 @@
    "spend": 519.56,
    "spend_sales": 519.56,
    "impressions": 30440,
-   "faturas": 7,
-   "units": 10,
-   "fat": 1166.0,
-   "nh": 1094.03,
+   "faturas": 8,
+   "units": 11,
+   "fat": 1218.22,
+   "nh": 1133.59,
    "abandoned": 1,
-   "checkouts": 8,
+   "checkouts": 9,
    "abandoned_re": 1,
    "abandoned_psi": 0,
    "fat_re": 1166.0,
@@ -35051,6 +35571,11 @@
      "name": "Facebook Ads",
      "fat": 921.0,
      "faturas": 6
+    },
+    {
+     "name": "Hotmart",
+     "fat": 52.22,
+     "faturas": 1
     }
    ],
    "fb_split": {
@@ -35069,6 +35594,11 @@
    },
    "regioes": [
     {
+     "name": "Sudeste",
+     "fat": 52.22,
+     "faturas": 1
+    },
+    {
      "name": "Nordeste",
      "fat": 147.0,
      "faturas": 1
@@ -35081,12 +35611,12 @@
    ],
    "pay_dist": [
     {
-     "method": "PIX",
+     "method": "Cartão de Crédito",
      "count": 4
     },
     {
-     "method": "Cartão de Crédito",
-     "count": 3
+     "method": "PIX",
+     "count": 4
     }
    ],
    "parc_dist": [
@@ -35128,6 +35658,12 @@
      "fat": 245.0,
      "faturas": 1,
      "units": 3
+    },
+    {
+     "name": "PRO",
+     "fat": 52.22,
+     "faturas": 1,
+     "units": 1
     }
    ],
    "prods_dia_all": [
@@ -35146,6 +35682,12 @@
     {
      "name": "O Mapa da Avaliação - Autismo",
      "fat": 59.0,
+     "faturas": 1,
+     "units": 1
+    },
+    {
+     "name": "PRO",
+     "fat": 52.22,
      "faturas": 1,
      "units": 1
     }
@@ -35969,12 +36511,12 @@
    "spend": 602.58,
    "spend_sales": 602.58,
    "impressions": 33193,
-   "faturas": 12,
-   "units": 17,
-   "fat": 1881.91,
-   "nh": 1759.67,
+   "faturas": 13,
+   "units": 18,
+   "fat": 3676.12,
+   "nh": 3289.45,
    "abandoned": 12,
-   "checkouts": 24,
+   "checkouts": 25,
    "abandoned_re": 6,
    "abandoned_psi": 2,
    "fat_re": 1852.0,
@@ -36006,6 +36548,11 @@
      "name": "Instagram — Bio",
      "fat": 245.0,
      "faturas": 1
+    },
+    {
+     "name": "Hotmart",
+     "fat": 1794.21,
+     "faturas": 1
     }
    ],
    "fb_split": {
@@ -36030,8 +36577,8 @@
     },
     {
      "name": "Não informado",
-     "fat": 1852.0,
-     "faturas": 11
+     "fat": 3646.21,
+     "faturas": 12
     }
    ],
    "pay_dist": [
@@ -36042,6 +36589,10 @@
     {
      "method": "Cartão de Crédito",
      "count": 4
+    },
+    {
+     "method": "Outros",
+     "count": 1
     }
    ],
    "parc_dist": [
@@ -36077,6 +36628,12 @@
    "ob_detail_psi": [],
    "prods_dia": [
     {
+     "name": "Formação Primeira Infância - Perpétuo",
+     "fat": 1794.21,
+     "faturas": 1,
+     "units": 1
+    },
+    {
      "name": "Regulando as Emoções",
      "fat": 1607.0,
      "faturas": 10,
@@ -36096,6 +36653,12 @@
     }
    ],
    "prods_dia_all": [
+    {
+     "name": "Formação Primeira Infância - Perpétuo",
+     "fat": 1794.21,
+     "faturas": 1,
+     "units": 1
+    },
     {
      "name": "Regulando as Emoções",
      "fat": 1617.0,
@@ -36274,12 +36837,12 @@
    "spend": 622.24,
    "spend_sales": 622.24,
    "impressions": 31647,
-   "faturas": 13,
-   "units": 17,
-   "fat": 2319.0,
-   "nh": 2165.87,
+   "faturas": 14,
+   "units": 18,
+   "fat": 2633.88,
+   "nh": 2432.21,
    "abandoned": 7,
-   "checkouts": 20,
+   "checkouts": 21,
    "abandoned_re": 6,
    "abandoned_psi": 0,
    "fat_re": 1960.0,
@@ -36311,6 +36874,11 @@
      "name": "Instagram — Bio",
      "fat": 392.0,
      "faturas": 2
+    },
+    {
+     "name": "Hotmart",
+     "fat": 314.88,
+     "faturas": 1
     }
    ],
    "fb_split": {
@@ -36340,8 +36908,8 @@
     },
     {
      "name": "Não informado",
-     "fat": 1607.0,
-     "faturas": 10
+     "fat": 1921.88,
+     "faturas": 11
     }
    ],
    "pay_dist": [
@@ -36352,6 +36920,10 @@
     {
      "method": "PIX",
      "count": 5
+    },
+    {
+     "method": "Outros",
+     "count": 1
     }
    ],
    "parc_dist": [
@@ -36405,6 +36977,12 @@
      "units": 1
     },
     {
+     "name": "Curso Psi 0-8",
+     "fat": 314.88,
+     "faturas": 1,
+     "units": 1
+    },
+    {
      "name": "Recursos Exclusivos Divertidamente 2",
      "fat": 186.0,
      "faturas": 1,
@@ -36421,6 +36999,12 @@
     {
      "name": "PRO",
      "fat": 359.0,
+     "faturas": 1,
+     "units": 1
+    },
+    {
+     "name": "Curso Psi 0-8",
+     "fat": 314.88,
      "faturas": 1,
      "units": 1
     },
@@ -36599,12 +37183,12 @@
    "spend": 586.52,
    "spend_sales": 586.52,
    "impressions": 33659,
-   "faturas": 8,
-   "units": 11,
-   "fat": 1313.0,
-   "nh": 1241.04,
+   "faturas": 11,
+   "units": 14,
+   "fat": 3552.65,
+   "nh": 3153.97,
    "abandoned": 10,
-   "checkouts": 18,
+   "checkouts": 21,
    "abandoned_re": 9,
    "abandoned_psi": 0,
    "fat_re": 1313.0,
@@ -36636,6 +37220,11 @@
      "name": "Facebook Ads",
      "fat": 578.0,
      "faturas": 3
+    },
+    {
+     "name": "Hotmart",
+     "fat": 2239.65,
+     "faturas": 3
     }
    ],
    "fb_split": {
@@ -36654,9 +37243,14 @@
    },
    "regioes": [
     {
+     "name": "Nordeste",
+     "fat": 83.09,
+     "faturas": 1
+    },
+    {
      "name": "Não informado",
-     "fat": 1313.0,
-     "faturas": 8
+     "fat": 3469.56,
+     "faturas": 10
     }
    ],
    "pay_dist": [
@@ -36666,7 +37260,11 @@
     },
     {
      "method": "PIX",
-     "count": 2
+     "count": 4
+    },
+    {
+     "method": "Outros",
+     "count": 1
     }
    ],
    "parc_dist": [
@@ -36702,6 +37300,12 @@
    "ob_detail_psi": [],
    "prods_dia": [
     {
+     "name": "Formação Primeira Infância - Perpétuo",
+     "fat": 2116.66,
+     "faturas": 1,
+     "units": 1
+    },
+    {
      "name": "Regulando as Emoções",
      "fat": 1127.0,
      "faturas": 7,
@@ -36712,14 +37316,32 @@
      "fat": 186.0,
      "faturas": 1,
      "units": 2
+    },
+    {
+     "name": "PRO",
+     "fat": 122.99,
+     "faturas": 2,
+     "units": 2
     }
    ],
    "prods_dia_all": [
+    {
+     "name": "Formação Primeira Infância - Perpétuo",
+     "fat": 2116.66,
+     "faturas": 1,
+     "units": 1
+    },
     {
      "name": "Regulando as Emoções",
      "fat": 1176.0,
      "faturas": 8,
      "units": 8
+    },
+    {
+     "name": "PRO",
+     "fat": 122.99,
+     "faturas": 2,
+     "units": 2
     },
     {
      "name": "Recursos Exclusivos Divertidamente 2",
@@ -54509,7 +55131,7 @@
   "period_label": "01 a 1 de agosto de 2026",
   "period_start": "2026-08-01",
   "period_end": "2026-08-01",
-  "generated_at": "2026-08-01 11:30:12",
+  "generated_at": "2026-08-01 12:41:56",
   "checks": [
    {
     "name": "Período cobre mês corrente",
