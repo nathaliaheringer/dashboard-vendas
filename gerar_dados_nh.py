@@ -164,6 +164,30 @@ for _f in _hubla_files:
     except Exception as _e:
         print(f"[Hubla] {os.path.basename(_f)} pulado: {_e}")
 
+# Dedup por "ID da fatura": dois exports podem cobrir o MESMO mês com janelas
+# diferentes (ex.: 01–03/ago e 01–04/ago). Sem dedup a mesma fatura entra duas
+# vezes em faturamento, contagem de faturas, itens, donut e daily[]. Os arquivos
+# vêm ordenados por mtime crescente, então a ÚLTIMA ocorrência (export mais
+# recente) prevalece — é a que tem status/valores mais atualizados.
+_id_ix = header_ref.index('ID da fatura') if header_ref and 'ID da fatura' in header_ref else -1
+if _id_ix >= 0:
+    _dedup = {}
+    _n_dup = 0
+    for _i, _r in enumerate(all_rows):
+        _k = _r[_id_ix]
+        if _k in (None, ''):
+            _dedup[f'__sem_id_{_i}__'] = _r   # sem ID: mantém todas
+            continue
+        if _k in _dedup:
+            _n_dup += 1
+        _dedup[_k] = _r
+    if _n_dup:
+        print(f"[Hubla] {_n_dup} fatura(s) repetida(s) entre exports — mantida a versão mais recente "
+              f"({len(all_rows)} linhas → {len(_dedup)} faturas únicas)")
+    all_rows = list(_dedup.values())
+else:
+    print("[Hubla] ⚠️  Coluna 'ID da fatura' ausente — dedup entre exports NÃO aplicado")
+
 # Cria um objeto "ws" virtual com todas as linhas
 class _VirtualWS:
     def __init__(self, rows, header):
