@@ -1812,9 +1812,16 @@ if _AD_FILE:
             _byd[_k]['spend']      += _e['spend'];       _byd[_k]['impressions'] += _e['impressions']
             _byd[_k]['clicks']     += _e['clicks'];      _byd[_k]['lpv']         += _e['lpv']
             _byd[_k]['reach']      += _e['reach'];       _byd[_k]['cpm_x_imp']   += _e['cpm']*_e['impressions']
+        # União das datas: mídia (_byd) + datas que só têm VENDA (_adh). Um anúncio
+        # pode vender num dia em que não veiculou — a pessoa clica num dia e paga
+        # no outro, e a data da fatura é a do pagamento. Percorrer só _byd descartava
+        # essas vendas do array diário (o total do anúncio, somado de _adh, já as
+        # tinha), então a tabela filtrada por período mostrava menos vendas que a
+        # aba Campanhas. Dias só-venda entram com mídia zerada.
+        _ZERO = {'spend':0.0,'impressions':0,'clicks':0,'lpv':0,'reach':0,'cpm_x_imp':0.0}
         _daily = []
-        for _k in sorted(_byd):
-            _eb = _byd[_k]; _di = _adh.get(_k, {})
+        for _k in sorted(set(_byd) | set(_adh)):
+            _eb = _byd.get(_k, _ZERO); _di = _adh.get(_k, {})
             _daily.append({'date':_k,'spend':r2(_eb['spend']),'impressions':_eb['impressions'],
                 'clicks':_eb['clicks'],'lpv':_eb['lpv'],'reach':_eb['reach'],
                 'cpm':r2(_eb['cpm_x_imp']/_eb['impressions']) if _eb['impressions'] else 0,
