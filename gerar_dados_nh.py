@@ -212,6 +212,52 @@ CAMP_ALIAS = {
     '[RE] [Compra] [Frio] [Melhores Criativos] [Estáticos] - CBO': '[RE] [Compra] [Frio] [Melhores Criativos] - CBO',
 }
 
+# ── FONTE ÚNICA das campanhas ────────────────────────────────────
+# Antes esta lista vivia duplicada em 3 lugares (CAMP_META no STEP 10,
+# CAMP_UTM_MAP no STEP 7 e RE_FREQ/PSI_FREQ no STEP 5). Uma campanha nova
+# precisava ser adicionada nos 3 — e quando faltava em algum, ela sumia da aba
+# Campanhas mesmo tendo spend e vendas. Agora só existe AQUI; os outros três
+# são derivados abaixo. Para cadastrar uma campanha nova, adicione uma linha
+# neste dict (e o campaign_id no CAMP_MAP do consolidador do ads_daily.csv).
+# 'freq' = frequência estimada, usada só quando não há reach real do Meta MCP.
+CAMP_META = {
+    "[PSI08] [Compra] [Frio] - ABO":                                {"prod":"PSI","aud":"Frio","creat":"Misto","obj":"sales","status":"PAUSED","freq":1.48},
+    "[PSI08] [Compra] [Quente] [Teste Criativos] [Estáticos] - ABO":{"prod":"PSI","aud":"Quente","creat":"Estáticos","obj":"sales","status":"PAUSED","freq":1.65},
+    "[PSI08] [Initiate Checkout] [Frio] [ADV+] - ABO":              {"prod":"PSI","aud":"Frio","creat":"ADV+","obj":"sales","status":"PAUSED","freq":1.19},
+    "[RE] [Compra] [Quente] [Validação] [Estáticos] - ABO":         {"prod":"RE","aud":"Quente","creat":"Estáticos","obj":"sales","status":"PAUSED","freq":1.33},
+    "[RE] [Compra] [Quente] [Validação] [Vídeos] - ABO":            {"prod":"RE","aud":"Quente","creat":"Vídeos","obj":"sales","status":"ACTIVE","freq":1.25},
+    "[RE] [Compra] [Frio] [Validação] [Vídeos] - ABO":              {"prod":"RE","aud":"Frio","creat":"Vídeos","obj":"sales","status":"ACTIVE","freq":1.35},
+    "[RE] [Compra] [Frio] [Validação] [Estáticos] - ABO":           {"prod":"RE","aud":"Frio","creat":"Estáticos","obj":"sales","status":"ACTIVE","freq":1.85},
+    "[RE] [Compra] [Frio] [Melhores Criativos] - CBO":              {"prod":"RE","aud":"Frio","creat":"Misto","obj":"sales","status":"PAUSED","freq":1.40},
+    "[RE] [Compra] [Frio] [Melhores Criativos] [Teste LAL] - ABO":  {"prod":"RE","aud":"Frio","creat":"Misto","obj":"sales","status":"ACTIVE","freq":1.35},
+    "[RE] [Compra] [Frio] [Novos Criativos] [Estáticos] - ABO":     {"prod":"RE","aud":"Frio","creat":"Estáticos","obj":"sales","status":"ACTIVE","freq":1.40},
+    "[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO":        {"prod":"RE","aud":"Frio","creat":"Vídeos","obj":"sales","status":"ACTIVE","freq":1.25},
+    # Adicionadas em 07/ago/2026 — estavam com spend na planilha DADOS RE e
+    # vendas na Hubla, mas fora dos mapas, então não apareciam na aba Campanhas.
+    "[RE] [Compra] [Quente] [Melhores Criativos] - ABO":            {"prod":"RE","aud":"Quente","creat":"Misto","obj":"sales","status":"PAUSED","freq":1.40},
+    "[RE] [Compra] [Frio] [Melhores Criativos] [ADV+] - CBO":       {"prod":"RE","aud":"Frio","creat":"ADV+","obj":"sales","status":"ACTIVE","freq":1.30},
+    "[RE] [Compra] [Frio] [Novos Criativos] [Teste LAL] - ABO":     {"prod":"RE","aud":"Frio","creat":"Misto","obj":"sales","status":"ACTIVE","freq":1.30},
+    "[RE] [Compra] [Quente] - ABO":                                 {"prod":"RE","aud":"Quente","creat":"Misto","obj":"sales","status":"ACTIVE","freq":1.30},
+    "[RE] [Compra] [Quente] [RMKT] - ABO":                          {"prod":"RE","aud":"Quente","creat":"Misto","obj":"sales","status":"ACTIVE","freq":1.30},
+}
+
+# Normalização de UTM Campanha. A Hubla às vezes grava o nome da campanha com
+# os espaços comidos e os acentos REMOVIDOS (não transliterados) — ex.:
+# "[RE][Compra][Frio][NovosCriativos][Vdeos]-ABO" para
+# "[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO". Sem isso essas
+# faturas ficam órfãs e a aba Campanhas subconta as vendas. A chave descarta
+# tudo que não é [a-z0-9] ASCII, então "Vídeos" e "Vdeos" colapsam no mesmo
+# valor. Conferido: as 16 campanhas não colidem entre si sob essa chave.
+def _camp_key(s): return re.sub(r'[^a-z0-9]', '', str(s or '').lower())
+_CAMP_BY_KEY = {_camp_key(c): c for c in CAMP_META}
+assert len(_CAMP_BY_KEY) == len(CAMP_META), "colisão de nome normalizado em CAMP_META"
+
+def canon_camp(camp):
+    """UTM Campanha → nome canônico (alias + tolerância a espaço/acento)."""
+    camp = CAMP_ALIAS.get(camp, camp)
+    if camp in CAMP_META: return camp
+    return _CAMP_BY_KEY.get(_camp_key(camp), camp)
+
 # invoices = só do mês corrente (usado em totals, weeks, products_paid, etc.)
 # invoices_hist = histórico completo (usado para construir daily[] do ano)
 invoices = []
@@ -234,8 +280,7 @@ for row in ws.iter_rows(min_row=2, values_only=True):
     recor = bool(parc) or 'Turma 09' in prod
     src   = dedup(str(row[ci('UTM Origem')] or '')).lower().replace(' ','')
     med   = dedup(str(row[ci('UTM Mídia')] or '')).lower().replace(' ','')
-    camp  = dedup(str(row[ci('UTM Campanha')] or ''))
-    camp  = CAMP_ALIAS.get(camp, camp)
+    camp  = canon_camp(dedup(str(row[ci('UTM Campanha')] or '')))
     conteudo = dedup(str(row[ci('UTM Conteúdo')] or '')) if ci('UTM Conteúdo') >= 0 else ''
     estado= str(row[ci('Endereço Estado')] or '').strip().upper()
     pay_method = str(row[ci('Método de pagamento')] or '').strip() if ci('Método de pagamento') >= 0 else ''
@@ -508,26 +553,14 @@ with open(_psi_csvs[-1], encoding='utf-8') as f:
 print(f"[PSI08 CSV] mês corrente: clicks={psi_clicks} lpv={psi_lpv}")
 
 # ── STEP 5: Build meta_raw from CSVs + INSTA hardcoded ──────────
-RE_FREQ = {
-    '[RE] [Compra] [Quente] [Validação] [Estáticos] - ABO': 1.33,
-    '[RE] [Compra] [Quente] [Validação] [Vídeos] - ABO': 1.25,
-    '[RE] [Compra] [Frio] [Validação] [Vídeos] - ABO': 1.35,
-    '[RE] [Compra] [Frio] [Validação] [Estáticos] - ABO': 1.85,
-    '[RE] [Compra] [Frio] [Melhores Criativos] - CBO': 1.40,
-    '[RE] [Compra] [Frio] [Melhores Criativos] [Teste LAL] - ABO': 1.35,
-    '[RE] [Compra] [Frio] [Novos Criativos] [Estáticos] - ABO': 1.40,
-    '[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO': 1.25,
-}
+# Derivados de CAMP_META (fonte única, definida junto ao CAMP_ALIAS).
+RE_FREQ  = {c:m['freq'] for c,m in CAMP_META.items() if m['prod']=='RE'}
 PSI_NAME_MAP = {
     '[PSI08] [Compra] [Quente] [Teste Criativos] [Estáticos] - AB': '[PSI08] [Compra] [Quente] [Teste Criativos] [Estáticos] - ABO',
     '[PSI08] [Initiate Checkout] [Frio] [ADV+] - ABO': '[PSI08] [Initiate Checkout] [Frio] [ADV+] - ABO',
     '[PSI08] [Compra] [Frio] - ABO': '[PSI08] [Compra] [Frio] - ABO',
 }
-PSI_FREQ = {
-    '[PSI08] [Compra] [Frio] - ABO': 1.48,
-    '[PSI08] [Compra] [Quente] [Teste Criativos] [Estáticos] - ABO': 1.65,
-    '[PSI08] [Initiate Checkout] [Frio] [ADV+] - ABO': 1.19,
-}
+PSI_FREQ = {c:m['freq'] for c,m in CAMP_META.items() if m['prod']=='PSI'}
 
 meta_raw = []
 
@@ -992,19 +1025,7 @@ print(f"RE spend: {re_sp:.2f} | PSI spend: {psi_sp:.2f}")
 print(f"Pag: {dict(pay_counts)} | Parc: {dict(parc_dist)}")
 
 # ── STEP 7: Per-campaign Hubla UTM attribution ───────────────────
-CAMP_UTM_MAP = {
-    '[RE] [Compra] [Quente] [Validação] [Estáticos] - ABO': None,
-    '[RE] [Compra] [Quente] [Validação] [Vídeos] - ABO':    None,
-    '[RE] [Compra] [Frio] [Validação] [Vídeos] - ABO':      None,
-    '[RE] [Compra] [Frio] [Validação] [Estáticos] - ABO':   None,
-    '[RE] [Compra] [Frio] [Melhores Criativos] - CBO':      None,
-    '[RE] [Compra] [Frio] [Melhores Criativos] [Teste LAL] - ABO': None,
-    '[RE] [Compra] [Frio] [Novos Criativos] [Estáticos] - ABO':    None,
-    '[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO':       None,
-    '[PSI08] [Compra] [Frio] - ABO':                        None,
-    '[PSI08] [Compra] [Quente] [Teste Criativos] [Estáticos] - ABO': None,
-    '[PSI08] [Initiate Checkout] [Frio] [ADV+] - ABO':      None,
-}
+CAMP_UTM_MAP = {k: None for k in CAMP_META}   # derivado da fonte única
 camp_hubla = {k:{'faturas':0,'fat':0.0,'nh':0.0} for k in CAMP_UTM_MAP}
 # Atribuição por (campanha, dia) — para ROAS real por período no front (camps_dia).
 # Usa inv['fat'] (mesma base de camp_hubla) p/ que a soma dos dias == total mensal da campanha.
@@ -1091,19 +1112,7 @@ for d in range(1, DAYS_ELAPSED+1):
         "fat_re":r2(day_fat_re[d]),"fat_psi":r2(day_fat_psi[d])})
 
 # ── STEP 10: Campaigns ────────────────────────────────────────────
-CAMP_META={
-    "[PSI08] [Compra] [Frio] - ABO":                        {"prod":"PSI","aud":"Frio","creat":"Misto","obj":"sales","status":"PAUSED"},
-    "[PSI08] [Compra] [Quente] [Teste Criativos] [Estáticos] - ABO":{"prod":"PSI","aud":"Quente","creat":"Estáticos","obj":"sales","status":"PAUSED"},
-    "[PSI08] [Initiate Checkout] [Frio] [ADV+] - ABO":      {"prod":"PSI","aud":"Frio","creat":"ADV+","obj":"sales","status":"PAUSED"},
-    "[RE] [Compra] [Quente] [Validação] [Estáticos] - ABO": {"prod":"RE","aud":"Quente","creat":"Estáticos","obj":"sales","status":"PAUSED"},
-    "[RE] [Compra] [Quente] [Validação] [Vídeos] - ABO":    {"prod":"RE","aud":"Quente","creat":"Vídeos","obj":"sales","status":"ACTIVE"},
-    "[RE] [Compra] [Frio] [Validação] [Vídeos] - ABO":      {"prod":"RE","aud":"Frio","creat":"Vídeos","obj":"sales","status":"ACTIVE"},
-    "[RE] [Compra] [Frio] [Validação] [Estáticos] - ABO":   {"prod":"RE","aud":"Frio","creat":"Estáticos","obj":"sales","status":"ACTIVE"},
-    "[RE] [Compra] [Frio] [Melhores Criativos] - CBO":      {"prod":"RE","aud":"Frio","creat":"Misto","obj":"sales","status":"PAUSED"},
-    "[RE] [Compra] [Frio] [Melhores Criativos] [Teste LAL] - ABO": {"prod":"RE","aud":"Frio","creat":"Misto","obj":"sales","status":"ACTIVE"},
-    "[RE] [Compra] [Frio] [Novos Criativos] [Estáticos] - ABO":    {"prod":"RE","aud":"Frio","creat":"Estáticos","obj":"sales","status":"ACTIVE"},
-    "[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO":       {"prod":"RE","aud":"Frio","creat":"Vídeos","obj":"sales","status":"ACTIVE"},
-}
+# CAMP_META é a fonte única, definida no topo (junto ao CAMP_ALIAS).
 campaigns_arr=[]
 fid=120243000000000001
 for cname,mc in CAMP_META.items():
