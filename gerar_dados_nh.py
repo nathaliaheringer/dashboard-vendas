@@ -1044,11 +1044,18 @@ for inv in invoices:
 # Usa invoices_hist (janela completa) p/ cobrir também semanas de meses passados.
 def _ad_base(name):
     return re.sub(r'\s*[—\-]{1,2}\s*C[oó]pia.*$', '', str(name or '').strip()).strip()
+
+# Chave de JOIN do anúncio. Mesmo problema do canon_camp(): a UTM Conteúdo da
+# Hubla às vezes vem sem espaços ("[RE]AD-V:09" em vez de "[RE] AD-V: 09"), e aí
+# a venda não casava com a linha do ads_daily.csv e sumia da tabela de anúncios.
+# Descarta tudo que não é [a-z0-9] ASCII dos DOIS lados do join.
+def _ad_key(name): return re.sub(r'[^a-z0-9]', '', _ad_base(name).lower())
+
 ad_day_hubla = defaultdict(lambda: defaultdict(lambda: {'faturas':0,'fat':0.0}))
 for inv in invoices_hist:
     c3 = inv['camp']; cont = inv.get('conteudo','')
     if c3 in camp_hubla and cont and cont.lower() not in ('bio','stories','whats','organico',''):
-        key = (c3, _ad_base(cont))
+        key = (c3, _ad_key(cont))
         ad_day_hubla[key][inv['date']]['faturas'] += 1
         ad_day_hubla[key][inv['date']]['fat']     += inv['fat']
 
@@ -1756,8 +1763,10 @@ if _AD_FILE:
             _ad_name  = (_row.get('Ad name') or _row.get('Ad Name') or _row.get('ad name') or '').strip()
             _camp_name = (_row.get('Campaign name') or _row.get('Campaign Name') or '').strip()
             if not _ad_name: continue
-            _ad_base = _base_name(_ad_name)
-            _key = (_camp_name, _ad_base)
+            # NÃO renomear para _ad_base: isso sobrescreveria a função _ad_base()
+            # usada pelo _ad_key() no join com ad_day_hubla mais abaixo.
+            _abase = _base_name(_ad_name)
+            _key = (_camp_name, _abase)
             _sp  = n(_row.get('Amount Spent','0'))
             _imp = r0(n(_row.get('Impressions','0')))
             _cl  = r0(n(_row.get('Link Clicks','0')))
@@ -1795,7 +1804,7 @@ if _AD_FILE:
         _copies = len(_v['names']) - 1
         # Consolida daily por data (cópias fundidas geram >1 entrada/data) e
         # anexa a receita/vendas REAIS atribuídas por UTM de anúncio (ad_day_hubla).
-        _adh = ad_day_hubla.get((_camp, _aname), {})
+        _adh = ad_day_hubla.get((_camp, _ad_key(_aname)), {})
         _byd = {}
         for _e in _v['daily']:
             _k = _e['date']
