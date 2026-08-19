@@ -744,25 +744,35 @@ function geralKpiData(P){
   return {fat:pp.fat,faturas:pp.faturas,invest:pp.spend,ticket:pp.ticket,
    lucro:pp.lucro,roas:pp.roas,cpa:pp.cpa,units:pp.units,kind:P.kind,label:P.label};
  }
- /* Semana — agrega dailies do mês corrente dentro do intervalo da semana */
+ /* Semana — agrega dailies do mês corrente dentro do intervalo da semana.
+    ATENÇÃO: este bloco SEMPRE retorna. Antes ele só retornava quando
+    `pw.has_data`, e uma semana sem dados DO PRODUTO caía no fallback do mês lá
+    embaixo — mostrando o total mensal nos cards com uma semana selecionada.
+    Acontecia de verdade: os botões de semana são habilitados pelas weeks
+    GLOBAIS (DATA.weeks, linha ~562), então basta o OUTRO produto ter vendido na
+    semana para o botão ficar clicável. Ex.: 19/ago/2026, PSI 08 + Semana 3 →
+    PSI teve 0 vendas na semana (has_data=false) mas o RE vendeu, e os cards
+    exibiam R$1.044 / 4 vendas (o mês inteiro) enquanto o gráfico mostrava zero.
+    Semana sem dados do produto = zeros, nunca o mês. */
  if(typeof period==='string'&&period.match(/^S\d$/)){
   var pw=null;(pp.weeks||[]).forEach(function(w){if(w.id===period)pw=w;});
-  if(pw&&pw.has_data){
-   var fat=pw.fat,faturas=pw.faturas,invest=pw.spend;
-   var nh=pw.nh!=null?pw.nh:fat*nhRatio;
-   var lucro=pw.lucro!=null?pw.lucro:r2(nh-invest);
-   var ticket=faturas>0?r2(fat/faturas):0;
-   var roas=invest>0?r2(fat/invest):0;
-   var cpa=faturas>0?r2(invest/faturas):null;
-   /* Soma units_re/units_psi do daily entre pw.d0..pw.d1 do mês corrente */
+  var fat=pw?(pw.fat||0):0,faturas=pw?(pw.faturas||0):0,invest=pw?(pw.spend||0):0;
+  var nh=(pw&&pw.nh!=null)?pw.nh:r2(fat*nhRatio);
+  var lucro=(pw&&pw.lucro!=null)?pw.lucro:r2(nh-invest);
+  var ticket=faturas>0?r2(fat/faturas):0;
+  var roas=invest>0?r2(fat/invest):0;
+  var cpa=faturas>0?r2(invest/faturas):null;
+  /* Soma units_re/units_psi do daily entre pw.d0..pw.d1 do mês corrente */
+  var unitsWeek=0;
+  if(pw){
    var uKey=viewProd==='re'?'units_re':'units_psi';
    var ym=DATA.period.start.substring(0,7);
    var fd=ym+'-'+String(pw.d0).padStart(2,'0'), td=ym+'-'+String(pw.d1).padStart(2,'0');
-   var unitsWeek=DATA.daily.filter(function(d){return d.date>=fd&&d.date<=td;})
-                            .reduce(function(a,d){return a+(d[uKey]||0);},0);
-   return {fat:fat,faturas:faturas,invest:invest,ticket:ticket,
-    lucro:lucro,roas:roas,cpa:cpa,units:unitsWeek||faturas,kind:P.kind,label:P.label};
+   unitsWeek=DATA.daily.filter(function(d){return d.date>=fd&&d.date<=td;})
+                       .reduce(function(a,d){return a+(d[uKey]||0);},0);
   }
+  return {fat:fat,faturas:faturas,invest:invest,ticket:ticket,
+   lucro:lucro,roas:roas,cpa:cpa,units:unitsWeek||faturas,kind:P.kind,label:P.label};
  }
  /* Intervalo/dia — agrega global daily pelos campos fat_re/fat_psi + spend_re/spend_psi */
  if(P.kind==='intervalo'||P.kind==='dia'){
