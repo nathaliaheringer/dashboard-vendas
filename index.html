@@ -955,21 +955,25 @@ function renderComposicaoInline(){
  var perActive=pdFilter.d0!=null;
  var aggData=getPeriodDailyAgg(pdFilter); /* null quando mês completo */
  /* Helper: get the pay_dist/parc_dist arrays based on viewProd and period */
+ /* Os ||[] existem porque um DATA antigo (ex.: o NH_EMBEDDED embutido, gerado
+    antes de payment_dist/parc_dist existirem) não tem esses campos. Sem eles o
+    .reduce() abaixo estourava e derrubava o init() ANTES do tryFetchHosted(),
+    deixando a página presa no snapshot embutido para sempre. */
  function getPayDist(){
-  if(aggData) return aggData.pay_dist; /* período ativo → dados reais */
-  if(viewProd==='re') return (DATA.products_paid.RE&&DATA.products_paid.RE.pay_dist)||DATA.payment_dist;
-  if(viewProd==='psi') return (DATA.products_paid.PSI&&DATA.products_paid.PSI.pay_dist)||DATA.payment_dist;
-  return DATA.payment_dist;
+  if(aggData) return aggData.pay_dist||[]; /* período ativo → dados reais */
+  if(viewProd==='re') return (DATA.products_paid.RE&&DATA.products_paid.RE.pay_dist)||DATA.payment_dist||[];
+  if(viewProd==='psi') return (DATA.products_paid.PSI&&DATA.products_paid.PSI.pay_dist)||DATA.payment_dist||[];
+  return DATA.payment_dist||[];
  }
  function getParcDist(){
-  if(aggData) return aggData.parc_dist; /* período ativo → dados reais */
-  if(viewProd==='re') return (DATA.products_paid.RE&&DATA.products_paid.RE.parc_dist)||DATA.parc_dist;
-  if(viewProd==='psi') return (DATA.products_paid.PSI&&DATA.products_paid.PSI.parc_dist)||DATA.parc_dist;
-  return DATA.parc_dist;
+  if(aggData) return aggData.parc_dist||[]; /* período ativo → dados reais */
+  if(viewProd==='re') return (DATA.products_paid.RE&&DATA.products_paid.RE.parc_dist)||DATA.parc_dist||[];
+  if(viewProd==='psi') return (DATA.products_paid.PSI&&DATA.products_paid.PSI.parc_dist)||DATA.parc_dist||[];
+  return DATA.parc_dist||[];
  }
  function getTotalFaturas(){
   if(aggData){
-   var fc=aggData.pay_dist.reduce(function(s,p){return s+p.count;},0);
+   var fc=(aggData.pay_dist||[]).reduce(function(s,p){return s+p.count;},0);
    return fc||DATA.daily.filter(function(d){return d.date>=pdFilter.from_date&&d.date<=pdFilter.to_date;})
     .reduce(function(s,d){return s+d.faturas;},0);
   }
@@ -2994,7 +2998,11 @@ function rebootUI(){
 function init(){
  renderNav();
  setupUpdate();
- rebootUI();
+ /* Blindagem: um erro de render NUNCA pode impedir o tryFetchHosted(). Se o
+    DATA inicial (embutido ou do localStorage) estiver defasado em relação ao
+    código, o certo é seguir e buscar o dados.json novo, que provavelmente
+    corrige o próprio erro — não travar a página no dado velho. */
+ try{ rebootUI(); }catch(e){ console.error('rebootUI() falhou no init:',e); }
  tryFetchHosted();
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);
