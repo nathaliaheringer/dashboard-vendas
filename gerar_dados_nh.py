@@ -63,7 +63,7 @@ def dedup(s):
             if a==b: return a
     return s
 
-def classify_orig(src, med):
+def classify_orig(src, med, cont=''):
     """Canal de venda a partir de UTM Origem (src) e UTM Mídia (med),
     ambos já normalizados (lower, sem espaço). Instagram é subdividido
     por mídia: bio / stories / direct (DM); sem mídia conhecida → orgânico.
@@ -80,7 +80,11 @@ def classify_orig(src, med):
         if 'direct' in med:  return 'instagram_direct'
         if 'bio' in med:     return 'instagram_bio'
         return 'instagram'
-    if 'whatsapp' in src: return 'whatsapp'
+    if 'whatsapp' in src:
+        # Recuperação de carrinho abandonado pelo WhatsApp (UTM Conteúdo
+        # 'carrinho-abandonado', mídia whatsapp-individual) → fatia própria.
+        if 'carrinho' in (cont or '').lower(): return 'whatsapp_carrinho'
+        return 'whatsapp'
     return src   # origem real não-mapeada → canal próprio (dinâmico)
 
 def parse_dt(s):
@@ -724,7 +728,8 @@ psi_ob_val_total=0.0
 ORIG_LABELS = {'facebook ads':'Facebook Ads','instagram':'Instagram (orgânico)',
                'instagram_bio':'Instagram — Bio','instagram_stories':'Instagram — Stories',
                'instagram_direct':'Instagram — Direct (DM)',
-               'whatsapp':'WhatsApp','sem origem':'Sem origem','hotmart':'Hotmart'}
+               'whatsapp':'WhatsApp','whatsapp_carrinho':'WhatsApp — Carrinho abandonado',
+               'sem origem':'Sem origem','hotmart':'Hotmart'}
 # Rótulos "bonitos" para origens previsíveis. NÃO é obrigatório: um canal fora
 # desta lista ainda aparece sozinho, com rótulo Title Case automático. A lista
 # só deixa o nome mais apresentável para as plataformas que já conhecemos.
@@ -792,7 +797,7 @@ for inv in invoices:
                     ob_names_detail[ob_name_clean]['count'] += 1
                     ob_names_detail[ob_name_clean]['val'] += ob_val_item
     src=inv['src']; camp_l=inv['camp'].lower() if inv['camp'] else ''
-    orig=classify_orig(src, inv['med'])
+    orig=classify_orig(src, inv['med'], inv.get('conteudo',''))
     origins_map[orig]['faturas']+=1; origins_map[orig]['fat']+=tot; origins_map[orig]['nh']+=nh
     # Chave 'hotmart' será adicionada pelo STEP 6c
     if orig=='facebook ads':
@@ -1333,7 +1338,7 @@ for inv in hist_invoices:
                     _hd['ob_psi'][ob_name_clean]['count'] += 1
     # Origem
     src = inv['src']
-    orig = classify_orig(src, inv['med'])
+    orig = classify_orig(src, inv['med'], inv.get('conteudo',''))
     _hd['origins'][orig]['fat']+=tot; _hd['origins'][orig]['faturas']+=1
     if orig=='facebook ads':
         cl = inv['camp'].lower() if inv['camp'] else ''
@@ -1548,12 +1553,14 @@ def _orig_entry(key):
 # (origem real não-mapeada, ex.: TheMembers) — automático, ordenado por
 # faturamento; por fim Hotmart e Sem origem como baldes finais.
 _KNOWN_ORIG = {'facebook ads','instagram_bio','instagram_stories',
-               'instagram_direct','instagram','whatsapp','hotmart','sem origem'}
+               'instagram_direct','instagram','whatsapp','whatsapp_carrinho','hotmart','sem origem'}
 origins_arr=[_orig_entry('facebook ads')]
 for _igk in ('instagram_bio','instagram_stories','instagram_direct','instagram'):
     if origins_map[_igk]['faturas']>0 or origins_map[_igk]['fat']>0:
         origins_arr.append(_orig_entry(_igk))
 origins_arr += [_orig_entry('whatsapp')]
+if origins_map['whatsapp_carrinho']['faturas']>0 or origins_map['whatsapp_carrinho']['fat']>0:
+    origins_arr.append(_orig_entry('whatsapp_carrinho'))
 # canais NOVOS detectados na base (aparecem sozinhos, sem editar o gerador)
 _extra_orig=sorted([k for k,v in origins_map.items()
                     if k not in _KNOWN_ORIG and (v['fat']>0 or v['faturas']>0)],
