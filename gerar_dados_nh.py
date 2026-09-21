@@ -81,12 +81,18 @@ def classify_orig(src, med, cont=''):
         if 'direct' in med:  return 'instagram_direct'
         if 'bio' in med:     return 'instagram_bio'
         return 'instagram'
+    # UTM Conteúdo distingue as AÇÕES dentro do mesmo canal (ex.: WhatsApp
+    # grupos-alunas / grupos-imersoes / imersoes / alunas; Gaio reels-manifesto /
+    # carrossel_artigo). Vira sub-canal "canal:conteudo", rotulado por orig_label
+    # como "WhatsApp — Grupos Alunas". Pedido da usuária em 21/set/2026.
+    cslug = re.sub(r'\s+', '-', str(cont or '').strip().lower())
+    if cslug in ('none','null','{{ad.name}}'): cslug = ''
     if 'whatsapp' in src:
         # Recuperação de carrinho abandonado pelo WhatsApp (UTM Conteúdo
         # 'carrinho-abandonado', mídia whatsapp-individual) → fatia própria.
-        if 'carrinho' in (cont or '').lower(): return 'whatsapp_carrinho'
-        return 'whatsapp'
-    return src   # origem real não-mapeada → canal próprio (dinâmico)
+        if 'carrinho' in cslug: return 'whatsapp_carrinho'
+        return 'whatsapp:'+cslug if cslug else 'whatsapp'
+    return src+':'+cslug if cslug else src   # origem não-mapeada → canal próprio (dinâmico), por ação
 
 def parse_dt(s):
     s=str(s).strip()
@@ -816,16 +822,24 @@ ORIG_LABELS = {'facebook ads':'Facebook Ads','instagram':'Instagram (orgânico)'
 # Rótulos "bonitos" para origens previsíveis. NÃO é obrigatório: um canal fora
 # desta lista ainda aparece sozinho, com rótulo Title Case automático. A lista
 # só deixa o nome mais apresentável para as plataformas que já conhecemos.
-ORIG_NICE = {'themembers':'TheMembers','google':'Google','youtube':'YouTube',
+ORIG_NICE = {'themembers':'TheMembers','gaio':'Gaio','cpl':'CPL','google':'Google','youtube':'YouTube',
              'tiktok':'TikTok','kwai':'Kwai','email':'E-mail','linktree':'Linktree',
              'telegram':'Telegram','manychat':'ManyChat','pinterest':'Pinterest',
              'linkedin':'LinkedIn','hotmart':'Hotmart'}
+# Rótulos das ações (UTM Conteúdo) mais comuns; o resto sai do slug automaticamente.
+ORIG_DETAIL = {'grupos-alunas':'Grupos Alunas','grupos-imersoes':'Grupos Imersões',
+               'imersoes':'Imersões','alunas':'Alunas','whats':'Whats',
+               'reels-manifesto':'Reels Manifesto','carrossel_artigo':'Carrossel Artigo',
+               'area-de-membros':'Área de membros','aula-re':'Aula RE'}
 def orig_label(k):
     """Rótulo de um canal de origem. Conhecidos → ORIG_LABELS/ORIG_NICE;
     qualquer origem nova → Title Case automático (ex.: 'themembers'→'Themembers',
     'google_ads'→'Google Ads'). Sempre retorna algo legível, nunca KeyError."""
     if k in ORIG_LABELS: return ORIG_LABELS[k]
     if k in ORIG_NICE:   return ORIG_NICE[k]
+    if ':' in str(k):    # sub-canal "canal:conteudo" → "Canal — Conteúdo"
+        _b, _c = str(k).split(':', 1)
+        return orig_label(_b) + ' — ' + ORIG_DETAIL.get(_c, _c.replace('_',' ').replace('-',' ').strip().capitalize())
     return str(k).replace('_',' ').replace('-',' ').strip().title() or 'Sem origem'
 day_orig_d   = defaultdict(lambda: defaultdict(lambda: {'fat':0.0,'faturas':0}))
 day_fbsp_d   = defaultdict(lambda: {'frio':{'fat':0.0,'faturas':0},'quente':{'fat':0.0,'faturas':0},'outros':{'fat':0.0,'faturas':0}})
@@ -1802,13 +1816,21 @@ origins_arr=[_orig_entry('facebook ads')]
 for _igk in ('instagram_bio','instagram_stories','instagram_direct','instagram'):
     if origins_map[_igk]['faturas']>0 or origins_map[_igk]['fat']>0:
         origins_arr.append(_orig_entry(_igk))
-origins_arr += [_orig_entry('whatsapp')]
+if origins_map['whatsapp']['faturas']>0 or origins_map['whatsapp']['fat']>0:
+    origins_arr.append(_orig_entry('whatsapp'))   # WhatsApp sem UTM Conteúdo
+# ações do WhatsApp (UTM Conteúdo), maior receita primeiro
+for _wk in sorted([k for k,v in origins_map.items() if k.startswith('whatsapp:') and (v['fat']>0 or v['faturas']>0)],
+                  key=lambda k:-origins_map[k]['fat']):
+    origins_arr.append(_orig_entry(_wk))
 if origins_map['whatsapp_carrinho']['faturas']>0 or origins_map['whatsapp_carrinho']['fat']>0:
     origins_arr.append(_orig_entry('whatsapp_carrinho'))
 # canais NOVOS detectados na base (aparecem sozinhos, sem editar o gerador)
-_extra_orig=sorted([k for k,v in origins_map.items()
-                    if k not in _KNOWN_ORIG and (v['fat']>0 or v['faturas']>0)],
-                   key=lambda k:-origins_map[k]['fat'])
+_extra_orig=[k for k,v in origins_map.items()
+             if k not in _KNOWN_ORIG and not k.startswith('whatsapp:') and (v['fat']>0 or v['faturas']>0)]
+# agrupa as ações do mesmo canal (gaio:*, themembers:*) e ordena canal → ação por receita
+_base_fat=defaultdict(float)
+for _k in _extra_orig: _base_fat[_k.split(':')[0]] += origins_map[_k]['fat']
+_extra_orig.sort(key=lambda k:(-_base_fat[k.split(':')[0]], k.split(':')[0], -origins_map[k]['fat']))
 for _k in _extra_orig:
     origins_arr.append(_orig_entry(_k))
 if _extra_orig:

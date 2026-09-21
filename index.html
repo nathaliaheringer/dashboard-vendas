@@ -1012,7 +1012,7 @@ function renderComposicaoInline(){
      '<div class="donut-wrap"><div class="chart-box h230"><canvas id="cChan2"></canvas></div>'+
      '<div class="donut-center"><div class="dc-v" id="chanCount2">—</div><div class="dc-l">canais</div></div></div>'+
      '<div class="dlist" id="chanList2"></div>'+
-     '<div class="rec-note">As vendas de <b>Facebook Ads — Frio</b> são de públicos frios (prospecção); as de <b>Quente</b> são de remarketing. O <b>Instagram</b> é separado pela mídia da UTM: <b>Bio</b>, <b>Stories</b> e <b>Direct (DM)</b>. <b>WhatsApp — Carrinho abandonado</b> são as vendas recuperadas pelo WhatsApp individual (UTM Conteúdo <i>carrinho-abandonado</i>).</div></div>'+
+     '<div class="rec-note">As vendas de <b>Facebook Ads — Frio</b> são de públicos frios (prospecção); as de <b>Quente</b> são de remarketing. O <b>Instagram</b> é separado pela mídia da UTM: <b>Bio</b>, <b>Stories</b> e <b>Direct (DM)</b>. <b>WhatsApp — Carrinho abandonado</b> são as vendas recuperadas pelo WhatsApp individual (UTM Conteúdo <i>carrinho-abandonado</i>). Nos demais canais orgânicos (WhatsApp, Gaio e outros), cada fatia é uma ação diferente, separada pela <b>UTM Conteúdo</b> (ex.: WhatsApp — Grupos Alunas, WhatsApp — Imersões).</div></div>'+
    '<div class="panel"><div class="p-head"><div><h3>Receita por região</h3></div></div>'+
      '<div class="p-sub" id="regSub2">Faturamento por macrorregião do Brasil.</div>'+
      '<div class="rbars" id="regBars2"></div></div>'+
@@ -1182,6 +1182,15 @@ function renderChanDonutInline(agg){
    items.push({name:nm,fat:o.fat,faturas:o.faturas});
   }
  });
+ items=items.filter(function(it){return it.fat>0||it.faturas>0;});
+ /* Agrupa as ações do mesmo canal ("WhatsApp — Grupos Alunas", "WhatsApp — Alunas"...):
+    canais ordenados pela receita total, ações dentro do canal pela receita. */
+ var gTot={};
+ function gKey(n){return n.split(' — ')[0];}
+ items.forEach(function(it){gTot[gKey(it.name)]=(gTot[gKey(it.name)]||0)+it.fat;});
+ items.sort(function(a,b){var ga=gKey(a.name),gb=gKey(b.name);
+  if(ga!==gb) return (gTot[gb]-gTot[ga])||(ga<gb?-1:1);
+  return b.fat-a.fat;});
  var chanColors=[PAL.blue,PAL.teal,PAL.greenD,PAL.green,PAL.gold,PAL.terra,PAL.brown,PAL.sage,PAL.peach,PAL.mist];
  var cols=items.map(function(_ci,ci){return chanColors[ci%chanColors.length];});
  var dcv=document.getElementById('chanCount2');
