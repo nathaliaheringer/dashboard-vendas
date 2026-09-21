@@ -12,6 +12,7 @@ Fontes (todas auto-detectadas em dashboard-vendas/):
   Leads:   export-leads-*.csv mais recente
   RE Ads:  *DADOS RE*.csv
   PSI Ads: *DADOS PSI08*.csv
+  IFE Ads: *DADOS IFE*.csv (opcional — lançamento Imersão Funções Executivas)
   Hotmart: CSV com coluna 'Nome do Produtor'
   Ads:     CSV com coluna 'Ad name'
   INSTA:   hardcoded
@@ -243,6 +244,13 @@ CAMP_META = {
     "[RE] [Compra] [Frio] [Novos Criativos] [Teste LAL] - ABO":     {"prod":"RE","aud":"Frio","creat":"Misto","obj":"sales","status":"ACTIVE","freq":1.30},
     "[RE] [Compra] [Quente] - ABO":                                 {"prod":"RE","aud":"Quente","creat":"Misto","obj":"sales","status":"ACTIVE","freq":1.30},
     "[RE] [Compra] [Quente] [RMKT] - ABO":                          {"prod":"RE","aud":"Quente","creat":"Misto","obj":"sales","status":"ACTIVE","freq":1.30},
+    # Adicionadas em 21/set/2026 — lançamento da Imersão de Funções Executivas
+    # (aba DADOS IFE da planilha). O spend entra em spend_sales/totals.spend, e
+    # não em RE/PSI; a UTM "[IFE]+[Compra]+..." da Hubla casa via _camp_key.
+    "[IFE] [Compra] [Estáticos] [Frio] - ABO":                      {"prod":"IFE","aud":"Frio","creat":"Estáticos","obj":"sales","status":"ACTIVE","freq":1.30},
+    "[IFE] [Compra] [Vídeos] [Frio] - ABO":                         {"prod":"IFE","aud":"Frio","creat":"Vídeos","obj":"sales","status":"ACTIVE","freq":1.30},
+    "[IFE] [Compra] [Estáticos] [Quente] - CBO":                    {"prod":"IFE","aud":"Quente","creat":"Estáticos","obj":"sales","status":"ACTIVE","freq":1.30},
+    "[IFE] [Compra] [Vídeos] [Quente] - CBO":                       {"prod":"IFE","aud":"Quente","creat":"Vídeos","obj":"sales","status":"ACTIVE","freq":1.30},
 }
 
 # Normalização de UTM Campanha. A Hubla às vezes grava o nome da campanha com
@@ -565,6 +573,7 @@ PSI_NAME_MAP = {
     '[PSI08] [Compra] [Frio] - ABO': '[PSI08] [Compra] [Frio] - ABO',
 }
 PSI_FREQ = {c:m['freq'] for c,m in CAMP_META.items() if m['prod']=='PSI'}
+IFE_FREQ = {c:m['freq'] for c,m in CAMP_META.items() if m['prod']=='IFE'}
 
 meta_raw = []
 
@@ -615,6 +624,38 @@ with open(_psi_csvs[-1], encoding='utf-8') as f:
             'frequency': r2(freq_est),
             'cpm': r2(cpm_v)
         })
+
+# ── IFE from CSV (opcional) ──
+# Aba DADOS IFE da planilha (lançamento Imersão Funções Executivas, desde 17/set).
+# Opcional: se o CSV não estiver na pasta, o spend IFE fica fora com aviso. Sem
+# ele o faturamento da Imersão entrava no totals.fat sem o custo de mídia e o
+# ROAS consolidado ficava inflado.
+_ife_csvs = sorted(glob.glob(f'{BASE_DATA}/*DADOS IFE*.csv'), key=os.path.getmtime)
+ife_spend_sheet = 0.0
+if _ife_csvs:
+    with open(_ife_csvs[-1], encoding='utf-8') as f:
+        for row in csv.DictReader(f):
+            dt2 = parse_day_col(row.get('Day',''))
+            if not dt2 or not (HIST_START <= dt2.replace(hour=0,minute=0,second=0) <= HIST_END): continue
+            cname = (row.get('Campaign Name') or '').strip()
+            spend_v = n(row.get('Amount Spent',0))
+            imp_v   = r0(n(row.get('Impressions',0)))
+            cpm_v   = n(row.get('CPM (Cost per 1,000 Impressions)','0'))
+            if spend_v == 0 and imp_v == 0: continue
+            if PERIOD_START <= dt2 <= PERIOD_END: ife_spend_sheet += spend_v
+            freq_est = IFE_FREQ.get(cname, 1.3)
+            meta_raw.append({
+                'campaign': cname,
+                'date': dt2.strftime('%Y-%m-%d'),
+                'spend': r2(spend_v),
+                'impressions': imp_v,
+                'reach': r0(imp_v / freq_est) if imp_v > 0 else 0,
+                'frequency': r2(freq_est),
+                'cpm': r2(cpm_v)
+            })
+    print(f"[IFE CSV] mês corrente: spend={ife_spend_sheet:.2f}")
+else:
+    print("[IFE CSV] ⚠️  *DADOS IFE*.csv ausente — spend IFE fora do totals.spend")
 
 # ── INSTA — hardcoded ──
 INSTA_CAMP = "[INSTA] [Seguidores] [Frio] - ABO"
@@ -1026,7 +1067,7 @@ print(f"\n=== RESUMO ===")
 print(f"Fat: R${total_fat:,.2f} | NH: R${total_nh:,.2f} | Lucro: R${lucro_tot:,.2f} | ROAS: {roas_sales}x | ROI: {roi_tot}%")
 print(f"RE: {re_count} vendas R${re_fat:,.0f} ROAS={re_roas_v} | PSI: {psi_count} vendas R${psi_fat:,.0f} ROAS={psi_roas_v}")
 print(f"Carrinhos: {total_ab} | Total checkouts: {total_checkouts} | Conv: {conv_checkout}%")
-print(f"RE spend: {re_sp:.2f} | PSI spend: {psi_sp:.2f}")
+print(f"RE spend: {re_sp:.2f} | PSI spend: {psi_sp:.2f} | IFE spend: {ife_spend_sheet:.2f}")
 print(f"Pag: {dict(pay_counts)} | Parc: {dict(parc_dist)}")
 
 # ── STEP 7: Per-campaign Hubla UTM attribution ───────────────────

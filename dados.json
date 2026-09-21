@@ -6,13 +6,13 @@
   "days_elapsed": 21,
   "days_month": 30
  },
- "_v": 1789997199987,
+ "_v": 1789999719022,
  "totals": {
-  "spend": 8662.68,
-  "spend_sales": 8662.68,
+  "spend": 11220.44,
+  "spend_sales": 11220.44,
   "spend_insta": 0.0,
-  "impressions": 401827,
-  "impressions_sales": 401827,
+  "impressions": 520614,
+  "impressions_sales": 520614,
   "fat": 79729.97,
   "total": 84377.28,
   "nh": 74752.84,
@@ -24,11 +24,11 @@
   "ob_count": 187,
   "ob_val": 22735.0,
   "fat_with_ob": 142,
-  "cpa": 19.64,
-  "roas": 9.2,
-  "roas_sales": 9.2,
-  "lucro": 66090.16,
-  "roi": 762.93,
+  "cpa": 25.44,
+  "roas": 7.11,
+  "roas_sales": 7.11,
+  "lucro": 63532.4,
+  "roi": 566.22,
   "ticket": 180.79,
   "conv_checkout": 58.89
  },
@@ -52961,9 +52961,9 @@
   {
    "day": 17,
    "date": "2026-09-17",
-   "spend": 156.29,
-   "spend_sales": 156.29,
-   "impressions": 5943,
+   "spend": 360.53,
+   "spend_sales": 360.53,
+   "impressions": 15148,
    "faturas": 54,
    "units": 80,
    "fat": 4734.0,
@@ -53089,6 +53089,30 @@
      "reach": 3090,
      "fat": 0.0,
      "faturas": 0
+    },
+    {
+     "name": "[IFE] [Compra] [Estáticos] [Frio] - ABO",
+     "spend": 72.81,
+     "impressions": 3842,
+     "reach": 2955,
+     "fat": 470.0,
+     "faturas": 5
+    },
+    {
+     "name": "[IFE] [Compra] [Vídeos] [Frio] - ABO",
+     "spend": 81.69,
+     "impressions": 2759,
+     "reach": 2122,
+     "fat": 98.0,
+     "faturas": 2
+    },
+    {
+     "name": "[IFE] [Compra] [Estáticos] [Quente] - CBO",
+     "spend": 49.74,
+     "impressions": 2604,
+     "reach": 2003,
+     "fat": 137.0,
+     "faturas": 2
     }
    ],
    "funnel_clicks_re": 52,
@@ -53305,9 +53329,9 @@
   {
    "day": 18,
    "date": "2026-09-18",
-   "spend": 0.0,
-   "spend_sales": 0.0,
-   "impressions": 0,
+   "spend": 755.35,
+   "spend_sales": 755.35,
+   "impressions": 32864,
    "faturas": 73,
    "units": 102,
    "fat": 6400.0,
@@ -53385,7 +53409,40 @@
     }
    ],
    "prods_dia_psi": [],
-   "camps_dia": [],
+   "camps_dia": [
+    {
+     "name": "[IFE] [Compra] [Estáticos] [Frio] - ABO",
+     "spend": 169.07,
+     "impressions": 7955,
+     "reach": 6119,
+     "fat": 294.0,
+     "faturas": 3
+    },
+    {
+     "name": "[IFE] [Compra] [Vídeos] [Frio] - ABO",
+     "spend": 193.15,
+     "impressions": 7288,
+     "reach": 5606,
+     "fat": 480.0,
+     "faturas": 6
+    },
+    {
+     "name": "[IFE] [Compra] [Estáticos] [Quente] - CBO",
+     "spend": 226.67,
+     "impressions": 11586,
+     "reach": 8912,
+     "fat": 833.0,
+     "faturas": 11
+    },
+    {
+     "name": "[IFE] [Compra] [Vídeos] [Quente] - CBO",
+     "spend": 166.46,
+     "impressions": 6035,
+     "reach": 4642,
+     "fat": 578.0,
+     "faturas": 5
+    }
+   ],
    "funnel_clicks_re": 0,
    "funnel_lpv_re": 1,
    "funnel_imp_re": 0,
@@ -53565,9 +53622,9 @@
   {
    "day": 19,
    "date": "2026-09-19",
-   "spend": 0.0,
-   "spend_sales": 0.0,
-   "impressions": 0,
+   "spend": 622.39,
+   "spend_sales": 622.39,
+   "impressions": 25940,
    "faturas": 37,
    "units": 55,
    "fat": 3535.0,
@@ -53626,7 +53683,40 @@
    ],
    "prods_dia_re": [],
    "prods_dia_psi": [],
-   "camps_dia": [],
+   "camps_dia": [
+    {
+     "name": "[IFE] [Compra] [Estáticos] [Frio] - ABO",
+     "spend": 145.64,
+     "impressions": 5945,
+     "reach": 4573,
+     "fat": 333.0,
+     "faturas": 6
+    },
+    {
+     "name": "[IFE] [Compra] [Vídeos] [Frio] - ABO",
+     "spend": 176.36,
+     "impressions": 6436,
+     "reach": 4951,
+     "fat": 1224.0,
+     "faturas": 9
+    },
+    {
+     "name": "[IFE] [Compra] [Estáticos] [Quente] - CBO",
+     "spend": 146.05,
+     "impressions": 8027,
+     "reach": 6175,
+     "fat": 872.0,
+     "faturas": 8
+    },
+    {
+     "name": "[IFE] [Compra] [Vídeos] [Quente] - CBO",
+     "spend": 154.34,
+     "impressions": 5532,
+     "reach": 4255,
+     "fat": 245.0,
+     "faturas": 2
+    }
+   ],
    "funnel_clicks_re": 0,
    "funnel_lpv_re": 0,
    "funnel_imp_re": 0,
@@ -53764,9 +53854,9 @@
   {
    "day": 20,
    "date": "2026-09-20",
-   "spend": 0.0,
-   "spend_sales": 0.0,
-   "impressions": 0,
+   "spend": 820.68,
+   "spend_sales": 820.68,
+   "impressions": 41804,
    "faturas": 27,
    "units": 38,
    "fat": 2568.0,
@@ -53837,7 +53927,40 @@
    ],
    "prods_dia_re": [],
    "prods_dia_psi": [],
-   "camps_dia": [],
+   "camps_dia": [
+    {
+     "name": "[IFE] [Compra] [Estáticos] [Frio] - ABO",
+     "spend": 200.67,
+     "impressions": 9540,
+     "reach": 7338,
+     "fat": 588.0,
+     "faturas": 9
+    },
+    {
+     "name": "[IFE] [Compra] [Vídeos] [Frio] - ABO",
+     "spend": 187.8,
+     "impressions": 7557,
+     "reach": 5813,
+     "fat": 196.0,
+     "faturas": 4
+    },
+    {
+     "name": "[IFE] [Compra] [Estáticos] [Quente] - CBO",
+     "spend": 212.68,
+     "impressions": 15945,
+     "reach": 12265,
+     "fat": 607.0,
+     "faturas": 4
+    },
+    {
+     "name": "[IFE] [Compra] [Vídeos] [Quente] - CBO",
+     "spend": 219.53,
+     "impressions": 8762,
+     "reach": 6740,
+     "fat": 578.0,
+     "faturas": 5
+    }
+   ],
    "funnel_clicks_re": 0,
    "funnel_lpv_re": 0,
    "funnel_imp_re": 0,
@@ -53975,9 +54098,9 @@
   {
    "day": 21,
    "date": "2026-09-21",
-   "spend": 0.0,
-   "spend_sales": 0.0,
-   "impressions": 0,
+   "spend": 155.1,
+   "spend_sales": 155.1,
+   "impressions": 8974,
    "faturas": 6,
    "units": 9,
    "fat": 519.0,
@@ -54024,7 +54147,40 @@
    ],
    "prods_dia_re": [],
    "prods_dia_psi": [],
-   "camps_dia": [],
+   "camps_dia": [
+    {
+     "name": "[IFE] [Compra] [Estáticos] [Frio] - ABO",
+     "spend": 44.49,
+     "impressions": 2044,
+     "reach": 1572,
+     "fat": 196.0,
+     "faturas": 1
+    },
+    {
+     "name": "[IFE] [Compra] [Vídeos] [Frio] - ABO",
+     "spend": 40.16,
+     "impressions": 1582,
+     "reach": 1217,
+     "fat": 49.0,
+     "faturas": 1
+    },
+    {
+     "name": "[IFE] [Compra] [Estáticos] [Quente] - CBO",
+     "spend": 39.88,
+     "impressions": 3784,
+     "reach": 2911,
+     "fat": 137.0,
+     "faturas": 2
+    },
+    {
+     "name": "[IFE] [Compra] [Vídeos] [Quente] - CBO",
+     "spend": 30.57,
+     "impressions": 1564,
+     "reach": 1203,
+     "fat": 49.0,
+     "faturas": 1
+    }
+   ],
    "funnel_clicks_re": 0,
    "funnel_lpv_re": 0,
    "funnel_imp_re": 0,
@@ -54176,17 +54332,17 @@
    "label": "15–21 set",
    "d0": 15,
    "d1": 21,
-   "spend": 1206.68,
-   "spend_sales": 1206.68,
+   "spend": 3764.44,
+   "spend_sales": 3764.44,
    "fat": 27268.9,
    "units": 402,
    "faturas": 283,
    "nh": 24975.52,
    "abandoned": 223,
    "checkouts": 506,
-   "cpa": 4.26,
-   "roas": 22.6,
-   "lucro": 23768.84,
+   "cpa": 13.3,
+   "roas": 7.24,
+   "lucro": 21211.08,
    "conv_checkout": 55.93,
    "fat_re": 4910.0,
    "fat_psi": 297.0,
@@ -55164,6 +55320,239 @@
   },
   {
    "id": "120243000000000005",
+   "name": "[IFE] [Compra] [Estáticos] [Frio] - ABO",
+   "prod": "IFE",
+   "aud": "Frio",
+   "creat": "Estáticos",
+   "obj": "sales",
+   "status": "ACTIVE",
+   "spend": 632.68,
+   "impressions": 29326,
+   "reach": 22557,
+   "cpm": 21.57,
+   "freq": 1.3,
+   "days": [
+    17,
+    18,
+    19,
+    20,
+    21
+   ],
+   "faturas": 24,
+   "units": 24,
+   "fat": 1881.0,
+   "nh": 1725.14,
+   "cpa": 26.36,
+   "roas": 2.97,
+   "lucro": 1092.46,
+   "daily": [
+    {
+     "day": 17,
+     "spend": 72.81,
+     "impressions": 3842,
+     "cpm": 18.95
+    },
+    {
+     "day": 18,
+     "spend": 169.07,
+     "impressions": 7955,
+     "cpm": 21.25
+    },
+    {
+     "day": 19,
+     "spend": 145.64,
+     "impressions": 5945,
+     "cpm": 24.5
+    },
+    {
+     "day": 20,
+     "spend": 200.67,
+     "impressions": 9540,
+     "cpm": 21.03
+    },
+    {
+     "day": 21,
+     "spend": 44.49,
+     "impressions": 2044,
+     "cpm": 21.77
+    }
+   ]
+  },
+  {
+   "id": "120243000000000006",
+   "name": "[IFE] [Compra] [Vídeos] [Frio] - ABO",
+   "prod": "IFE",
+   "aud": "Frio",
+   "creat": "Vídeos",
+   "obj": "sales",
+   "status": "ACTIVE",
+   "spend": 679.16,
+   "impressions": 25622,
+   "reach": 19709,
+   "cpm": 26.51,
+   "freq": 1.3,
+   "days": [
+    17,
+    18,
+    19,
+    20,
+    21
+   ],
+   "faturas": 22,
+   "units": 22,
+   "fat": 2047.0,
+   "nh": 1871.95,
+   "cpa": 30.87,
+   "roas": 3.01,
+   "lucro": 1192.79,
+   "daily": [
+    {
+     "day": 17,
+     "spend": 81.69,
+     "impressions": 2759,
+     "cpm": 29.61
+    },
+    {
+     "day": 18,
+     "spend": 193.15,
+     "impressions": 7288,
+     "cpm": 26.5
+    },
+    {
+     "day": 19,
+     "spend": 176.36,
+     "impressions": 6436,
+     "cpm": 27.4
+    },
+    {
+     "day": 20,
+     "spend": 187.8,
+     "impressions": 7557,
+     "cpm": 24.85
+    },
+    {
+     "day": 21,
+     "spend": 40.16,
+     "impressions": 1582,
+     "cpm": 25.39
+    }
+   ]
+  },
+  {
+   "id": "120243000000000007",
+   "name": "[IFE] [Compra] [Estáticos] [Quente] - CBO",
+   "prod": "IFE",
+   "aud": "Quente",
+   "creat": "Estáticos",
+   "obj": "sales",
+   "status": "ACTIVE",
+   "spend": 675.02,
+   "impressions": 41946,
+   "reach": 32266,
+   "cpm": 16.09,
+   "freq": 1.3,
+   "days": [
+    17,
+    18,
+    19,
+    20,
+    21
+   ],
+   "faturas": 27,
+   "units": 27,
+   "fat": 2586.0,
+   "nh": 2375.99,
+   "cpa": 25.0,
+   "roas": 3.83,
+   "lucro": 1700.97,
+   "daily": [
+    {
+     "day": 17,
+     "spend": 49.74,
+     "impressions": 2604,
+     "cpm": 19.1
+    },
+    {
+     "day": 18,
+     "spend": 226.67,
+     "impressions": 11586,
+     "cpm": 19.56
+    },
+    {
+     "day": 19,
+     "spend": 146.05,
+     "impressions": 8027,
+     "cpm": 18.19
+    },
+    {
+     "day": 20,
+     "spend": 212.68,
+     "impressions": 15945,
+     "cpm": 13.34
+    },
+    {
+     "day": 21,
+     "spend": 39.88,
+     "impressions": 3784,
+     "cpm": 10.54
+    }
+   ]
+  },
+  {
+   "id": "120243000000000008",
+   "name": "[IFE] [Compra] [Vídeos] [Quente] - CBO",
+   "prod": "IFE",
+   "aud": "Quente",
+   "creat": "Vídeos",
+   "obj": "sales",
+   "status": "ACTIVE",
+   "spend": 570.9,
+   "impressions": 21893,
+   "reach": 16840,
+   "cpm": 26.08,
+   "freq": 1.3,
+   "days": [
+    18,
+    19,
+    20,
+    21
+   ],
+   "faturas": 13,
+   "units": 13,
+   "fat": 1450.0,
+   "nh": 1330.63,
+   "cpa": 43.92,
+   "roas": 2.54,
+   "lucro": 759.73,
+   "daily": [
+    {
+     "day": 18,
+     "spend": 166.46,
+     "impressions": 6035,
+     "cpm": 27.58
+    },
+    {
+     "day": 19,
+     "spend": 154.34,
+     "impressions": 5532,
+     "cpm": 27.9
+    },
+    {
+     "day": 20,
+     "spend": 219.53,
+     "impressions": 8762,
+     "cpm": 25.05
+    },
+    {
+     "day": 21,
+     "spend": 30.57,
+     "impressions": 1564,
+     "cpm": 19.55
+    }
+   ]
+  },
+  {
+   "id": "120243000000000009",
    "name": "[INSTA] [Seguidores] [Frio] - ABO",
    "prod": "INSTA",
    "aud": "Frio",
@@ -55186,7 +55575,7 @@
    "daily": []
   },
   {
-   "id": "120243000000000006",
+   "id": "120243000000000010",
    "name": "[PSI08] [Compra] [Frio] - ABO",
    "prod": "PSI",
    "aud": "Frio",
@@ -55210,7 +55599,7 @@
    "hist_only": true
   },
   {
-   "id": "120243000000000007",
+   "id": "120243000000000011",
    "name": "[PSI08] [Compra] [Quente] [Teste Criativos] [Estáticos] - ABO",
    "prod": "PSI",
    "aud": "Quente",
@@ -55234,7 +55623,7 @@
    "hist_only": true
   },
   {
-   "id": "120243000000000008",
+   "id": "120243000000000012",
    "name": "[PSI08] [Initiate Checkout] [Frio] [ADV+] - ABO",
    "prod": "PSI",
    "aud": "Frio",
@@ -55258,7 +55647,7 @@
    "hist_only": true
   },
   {
-   "id": "120243000000000009",
+   "id": "120243000000000013",
    "name": "[RE] [Compra] [Quente] [Validação] [Estáticos] - ABO",
    "prod": "RE",
    "aud": "Quente",
@@ -55282,7 +55671,7 @@
    "hist_only": true
   },
   {
-   "id": "120243000000000010",
+   "id": "120243000000000014",
    "name": "[RE] [Compra] [Quente] [Validação] [Vídeos] - ABO",
    "prod": "RE",
    "aud": "Quente",
@@ -55306,7 +55695,7 @@
    "hist_only": true
   },
   {
-   "id": "120243000000000011",
+   "id": "120243000000000015",
    "name": "[RE] [Compra] [Frio] [Validação] [Vídeos] - ABO",
    "prod": "RE",
    "aud": "Frio",
@@ -55330,7 +55719,7 @@
    "hist_only": true
   },
   {
-   "id": "120243000000000012",
+   "id": "120243000000000016",
    "name": "[RE] [Compra] [Frio] [Validação] [Estáticos] - ABO",
    "prod": "RE",
    "aud": "Frio",
@@ -55354,7 +55743,7 @@
    "hist_only": true
   },
   {
-   "id": "120243000000000013",
+   "id": "120243000000000017",
    "name": "[RE] [Compra] [Frio] [Melhores Criativos] - CBO",
    "prod": "RE",
    "aud": "Frio",
@@ -55378,7 +55767,7 @@
    "hist_only": true
   },
   {
-   "id": "120243000000000014",
+   "id": "120243000000000018",
    "name": "[RE] [Compra] [Frio] [Melhores Criativos] [Teste LAL] - ABO",
    "prod": "RE",
    "aud": "Frio",
@@ -55402,7 +55791,7 @@
    "hist_only": true
   },
   {
-   "id": "120243000000000015",
+   "id": "120243000000000019",
    "name": "[RE] [Compra] [Frio] [Novos Criativos] [Estáticos] - ABO",
    "prod": "RE",
    "aud": "Frio",
@@ -55426,7 +55815,7 @@
    "hist_only": true
   },
   {
-   "id": "120243000000000016",
+   "id": "120243000000000020",
    "name": "[RE] [Compra] [Quente] [Melhores Criativos] - ABO",
    "prod": "RE",
    "aud": "Quente",
@@ -55450,7 +55839,7 @@
    "hist_only": true
   },
   {
-   "id": "120243000000000017",
+   "id": "120243000000000021",
    "name": "[RE] [Compra] [Quente] [RMKT] - ABO",
    "prod": "RE",
    "aud": "Quente",
@@ -81507,8 +81896,8 @@
    "level": "positivo",
    "icon": "star",
    "tag": "ESCALAR AGORA",
-   "title": "RE · Frio · Melhores Criativos · ADV+: ROAS 2.98x — candidata ao escalonamento",
-   "body": "R$993 investidos geraram R$2,960 (16 vendas) com ROAS 2.98x. Frequência ainda controlada. Aumentar 15-20% do orçamento a cada 2-3 dias enquanto ROAS ≥ 3x."
+   "title": "IFE · Estáticos · Quente: ROAS 3.83x — candidata ao escalonamento",
+   "body": "R$675 investidos geraram R$2,586 (27 vendas) com ROAS 3.83x. Frequência ainda controlada. Aumentar 15-20% do orçamento a cada 2-3 dias enquanto ROAS ≥ 3x."
   },
   {
    "level": "info",
@@ -81536,7 +81925,7 @@
    "icon": "profit",
    "tag": "MARGEM",
    "title": "Margem líquida (após Hubla): 93.8% — R$74,753 de 441 vendas",
-   "body": "De R$79,730 faturados, R$74,753 chega líquido (margem 93.8%). Com R$8,663 em mídia, o lucro operacional é R$66,090 (ROI 763%). Para cada R$1 investido, retornam R$9.20."
+   "body": "De R$79,730 faturados, R$74,753 chega líquido (margem 93.8%). Com R$11,220 em mídia, o lucro operacional é R$63,532 (ROI 566%). Para cada R$1 investido, retornam R$7.11."
   }
  ],
  "fb_split": {
@@ -81557,7 +81946,7 @@
   "period_label": "01 a 21 de setembro de 2026",
   "period_start": "2026-09-01",
   "period_end": "2026-09-21",
-  "generated_at": "2026-09-21 10:26:39",
+  "generated_at": "2026-09-21 11:08:39",
   "checks": [
    {
     "name": "Período cobre mês corrente",
