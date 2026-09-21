@@ -134,6 +134,15 @@ REGION_MAP = {
 
 def is_re_prod(p):  return 'Regulando' in str(p)
 def is_psi_prod(p): return ('Psi' in str(p) or 'PSI' in str(p)) and 'Regulando' not in str(p)
+# Funil IFE: principal = "Imersão de Funções Executivas na Clínica Infantil". O
+# padrão é estrito de propósito — "Gravação Imersão Funções Executivas..." (sem
+# o "de") é order bump do funil, não principal. Workshop de Funções Executivas
+# (WFE) é outra oferta e fica fora.
+def is_ife_prod(p): return 'Imersão de Funções Executivas' in str(p)
+def is_ife_row(prod, ob):
+    """Fatura pertence ao funil IFE: Imersão como principal ou OB, ou a Gravação
+    da Imersão vendida sozinha."""
+    return is_ife_prod(prod) or is_ife_prod(ob) or 'Gravação Imersão Funções Executivas' in str(prod)
 
 # ── STEP 1: Hubla XLSX — processa TODOS os XLSXs do diretório ──
 # Por quê: o daily[] do dashboard precisa de dias de meses anteriores também
@@ -373,6 +382,7 @@ def _accum_items_all(bucket, inv):
     if not nm: return
     princ = next((x for x in nm if is_re_prod(x)), None)
     if princ is None: princ = next((x for x in nm if is_psi_prod(x)), None)
+    if princ is None: princ = next((x for x in nm if is_ife_prod(x)), None)
     if princ is None: princ = nm[0]
     bumps = list(nm); bumps.remove(princ)
     bump_val = sum(UNIT_PRICE.get(b, 0.0) for b in bumps)
@@ -402,6 +412,7 @@ carts = []
 ab_by_iso     = defaultdict(int)   # total de carrinhos por dia (qualquer produto)
 ab_re_by_iso  = defaultdict(int)   # carrinhos RE por dia
 ab_psi_by_iso = defaultdict(int)   # carrinhos PSI por dia
+ab_ife_by_iso = defaultdict(int)   # carrinhos IFE por dia
 _seen_cart = set()
 for _cf in _cart_files:
     with open(_cf, encoding='utf-8') as f:
@@ -420,6 +431,7 @@ for _cf in _cart_files:
                 ab_by_iso[iso] += 1
                 if is_re_prod(prod):  ab_re_by_iso[iso]  += 1
                 if is_psi_prod(prod): ab_psi_by_iso[iso] += 1
+                if is_ife_prod(prod): ab_ife_by_iso[iso] += 1
 # Agregados do MÊS CORRENTE (carrinhos CRIADOS no mês) p/ products_paid e totais
 _cur_ym = f"{PERIOD_YEAR}-{PERIOD_MONTH:02d}"
 cart_by_day = defaultdict(int)
@@ -427,6 +439,7 @@ for _iso,_c in ab_by_iso.items():
     if _iso[:7] == _cur_ym: cart_by_day[int(_iso[8:10])] += _c
 ab_re     = sum(v for k,v in ab_re_by_iso.items()  if k[:7]==_cur_ym)
 ab_psi    = sum(v for k,v in ab_psi_by_iso.items() if k[:7]==_cur_ym)
+ab_ife    = sum(v for k,v in ab_ife_by_iso.items() if k[:7]==_cur_ym)
 ab_re_fb  = sum(1 for c in carts if c['iso'][:7]==_cur_ym and is_re_prod(c['prod'])  and 'facebook' in c['src'])
 ab_psi_fb = sum(1 for c in carts if c['iso'][:7]==_cur_ym and is_psi_prod(c['prod']) and 'facebook' in c['src'])
 print(f"[Carrinhos] {len(_cart_files)} arquivo(s), {len(carts)} carrinhos únicos | "
@@ -632,6 +645,9 @@ with open(_psi_csvs[-1], encoding='utf-8') as f:
 # ROAS consolidado ficava inflado.
 _ife_csvs = sorted(glob.glob(f'{BASE_DATA}/*DADOS IFE*.csv'), key=os.path.getmtime)
 ife_spend_sheet = 0.0
+ife_clicks=ife_lpv=ife_imp=0
+day_funnel_ife = defaultdict(lambda: {'clicks':0,'lpv':0,'imp':0})
+day_funnel_ife_iso = defaultdict(lambda: {'clicks':0,'lpv':0,'imp':0})
 if _ife_csvs:
     with open(_ife_csvs[-1], encoding='utf-8') as f:
         for row in csv.DictReader(f):
@@ -641,6 +657,16 @@ if _ife_csvs:
             spend_v = n(row.get('Amount Spent',0))
             imp_v   = r0(n(row.get('Impressions',0)))
             cpm_v   = n(row.get('CPM (Cost per 1,000 Impressions)','0'))
+            cl=r0(n(row.get('Link Clicks',0))); lp=r0(n(row.get('Landing Page Views',0)))
+            _iso = dt2.strftime('%Y-%m-%d')
+            day_funnel_ife_iso[_iso]['clicks'] += cl
+            day_funnel_ife_iso[_iso]['lpv']    += lp
+            day_funnel_ife_iso[_iso]['imp']    += imp_v
+            if PERIOD_START <= dt2 <= PERIOD_END:
+                ife_clicks += cl; ife_lpv += lp; ife_imp += imp_v
+                day_funnel_ife[dt2.day]['clicks'] += cl
+                day_funnel_ife[dt2.day]['lpv']    += lp
+                day_funnel_ife[dt2.day]['imp']    += imp_v
             if spend_v == 0 and imp_v == 0: continue
             if PERIOD_START <= dt2 <= PERIOD_END: ife_spend_sheet += spend_v
             freq_est = IFE_FREQ.get(cname, 1.3)
@@ -689,7 +715,7 @@ for (date,spend,imp,reach,cpm) in INSTA_RAW:
 # meta_by_date_iso: agrega o histórico inteiro (usado pelo daily[] para meses anteriores)
 meta_by_camp = defaultdict(lambda: dict(spend=0,imp=0,reach=0,daily=[]))
 meta_by_day  = defaultdict(lambda: dict(spend=0,spend_sales=0,imp=0))
-meta_by_date_iso = defaultdict(lambda: dict(spend=0,spend_sales=0,spend_re=0,spend_psi=0,imp=0))
+meta_by_date_iso = defaultdict(lambda: dict(spend=0,spend_sales=0,spend_re=0,spend_psi=0,spend_ife=0,imp=0))
 
 for row in meta_raw:
     c=row['campaign']; date_iso=row['date']
@@ -702,6 +728,8 @@ for row in meta_raw:
         meta_by_date_iso[date_iso]['spend_re'] += row['spend']
     elif '[PSI08]' in c:
         meta_by_date_iso[date_iso]['spend_psi'] += row['spend']
+    elif '[IFE]' in c:
+        meta_by_date_iso[date_iso]['spend_ife'] += row['spend']
     # Mês corrente (por dia do mês) — usado em totals, campaigns, etc.
     _dt_iso = parse_dt(date_iso)
     if _dt_iso and PERIOD_START <= _dt_iso <= PERIOD_END:
@@ -731,12 +759,14 @@ day_fat_c=defaultdict(int); day_units=defaultdict(int)
 day_fat_re=defaultdict(float); day_fat_psi=defaultdict(float)
 day_fat_re_c=defaultdict(int); day_fat_psi_c=defaultdict(int)
 day_units_re_d=defaultdict(int); day_units_psi_d=defaultdict(int)
+day_fat_ife=defaultdict(float); day_fat_ife_c=defaultdict(int); day_units_ife_d=defaultdict(int)
 day_prod_fat_d=defaultdict(lambda: defaultdict(lambda: {'fat':0.0,'faturas':0,'units':0}))
 # Quebra por produto RESTRITA a cada funil (RE/PSI) — keyed pelo produto principal da
 # fatura. Soma == day_fat_re/day_fat_psi (mesma definição do card "Faturamento RE/PSI"
 # e "Vendas pagas"), garantindo que o donut "Receita por produto" bata com os KPIs.
 day_prod_re_d =defaultdict(lambda: defaultdict(lambda: {'fat':0.0,'faturas':0,'units':0}))
 day_prod_psi_d=defaultdict(lambda: defaultdict(lambda: {'fat':0.0,'faturas':0,'units':0}))
+day_prod_ife_d=defaultdict(lambda: defaultdict(lambda: {'fat':0.0,'faturas':0,'units':0}))
 # Quebra por produto do donut CONSOLIDADO decomposta (RE>PSI>principal, bumps por preço
 # de tabela) — para o Consolidado bater com os funis (RE=308) e mostrar order bumps.
 day_prod_all_d=defaultdict(lambda: defaultdict(lambda: {'fat':0.0,'faturas':0,'units':0}))
@@ -752,6 +782,7 @@ state_fat=defaultdict(float); state_count=defaultdict(int)
 ob_count=0; ob_val_total=0.0; ob_pedidos=0
 re_fat=re_nh=re_total=0.0; re_count=re_units=re_ob=0
 psi_fat=psi_nh=psi_total=0.0; psi_count=psi_units=psi_ob=0
+ife_fat=ife_nh=ife_total=0.0; ife_count=ife_units=ife_ob=0
 pay_counts=defaultdict(int)
 parc_dist=defaultdict(int)
 ob_names_detail=defaultdict(lambda: dict(count=0,val=0.0))
@@ -764,6 +795,10 @@ re_ob_names_detail=defaultdict(lambda: dict(count=0,val=0.0))
 psi_ob_names_detail=defaultdict(lambda: dict(count=0,val=0.0))
 re_ob_val_total=0.0
 psi_ob_val_total=0.0
+ife_pay_counts=defaultdict(int)
+ife_parc_dist=defaultdict(int)
+ife_ob_names_detail=defaultdict(lambda: dict(count=0,val=0.0))
+ife_ob_val_total=0.0
 
 # Per-day breakdowns
 ORIG_LABELS = {'facebook ads':'Facebook Ads','instagram':'Instagram (orgânico)',
@@ -805,14 +840,22 @@ day_parc_re_d = defaultdict(lambda: defaultdict(int))
 day_parc_psi_d= defaultdict(lambda: defaultdict(int))
 day_ob_re_d  = defaultdict(lambda: defaultdict(lambda: {'count':0,'val':0.0}))
 day_ob_psi_d = defaultdict(lambda: defaultdict(lambda: {'count':0,'val':0.0}))
+day_orig_ife_d= defaultdict(lambda: defaultdict(lambda: {'fat':0.0,'faturas':0}))
+day_fbsp_ife_d= defaultdict(_fbsp0)
+day_reg_ife_d = defaultdict(lambda: defaultdict(lambda: {'fat':0.0,'faturas':0}))
+day_pay_ife_d = defaultdict(lambda: defaultdict(int))
+day_parc_ife_d= defaultdict(lambda: defaultdict(int))
+day_ob_ife_d = defaultdict(lambda: defaultdict(lambda: {'count':0,'val':0.0}))
 
-re_solo=[]; psi_solo=[]
+re_solo=[]; psi_solo=[]; ife_solo=[]
 for inv in invoices:
     if is_re_prod(inv['prod']) and not inv['ob']: re_solo.append(inv['fat'])
     if is_psi_prod(inv['prod']) and not inv['ob']: psi_solo.append(inv['fat'])
+    if is_ife_prod(inv['prod']) and not inv['ob']: ife_solo.append(inv['fat'])
 avg_re  = sum(re_solo)/len(re_solo)  if re_solo  else 147.0
 avg_psi = sum(psi_solo)/len(psi_solo) if psi_solo else 297.0
-print(f"[Tickets] avg_re={avg_re:.2f}  avg_psi={avg_psi:.2f}")
+avg_ife = sum(ife_solo)/len(ife_solo) if ife_solo else 97.0
+print(f"[Tickets] avg_re={avg_re:.2f}  avg_psi={avg_psi:.2f}  avg_ife={avg_ife:.2f}")
 
 for inv in invoices:
     p=inv['prod']; f=inv['fat']; nh=inv['nh']; tot=inv['fat']; d=inv['day']
@@ -827,10 +870,10 @@ for inv in invoices:
         ob_pedidos+=1; ob_n=inv['items']-1
         if ob_n>0:
             ob_count+=ob_n
-            ov=max(0,f-(avg_re if is_re_prod(p) else avg_psi if is_psi_prod(p) else 0))
+            ov=max(0,f-(avg_re if is_re_prod(p) else avg_psi if is_psi_prod(p) else avg_ife if is_ife_prod(p) else 0))
             ob_val_total+=ov
         if ob_col:
-            avg_main = avg_re if is_re_prod(p) else (avg_psi if is_psi_prod(p) else 0)
+            avg_main = avg_re if is_re_prod(p) else (avg_psi if is_psi_prod(p) else (avg_ife if is_ife_prod(p) else 0))
             ob_val_item = max(0, f - avg_main)
             for ob_name_part in ob_col.split(','):
                 ob_name_clean = ob_name_part.strip()
@@ -948,6 +991,40 @@ for inv in invoices:
                 if ob_name_clean and ob_name_clean.lower() not in ('none','') and not is_psi_prod(ob_name_clean) and ob_name_clean != p:
                     psi_ob_names_detail[ob_name_clean]['count'] += 1
                     day_ob_psi_d[d][ob_name_clean]['count'] += 1
+    prod_is_ife = is_ife_prod(p)
+    if is_ife_row(p, ob_col):
+        # Toda fatura onde a Imersão aparece (principal OU OB) — mesma regra do RE/PSI
+        ife_fat+=tot; ife_nh+=nh; ife_total+=tot
+        day_fat_ife[d]+=tot
+        ife_count+=1; ife_units+=inv['items']
+        day_fat_ife_c[d]+=1
+        day_units_ife_d[d]+=inv['items']
+        _accum_items(day_prod_ife_d[d], inv, is_ife_prod)
+        day_orig_ife_d[d][orig]['fat']+=tot; day_orig_ife_d[d][orig]['faturas']+=1
+        if fk: day_fbsp_ife_d[d][fk]['fat']+=tot; day_fbsp_ife_d[d][fk]['faturas']+=1
+        day_reg_ife_d[d][reg]['fat']+=tot; day_reg_ife_d[d][reg]['faturas']+=1
+        day_pay_ife_d[d][pm_key]+=1
+        if pm_key=='Cartão de Crédito': day_parc_ife_d[d][inv.get('num_parcelas',1)]+=1
+        if has_ob: ife_ob+=1
+        if prod_is_ife:
+            for ob_name_part in ob_col.split(','):
+                ob_name_clean = ob_name_part.strip()
+                if ob_name_clean and ob_name_clean.lower() not in ('none','') and not is_ife_prod(ob_name_clean):
+                    ob_val_ife = max(0, f - avg_ife)
+                    ife_ob_names_detail[ob_name_clean]['count'] += 1
+                    ife_ob_names_detail[ob_name_clean]['val'] += ob_val_ife
+                    ife_ob_val_total += ob_val_ife
+                    day_ob_ife_d[d][ob_name_clean]['count'] += 1
+                    day_ob_ife_d[d][ob_name_clean]['val'] += ob_val_ife
+        else:
+            if p and not is_ife_prod(p):
+                ife_ob_names_detail[p]['count'] += 1
+                day_ob_ife_d[d][p]['count'] += 1
+            for ob_name_part in ob_col.split(','):
+                ob_name_clean = ob_name_part.strip()
+                if ob_name_clean and ob_name_clean.lower() not in ('none','') and not is_ife_prod(ob_name_clean) and ob_name_clean != p:
+                    ife_ob_names_detail[ob_name_clean]['count'] += 1
+                    day_ob_ife_d[d][ob_name_clean]['count'] += 1
     pm = inv.get('pay_method', '')
     if pm: pay_counts[pm] += 1
     else:  pay_counts['Sem informação'] += 1
@@ -963,6 +1040,13 @@ for inv in invoices:
         else:  psi_pay_counts['Sem informação'] += 1
         if pm == 'Cartão de Crédito':
             psi_parc_dist[inv.get('num_parcelas', 1)] += 1
+    # IFE: pagamento pela fatura do funil inteiro (a Imersão às vezes vem como OB
+    # de uma fatura "OB2 • Mapa"/"Gravação" — contar só principal perderia ~1/5)
+    if is_ife_row(p, ob_col):
+        if pm: ife_pay_counts[pm] += 1
+        else:  ife_pay_counts['Sem informação'] += 1
+        if pm == 'Cartão de Crédito':
+            ife_parc_dist[inv.get('num_parcelas', 1)] += 1
 
 day_ab=defaultdict(int)
 for dd,c2 in cart_by_day.items(): day_ab[dd]=c2
@@ -1035,6 +1119,7 @@ PSI_CAMPS = set(c for c in meta_by_camp if '[PSI08]' in c)
 _all_camps_hist = set(r['campaign'] for r in meta_raw)
 RE_CAMPS_HIST  = set(c for c in _all_camps_hist if '[RE]'    in c and c != INSTA_CAMP)
 PSI_CAMPS_HIST = set(c for c in _all_camps_hist if '[PSI08]' in c)
+IFE_CAMPS = set(c for c in meta_by_camp if '[IFE]' in c)
 
 # meta_raw cobre HIST_START..HIST_END (vários meses). Para totais do produto
 # do MÊS CORRENTE, filtra apenas as linhas do período corrente.
@@ -1048,6 +1133,9 @@ re_imp_m   = sum(r['impressions'] for r in meta_raw_cur if r['campaign'] in RE_C
 re_reach_m = sum(r['reach']       for r in meta_raw_cur if r['campaign'] in RE_CAMPS)
 psi_imp_m  = sum(r['impressions'] for r in meta_raw_cur if r['campaign'] in PSI_CAMPS)
 psi_reach_m= sum(r['reach']       for r in meta_raw_cur if r['campaign'] in PSI_CAMPS)
+ife_sp     = sum(r['spend']       for r in meta_raw_cur if r['campaign'] in IFE_CAMPS)
+ife_imp_m  = sum(r['impressions'] for r in meta_raw_cur if r['campaign'] in IFE_CAMPS)
+ife_reach_m= sum(r['reach']       for r in meta_raw_cur if r['campaign'] in IFE_CAMPS)
 
 re_cpa_v=sdiv(re_sp,re_count); re_roas_v=sdiv(re_fat,re_sp); re_roas_nh=sdiv(re_nh,re_sp)
 re_lucro=r2(re_nh-re_sp); re_roi=sdiv(re_lucro*100,re_sp); re_ticket=sdiv(re_fat,re_count)
@@ -1059,13 +1147,18 @@ psi_lucro=r2(psi_nh-psi_sp); psi_roi=sdiv(psi_lucro*100,psi_sp); psi_ticket=sdiv
 psi_checkouts=psi_count+ab_psi; psi_cpm_m=sdiv(psi_sp*1000,psi_imp_m)
 psi_ctr=sdiv(psi_clicks*100,psi_imp_m); psi_cpc=sdiv(psi_sp,psi_clicks)
 
+ife_cpa_v=sdiv(ife_sp,ife_count); ife_roas_v=sdiv(ife_fat,ife_sp); ife_roas_nh=sdiv(ife_nh,ife_sp)
+ife_lucro=r2(ife_nh-ife_sp); ife_roi=sdiv(ife_lucro*100,ife_sp); ife_ticket=sdiv(ife_fat,ife_count)
+ife_checkouts=ife_count+ab_ife; ife_cpm_m=sdiv(ife_sp*1000,ife_imp_m)
+ife_ctr=sdiv(ife_clicks*100,ife_imp_m); ife_cpc=sdiv(ife_sp,ife_clicks)
+
 roas_sales=sdiv(total_fat,total_sales_spend); roas_geral=sdiv(total_fat,total_meta_spend)
 lucro_tot=r2(total_nh-total_sales_spend); roi_tot=sdiv(lucro_tot*100,total_sales_spend)
 cpa_tot=sdiv(total_sales_spend,total_faturas); ticket_med=sdiv(total_fat,total_faturas)
 
 print(f"\n=== RESUMO ===")
 print(f"Fat: R${total_fat:,.2f} | NH: R${total_nh:,.2f} | Lucro: R${lucro_tot:,.2f} | ROAS: {roas_sales}x | ROI: {roi_tot}%")
-print(f"RE: {re_count} vendas R${re_fat:,.0f} ROAS={re_roas_v} | PSI: {psi_count} vendas R${psi_fat:,.0f} ROAS={psi_roas_v}")
+print(f"RE: {re_count} vendas R${re_fat:,.0f} ROAS={re_roas_v} | PSI: {psi_count} vendas R${psi_fat:,.0f} ROAS={psi_roas_v} | IFE: {ife_count} vendas R${ife_fat:,.0f} ROAS={ife_roas_v}")
 print(f"Carrinhos: {total_ab} | Total checkouts: {total_checkouts} | Conv: {conv_checkout}%")
 print(f"RE spend: {re_sp:.2f} | PSI spend: {psi_sp:.2f} | IFE spend: {ife_spend_sheet:.2f}")
 print(f"Pag: {dict(pay_counts)} | Parc: {dict(parc_dist)}")
@@ -1127,6 +1220,7 @@ def build_week(wid,label,d0,d1):
     w_ab =sum(day_ab[d]    for d in dr); w_ch =w_fc+w_ab
     w_re =sum(day_fat_re[d]  for d in dr)
     w_psi=sum(day_fat_psi[d] for d in dr)
+    w_ife=sum(day_fat_ife[d] for d in dr)
     has  =any(day_fat_c[d]>0 or meta_by_day[d]['spend']>0 for d in dr)
     return {"id":wid,"label":label,"d0":d0,"d1":d1,
             "spend":r2(w_sp),"spend_sales":r2(w_sps),
@@ -1135,7 +1229,7 @@ def build_week(wid,label,d0,d1):
             "cpa":sdiv(w_sps,w_fc) if w_fc else 0,
             "roas":sdiv(w_fat,w_sps) if w_sps else 0,
             "lucro":r2(w_nh-w_sps),"conv_checkout":sdiv(w_fc*100,w_ch) if w_ch else 0,
-            "fat_re":r2(w_re),"fat_psi":r2(w_psi),"has_data":has}
+            "fat_re":r2(w_re),"fat_psi":r2(w_psi),"fat_ife":r2(w_ife),"has_data":has}
 
 _s5_end = DAYS_MONTH  # 28/29/30/31 conforme o mês
 weeks=[build_week("S1",f"01–07 {MES_ABBR}",1,7),
@@ -1162,7 +1256,8 @@ for d in range(1, DAYS_ELAPSED+1):
         "fat":r2(day_fat[d]),"nh":r2(day_nh[d]),
         "abandoned":ab,"checkouts":fc+ab,
         "abandoned_re":ab_re_by_iso.get(_iso_cur,0),"abandoned_psi":ab_psi_by_iso.get(_iso_cur,0),
-        "fat_re":r2(day_fat_re[d]),"fat_psi":r2(day_fat_psi[d])})
+        "abandoned_ife":ab_ife_by_iso.get(_iso_cur,0),
+        "fat_re":r2(day_fat_re[d]),"fat_psi":r2(day_fat_psi[d]),"fat_ife":r2(day_fat_ife[d])})
 
 # ── STEP 10: Campaigns ────────────────────────────────────────────
 # CAMP_META é a fonte única, definida no topo (junto ao CAMP_ALIAS).
@@ -1235,6 +1330,21 @@ for _entry in daily_arr:
     _entry['faturas_psi']= day_fat_psi_c[_d]
     _entry['units_re']   = day_units_re_d[_d]
     _entry['units_psi']  = day_units_psi_d[_d]
+    _entry['spend_ife']  = r2(sum(r['spend'] for r in meta_raw_cur if r['campaign'] in IFE_CAMPS and int(r['date'][8:10])==_d))
+    _entry['faturas_ife']= day_fat_ife_c[_d]
+    _entry['units_ife']  = day_units_ife_d[_d]
+    _entry['prods_dia_ife'] = [{"name":pn,"fat":r2(pv['fat']),"faturas":pv['faturas'],"units":pv['units']}
+                               for pn,pv in sorted(day_prod_ife_d[_d].items(),key=lambda x:-x[1]['fat']) if pv['fat']>0]
+    _entry['funnel_clicks_ife'] = day_funnel_ife[_d]['clicks']
+    _entry['funnel_lpv_ife']    = day_funnel_ife[_d]['lpv']
+    _entry['funnel_imp_ife']    = day_funnel_ife[_d]['imp']
+    _entry['origins_ife']   = _emit_orig(day_orig_ife_d[_d])
+    _entry['fb_split_ife']  = _emit_fb(day_fbsp_ife_d[_d])
+    _entry['regioes_ife']   = _emit_reg(day_reg_ife_d[_d])
+    _entry['pay_dist_ife']  = _emit_pay(day_pay_ife_d[_d])
+    _entry['parc_dist_ife'] = _emit_parc(day_parc_ife_d[_d])
+    _entry['ob_detail_ife'] = [{"name":k,"count":v['count'],"val":r2(v['val'])}
+                               for k,v in sorted(day_ob_ife_d[_d].items(),key=lambda x:-x[1]['count']) if v['count']>0]
     # Produtos individuais do dia (para "Receita por produto" funcionar por intervalo)
     _entry['prods_dia']  = [{"name":pn,"fat":r2(pv['fat']),"faturas":pv['faturas'],"units":pv['units']}
                             for pn,pv in sorted(day_prod_fat_d[_d].items(),key=lambda x:-x[1]['fat']) if pv['fat']>0]
@@ -1316,6 +1426,13 @@ hist_by_date = defaultdict(lambda: {
     'regioes_psi':defaultdict(lambda: {'fat':0.0,'faturas':0}),
     'pay_dist_re':defaultdict(int),  'pay_dist_psi':defaultdict(int),
     'parc_dist_re':defaultdict(int), 'parc_dist_psi':defaultdict(int),
+    'fat_ife':0.0,'faturas_ife':0,'units_ife':0,
+    'ob_ife':defaultdict(lambda: {'count':0,'val':0.0}),
+    'prods_ife':defaultdict(lambda: {'fat':0.0,'faturas':0,'units':0}),
+    'origins_ife':defaultdict(lambda: {'fat':0.0,'faturas':0}),
+    'fb_split_ife':{'frio':{'fat':0.0,'faturas':0},'quente':{'fat':0.0,'faturas':0},'outros':{'fat':0.0,'faturas':0}},
+    'regioes_ife':defaultdict(lambda: {'fat':0.0,'faturas':0}),
+    'pay_dist_ife':defaultdict(int), 'parc_dist_ife':defaultdict(int),
 })
 
 # Precisa de avg_re/avg_psi para estimar valor de OB (recalcular no histórico)
@@ -1323,6 +1440,8 @@ _re_solo_hist  = [i['fat'] for i in hist_invoices if is_re_prod(i['prod']) and n
 _psi_solo_hist = [i['fat'] for i in hist_invoices if is_psi_prod(i['prod']) and not i['ob']]
 _avg_re_hist  = sum(_re_solo_hist)/len(_re_solo_hist)   if _re_solo_hist  else 147.0
 _avg_psi_hist = sum(_psi_solo_hist)/len(_psi_solo_hist) if _psi_solo_hist else 297.0
+_ife_solo_hist = [i['fat'] for i in hist_invoices if is_ife_prod(i['prod']) and not i['ob']]
+_avg_ife_hist = sum(_ife_solo_hist)/len(_ife_solo_hist) if _ife_solo_hist else 97.0
 
 for inv in hist_invoices:
     p,ob_col,tot,nh,f = inv['prod'],inv['ob'],inv['fat'],inv['nh'],inv['fat']
@@ -1339,6 +1458,23 @@ for inv in hist_invoices:
     if _is_psi:
         _hd['fat_psi']+=tot; _hd['faturas_psi']+=1; _hd['units_psi']+=inv['items']
         _accum_items(_hd['prods_psi'], inv, is_psi_prod)
+    _is_ife = is_ife_row(p, ob_col)
+    if _is_ife:
+        _hd['fat_ife']+=tot; _hd['faturas_ife']+=1; _hd['units_ife']+=inv['items']
+        _accum_items(_hd['prods_ife'], inv, is_ife_prod)
+        if is_ife_prod(p):
+            for ob_name_part in ob_col.split(','):
+                ob_name_clean = ob_name_part.strip()
+                if ob_name_clean and ob_name_clean.lower() not in ('none','') and not is_ife_prod(ob_name_clean):
+                    _hd['ob_ife'][ob_name_clean]['count'] += 1
+                    _hd['ob_ife'][ob_name_clean]['val']   += max(0, f - _avg_ife_hist)
+        else:
+            if p and not is_ife_prod(p):
+                _hd['ob_ife'][p]['count'] += 1
+            for ob_name_part in ob_col.split(','):
+                ob_name_clean = ob_name_part.strip()
+                if ob_name_clean and ob_name_clean.lower() not in ('none','') and not is_ife_prod(ob_name_clean) and ob_name_clean != p:
+                    _hd['ob_ife'][ob_name_clean]['count'] += 1
     # Produto individual
     _hd['prods'][p]['fat']    += tot
     _hd['prods'][p]['faturas']+= 1
@@ -1407,6 +1543,12 @@ for inv in hist_invoices:
         _hd['regioes_psi'][reg]['fat']+=tot; _hd['regioes_psi'][reg]['faturas']+=1
         _hd['pay_dist_psi'][pm]+=1
         if pm=='Cartão de Crédito': _hd['parc_dist_psi'][inv['num_parcelas']]+=1
+    if _is_ife:
+        _hd['origins_ife'][orig]['fat']+=tot; _hd['origins_ife'][orig]['faturas']+=1
+        if orig=='facebook ads': _hd['fb_split_ife'][fk]['fat']+=tot; _hd['fb_split_ife'][fk]['faturas']+=1
+        _hd['regioes_ife'][reg]['fat']+=tot; _hd['regioes_ife'][reg]['faturas']+=1
+        _hd['pay_dist_ife'][pm]+=1
+        if pm=='Cartão de Crédito': _hd['parc_dist_ife'][inv['num_parcelas']]+=1
 
 # Hotmart dos meses passados → mesmo tratamento que recebe no mês corrente (STEP 6c):
 # entra em faturamento/faturas/unidades, produto, canal 'hotmart', região e pagamento.
@@ -1450,10 +1592,11 @@ hist_entries = []
 for date_str, h in sorted(hist_by_date.items()):
     y,m,dd = [int(x) for x in date_str.split('-')]
     # Métricas Meta Ads do dia
-    _mt = meta_by_date_iso.get(date_str, {'spend':0,'spend_sales':0,'spend_re':0,'spend_psi':0,'imp':0})
+    _mt = meta_by_date_iso.get(date_str, {'spend':0,'spend_sales':0,'spend_re':0,'spend_psi':0,'spend_ife':0,'imp':0})
     # Funil RE/PSI do dia (clicks/LPV/imp da planilha de controle)
     _fre = day_funnel_re_iso.get(date_str, {'clicks':0,'lpv':0,'imp':0})
     _fps = day_funnel_psi_iso.get(date_str, {'clicks':0,'lpv':0,'imp':0})
+    _fif = day_funnel_ife_iso.get(date_str, {'clicks':0,'lpv':0,'imp':0})
     hist_entries.append({
         "day":dd, "month":m, "year":y, "date":date_str,
         "spend":r2(_mt['spend']), "spend_sales":r2(_mt['spend_sales']),
@@ -1470,6 +1613,17 @@ for date_str, h in sorted(hist_by_date.items()):
         "units_re":h['units_re'], "units_psi":h['units_psi'],
         "funnel_clicks_re":_fre['clicks'],"funnel_lpv_re":_fre['lpv'],"funnel_imp_re":_fre['imp'],
         "funnel_clicks_psi":_fps['clicks'],"funnel_lpv_psi":_fps['lpv'],"funnel_imp_psi":_fps['imp'],
+        "abandoned_ife":ab_ife_by_iso.get(date_str,0),
+        "fat_ife":r2(h['fat_ife']), "spend_ife":r2(_mt['spend_ife']),
+        "faturas_ife":h['faturas_ife'], "units_ife":h['units_ife'],
+        "funnel_clicks_ife":_fif['clicks'],"funnel_lpv_ife":_fif['lpv'],"funnel_imp_ife":_fif['imp'],
+        "ob_detail_ife":[{"name":k,"count":v['count'],"val":r2(v['val'])}
+                         for k,v in sorted(h['ob_ife'].items(),key=lambda x:-x[1]['count']) if v['count']>0],
+        "prods_dia_ife":[{"name":pn,"fat":r2(pv['fat']),"faturas":pv['faturas'],"units":pv['units']}
+                         for pn,pv in sorted(h['prods_ife'].items(),key=lambda x:-x[1]['fat']) if pv['fat']>0],
+        "origins_ife":_emit_orig(h['origins_ife']), "fb_split_ife":_emit_fb(h['fb_split_ife']),
+        "regioes_ife":_emit_reg(h['regioes_ife']), "pay_dist_ife":_emit_pay(h['pay_dist_ife']),
+        "parc_dist_ife":_emit_parc(h['parc_dist_ife']),
         "origins":[{"name":orig_label(k),"fat":r2(v['fat']),"faturas":v['faturas']}
                    for k,v in h['origins'].items() if v['fat']>0],
         "fb_split":{k:{"fat":r2(v['fat']),"faturas":v['faturas']} for k,v in h['fb_split'].items()},
@@ -1535,6 +1689,12 @@ re_benchmarks={
     "connect":{"bom":90,"media":80,"gargalo":70},"initiate":{"bom":30,"media":20,"gargalo":10},
     "pagamento":{"bom":15,"media":10,"gargalo":5},"conversao":{"bom":4.0,"media":2.0,"gargalo":1.0}
 }
+# IFE: ticket baixo (ticket médio real do funil), parâmetros de funil iguais aos do RE.
+ife_benchmarks={
+    "ticket":round(ife_ticket) if ife_ticket else 97,"ctr":{"bom":1.5,"media":1.0,"gargalo":0.5},
+    "connect":{"bom":90,"media":80,"gargalo":70},"initiate":{"bom":30,"media":20,"gargalo":10},
+    "pagamento":{"bom":15,"media":10,"gargalo":5},"conversao":{"bom":4.0,"media":2.0,"gargalo":1.0}
+}
 psi_benchmarks={
     "ticket":297,"ctr":{"bom":1.5,"media":1.0,"gargalo":0.5},
     "connect":{"bom":90,"media":80,"gargalo":70},"initiate":{"bom":20,"media":12,"gargalo":5},
@@ -1544,6 +1704,7 @@ psi_benchmarks={
 # ── Per-product OB detail arrays ──────────────────────────────────
 re_ob_detail_arr  = sorted([{"name":k,"count":v['count'],"val":r2(v['val'])} for k,v in re_ob_names_detail.items()], key=lambda x:-x['val'])
 psi_ob_detail_arr = sorted([{"name":k,"count":v['count'],"val":r2(v['val'])} for k,v in psi_ob_names_detail.items()], key=lambda x:-x['val'])
+ife_ob_detail_arr = sorted([{"name":k,"count":v['count'],"val":r2(v['val'])} for k,v in ife_ob_names_detail.items()], key=lambda x:-x['val'])
 
 # ── Per-product payment/installment arrays ────────────────────────
 def mk_pay_dist(counts, total):
@@ -1560,6 +1721,8 @@ re_pay_dist   = mk_pay_dist(re_pay_counts,  re_pay_main_total)
 psi_pay_dist  = mk_pay_dist(psi_pay_counts, psi_pay_main_total)
 re_parc_arr   = mk_parc_arr(re_parc_dist,   re_pay_counts.get('Cartão de Crédito', 0))
 psi_parc_arr  = mk_parc_arr(psi_parc_dist,  psi_pay_counts.get('Cartão de Crédito', 0))
+ife_pay_dist  = mk_pay_dist(ife_pay_counts, sum(ife_pay_counts.values()) or 1)
+ife_parc_arr  = mk_parc_arr(ife_parc_dist,  ife_pay_counts.get('Cartão de Crédito', 0))
 
 products_paid={
     "RE":{"code":"RE","spend":r2(re_sp),"impressions":r0(re_imp_m),"reach":r0(re_reach_m),
@@ -1568,7 +1731,7 @@ products_paid={
           "ticket":re_ticket,"cpm":r2(re_cpm_m),"abandoned":ab_re,"checkouts":re_checkouts,"compras":re_count,
           "funnel_clicks":re_clicks,"funnel_lpv":re_lpv,"funnel_ctr":re_ctr,"funnel_cpc":re_cpc,
           "funnel_source":"planilha","conv_checkout":sdiv(re_count*100,re_checkouts),
-          "weeks":prod_week_rows(day_fat_re,day_fat_re_c,RE_CAMPS,nh_ratio=sdiv(re_nh,re_fat,0.94)),
+          "weeks":prod_week_rows(day_fat_re,day_fat_re_c,RE_CAMPS,nh_ratio=(re_nh/re_fat if re_fat else 0.94)),
           "benchmarks":re_benchmarks,
           "pay_dist":re_pay_dist,"parc_dist":re_parc_arr,
           "ob_val":r2(re_ob_val_total),"ob_detail":re_ob_detail_arr},
@@ -1578,10 +1741,20 @@ products_paid={
            "ticket":psi_ticket,"cpm":r2(psi_cpm_m),"abandoned":ab_psi,"checkouts":psi_checkouts,"compras":psi_count,
            "funnel_clicks":psi_clicks,"funnel_lpv":psi_lpv,"funnel_ctr":psi_ctr,"funnel_cpc":psi_cpc,
            "funnel_source":"planilha","conv_checkout":sdiv(psi_count*100,psi_checkouts),
-           "weeks":prod_week_rows(day_fat_psi,day_fat_psi_c,PSI_CAMPS,nh_ratio=sdiv(psi_nh,psi_fat,0.94)),
+           "weeks":prod_week_rows(day_fat_psi,day_fat_psi_c,PSI_CAMPS,nh_ratio=(psi_nh/psi_fat if psi_fat else 0.94)),
            "benchmarks":psi_benchmarks,
            "pay_dist":psi_pay_dist,"parc_dist":psi_parc_arr,
-           "ob_val":r2(psi_ob_val_total),"ob_detail":psi_ob_detail_arr}
+           "ob_val":r2(psi_ob_val_total),"ob_detail":psi_ob_detail_arr},
+    "IFE":{"code":"IFE","spend":r2(ife_sp),"impressions":r0(ife_imp_m),"reach":r0(ife_reach_m),
+           "faturas":ife_count,"units":ife_units,"fat":r2(ife_fat),"nh":r2(ife_nh),"total":r2(ife_total),"ob":ife_ob,
+           "cpa":ife_cpa_v,"roas":ife_roas_v,"roas_nh":ife_roas_nh,"lucro":ife_lucro,"roi":ife_roi,
+           "ticket":ife_ticket,"cpm":r2(ife_cpm_m),"abandoned":ab_ife,"checkouts":ife_checkouts,"compras":ife_count,
+           "funnel_clicks":ife_clicks,"funnel_lpv":ife_lpv,"funnel_ctr":ife_ctr,"funnel_cpc":ife_cpc,
+           "funnel_source":"planilha" if _ife_csvs else "estimado","conv_checkout":sdiv(ife_count*100,ife_checkouts),
+           "weeks":prod_week_rows(day_fat_ife,day_fat_ife_c,IFE_CAMPS,nh_ratio=(ife_nh/ife_fat if ife_fat else 0.94)),
+           "benchmarks":ife_benchmarks,
+           "pay_dist":ife_pay_dist,"parc_dist":ife_parc_arr,
+           "ob_val":r2(ife_ob_val_total),"ob_detail":ife_ob_detail_arr}
 }
 
 # ── STEP 12: Origins, products, regions ──────────────────────────
@@ -1999,6 +2172,12 @@ vcheck(f"Faturamento RE bruto", abs(round(re_fat,2) - hubla_re_fat) < 0.01,
        expected=hubla_re_fat, got=round(re_fat,2), critical=True)
 vcheck(f"Faturamento PSI bruto", abs(round(psi_fat,2) - hubla_psi_fat) < 0.01,
        expected=hubla_psi_fat, got=round(psi_fat,2), critical=True)
+hubla_ife     = sum(1 for i in invoices if is_ife_row(i['prod'], i['ob']))
+hubla_ife_fat = round(sum(i['fat'] for i in invoices if is_ife_row(i['prod'], i['ob'])), 2)
+vcheck(f"Faturas IFE (XLSX → JSON)", ife_count == hubla_ife,
+       expected=hubla_ife, got=ife_count, critical=True)
+vcheck(f"Faturamento IFE bruto", abs(round(ife_fat,2) - hubla_ife_fat) < 0.01,
+       expected=hubla_ife_fat, got=round(ife_fat,2), critical=True)
 
 # 4. Daily array não está vazio (a menos que seja dia 1 com 0 dados — ok)
 vcheck(f"daily[] tem entradas", len(daily_arr) > 0)

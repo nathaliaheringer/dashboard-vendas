@@ -547,7 +547,14 @@ function updateLiveLabel(){
 var period='all';   // 'all' | 'S1'..'S5' | {from:'ISO',to:'ISO'}
 var funProd='RE';
 var evProd='all';
-var viewProd='all'; // 'all' | 're' | 'psi'
+var viewProd='all'; // 'all' | 're' | 'psi' | 'ife'
+/* Sufixo dos campos por funil no daily/weeks ('fat_re', 'spend_ife'...).
+   '' = consolidado. */
+function vpSfx(vp){vp=vp||viewProd;return vp==='re'?'_re':vp==='psi'?'_psi':vp==='ife'?'_ife':'';}
+/* Sigla curta (rótulos de gráfico) e nome completo de cada funil */
+var VP_SHORT={re:'RE',psi:'PSI',ife:'IFE'};
+var VP_NAME={re:'Regulando as Emoções',psi:'PSI 0-8',ife:'Imersão Funções Executivas'};
+var FUN_TITLE={RE:'Regulando as Emoções',PSI:'Curso PSI 0-8',IFE:'Imersão de Funções Executivas na Clínica Infantil'};
 var charts={};
 function destroyChart(k){if(charts[k]){try{charts[k].destroy();}catch(e){}delete charts[k];}}
 
@@ -762,10 +769,10 @@ function geralKpiData(P){
   var ticket=faturas>0?r2(fat/faturas):0;
   var roas=invest>0?r2(fat/invest):0;
   var cpa=faturas>0?r2(invest/faturas):null;
-  /* Soma units_re/units_psi do daily entre pw.d0..pw.d1 do mês corrente */
+  /* Soma units_<funil> do daily entre pw.d0..pw.d1 do mês corrente */
   var unitsWeek=0;
   if(pw){
-   var uKey=viewProd==='re'?'units_re':'units_psi';
+   var uKey='units'+vpSfx();
    var ym=DATA.period.start.substring(0,7);
    var fd=ym+'-'+String(pw.d0).padStart(2,'0'), td=ym+'-'+String(pw.d1).padStart(2,'0');
    unitsWeek=DATA.daily.filter(function(d){return d.date>=fd&&d.date<=td;})
@@ -776,10 +783,10 @@ function geralKpiData(P){
  }
  /* Intervalo/dia — agrega global daily pelos campos fat_re/fat_psi + spend_re/spend_psi */
  if(P.kind==='intervalo'||P.kind==='dia'){
-  var fatKey=viewProd==='re'?'fat_re':'fat_psi';
-  var spKey=viewProd==='re'?'spend_re':'spend_psi';
-  var fcKey=viewProd==='re'?'faturas_re':'faturas_psi';
-  var uKey =viewProd==='re'?'units_re':'units_psi';
+  var fatKey='fat'+vpSfx();
+  var spKey='spend'+vpSfx();
+  var fcKey='faturas'+vpSfx();
+  var uKey ='units'+vpSfx();
   var ds=P.days||[];
   var fat=r2(ds.reduce(function(a,d){return a+(d[fatKey]||0);},0));
   var invest=r2(ds.reduce(function(a,d){return a+(d[spKey]||0);},0));
@@ -814,6 +821,7 @@ function renderGeral(){
    :P.kind==='intervalo'?'Resultado · '+P.label:'Resultado · '+P.label;
  if(viewProd==='re') titulo+=' — Regulando as Emoções';
  else if(viewProd==='psi') titulo+=' — PSI 08';
+ else if(viewProd==='ife') titulo+=' — Imersão Funções Executivas (IFE)';
 
  var h='<div class="sec"><div class="sec-head"><span class="bar"></span><h2>'+titulo+'</h2>'+
    '<div class="note">Faturamento pelo valor do produto na Hubla · investimento e métricas de mídia do Meta Ads.</div></div>';
@@ -823,6 +831,7 @@ function renderGeral(){
    '<button class="tg'+(viewProd==='all'?' on':'')+'" data-vp="all">Consolidado</button>'+
    '<button class="tg'+(viewProd==='psi'?' on':'')+'" data-vp="psi">PSI 08</button>'+
    '<button class="tg'+(viewProd==='re'?' on':'')+'" data-vp="re">Regulando as Emoções</button>'+
+   '<button class="tg'+(viewProd==='ife'?' on':'')+'" data-vp="ife" title="Imersão de Funções Executivas na Clínica Infantil">IFE</button>'+
    '</div>';
 
  if(P.kind==='dia'||P.kind==='intervalo'){
@@ -860,8 +869,8 @@ function renderGeral(){
  }else if(P.kind==='intervalo'){
   /* Intervalo customizado: apenas o gráfico de Faturamento × Investimento dia a dia.
      Tabela de campanhas pertence à aba Campanhas (não aqui). */
-  var _fatLbl=viewProd==='re'?'Faturamento RE':viewProd==='psi'?'Faturamento PSI':'Faturamento';
-  var _invLbl=viewProd==='re'?'Investimento RE':viewProd==='psi'?'Investimento PSI':'Investimento em vendas';
+  var _fatLbl=viewProd==='all'?'Faturamento':'Faturamento '+VP_SHORT[viewProd];
+  var _invLbl=viewProd==='all'?'Investimento em vendas':'Investimento '+VP_SHORT[viewProd];
   h+='<div class="sec"><div class="sec-head"><span class="bar"></span><h2>Evolução no intervalo</h2></div>'+
    '<div class="grid g-2">'+
     '<div class="panel"><div class="p-head"><div><h3>Faturamento &times; Investimento</h3></div></div>'+
@@ -914,9 +923,8 @@ function renderGeral(){
    b.classList.add('on');
    viewProd=b.dataset.vp;
    /* Sync evProd and funProd with viewProd */
-   if(viewProd==='re'){evProd='re';funProd='RE';}
-   else if(viewProd==='psi'){evProd='psi';funProd='PSI';}
-   else{evProd='all';funProd='RE';}
+   if(viewProd==='all'){evProd='all';funProd='RE';}
+   else{evProd=viewProd;funProd=viewProd.toUpperCase();}
    rebootUI();
   });
  });
@@ -931,9 +939,7 @@ function renderGeral(){
  }else{
   var evMode='dia';
   /* sync evProd from viewProd state */
-  if(viewProd==='re') evProd='re';
-  else if(viewProd==='psi') evProd='psi';
-  else evProd='all';
+  evProd=viewProd;
   buildEvol(evMode); buildProfit();
   document.querySelectorAll('#evToggles .tg').forEach(function(b){
    b.addEventListener('click',function(){
@@ -961,14 +967,14 @@ function renderComposicaoInline(){
     deixando a página presa no snapshot embutido para sempre. */
  function getPayDist(){
   if(aggData) return aggData.pay_dist||[]; /* período ativo → dados reais */
-  if(viewProd==='re') return (DATA.products_paid.RE&&DATA.products_paid.RE.pay_dist)||DATA.payment_dist||[];
-  if(viewProd==='psi') return (DATA.products_paid.PSI&&DATA.products_paid.PSI.pay_dist)||DATA.payment_dist||[];
+  var ppv=viewProd==='all'?null:DATA.products_paid[viewProd.toUpperCase()];
+  if(ppv) return ppv.pay_dist||DATA.payment_dist||[];
   return DATA.payment_dist||[];
  }
  function getParcDist(){
   if(aggData) return aggData.parc_dist||[]; /* período ativo → dados reais */
-  if(viewProd==='re') return (DATA.products_paid.RE&&DATA.products_paid.RE.parc_dist)||DATA.parc_dist||[];
-  if(viewProd==='psi') return (DATA.products_paid.PSI&&DATA.products_paid.PSI.parc_dist)||DATA.parc_dist||[];
+  var ppv=viewProd==='all'?null:DATA.products_paid[viewProd.toUpperCase()];
+  if(ppv) return ppv.parc_dist||DATA.parc_dist||[];
   return DATA.parc_dist||[];
  }
  function getTotalFaturas(){
@@ -977,18 +983,18 @@ function renderComposicaoInline(){
    return fc||DATA.daily.filter(function(d){return d.date>=pdFilter.from_date&&d.date<=pdFilter.to_date;})
     .reduce(function(s,d){return s+d.faturas;},0);
   }
-  if(viewProd==='re') return DATA.products_paid.RE?DATA.products_paid.RE.faturas:DATA.totals.faturas;
-  if(viewProd==='psi') return DATA.products_paid.PSI?DATA.products_paid.PSI.faturas:DATA.totals.faturas;
-  return DATA.totals.faturas;
+  var ppv=viewProd==='all'?null:DATA.products_paid[viewProd.toUpperCase()];
+  return ppv?ppv.faturas:DATA.totals.faturas;
  }
  /* totalFat: usa período filtrado quando ativo */
  var totalFat;
  if(perActive){
   var filtD=DATA.daily.filter(function(d){return d.date>=pdFilter.from_date&&d.date<=pdFilter.to_date;});
-  var fatKey=viewProd==='re'?'fat_re':viewProd==='psi'?'fat_psi':'fat';
+  var fatKey='fat'+vpSfx();
   totalFat=filtD.reduce(function(a,d){return a+(d[fatKey]||0);},0);
  }else{
-  totalFat=viewProd==='re'?DATA.products_paid.RE.fat:viewProd==='psi'?DATA.products_paid.PSI.fat:DATA.totals.fat;
+  var ppT=viewProd==='all'?null:DATA.products_paid[viewProd.toUpperCase()];
+  totalFat=ppT?ppT.fat:DATA.totals.fat;
  }
  var h='<div class="sec"><div class="sec-head"><span class="bar"></span><h2>Composição da receita</h2>'+
    '<div class="note">Faturamento de R$&nbsp;'+nf0.format(totalFat)+' distribuído por produto, canal de venda e região.</div></div>'+
@@ -1020,7 +1026,7 @@ function renderComposicaoInline(){
   var sumCnt=parcDist.reduce(function(s,d){return s+d.count;},0);
   avgParcN=sumCnt?sumProd/sumCnt:0;
  }
- var prodLabel=viewProd==='re'?'Regulando as Emoções':viewProd==='psi'?'PSI 0-8':'Consolidado';
+ var prodLabel=viewProd==='all'?'Consolidado':VP_NAME[viewProd];
  h+='<div class="sec"><div class="sec-head"><span class="bar"></span><h2>Métodos de pagamento</h2>'+
    '<div class="note">'+prodLabel+' — distribuição por forma de pagamento ('+nFaturas+' vendas).</div></div>'+
   '<div class="grid g-2" style="align-items:stretch">'+
@@ -1041,32 +1047,41 @@ function renderComposicaoInline(){
  }
  h+='</div>';
  /* ── Section 3: Order Bumps (chart-based) ─────────────────────── */
- /* Quando período ativo, usa ob_detail_re/psi do aggData; caso contrário, products_paid */
- var reDataOb = aggData
-  ? Object.assign({},DATA.products_paid.RE,{ob_detail:aggData.ob_detail_re,
-      faturas:DATA.daily.filter(function(d){return d.date>=pdFilter.from_date&&d.date<=pdFilter.to_date;}).reduce(function(a,d){return a+d.faturas_re;},0)})
-  : DATA.products_paid.RE;
- var psiDataOb = aggData
-  ? Object.assign({},DATA.products_paid.PSI,{ob_detail:aggData.ob_detail_psi,
-      faturas:DATA.daily.filter(function(d){return d.date>=pdFilter.from_date&&d.date<=pdFilter.to_date;}).reduce(function(a,d){return a+d.faturas_psi;},0)})
-  : DATA.products_paid.PSI;
+ /* Quando período ativo, usa ob_detail_<funil> do aggData; caso contrário, products_paid */
+ var filtOb=DATA.daily.filter(function(d){return d.date>=pdFilter.from_date&&d.date<=pdFilter.to_date;});
+ function obData(key){
+  var pp=DATA.products_paid[key]; if(!pp) return null;
+  var sf='_'+key.toLowerCase();
+  return aggData
+   ? Object.assign({},pp,{ob_detail:aggData['ob_detail'+sf]||[],
+       faturas:filtOb.reduce(function(a,d){return a+(d['faturas'+sf]||0);},0)})
+   : pp;
+ }
+ /* Funis exibidos: o selecionado, ou no Consolidado RE + PSI (+ IFE quando há venda) */
+ var obFunnels=[];
+ var OB_COL={RE:'#37644F',PSI:'#3E6E8E',IFE:'#B57353'};
+ var OB_LBL={RE:'RE',PSI:'PSI 0-8',IFE:'IFE'};
+ (viewProd==='all'?['RE','PSI','IFE']:[viewProd.toUpperCase()]).forEach(function(k){
+  var od=obData(k); if(!od) return;
+  if(viewProd==='all'&&k==='IFE'&&!(od.faturas>0)) return;
+  obFunnels.push({key:k,label:OB_LBL[k],color:OB_COL[k],data:od});
+ });
  /* Collect all unique OB product names across selected funnels */
  var allObNames=[];
- function addObNames(pd2){
-  if(!pd2||!pd2.ob_detail) return;
-  pd2.ob_detail.forEach(function(ob){
+ obFunnels.forEach(function(f){
+  if(!f.data||!f.data.ob_detail) return;
+  f.data.ob_detail.forEach(function(ob){
    if(allObNames.indexOf(ob.name)<0) allObNames.push(ob.name);
   });
- }
- if(viewProd==='all'||viewProd==='re') addObNames(reDataOb);
- if(viewProd==='all'||viewProd==='psi') addObNames(psiDataOb);
+ });
  var shortObNames=allObNames.map(function(n){
   if(n==='Recursos Exclusivos Divertidamente 2') return 'Recursos Exclusivos';
   if(n==='O Mapa da Avaliação - Autismo') return 'Mapa da Avaliação';
+  if(n==='Gravação Imersão Funções Executivas na Clínica Infantil') return 'Gravação da Imersão';
   return n.length>26?n.slice(0,24)+'…':n;
  });
- var obNote=viewProd==='all'?'Comparação entre os dois funis — RE e PSI 0-8.':
-  viewProd==='re'?'Funil Regulando as Emoções.':'Funil PSI 0-8.';
+ var obNote=viewProd==='all'?'Comparação entre os funis — '+obFunnels.map(function(f){return f.label;}).join(', ')+'.':
+  'Funil '+VP_NAME[viewProd]+'.';
  h+='<div class="sec"><div class="sec-head"><span class="bar"></span><h2>Order Bumps</h2>'+
    '<div class="note">'+obNote+'</div></div>'+
   '<div class="grid g-2" style="align-items:stretch">'+
@@ -1085,18 +1100,18 @@ function renderComposicaoInline(){
  /* Render charts */
  renderProdDonutInline(); renderChanDonutInline(aggData); renderRegionInline(aggData);
  renderPayMetInlineChart(payDist); renderParcInlineChart(parcDist);
- renderObChartsInline(allObNames,shortObNames,reDataOb,psiDataOb);
+ renderObChartsInline(allObNames,shortObNames,obFunnels);
  /* Atualiza insights unificados no rodapé */
  renderGeralInsights();
 }
 function renderProdDonutInline(){
  var pd=periodDays();
  var items,tot,cols;
- if(viewProd==='re'||viewProd==='psi'){
-  /* Funil RE/PSI: agrega a quebra por produto RESTRITA ao funil (prods_dia_re/psi)
+ if(viewProd!=='all'){
+  /* Funil RE/PSI/IFE: agrega a quebra por produto RESTRITA ao funil (prods_dia_<funil>)
      do daily filtrado — vale para período e mês completo. A soma bate exatamente
      com o card "Faturamento RE/PSI" e com o total de "Vendas pagas" do funil. */
-  var pkeyF=viewProd==='re'?'prods_dia_re':'prods_dia_psi';
+  var pkeyF='prods_dia'+vpSfx();
   var filteredF=DATA.daily.filter(function(d){return d.date>=pd.from_date&&d.date<=pd.to_date;});
   var prodMapF={};
   filteredF.forEach(function(d){
@@ -1318,38 +1333,29 @@ function renderParcInlineChart(dist){
      callback:function(v){return nf0.format(v);}}}}}
  });
 }
-function renderObChartsInline(allObNames,shortNames,reData,psiData){
- var RE_COL='#37644F',PSI_COL='#3E6E8E';
+function renderObChartsInline(allObNames,shortNames,funnels){
+ /* funnels: [{key,label,color,data}] — data = products_paid do funil (ou recorte do período) */
+ function fByLabel(lbl){return funnels.filter(function(f){return f.label===lbl;})[0];}
  /* ── Receita por OB: horizontal bar (quantity of items sold) ── */
  destroyChart('cObRevInline');
  var cvRev=document.getElementById('cObRevInline');
  if(cvRev&&allObNames.length){
   var revDatasets=[];
-  if(viewProd==='all'||viewProd==='re'){
-   if(reData&&reData.ob_detail){
-    var reQtys=allObNames.map(function(n){
-     var ob=reData.ob_detail.filter(function(x){return x.name===n;})[0];
-     return ob?ob.count:0;
-    });
-    revDatasets.push({label:'RE',data:reQtys,backgroundColor:RE_COL,borderRadius:4,maxBarThickness:28});
-   }
-  }
-  if(viewProd==='all'||viewProd==='psi'){
-   if(psiData&&psiData.ob_detail){
-    var psiQtys=allObNames.map(function(n){
-     var ob=psiData.ob_detail.filter(function(x){return x.name===n;})[0];
-     return ob?ob.count:0;
-    });
-    revDatasets.push({label:'PSI 0-8',data:psiQtys,backgroundColor:PSI_COL,borderRadius:4,maxBarThickness:28});
-   }
-  }
+  funnels.forEach(function(f){
+   if(!f.data||!f.data.ob_detail) return;
+   var qtys=allObNames.map(function(n){
+    var ob=f.data.ob_detail.filter(function(x){return x.name===n;})[0];
+    return ob?ob.count:0;
+   });
+   revDatasets.push({label:f.label,data:qtys,backgroundColor:f.color,borderRadius:4,maxBarThickness:28});
+  });
   charts.cObRevInline=new Chart(cvRev.getContext('2d'),{type:'bar',
    data:{labels:shortNames,datasets:revDatasets},
    options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',
     plugins:{
      legend:{display:revDatasets.length>1,position:'bottom',labels:{color:TICK,font:{family:'Outfit',size:11}}},
      tooltip:tip(function(c){
-      var pd=(c.dataset.label==='PSI 0-8'?psiData:reData);
+      var fu=fByLabel(c.dataset.label),pd=fu?fu.data:null;
       var n=allObNames[c.dataIndex];
       var ob=pd&&pd.ob_detail?pd.ob_detail.filter(function(x){return x.name===n;})[0]:null;
       return ' '+c.raw+' itens'+(ob?' — '+brl(ob.val):'');
@@ -1367,45 +1373,33 @@ function renderObChartsInline(allObNames,shortNames,reData,psiData){
  if(cvConv&&allObNames.length){
   var convLabels=shortNames.concat(['Total']);
   var convDatasets=[];
-  /* Parallel count arrays for tooltip — captured in closure */
-  var reConvCounts=[], psiConvCounts=[];
-  if(viewProd==='all'||viewProd==='re'){
-   if(reData&&reData.ob_detail&&reData.faturas>0){
-    var reRates=allObNames.map(function(n){
-     var ob=reData.ob_detail.filter(function(x){return x.name===n;})[0];
-     reConvCounts.push(ob?ob.count:0);
-     return ob?Math.round(ob.count/reData.faturas*1000)/10:0;
-    });
-    var reTot=reData.ob_detail.reduce(function(s,x){return s+x.count;},0);
-    reConvCounts.push(reTot);
-    reRates.push(Math.round(reTot/reData.faturas*1000)/10);
-    convDatasets.push({label:'RE',data:reRates,
-     backgroundColor:RE_COL,borderRadius:4,maxBarThickness:40});
-   }
-  }
-  if(viewProd==='all'||viewProd==='psi'){
-   if(psiData&&psiData.ob_detail&&psiData.faturas>0){
-    var psiRates=allObNames.map(function(n){
-     var ob=psiData.ob_detail.filter(function(x){return x.name===n;})[0];
-     psiConvCounts.push(ob?ob.count:0);
-     return ob?Math.round(ob.count/psiData.faturas*1000)/10:0;
-    });
-    var psiTot=psiData.ob_detail.reduce(function(s,x){return s+x.count;},0);
-    psiConvCounts.push(psiTot);
-    psiRates.push(Math.round(psiTot/psiData.faturas*1000)/10);
-    convDatasets.push({label:'PSI 0-8',data:psiRates,
-     backgroundColor:PSI_COL,borderRadius:4,maxBarThickness:40});
-   }
-  }
+  /* Parallel count arrays for tooltip — captured in closure, por rótulo do funil */
+  var convCounts={};
+  funnels.forEach(function(f){
+   var fd=f.data;
+   if(!fd||!fd.ob_detail||!(fd.faturas>0)) return;
+   var cnts=[];
+   var rates=allObNames.map(function(n){
+    var ob=fd.ob_detail.filter(function(x){return x.name===n;})[0];
+    cnts.push(ob?ob.count:0);
+    return ob?Math.round(ob.count/fd.faturas*1000)/10:0;
+   });
+   var tot=fd.ob_detail.reduce(function(s,x){return s+x.count;},0);
+   cnts.push(tot);
+   rates.push(Math.round(tot/fd.faturas*1000)/10);
+   convCounts[f.label]=cnts;
+   convDatasets.push({label:f.label,data:rates,
+    backgroundColor:f.color,borderRadius:4,maxBarThickness:40});
+  });
   charts.cObConvInline=new Chart(cvConv.getContext('2d'),{type:'bar',
    data:{labels:convLabels,datasets:convDatasets},
    options:{responsive:true,maintainAspectRatio:false,
     plugins:{
      legend:{display:convDatasets.length>1,position:'bottom',labels:{color:TICK,font:{family:'Outfit',size:11}}},
      tooltip:tip(function(c){
-      var counts=c.dataset.label==='PSI 0-8'?psiConvCounts:reConvCounts;
+      var counts=convCounts[c.dataset.label]||[];
       var cnt=counts[c.dataIndex];
-      var fat=c.dataset.label==='PSI 0-8'?(psiData?psiData.faturas:0):(reData?reData.faturas:0);
+      var fu=fByLabel(c.dataset.label),fat=fu&&fu.data?fu.data.faturas:0;
       return ' '+c.raw+'% · '+cnt+' itens / '+fat+' vendas';
      }),
      datalabels:{display:false}},
@@ -1425,7 +1419,7 @@ function getPeriodDailyAgg(pd){
  /* Sufixo do funil: '' (consolidado), '_re' ou '_psi'. No funil, canal/região/
     pagamento/parcelamento são agregados das versões POR FUNIL do daily, valendo
     para período E mês completo. No consolidado mês completo, mantém null (usa totais globais). */
- var fun=(viewProd==='re')?'_re':(viewProd==='psi')?'_psi':'';
+ var fun=vpSfx();
  if(pd.d0==null && !fun)return null;
  var daily=DATA.daily.filter(function(d){return d.date>=pd.from_date&&d.date<=pd.to_date;});
  /* origins */
@@ -1459,8 +1453,12 @@ function getPeriodDailyAgg(pd){
  var parcMap={};
  daily.forEach(function(d){(d['parc_dist'+fun]||[]).forEach(function(p){parcMap[p.n]=(parcMap[p.n]||0)+p.count;});});
  /* ob_detail per product */
- var obReMap={},obPsiMap={};
+ var obReMap={},obPsiMap={},obIfeMap={};
  daily.forEach(function(d){
+  (d.ob_detail_ife||[]).forEach(function(o){
+   if(!obIfeMap[o.name])obIfeMap[o.name]={count:0,val:0};
+   obIfeMap[o.name].count+=o.count; obIfeMap[o.name].val+=(o.val||0);
+  });
   (d.ob_detail_re||[]).forEach(function(o){
    if(!obReMap[o.name])obReMap[o.name]={count:0,val:0};
    obReMap[o.name].count+=o.count; obReMap[o.name].val+=(o.val||0);
@@ -1471,8 +1469,9 @@ function getPeriodDailyAgg(pd){
   });
  });
  /* funil per product */
- var funRe={clicks:0,lpv:0,imp:0},funPsi={clicks:0,lpv:0,imp:0};
+ var funRe={clicks:0,lpv:0,imp:0},funPsi={clicks:0,lpv:0,imp:0},funIfe={clicks:0,lpv:0,imp:0};
  daily.forEach(function(d){
+  funIfe.clicks+=d.funnel_clicks_ife||0; funIfe.lpv+=d.funnel_lpv_ife||0; funIfe.imp+=d.funnel_imp_ife||0;
   funRe.clicks+=d.funnel_clicks_re||0; funRe.lpv+=d.funnel_lpv_re||0; funRe.imp+=d.funnel_imp_re||0;
   funPsi.clicks+=d.funnel_clicks_psi||0; funPsi.lpv+=d.funnel_lpv_psi||0; funPsi.imp+=d.funnel_imp_psi||0;
  });
@@ -1491,7 +1490,8 @@ function getPeriodDailyAgg(pd){
              .map(function(e){return {n:parseInt(e[0]),count:e[1],pct:r2(e[1]/Math.max(ccCnt,1)*100)};}),
   ob_detail_re: Object.entries(obReMap).sort(function(a,b){return b[1].count-a[1].count;}).map(function(e){return {name:e[0],count:e[1].count,val:r2(e[1].val)};}),
   ob_detail_psi: Object.entries(obPsiMap).sort(function(a,b){return b[1].count-a[1].count;}).map(function(e){return {name:e[0],count:e[1].count,val:r2(e[1].val)};}),
-  funnel_re: funRe, funnel_psi: funPsi
+  ob_detail_ife: Object.entries(obIfeMap).sort(function(a,b){return b[1].count-a[1].count;}).map(function(e){return {name:e[0],count:e[1].count,val:r2(e[1].val)};}),
+  funnel_re: funRe, funnel_psi: funPsi, funnel_ife: funIfe
  };
 }
 
@@ -1514,16 +1514,15 @@ function getProductPeriodData(prodKey){
    var spF=pp.spend>0?spend/pp.spend:0;
    var fcF=pp.faturas>0?faturas/pp.faturas:0;
    /* usa dados reais de clicks/LPV/imp da planilha de controle */
-   var cKey=prodKey==='RE'?'funnel_clicks_re':'funnel_clicks_psi';
-   var lKey=prodKey==='RE'?'funnel_lpv_re':'funnel_lpv_psi';
-   var iKey=prodKey==='RE'?'funnel_imp_re':'funnel_imp_psi';
+   var sfW='_'+prodKey.toLowerCase();
+   var cKey='funnel_clicks'+sfW, lKey='funnel_lpv'+sfW, iKey='funnel_imp'+sfW;
    var wDays=DATA.daily.filter(function(d){var ym=DATA.period.start.substring(0,7);return d.date>=ym+'-'+String(pw.d0).padStart(2,'0')&&d.date<=ym+'-'+String(pw.d1).padStart(2,'0');});
    var wClicks=wDays.reduce(function(a,d){return a+(d[cKey]||0);},0);
    var wLpv   =wDays.reduce(function(a,d){return a+(d[lKey]||0);},0);
    var wImp   =wDays.reduce(function(a,d){return a+(d[iKey]||0);},0);
    /* Checkouts iniciados = compras (pagas) + carrinhos abandonados REAIS do
       período (por dia/funil na Hubla), não estimativa proporcional ao spend. */
-   var wAbKey=prodKey==='RE'?'abandoned_re':'abandoned_psi';
+   var wAbKey='abandoned'+sfW;
    var wAb   =wDays.reduce(function(a,d){return a+(d[wAbKey]||0);},0);
    return Object.assign({},pp,{
     spend:spend,fat:fat,nh:pw.nh!=null?pw.nh:r2(fat*nhRatio),
@@ -1534,12 +1533,9 @@ function getProductPeriodData(prodKey){
   }
  }
  /* intervalo / dia — agrega daily */
- var fatKey=prodKey==='RE'?'fat_re':'fat_psi';
- var spKey =prodKey==='RE'?'spend_re':'spend_psi';
- var fcKey =prodKey==='RE'?'faturas_re':'faturas_psi';
- var cKey  =prodKey==='RE'?'funnel_clicks_re':'funnel_clicks_psi';
- var lKey  =prodKey==='RE'?'funnel_lpv_re':'funnel_lpv_psi';
- var iKey  =prodKey==='RE'?'funnel_imp_re':'funnel_imp_psi';
+ var sfP='_'+prodKey.toLowerCase();
+ var fatKey='fat'+sfP, spKey='spend'+sfP, fcKey='faturas'+sfP;
+ var cKey='funnel_clicks'+sfP, lKey='funnel_lpv'+sfP, iKey='funnel_imp'+sfP;
  var daily=DATA.daily.filter(function(d){return d.date>=pd.from_date&&d.date<=pd.to_date;});
  fat    =daily.reduce(function(a,d){return a+(d[fatKey]||0);},0);
  spend  =daily.reduce(function(a,d){return a+(d[spKey]||0); },0);
@@ -1550,7 +1546,7 @@ function getProductPeriodData(prodKey){
  /* Checkouts iniciados = compras pagas + carrinhos abandonados REAIS do período
     (por dia/funil na Hubla). Antes escalava pp.checkouts pela razão de faturas, o
     que estourava ao filtrar um mês diferente do corrente (pp = mês corrente). */
- var abKey =prodKey==='RE'?'abandoned_re':'abandoned_psi';
+ var abKey ='abandoned'+sfP;
  var filtAb =daily.reduce(function(a,d){return a+(d[abKey]||0);},0);
  var nh=r2(fat*nhRatio);
  return Object.assign({},pp,{
@@ -1564,10 +1560,14 @@ function renderFunilInline(){
  var wrap=document.getElementById('geral-funil-wrap');
  if(!wrap)return;
  /* Sync funProd from viewProd before rendering */
- if(viewProd==='re') funProd='RE';
- else if(viewProd==='psi') funProd='PSI';
- /* When viewProd==='all', show both funnels stacked */
- var prods=viewProd==='all'?['RE','PSI']:[funProd];
+ if(viewProd!=='all') funProd=viewProd.toUpperCase();
+ /* When viewProd==='all', show RE + PSI stacked (+ IFE quando o funil tem venda ou verba) */
+ var prods=[funProd];
+ if(viewProd==='all'){
+  prods=['RE','PSI'];
+  var ppI=DATA.products_paid.IFE;
+  if(ppI&&(ppI.faturas>0||ppI.spend>0)) prods.push('IFE');
+ }
  var h='<div class="sec"><div class="sec-head"><span class="bar"></span><h2>Funil de conversão por produto</h2>'+
    '<div class="note">Da impressão à compra — parâmetros por produto. Use o seletor acima para filtrar.</div></div>';
  h+='<div class="edit-note" id="funNote2"></div>';
@@ -1660,7 +1660,7 @@ function renderFunBodyInline(prodKey){
  });
  fh+='</div>';
 
- var prodTitle=prodKey==='RE'?'Regulando as Emoções':'Curso PSI 0-8';
+ var prodTitle=FUN_TITLE[prodKey]||prodKey;
  var h='<div class="panel"><div class="p-head"><div><h3>Funil — '+prodTitle+'</h3></div></div>'+
    '<div class="p-sub">Da impressão à compra no tráfego pago do produto. Investimento de R$ '+nf0.format(pd.spend)+
    ' · ticket médio R$ '+nf0.format(B.ticket)+'.</div>'+fh+'</div>';
@@ -1829,6 +1829,7 @@ function buildDynamicInsights(){
  dailyP.forEach(function(d){
   (d.ob_detail_re||[]).forEach(function(o){obCount+=o.count;obVal+=(o.val||0);});
   (d.ob_detail_psi||[]).forEach(function(o){obCount+=o.count;obVal+=(o.val||0);});
+  (d.ob_detail_ife||[]).forEach(function(o){obCount+=o.count;obVal+=(o.val||0);});
  });
  if(obCount>0 && fat>0){
   var obPct=obVal/fat*100;
@@ -1896,11 +1897,11 @@ function renderGeralInsights(){
 function buildEvolRange(days){
  destroyChart('evol');
  var labels=days.map(function(d){return String(d.day).padStart(2,'0')+'/'+(d.date.split('-')[1]);});
- /* Respeita viewProd — quando RE/PSI selecionado, mostra apenas fat/spend desse produto */
- var fatKey  = viewProd==='re' ? 'fat_re'   : viewProd==='psi' ? 'fat_psi'   : 'fat';
- var spKey   = viewProd==='re' ? 'spend_re' : viewProd==='psi' ? 'spend_psi' : 'spend_sales';
- var fatLbl  = viewProd==='re' ? 'Faturamento RE' : viewProd==='psi' ? 'Faturamento PSI' : 'Faturamento';
- var spLbl   = viewProd==='re' ? 'Investimento RE' : viewProd==='psi' ? 'Investimento PSI' : 'Investimento';
+ /* Respeita viewProd — quando um funil está selecionado, mostra apenas fat/spend dele */
+ var fatKey  = 'fat'+vpSfx();
+ var spKey   = viewProd==='all' ? 'spend_sales' : 'spend'+vpSfx();
+ var fatLbl  = viewProd==='all' ? 'Faturamento' : 'Faturamento '+VP_SHORT[viewProd];
+ var spLbl   = viewProd==='all' ? 'Investimento' : 'Investimento '+VP_SHORT[viewProd];
  charts.evol=new Chart(document.getElementById('cEvol').getContext('2d'),{
   data:{labels:labels,datasets:[
    {type:'bar',label:fatLbl,data:days.map(function(d){return d[fatKey]||0;}),
@@ -1918,19 +1919,17 @@ function buildEvol(mode){
  destroyChart('evol');
  var pd=periodDays(); /* {d0,d1} ou {d0:null,d1:null} */
  var labels,fatD,invD;
- var prodLabel=evProd==='re'?'Faturamento RE':evProd==='psi'?'Faturamento PSI':'Faturamento';
+ var evSf=vpSfx(evProd);
+ var prodLabel=evProd==='all'||!VP_SHORT[evProd]?'Faturamento':'Faturamento '+VP_SHORT[evProd];
  if(mode==='sem'){
   /* Semanal: quando período ativo, mostra só as semanas que se sobrepõem ao filtro */
   var ws=DATA.weeks.filter(function(w){
    return w.has_data&&(pd.d0==null||(w.d0<=pd.d1&&w.d1>=pd.d0));
   });
   labels=ws.map(function(w){return w.label.replace(' mai','');});
-  if(evProd==='re'){
-   fatD=ws.map(function(w){return w.fat_re||0;});
-   invD=ws.map(function(w){var ym=DATA.period.start.substring(0,7);var f=ym+'-'+String(w.d0).padStart(2,'0'),t=ym+'-'+String(w.d1).padStart(2,'0');return DATA.daily.filter(function(d){return d.date>=f&&d.date<=t;}).reduce(function(a,d){return a+(d.spend_re||0);},0);});
-  }else if(evProd==='psi'){
-   fatD=ws.map(function(w){return w.fat_psi||0;});
-   invD=ws.map(function(w){var ym=DATA.period.start.substring(0,7);var f=ym+'-'+String(w.d0).padStart(2,'0'),t=ym+'-'+String(w.d1).padStart(2,'0');return DATA.daily.filter(function(d){return d.date>=f&&d.date<=t;}).reduce(function(a,d){return a+(d.spend_psi||0);},0);});
+  if(evSf){
+   fatD=ws.map(function(w){return w['fat'+evSf]||0;});
+   invD=ws.map(function(w){var ym=DATA.period.start.substring(0,7);var f=ym+'-'+String(w.d0).padStart(2,'0'),t=ym+'-'+String(w.d1).padStart(2,'0');return DATA.daily.filter(function(d){return d.date>=f&&d.date<=t;}).reduce(function(a,d){return a+(d['spend'+evSf]||0);},0);});
   }else{
    fatD=ws.map(function(w){return w.fat;});
    invD=ws.map(function(w){return w.spend_sales;});
@@ -1941,12 +1940,9 @@ function buildEvol(mode){
    ?DATA.daily.filter(function(d){return d.date>=pd.from_date&&d.date<=pd.to_date;})
    :DATA.daily.filter(function(d){return d.mes_corrente!==false;});
   labels=daily.map(function(d){return String(d.day).padStart(2,'0')+'/'+(d.date.split('-')[1]);});
-  if(evProd==='re'){
-   fatD=daily.map(function(d){return d.fat_re||0;});
-   invD=daily.map(function(d){return d.spend_re||0;});
-  }else if(evProd==='psi'){
-   fatD=daily.map(function(d){return d.fat_psi||0;});
-   invD=daily.map(function(d){return d.spend_psi||0;});
+  if(evSf){
+   fatD=daily.map(function(d){return d['fat'+evSf]||0;});
+   invD=daily.map(function(d){return d['spend'+evSf]||0;});
   }else{
    fatD=daily.map(function(d){return d.fat;});
    invD=daily.map(function(d){return d.spend_sales;});
@@ -1960,14 +1956,20 @@ function buildEvol(mode){
   ]},
   options:baseOpts(function(c){return ' '+c.dataset.label+': '+brl0(c.raw);},true)
  });
- var invLabel=evProd==='re'?'Investimento RE (R$)':evProd==='psi'?'Investimento PSI 0-8 (R$)':'Investimento em vendas (R$)';
+ var invLabel=evProd==='re'?'Investimento RE (R$)':evProd==='psi'?'Investimento PSI 0-8 (R$)':evProd==='ife'?'Investimento IFE (R$)':'Investimento em vendas (R$)';
  var lg=document.getElementById('evLeg');
  if(lg)lg.innerHTML='<span><i style="background:#37644F"></i>'+prodLabel+' (R$)</span>'+
   '<span><i class="ln" style="background:#B57353"></i>'+invLabel+'</span>';
 }
 function buildProfit(){
  destroyChart('profit');
- var ws=DATA.weeks.filter(function(w){return w.has_data;});
+ /* Com um funil selecionado, usa as semanas DO FUNIL (products_paid.<X>.weeks:
+    fat/spend/lucro só daquele produto). No consolidado, as semanas globais. */
+ var ppW=viewProd==='all'?null:DATA.products_paid[viewProd.toUpperCase()];
+ var ws=ppW
+  ? (ppW.weeks||[]).filter(function(w){return w.has_data;}).map(function(w){
+      return {label:w.label,spend_sales:w.spend,fat:w.fat,nh:w.nh,lucro:w.lucro};})
+  : DATA.weeks.filter(function(w){return w.has_data;});
  var labels=ws.map(function(w){return w.label.replace(' mai','');});
  charts.profit=new Chart(document.getElementById('cProfit').getContext('2d'),{
   data:{labels:labels,datasets:[
@@ -1999,6 +2001,9 @@ function buildProfitRange(days){
  var MES=['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'];
  var defs=[[1,7],[8,14],[15,21],[22,28],[29,31]];
  var buckets={};
+ /* Funil selecionado: fat/spend do funil; líquido estimado pela margem do funil no mês */
+ var sfR=vpSfx(), ppR=viewProd==='all'?null:DATA.products_paid[viewProd.toUpperCase()];
+ var nhRatioR=ppR&&ppR.fat>0?ppR.nh/ppR.fat:0.94;
  (days||[]).forEach(function(d){
   for(var i=0;i<defs.length;i++){
    if(d.day>=defs[i][0]&&d.day<=defs[i][1]){
@@ -2007,7 +2012,8 @@ function buildProfitRange(days){
      buckets[key]={mes:MES[mm-1],minD:d.day,maxD:d.day,fat:0,spend:0,nh:0,order:mo+String(i)};}
     var b=buckets[key];
     b.minD=Math.min(b.minD,d.day); b.maxD=Math.max(b.maxD,d.day);
-    b.fat+=d.fat||0; b.spend+=d.spend_sales||0; b.nh+=d.nh||0;
+    if(sfR){var fF=d['fat'+sfR]||0; b.fat+=fF; b.spend+=d['spend'+sfR]||0; b.nh+=fF*nhRatioR;}
+    else{b.fat+=d.fat||0; b.spend+=d.spend_sales||0; b.nh+=d.nh||0;}
     break;
    }
   }
