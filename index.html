@@ -554,6 +554,9 @@ function vpSfx(vp){vp=vp||viewProd;return vp==='re'?'_re':vp==='psi'?'_psi':vp==
 /* Sigla curta (rótulos de gráfico) e nome completo de cada funil */
 var VP_SHORT={re:'RE',psi:'PSI',ife:'IFE'};
 var VP_NAME={re:'Regulando as Emoções',psi:'PSI 0-8',ife:'Imersão Funções Executivas'};
+/* Origem no funil de conversão: 'all' | 'pago' (UTM de anúncio) | 'org' (todo o resto,
+   inclusive carrinho recuperado pelo WhatsApp e vendas sem UTM) */
+var funOrig='all';
 var FUN_TITLE={RE:'Regulando as Emoções',PSI:'Curso PSI 0-8',IFE:'Imersão de Funções Executivas na Clínica Infantil'};
 var charts={};
 function destroyChart(k){if(charts[k]){try{charts[k].destroy();}catch(e){}delete charts[k];}}
@@ -1570,6 +1573,10 @@ function renderFunilInline(){
  }
  var h='<div class="sec"><div class="sec-head"><span class="bar"></span><h2>Funil de conversão por produto</h2>'+
    '<div class="note">Da impressão à compra — parâmetros por produto. Use o seletor acima para filtrar.</div></div>';
+ h+='<div class="toggles" id="funOrigToggles" style="margin-bottom:14px">'+
+   '<button class="tg'+(funOrig==='all'?' on':'')+'" data-fo="all">Consolidado</button>'+
+   '<button class="tg'+(funOrig==='pago'?' on':'')+'" data-fo="pago">Tráfego pago</button>'+
+   '<button class="tg'+(funOrig==='org'?' on':'')+'" data-fo="org">Orgânico</button></div>';
  h+='<div class="edit-note" id="funNote2"></div>';
  /* Build one funnel body container per product shown */
  prods.forEach(function(prod){
@@ -1581,17 +1588,93 @@ function renderFunilInline(){
  prods.forEach(function(prod){
   renderFunBodyInline(prod);
  });
+ wrap.querySelectorAll('#funOrigToggles .tg').forEach(function(b){
+  b.addEventListener('click',function(){funOrig=b.dataset.fo;renderFunilInline();});
+ });
+}
+/* Vendas/carrinhos do funil separados por origem no período selecionado
+   (mês completo = dias do mês corrente). Pago vem de *_pago_<funil>; orgânico = total − pago. */
+function originSplit(prodKey){
+ var sf='_'+prodKey.toLowerCase(), pd=periodDays();
+ var ds=DATA.daily.filter(function(d){return d.date>=pd.from_date&&d.date<=pd.to_date;});
+ var o={fat:0,fc:0,ab:0,fatPago:0,fcPago:0,abPago:0,canais:{}};
+ ds.forEach(function(d){
+  o.fat+=d['fat'+sf]||0; o.fc+=d['faturas'+sf]||0; o.ab+=d['abandoned'+sf]||0;
+  o.fatPago+=d['fat_pago'+sf]||0; o.fcPago+=d['faturas_pago'+sf]||0; o.abPago+=d['abandoned_pago'+sf]||0;
+  (d['origins'+sf]||[]).forEach(function(c){
+   if(c.name.indexOf('Facebook Ads')===0) return;
+   if(!o.canais[c.name]) o.canais[c.name]={fat:0,faturas:0};
+   o.canais[c.name].fat+=c.fat; o.canais[c.name].faturas+=c.faturas;
+  });
+ });
+ o.fatOrg=o.fat-o.fatPago; o.fcOrg=o.fc-o.fcPago; o.abOrg=Math.max(0,o.ab-o.abPago);
+ return o;
+}
+/* products_paid do período, com checkouts/compras restritos ao tráfego pago quando
+   funOrig==='pago' (impressões/cliques/LPV já são só do Meta, logo do pago). */
+function funPeriodData(prodKey){
+ var pd=getProductPeriodData(prodKey);
+ if(!pd||funOrig!=='pago') return pd;
+ var o=originSplit(prodKey);
+ return Object.assign({},pd,{checkouts:o.fcPago+o.abPago,compras:o.fcPago,faturas:o.fcPago,
+  fat:o.fatPago,_pago:o});
+}
+/* Funil orgânico: não há impressões/cliques do orgânico, então começa no checkout. */
+function renderFunOrgInline(prodKey){
+ var pd=getProductPeriodData(prodKey),B=getPdBenchmarks(pd),o=originSplit(prodKey);
+ var ch=o.fcOrg+o.abOrg, pag=ch>0?o.fcOrg/ch*100:0, tk=o.fcOrg>0?o.fatOrg/o.fcOrg:0;
+ var share=o.fat>0?o.fatOrg/o.fat*100:0;
+ var fh='<div class="funnel">'+
+  '<div style="width:100%"><div class="fn-bar" style="background:#A3A983"><div class="fn-n">Checkouts iniciados · Hubla</div><div class="fn-v">'+num(ch)+'</div></div></div>'+
+  '<div class="fn-c"><span>↓</span> Taxa de pagamento<span class="pct '+benchClass(pag,B.pagamento)+'">'+pct2(pag)+'</span></div>'+
+  '<div style="width:'+Math.max(ch>0?o.fcOrg/ch*100:100,50)+'%;margin:0 auto"><div class="fn-bar" style="background:#B57353"><div class="fn-n">Compras pagas · Hubla</div><div class="fn-v">'+num(o.fcOrg)+'</div></div></div>'+
+  '</div>';
+ var cn=Object.keys(o.canais).map(function(k){return {name:k,fat:o.canais[k].fat,faturas:o.canais[k].faturas};})
+  .filter(function(c){return c.fat>0||c.faturas>0;}).sort(function(a,b){return b.fat-a.fat;});
+ var lst=cn.map(function(c){
+  return '<div class="di"><i style="background:#37644F"></i><span class="dn">'+c.name+'</span>'+
+   '<span class="dq">'+nf0.format(c.faturas)+'<small>'+(c.faturas===1?'venda':'vendas')+'</small></span>'+
+   '<span class="dv">'+brl0(c.fat)+'</span><span class="dp">'+pct(o.fatOrg>0?c.fat/o.fatOrg*100:0)+'</span></div>';}).join('');
+ var h='<div class="panel"><div class="p-head"><div><h3>Funil orgânico — '+(FUN_TITLE[prodKey]||prodKey)+'</h3></div></div>'+
+   '<div class="p-sub">Vendas sem UTM de anúncio: Instagram, WhatsApp (inclusive carrinho recuperado), outros canais e sem origem. '+
+   'Receita R$ '+nf0.format(o.fatOrg)+' · ticket médio R$ '+nf0.format(tk)+' · '+pct(share)+' do faturamento do funil.</div>'+fh+'</div>';
+ h+='<div class="panel soft"><div class="p-head"><div><h3>Vendas orgânicas por canal</h3></div></div>'+
+   '<div class="p-sub">'+nf0.format(o.fcOrg)+' vendas · '+nf0.format(o.abOrg)+' carrinhos abandonados de origem orgânica.</div>'+
+   (lst?'<div class="dlist">'+lst+'</div>':'<div class="p-sub">Nenhuma venda orgânica no período.</div>')+
+   '<div class="bench-tbl" style="margin-top:14px">'+
+    '<div class="bench-row hd"><div>Etapa do funil</div><div>Resultado atual</div><div>Bom</div><div>Médio</div><div>Gargalo</div></div>'+
+    '<div class="bench-row"><div class="bc lab">Taxa de pagamento<small>compras ÷ checkouts</small></div>'+
+    '<div class="bc"><span class="bnow">'+pct2(pag)+'</span><span class="tag '+benchClass(pag,B.pagamento)+'">'+benchWord(pag,B.pagamento)+'</span></div>'+
+    '<div class="bc"><span class="bnow" style="color:var(--good)">≥ '+nf1.format(B.pagamento.bom)+'%</span></div>'+
+    '<div class="bc"><span class="bnow" style="color:var(--warn)">≥ '+nf1.format(B.pagamento.media)+'%</span></div>'+
+    '<div class="bc"><span class="bnow" style="color:var(--bad)">&lt; '+nf1.format(B.pagamento.media)+'%</span></div></div>'+
+   '</div></div>';
+ var fb=document.getElementById('funBody2-'+prodKey);
+ if(fb)fb.innerHTML=h;
 }
 function renderFunBodyInline(prodKey){
  if(!prodKey) prodKey=funProd;
- var pd=getProductPeriodData(prodKey),B=getPdBenchmarks(pd);
- var hasReal = pd.funnel_source==='planilha';
  var note=document.getElementById('funNote2');
- if(note){
+ if(funOrig==='org'){
+  if(note) note.innerHTML=svg(IC.info)+
+   '<div><b>Funil orgânico.</b> Vendas e carrinhos sem UTM de anúncio (Instagram, WhatsApp — inclusive carrinho '+
+   'recuperado —, outros canais e sem origem). Não há impressões nem cliques do orgânico, então o funil começa no checkout.</div>';
+  renderFunOrgInline(prodKey);
+  renderGeralInsights();
+  return;
+ }
+ var pd=funPeriodData(prodKey),B=getPdBenchmarks(pd);
+ var hasReal = pd.funnel_source==='planilha';
+ if(note&&funOrig==='pago'){
+  note.innerHTML=svg(IC.info)+
+   '<div><b>Funil só do tráfego pago.</b> Impressões, cliques e visualizações vêm do Meta Ads; checkouts e compras '+
+   'são só os da Hubla com UTM de anúncio (Facebook/Instagram Ads). Assim as taxas comparam o mesmo público.</div>';
+ }else if(note){
   if(hasReal){
    note.innerHTML=svg(IC.info)+
     '<div><b>Funil com dados reais da planilha de controle.</b> Cliques, visualizações de página, CTR e CPC '+
-    'vêm do Meta Ads (planilha do Cowork). <b>Checkouts iniciados</b> e <b>Compras pagas</b> são sempre do Relatório Hubla.</div>';
+    'vêm do Meta Ads (planilha do Cowork). <b>Checkouts iniciados</b> e <b>Compras pagas</b> são sempre do Relatório Hubla '+
+    'e incluem as vendas orgânicas — por isso as taxas do fim do funil ficam acima do real do tráfego. Use <b>Tráfego pago</b> para ver só os anúncios.</div>';
   }else{
    note.innerHTML=svg(IC.info)+
     '<div>Ainda não há planilha de controle para este produto. Preencha os campos editáveis com os números do Gerenciador de Anúncios.</div>';
@@ -1661,9 +1744,15 @@ function renderFunBodyInline(prodKey){
  fh+='</div>';
 
  var prodTitle=FUN_TITLE[prodKey]||prodKey;
- var h='<div class="panel"><div class="p-head"><div><h3>Funil — '+prodTitle+'</h3></div></div>'+
+ var subPago='';
+ if(pd._pago){
+  var op=pd._pago,roasP=pd.spend>0?op.fatPago/pd.spend:0,cpaP=op.fcPago>0?pd.spend/op.fcPago:0;
+  subPago=' Vendas do tráfego: <b>'+nf0.format(op.fcPago)+'</b> · receita <b>R$ '+nf0.format(op.fatPago)+'</b> · ROAS <b>'+
+   nf2.format(roasP)+'x</b> · CPA <b>R$ '+nf2.format(cpaP)+'</b>.';
+ }
+ var h='<div class="panel"><div class="p-head"><div><h3>Funil'+(pd._pago?' do tráfego pago':'')+' — '+prodTitle+'</h3></div></div>'+
    '<div class="p-sub">Da impressão à compra no tráfego pago do produto. Investimento de R$ '+nf0.format(pd.spend)+
-   ' · ticket médio R$ '+nf0.format(B.ticket)+'.</div>'+fh+'</div>';
+   ' · ticket médio R$ '+nf0.format(B.ticket)+'.'+subPago+'</div>'+fh+'</div>';
  h+='<div class="panel soft"><div class="p-head"><div><h3>Indicadores de referência</h3></div></div>'+
    '<div class="p-sub">Parâmetros padrão para o ticket de R$ '+nf0.format(B.ticket)+'.</div>'+
    '<div class="bench-tbl" id="benchTbl2-'+prodKey+'"></div>'+
@@ -1686,7 +1775,8 @@ function renderFunBodyInline(prodKey){
 }
 function updateFunnelRatesInline(prodKey){
  if(!prodKey) prodKey=funProd;
- var pd=getProductPeriodData(prodKey),B=getPdBenchmarks(pd);
+ if(funOrig==='org') return;
+ var pd=funPeriodData(prodKey),B=getPdBenchmarks(pd);
  var hasReal=pd.funnel_source==='planilha';
  var impr=pd.impressions,checkouts=pd.checkouts,compras=pd.compras!=null?pd.compras:pd.faturas;
  var cliques,lpv,checkoutsFunil;

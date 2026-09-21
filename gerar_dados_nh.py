@@ -413,6 +413,9 @@ ab_by_iso     = defaultdict(int)   # total de carrinhos por dia (qualquer produt
 ab_re_by_iso  = defaultdict(int)   # carrinhos RE por dia
 ab_psi_by_iso = defaultdict(int)   # carrinhos PSI por dia
 ab_ife_by_iso = defaultdict(int)   # carrinhos IFE por dia
+# Carrinhos vindos de anúncio (UTM Origem facebook) por funil — base do botão
+# "Tráfego pago" do funil de conversão. Orgânico = total − pago.
+ab_pago_by_iso = {'re':defaultdict(int),'psi':defaultdict(int),'ife':defaultdict(int)}
 _seen_cart = set()
 for _cf in _cart_files:
     with open(_cf, encoding='utf-8') as f:
@@ -432,6 +435,10 @@ for _cf in _cart_files:
                 if is_re_prod(prod):  ab_re_by_iso[iso]  += 1
                 if is_psi_prod(prod): ab_psi_by_iso[iso] += 1
                 if is_ife_prod(prod): ab_ife_by_iso[iso] += 1
+                if 'facebook' in src:
+                    if is_re_prod(prod):  ab_pago_by_iso['re'][iso]  += 1
+                    if is_psi_prod(prod): ab_pago_by_iso['psi'][iso] += 1
+                    if is_ife_prod(prod): ab_pago_by_iso['ife'][iso] += 1
 # Agregados do MÊS CORRENTE (carrinhos CRIADOS no mês) p/ products_paid e totais
 _cur_ym = f"{PERIOD_YEAR}-{PERIOD_MONTH:02d}"
 cart_by_day = defaultdict(int)
@@ -1399,6 +1406,28 @@ for _entry in daily_arr:
     # Tag para o dashboard saber que este é mês corrente (vs histórico)
     _entry['mes_corrente'] = True
 
+# ── STEP 11a: Vendas do tráfego pago por funil e dia ─────────────
+# Pago = canal 'facebook ads' (UTM Origem facebook/facebookads). Todo o resto é
+# orgânico, inclusive a recuperação de carrinho pelo WhatsApp e as vendas sem
+# UTM. O front deriva o orgânico como total − pago.
+pago_by_iso = defaultdict(lambda: {f:{'fat':0.0,'faturas':0} for f in ('re','psi','ife')})
+for inv in invoices_hist:
+    if classify_orig(inv['src'], inv['med'], inv.get('conteudo','')) != 'facebook ads': continue
+    _pb = pago_by_iso[inv['date']]
+    if is_re_prod(inv['prod'])  or is_re_prod(inv['ob']):  _pb['re']['fat']  += inv['fat']; _pb['re']['faturas']  += 1
+    if is_psi_prod(inv['prod']) or is_psi_prod(inv['ob']): _pb['psi']['fat'] += inv['fat']; _pb['psi']['faturas'] += 1
+    if is_ife_row(inv['prod'], inv['ob']):                 _pb['ife']['fat'] += inv['fat']; _pb['ife']['faturas'] += 1
+def _pago_fields(iso):
+    _pb = pago_by_iso.get(iso)
+    out = {}
+    for f in ('re','psi','ife'):
+        out['fat_pago_'+f]       = r2(_pb[f]['fat']) if _pb else 0.0
+        out['faturas_pago_'+f]   = _pb[f]['faturas'] if _pb else 0
+        out['abandoned_pago_'+f] = ab_pago_by_iso[f].get(iso, 0)
+    return out
+for _entry in daily_arr:
+    _entry.update(_pago_fields(_entry['date']))
+
 # ── STEP 11b: Prepender dias do histórico (meses anteriores) ────
 # Para cada fatura de meses != mês corrente, agrega por (date) e adiciona ao daily_arr
 # Os campos detalhados (origins, pay_dist, etc.) ficam vazios — só fat/nh/faturas estão
@@ -1654,6 +1683,7 @@ for date_str, h in sorted(hist_by_date.items()):
                       "faturas":camp_day_hubla_iso.get(mr['campaign'],{}).get(date_str,{}).get('faturas',0)}
                      for mr in meta_raw if mr['date']==date_str],
         "mes_corrente":False,
+        **_pago_fields(date_str),
     })
 
 # Adiciona month/year aos entries do mês corrente também
