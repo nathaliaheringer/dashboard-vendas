@@ -1,36 +1,36 @@
 {
  "period": {
   "start": "2026-09-01",
-  "end": "2026-09-24",
-  "label": "01 a 24 de setembro de 2026",
-  "days_elapsed": 24,
+  "end": "2026-09-25",
+  "label": "01 a 25 de setembro de 2026",
+  "days_elapsed": 25,
   "days_month": 30
  },
- "_v": 1790256088545,
+ "_v": 1790341730025,
  "totals": {
-  "spend": 13446.98,
-  "spend_sales": 13446.98,
+  "spend": 14497.92,
+  "spend_sales": 14497.92,
   "spend_insta": 0.0,
-  "impressions": 645356,
-  "impressions_sales": 645356,
-  "fat": 91693.63,
-  "total": 96880.35,
-  "nh": 85845.11,
-  "hubla_fee": 11173.04,
-  "faturas": 546,
-  "units": 782,
-  "abandoned": 388,
-  "checkouts": 930,
-  "ob_count": 236,
-  "ob_val": 26404.4,
-  "fat_with_ob": 176,
-  "cpa": 24.63,
-  "roas": 6.82,
-  "roas_sales": 6.82,
-  "lucro": 72398.13,
-  "roi": 538.4,
-  "ticket": 167.94,
-  "conv_checkout": 58.28
+  "impressions": 694903,
+  "impressions_sales": 694903,
+  "fat": 96754.63,
+  "total": 102004.89,
+  "nh": 90483.18,
+  "hubla_fee": 11659.51,
+  "faturas": 599,
+  "units": 855,
+  "abandoned": 408,
+  "checkouts": 1003,
+  "ob_count": 256,
+  "ob_val": 29087.22,
+  "fat_with_ob": 192,
+  "cpa": 24.2,
+  "roas": 6.67,
+  "roas_sales": 6.67,
+  "lucro": 75985.26,
+  "roi": 524.11,
+  "ticket": 161.53,
+  "conv_checkout": 59.32
  },
  "daily": [
   {
@@ -54997,21 +54997,15 @@
    "prods_dia": [
     {
      "name": "Regulando as Emoções",
-     "fat": 1029.0,
-     "faturas": 7,
-     "units": 7
+     "fat": 1401.0,
+     "faturas": 9,
+     "units": 11
     },
     {
      "name": "Workshop de Funções Executivas",
      "fat": 697.0,
      "faturas": 1,
      "units": 1
-    },
-    {
-     "name": "Recursos Exclusivos Divertidamente 2",
-     "fat": 558.0,
-     "faturas": 3,
-     "units": 6
     },
     {
      "name": "Curso Psi: 0-8",
@@ -55024,6 +55018,12 @@
      "fat": 325.0,
      "faturas": 1,
      "units": 1
+    },
+    {
+     "name": "Recursos Exclusivos Divertidamente 2",
+     "fat": 186.0,
+     "faturas": 1,
+     "units": 2
     }
    ],
    "prods_dia_all": [
@@ -55313,7 +55313,7 @@
     {
      "name": "Recursos Exclusivos Divertidamente 2",
      "count": 3,
-     "val": 0.0
+     "val": 78.0
     }
    ],
    "ob_detail_psi": [
@@ -55394,22 +55394,28 @@
      "units": 6
     },
     {
-     "name": "Recursos Exclusivos Divertidamente 2",
-     "fat": 767.0,
-     "faturas": 3,
-     "units": 7
-    },
-    {
      "name": "Workshop de Funções Executivas",
      "fat": 697.0,
      "faturas": 1,
      "units": 1
     },
     {
+     "name": "Curso Psi: 0-8",
+     "fat": 395.0,
+     "faturas": 1,
+     "units": 3
+    },
+    {
      "name": "Formação Primeira Infância",
      "fat": 374.62,
      "faturas": 1,
      "units": 1
+    },
+    {
+     "name": "Recursos Exclusivos Divertidamente 2",
+     "fat": 372.0,
+     "faturas": 2,
+     "units": 4
     },
     {
      "name": "O Mapa da Avaliação - Autismo",
@@ -55721,20 +55727,20 @@
    ],
    "ob_detail_psi": [
     {
-     "name": "Recursos Exclusivos Divertidamente 2",
-     "count": 1,
-     "val": 0.0
-    },
-    {
      "name": "O Mapa da Avaliação - Autismo",
      "count": 1,
-     "val": 0.0
+     "val": 98.0
+    },
+    {
+     "name": "Recursos Exclusivos Divertidamente 2",
+     "count": 1,
+     "val": 98.0
     }
    ],
    "mes_corrente": true,
    "fat_pago_re": 1244.0,
    "faturas_pago_re": 7,
-   "abandoned_pago_re": 4,
+   "abandoned_pago_re": 3,
    "fat_pago_psi": 0.0,
    "faturas_pago_psi": 0,
    "abandoned_pago_psi": 0,
@@ -55803,15 +55809,15 @@
     },
     {
      "name": "Regulando as Emoções",
-     "fat": 1166.0,
+     "fat": 1127.0,
      "faturas": 7,
-     "units": 10
+     "units": 9
     },
     {
      "name": "O Mapa da Avaliação - Autismo",
-     "fat": 451.0,
+     "fat": 490.0,
      "faturas": 2,
-     "units": 5
+     "units": 6
     },
     {
      "name": "Formação Primeira Infância • Turma 09",
@@ -56106,12 +56112,12 @@
     {
      "name": "Recursos Exclusivos Divertidamente 2",
      "count": 3,
-     "val": 137.0
+     "val": 39.0
     },
     {
      "name": "O Mapa da Avaliação - Autismo",
      "count": 3,
-     "val": 98.0
+     "val": 59.0
     }
    ],
    "ob_detail_psi": [],
@@ -56181,18 +56187,18 @@
    "prods_dia": [
     {
      "name": "Regulando as Emoções",
-     "fat": 1019.0,
+     "fat": 1039.0,
      "faturas": 6,
      "units": 9
     },
     {
-     "name": "O Mapa da Avaliação - Autismo",
-     "fat": 451.0,
+     "name": "Recursos Exclusivos Divertidamente 2",
+     "fat": 431.0,
      "faturas": 2,
      "units": 5
     },
     {
-     "name": "Recursos Exclusivos Divertidamente 2",
+     "name": "O Mapa da Avaliação - Autismo",
      "fat": 245.0,
      "faturas": 1,
      "units": 3
@@ -56423,12 +56429,12 @@
     {
      "name": "O Mapa da Avaliação - Autismo",
      "count": 4,
-     "val": 98.0
+     "val": 157.0
     },
     {
      "name": "Recursos Exclusivos Divertidamente 2",
      "count": 4,
-     "val": 137.0
+     "val": 98.0
     }
    ],
    "ob_detail_psi": [],
@@ -56498,15 +56504,15 @@
    "prods_dia": [
     {
      "name": "Regulando as Emoções",
-     "fat": 1127.0,
-     "faturas": 7,
-     "units": 9
+     "fat": 1392.0,
+     "faturas": 8,
+     "units": 12
     },
     {
-     "name": "O Mapa da Avaliação - Autismo",
-     "fat": 696.0,
-     "faturas": 3,
-     "units": 8
+     "name": "Recursos Exclusivos Divertidamente 2",
+     "fat": 431.0,
+     "faturas": 2,
+     "units": 5
     },
     {
      "name": "PRO",
@@ -56515,7 +56521,7 @@
      "units": 2
     },
     {
-     "name": "Recursos Exclusivos Divertidamente 2",
+     "name": "O Mapa da Avaliação - Autismo",
      "fat": 245.0,
      "faturas": 1,
      "units": 3
@@ -56757,12 +56763,12 @@
     {
      "name": "O Mapa da Avaliação - Autismo",
      "count": 5,
-     "val": 59.0
+     "val": 216.0
     },
     {
      "name": "Recursos Exclusivos Divertidamente 2",
      "count": 4,
-     "val": 39.0
+     "val": 98.0
     }
    ],
    "ob_detail_psi": [],
@@ -56832,9 +56838,15 @@
    "prods_dia": [
     {
      "name": "Regulando as Emoções",
-     "fat": 1676.0,
-     "faturas": 11,
-     "units": 12
+     "fat": 1470.0,
+     "faturas": 10,
+     "units": 10
+    },
+    {
+     "name": "O Mapa da Avaliação - Autismo",
+     "fat": 206.0,
+     "faturas": 1,
+     "units": 2
     },
     {
      "name": "Recursos Exclusivos Divertidamente 2",
@@ -57080,7 +57092,7 @@
     {
      "name": "O Mapa da Avaliação - Autismo",
      "count": 1,
-     "val": 59.0
+     "val": 0.0
     },
     {
      "name": "Recursos Exclusivos Divertidamente 2",
@@ -57161,21 +57173,21 @@
     },
     {
      "name": "Regulando as Emoções",
-     "fat": 1254.0,
-     "faturas": 8,
-     "units": 10
-    },
-    {
-     "name": "O Mapa da Avaliação - Autismo",
-     "fat": 490.0,
-     "faturas": 2,
-     "units": 6
+     "fat": 1127.0,
+     "faturas": 7,
+     "units": 9
     },
     {
      "name": "Recursos Exclusivos Divertidamente 2",
-     "fat": 186.0,
+     "fat": 558.0,
+     "faturas": 3,
+     "units": 6
+    },
+    {
+     "name": "O Mapa da Avaliação - Autismo",
+     "fat": 245.0,
      "faturas": 1,
-     "units": 2
+     "units": 3
     }
    ],
    "prods_dia_all": [
@@ -57434,12 +57446,12 @@
     {
      "name": "Recursos Exclusivos Divertidamente 2",
      "count": 5,
-     "val": 78.0
+     "val": 98.0
     },
     {
      "name": "O Mapa da Avaliação - Autismo",
      "count": 2,
-     "val": 0.0
+     "val": 98.0
     }
    ],
    "ob_detail_psi": [],
@@ -57873,26 +57885,20 @@
    "ob_detail_ife": [],
    "prods_dia": [
     {
+     "name": "Regulando as Emoções",
+     "fat": 774.0,
+     "faturas": 5,
+     "units": 6
+    },
+    {
      "name": "Workshop de Funções Executivas",
      "fat": 697.0,
      "faturas": 1,
      "units": 1
     },
     {
-     "name": "Regulando as Emoções",
-     "fat": 588.0,
-     "faturas": 4,
-     "units": 4
-    },
-    {
      "name": "O Mapa da Avaliação - Autismo",
      "fat": 206.0,
-     "faturas": 1,
-     "units": 2
-    },
-    {
-     "name": "Recursos Exclusivos Divertidamente 2",
-     "fat": 186.0,
      "faturas": 1,
      "units": 2
     }
@@ -58122,7 +58128,7 @@
     {
      "name": "Recursos Exclusivos Divertidamente 2",
      "count": 1,
-     "val": 0.0
+     "val": 39.0
     },
     {
      "name": "O Mapa da Avaliação - Autismo",
@@ -58203,15 +58209,15 @@
     },
     {
      "name": "Regulando as Emoções",
-     "fat": 1107.0,
-     "faturas": 7,
-     "units": 9
+     "fat": 1352.0,
+     "faturas": 8,
+     "units": 12
     },
     {
      "name": "Recursos Exclusivos Divertidamente 2",
-     "fat": 431.0,
-     "faturas": 2,
-     "units": 5
+     "fat": 186.0,
+     "faturas": 1,
+     "units": 2
     }
    ],
    "prods_dia_all": [
@@ -58455,12 +58461,12 @@
     {
      "name": "Recursos Exclusivos Divertidamente 2",
      "count": 4,
-     "val": 78.0
+     "val": 176.0
     },
     {
      "name": "O Mapa da Avaliação - Autismo",
      "count": 1,
-     "val": 0.0
+     "val": 98.0
     }
    ],
    "ob_detail_psi": [],
@@ -58542,21 +58548,15 @@
     },
     {
      "name": "Regulando as Emoções",
-     "fat": 941.0,
-     "faturas": 6,
-     "units": 7
+     "fat": 1225.0,
+     "faturas": 7,
+     "units": 11
     },
     {
      "name": "O Mapa da Avaliação - Autismo",
-     "fat": 245.0,
+     "fat": 206.0,
      "faturas": 1,
-     "units": 3
-    },
-    {
-     "name": "Recursos Exclusivos Divertidamente 2",
-     "fat": 245.0,
-     "faturas": 1,
-     "units": 3
+     "units": 2
     }
    ],
    "prods_dia_all": [
@@ -58816,12 +58816,12 @@
     {
      "name": "O Mapa da Avaliação - Autismo",
      "count": 3,
-     "val": 59.0
+     "val": 196.0
     },
     {
      "name": "Recursos Exclusivos Divertidamente 2",
      "count": 2,
-     "val": 0.0
+     "val": 196.0
     }
    ],
    "ob_detail_psi": [],
@@ -58896,22 +58896,16 @@
      "units": 4
     },
     {
+     "name": "Recursos Exclusivos Divertidamente 2",
+     "fat": 431.0,
+     "faturas": 2,
+     "units": 5
+    },
+    {
      "name": "Formação Primeira Infância",
      "fat": 350.0,
      "faturas": 1,
      "units": 1
-    },
-    {
-     "name": "O Mapa da Avaliação - Autismo",
-     "fat": 245.0,
-     "faturas": 1,
-     "units": 3
-    },
-    {
-     "name": "Recursos Exclusivos Divertidamente 2",
-     "fat": 186.0,
-     "faturas": 1,
-     "units": 2
     }
    ],
    "prods_dia_all": [
@@ -59228,15 +59222,21 @@
    "prods_dia": [
     {
      "name": "Regulando as Emoções",
-     "fat": 941.0,
-     "faturas": 6,
-     "units": 7
+     "fat": 1107.0,
+     "faturas": 7,
+     "units": 9
     },
     {
      "name": "Recursos Exclusivos Divertidamente 2",
-     "fat": 617.0,
-     "faturas": 3,
-     "units": 7
+     "fat": 245.0,
+     "faturas": 1,
+     "units": 3
+    },
+    {
+     "name": "O Mapa da Avaliação - Autismo",
+     "fat": 206.0,
+     "faturas": 1,
+     "units": 2
     }
    ],
    "prods_dia_all": [
@@ -59476,12 +59476,12 @@
     {
      "name": "Recursos Exclusivos Divertidamente 2",
      "count": 3,
-     "val": 0.0
+     "val": 78.0
     },
     {
      "name": "O Mapa da Avaliação - Autismo",
      "count": 2,
-     "val": 59.0
+     "val": 0.0
     }
    ],
    "ob_detail_psi": [],
@@ -59557,15 +59557,21 @@
     },
     {
      "name": "Regulando as Emoções",
-     "fat": 1627.0,
-     "faturas": 10,
-     "units": 13
+     "fat": 1421.0,
+     "faturas": 9,
+     "units": 11
     },
     {
      "name": "Formação Primeira Infância",
      "fat": 1400.0,
      "faturas": 1,
      "units": 1
+    },
+    {
+     "name": "O Mapa da Avaliação - Autismo",
+     "fat": 206.0,
+     "faturas": 1,
+     "units": 2
     },
     {
      "name": "PRO",
@@ -59854,7 +59860,7 @@
     {
      "name": "O Mapa da Avaliação - Autismo",
      "count": 2,
-     "val": 157.0
+     "val": 98.0
     },
     {
      "name": "Recursos Exclusivos Divertidamente 2",
@@ -59929,20 +59935,20 @@
    "prods_dia": [
     {
      "name": "Regulando as Emoções",
-     "fat": 2607.0,
-     "faturas": 16,
-     "units": 21
+     "fat": 2401.0,
+     "faturas": 15,
+     "units": 19
+    },
+    {
+     "name": "O Mapa da Avaliação - Autismo",
+     "fat": 412.0,
+     "faturas": 2,
+     "units": 4
     },
     {
      "name": "PRO",
      "fat": 398.9,
      "faturas": 2,
-     "units": 2
-    },
-    {
-     "name": "O Mapa da Avaliação - Autismo",
-     "fat": 206.0,
-     "faturas": 1,
      "units": 2
     },
     {
@@ -60223,7 +60229,7 @@
     {
      "name": "O Mapa da Avaliação - Autismo",
      "count": 4,
-     "val": 216.0
+     "val": 157.0
     },
     {
      "name": "Recursos Exclusivos Divertidamente 2",
@@ -60403,37 +60409,37 @@
     {
      "name": "Gravação Imersão Funções Executivas na Clínica Infantil",
      "count": 15,
-     "val": 1244.37
+     "val": 460.38
     },
     {
      "name": "O Mapa da Avaliação - Autismo",
      "count": 7,
-     "val": 539.76
+     "val": 179.46
     }
    ],
    "prods_dia": [
     {
      "name": "Imersão de Funções Executivas na Clínica Infantil",
-     "fat": 3282.0,
-     "faturas": 51,
-     "units": 62
+     "fat": 2274.0,
+     "faturas": 46,
+     "units": 50
     },
     {
      "name": "Gravação Imersão Funções Executivas na Clínica Infantil",
-     "fat": 1155.0,
-     "faturas": 6,
-     "units": 13
-    },
-    {
-     "name": "Regulando as Emoções",
-     "fat": 892.0,
-     "faturas": 5,
-     "units": 8
+     "fat": 1713.0,
+     "faturas": 9,
+     "units": 19
     },
     {
      "name": "O Mapa da Avaliação - Autismo",
-     "fat": 303.0,
-     "faturas": 2,
+     "fat": 1204.0,
+     "faturas": 6,
+     "units": 16
+    },
+    {
+     "name": "Regulando as Emoções",
+     "fat": 627.0,
+     "faturas": 4,
      "units": 5
     },
     {
@@ -60441,12 +60447,6 @@
      "fat": 297.0,
      "faturas": 1,
      "units": 1
-    },
-    {
-     "name": "Recursos Exclusivos Divertidamente 2",
-     "fat": 186.0,
-     "faturas": 1,
-     "units": 2
     }
    ],
    "prods_dia_all": [
@@ -60758,12 +60758,12 @@
     {
      "name": "Recursos Exclusivos Divertidamente 2",
      "count": 2,
-     "val": 98.0
+     "val": 39.0
     },
     {
      "name": "O Mapa da Avaliação - Autismo",
      "count": 2,
-     "val": 157.0
+     "val": 0.0
     }
    ],
    "ob_detail_psi": [],
@@ -60790,11 +60790,11 @@
    "units": 80,
    "fat": 4734.0,
    "nh": 4268.27,
-   "abandoned": 28,
-   "checkouts": 82,
+   "abandoned": 26,
+   "checkouts": 80,
    "abandoned_re": 4,
    "abandoned_psi": 0,
-   "abandoned_ife": 24,
+   "abandoned_ife": 22,
    "fat_re": 539.0,
    "fat_psi": 0.0,
    "fat_ife": 4195.0,
@@ -60946,32 +60946,32 @@
     {
      "name": "O Mapa da Avaliação - Autismo",
      "count": 14,
-     "val": 648.52
+     "val": 286.84
     },
     {
      "name": "Gravação Imersão Funções Executivas na Clínica Infantil",
      "count": 10,
-     "val": 831.6
+     "val": 761.3
     }
    ],
    "prods_dia": [
     {
      "name": "Imersão de Funções Executivas na Clínica Infantil",
-     "fat": 2718.0,
+     "fat": 2650.0,
      "faturas": 41,
-     "units": 52
-    },
-    {
-     "name": "O Mapa da Avaliação - Autismo",
-     "fat": 870.0,
-     "faturas": 7,
-     "units": 16
+     "units": 50
     },
     {
      "name": "Gravação Imersão Funções Executivas na Clínica Infantil",
-     "fat": 607.0,
-     "faturas": 3,
-     "units": 7
+     "fat": 920.0,
+     "faturas": 4,
+     "units": 12
+    },
+    {
+     "name": "O Mapa da Avaliação - Autismo",
+     "fat": 625.0,
+     "faturas": 6,
+     "units": 13
     },
     {
      "name": "Regulando as Emoções",
@@ -61314,7 +61314,7 @@
    "abandoned_pago_psi": 0,
    "fat_pago_ife": 705.0,
    "faturas_pago_ife": 9,
-   "abandoned_pago_ife": 5,
+   "abandoned_pago_ife": 4,
    "month": 9,
    "year": 2026
   },
@@ -61479,38 +61479,38 @@
     {
      "name": "Gravação Imersão Funções Executivas na Clínica Infantil",
      "count": 17,
-     "val": 1444.29
+     "val": 960.76
     },
     {
      "name": "O Mapa da Avaliação - Autismo",
      "count": 12,
-     "val": 871.37
+     "val": 443.84
     }
    ],
    "prods_dia": [
     {
      "name": "Imersão de Funções Executivas na Clínica Infantil",
-     "fat": 4226.0,
-     "faturas": 59,
-     "units": 76
+     "fat": 3454.0,
+     "faturas": 54,
+     "units": 64
     },
     {
      "name": "Gravação Imersão Funções Executivas na Clínica Infantil",
-     "fat": 1567.0,
-     "faturas": 8,
-     "units": 17
+     "fat": 1958.0,
+     "faturas": 10,
+     "units": 22
+    },
+    {
+     "name": "O Mapa da Avaliação - Autismo",
+     "fat": 645.0,
+     "faturas": 6,
+     "units": 13
     },
     {
      "name": "Regulando as Emoções",
      "fat": 294.0,
      "faturas": 2,
      "units": 2
-    },
-    {
-     "name": "O Mapa da Avaliação - Autismo",
-     "fat": 264.0,
-     "faturas": 3,
-     "units": 6
     }
    ],
    "prods_dia_all": [
@@ -61778,7 +61778,7 @@
    "abandoned_pago_psi": 0,
    "fat_pago_ife": 2185.0,
    "faturas_pago_ife": 25,
-   "abandoned_pago_ife": 31,
+   "abandoned_pago_ife": 30,
    "month": 9,
    "year": 2026
   },
@@ -61932,26 +61932,26 @@
     {
      "name": "Gravação Imersão Funções Executivas na Clínica Infantil",
      "count": 10,
-     "val": 442.76
+     "val": 869.3
     },
     {
      "name": "O Mapa da Avaliação - Autismo",
      "count": 8,
-     "val": 118.76
+     "val": 685.76
     }
    ],
    "prods_dia": [
     {
      "name": "Imersão de Funções Executivas na Clínica Infantil",
-     "fat": 1929.0,
-     "faturas": 29,
-     "units": 35
+     "fat": 2448.0,
+     "faturas": 31,
+     "units": 42
     },
     {
      "name": "Gravação Imersão Funções Executivas na Clínica Infantil",
-     "fat": 1283.0,
-     "faturas": 6,
-     "units": 15
+     "fat": 764.0,
+     "faturas": 4,
+     "units": 8
     },
     {
      "name": "O Mapa da Avaliação - Autismo",
@@ -62179,11 +62179,11 @@
    "units": 38,
    "fat": 2568.0,
    "nh": 2356.15,
-   "abandoned": 27,
-   "checkouts": 54,
+   "abandoned": 23,
+   "checkouts": 50,
    "abandoned_re": 0,
    "abandoned_psi": 0,
-   "abandoned_ife": 27,
+   "abandoned_ife": 23,
    "fat_re": 0.0,
    "fat_psi": 0.0,
    "fat_ife": 2243.0,
@@ -62304,20 +62304,20 @@
     {
      "name": "O Mapa da Avaliação - Autismo",
      "count": 6,
-     "val": 612.68
+     "val": 506.3
     },
     {
      "name": "Gravação Imersão Funções Executivas na Clínica Infantil",
      "count": 5,
-     "val": 720.68
+     "val": 679.84
     }
    ],
    "prods_dia": [
     {
      "name": "Imersão de Funções Executivas na Clínica Infantil",
-     "fat": 1871.0,
-     "faturas": 23,
-     "units": 31
+     "fat": 2008.0,
+     "faturas": 25,
+     "units": 34
     },
     {
      "name": "Formação Primeira Infância",
@@ -62326,16 +62326,10 @@
      "units": 1
     },
     {
-     "name": "Gravação Imersão Funções Executivas na Clínica Infantil",
-     "fat": 196.0,
-     "faturas": 1,
-     "units": 2
-    },
-    {
      "name": "O Mapa da Avaliação - Autismo",
-     "fat": 176.0,
-     "faturas": 2,
-     "units": 4
+     "fat": 235.0,
+     "faturas": 1,
+     "units": 3
     }
    ],
    "prods_dia_all": [
@@ -62539,7 +62533,7 @@
    "abandoned_pago_psi": 0,
    "fat_pago_ife": 1969.0,
    "faturas_pago_ife": 22,
-   "abandoned_pago_ife": 23,
+   "abandoned_pago_ife": 20,
    "month": 9,
    "year": 2026
   },
@@ -62689,38 +62683,32 @@
     {
      "name": "O Mapa da Avaliação - Autismo",
      "count": 7,
-     "val": 275.76
+     "val": 42.46
     },
     {
      "name": "Gravação Imersão Funções Executivas na Clínica Infantil",
      "count": 7,
-     "val": 491.76
+     "val": 150.46
     }
    ],
    "prods_dia": [
     {
+     "name": "O Mapa da Avaliação - Autismo",
+     "fat": 992.0,
+     "faturas": 5,
+     "units": 12
+    },
+    {
      "name": "Imersão de Funções Executivas na Clínica Infantil",
-     "fat": 1381.0,
-     "faturas": 17,
-     "units": 23
+     "fat": 862.0,
+     "faturas": 14,
+     "units": 16
     },
     {
      "name": "Gravação Imersão Funções Executivas na Clínica Infantil",
-     "fat": 617.0,
-     "faturas": 3,
-     "units": 7
-    },
-    {
-     "name": "Curso Psi: 0-8",
-     "fat": 356.0,
-     "faturas": 1,
-     "units": 2
-    },
-    {
-     "name": "O Mapa da Avaliação - Autismo",
-     "fat": 313.0,
-     "faturas": 2,
-     "units": 5
+     "fat": 813.0,
+     "faturas": 4,
+     "units": 9
     },
     {
      "name": "Regulando as Emoções",
@@ -63014,7 +63002,7 @@
     {
      "name": "O Mapa da Avaliação - Autismo",
      "count": 1,
-     "val": 59.0
+     "val": 0.0
     }
    ],
    "mes_corrente": true,
@@ -63040,11 +63028,11 @@
    "units": 45,
    "fat": 3069.0,
    "nh": 2824.34,
-   "abandoned": 31,
-   "checkouts": 64,
+   "abandoned": 29,
+   "checkouts": 62,
    "abandoned_re": 1,
    "abandoned_psi": 0,
-   "abandoned_ife": 30,
+   "abandoned_ife": 28,
    "fat_re": 294.0,
    "fat_psi": 297.0,
    "fat_ife": 2478.0,
@@ -63174,30 +63162,24 @@
     {
      "name": "O Mapa da Avaliação - Autismo",
      "count": 7,
-     "val": 128.76
+     "val": 463.84
     },
     {
      "name": "Gravação Imersão Funções Executivas na Clínica Infantil",
      "count": 5,
-     "val": 301.84
+     "val": 529.38
     }
    ],
    "prods_dia": [
     {
      "name": "Imersão de Funções Executivas na Clínica Infantil",
-     "fat": 1685.0,
+     "fat": 1871.0,
      "faturas": 26,
-     "units": 31
+     "units": 33
     },
     {
      "name": "Gravação Imersão Funções Executivas na Clínica Infantil",
-     "fat": 470.0,
-     "faturas": 2,
-     "units": 6
-    },
-    {
-     "name": "O Mapa da Avaliação - Autismo",
-     "fat": 323.0,
+     "fat": 431.0,
      "faturas": 2,
      "units": 5
     },
@@ -63212,6 +63194,12 @@
      "fat": 294.0,
      "faturas": 2,
      "units": 2
+    },
+    {
+     "name": "O Mapa da Avaliação - Autismo",
+     "fat": 176.0,
+     "faturas": 2,
+     "units": 4
     }
    ],
    "prods_dia_all": [
@@ -63497,25 +63485,25 @@
    "abandoned_pago_psi": 0,
    "fat_pago_ife": 813.0,
    "faturas_pago_ife": 15,
-   "abandoned_pago_ife": 17,
+   "abandoned_pago_ife": 16,
    "month": 9,
    "year": 2026
   },
   {
    "day": 23,
    "date": "2026-09-23",
-   "spend": 902.6,
-   "spend_sales": 902.6,
-   "impressions": 48056,
+   "spend": 902.73,
+   "spend_sales": 902.73,
+   "impressions": 48065,
    "faturas": 45,
    "units": 62,
    "fat": 5115.66,
    "nh": 4734.38,
-   "abandoned": 36,
-   "checkouts": 81,
+   "abandoned": 31,
+   "checkouts": 76,
    "abandoned_re": 0,
    "abandoned_psi": 0,
-   "abandoned_ife": 36,
+   "abandoned_ife": 31,
    "fat_re": 294.0,
    "fat_psi": 297.0,
    "fat_ife": 3094.0,
@@ -63525,7 +63513,7 @@
    "faturas_psi": 1,
    "units_re": 2,
    "units_psi": 1,
-   "spend_ife": 902.6,
+   "spend_ife": 902.73,
    "faturas_ife": 39,
    "units_ife": 56,
    "prods_dia_ife": [
@@ -63550,7 +63538,7 @@
    ],
    "funnel_clicks_ife": 347,
    "funnel_lpv_ife": 303,
-   "funnel_imp_ife": 48056,
+   "funnel_imp_ife": 48065,
    "origins_ife": [
     {
      "name": "Facebook Ads",
@@ -63643,26 +63631,26 @@
     {
      "name": "O Mapa da Avaliação - Autismo",
      "count": 12,
-     "val": 541.52
+     "val": 359.3
     },
     {
      "name": "Gravação Imersão Funções Executivas na Clínica Infantil",
      "count": 5,
-     "val": 530.76
+     "val": 189.46
     }
    ],
    "prods_dia": [
     {
      "name": "Imersão de Funções Executivas na Clínica Infantil",
-     "fat": 2272.0,
-     "faturas": 33,
-     "units": 42
+     "fat": 1851.0,
+     "faturas": 31,
+     "units": 37
     },
     {
-     "name": "O Mapa da Avaliação - Autismo",
-     "fat": 822.0,
-     "faturas": 6,
-     "units": 14
+     "name": "Gravação Imersão Funções Executivas na Clínica Infantil",
+     "fat": 901.0,
+     "faturas": 4,
+     "units": 11
     },
     {
      "name": "Workshop de Funções Executivas",
@@ -63681,6 +63669,12 @@
      "fat": 359.0,
      "faturas": 1,
      "units": 1
+    },
+    {
+     "name": "O Mapa da Avaliação - Autismo",
+     "fat": 342.0,
+     "faturas": 4,
+     "units": 8
     },
     {
      "name": "Curso Psi: 0-8",
@@ -63764,9 +63758,9 @@
    "camps_dia": [
     {
      "name": "[IFE] [Compra] [Estáticos] [Frio] - ABO",
-     "spend": 216.18,
-     "impressions": 9660,
-     "reach": 7431,
+     "spend": 216.19,
+     "impressions": 9661,
+     "reach": 7432,
      "fat": 196.0,
      "faturas": 4
     },
@@ -63780,17 +63774,17 @@
     },
     {
      "name": "[IFE] [Compra] [Estáticos] [Quente] - CBO",
-     "spend": 340.38,
-     "impressions": 27772,
-     "reach": 21363,
+     "spend": 340.5,
+     "impressions": 27776,
+     "reach": 21366,
      "fat": 323.0,
      "faturas": 5
     },
     {
      "name": "[IFE] [Compra] [Vídeos] [Quente] - CBO",
      "spend": 100.81,
-     "impressions": 5319,
-     "reach": 4092,
+     "impressions": 5323,
+     "reach": 4095,
      "fat": 147.0,
      "faturas": 3
     },
@@ -64014,155 +64008,222 @@
    "abandoned_pago_psi": 0,
    "fat_pago_ife": 1782.0,
    "faturas_pago_ife": 24,
-   "abandoned_pago_ife": 25,
+   "abandoned_pago_ife": 21,
    "month": 9,
    "year": 2026
   },
   {
    "day": 24,
    "date": "2026-09-24",
-   "spend": 334.43,
-   "spend_sales": 334.43,
-   "impressions": 16605,
-   "faturas": 10,
-   "units": 19,
-   "fat": 1533.0,
-   "nh": 1449.36,
-   "abandoned": 11,
-   "checkouts": 21,
+   "spend": 1161.34,
+   "spend_sales": 1161.34,
+   "impressions": 58123,
+   "faturas": 47,
+   "units": 67,
+   "fat": 4919.0,
+   "nh": 4550.12,
+   "abandoned": 30,
+   "checkouts": 77,
    "abandoned_re": 0,
    "abandoned_psi": 0,
-   "abandoned_ife": 11,
+   "abandoned_ife": 30,
    "fat_re": 0.0,
    "fat_psi": 495.0,
-   "fat_ife": 1038.0,
+   "fat_ife": 4065.0,
    "spend_re": 0.0,
    "spend_psi": 0.0,
    "faturas_re": 0,
    "faturas_psi": 1,
    "units_re": 0,
    "units_psi": 3,
-   "spend_ife": 334.43,
-   "faturas_ife": 9,
-   "units_ife": 16,
+   "spend_ife": 1161.34,
+   "faturas_ife": 45,
+   "units_ife": 63,
    "prods_dia_ife": [
     {
-     "name": "Gravação Imersão Funções Executivas na Clínica Infantil",
-     "fat": 441.0,
-     "faturas": 3,
-     "units": 3
+     "name": "Imersão de Funções Executivas na Clínica Infantil",
+     "fat": 2035.0,
+     "faturas": 45,
+     "units": 45
     },
     {
-     "name": "Imersão de Funções Executivas na Clínica Infantil",
-     "fat": 361.0,
-     "faturas": 9,
-     "units": 9
+     "name": "Gravação Imersão Funções Executivas na Clínica Infantil",
+     "fat": 1617.0,
+     "faturas": 11,
+     "units": 11
     },
     {
      "name": "O Mapa da Avaliação - Autismo",
-     "fat": 236.0,
-     "faturas": 4,
-     "units": 4
+     "fat": 413.0,
+     "faturas": 7,
+     "units": 7
     }
    ],
-   "funnel_clicks_ife": 112,
-   "funnel_lpv_ife": 93,
-   "funnel_imp_ife": 16605,
+   "funnel_clicks_ife": 451,
+   "funnel_lpv_ife": 383,
+   "funnel_imp_ife": 58123,
    "origins_ife": [
     {
      "name": "Facebook Ads",
-     "fat": 1038.0,
-     "faturas": 9
-    }
-   ],
-   "fb_split_ife": {
-    "frio": {
-     "fat": 940.0,
-     "faturas": 7
+     "fat": 2488.0,
+     "faturas": 31
     },
-    "quente": {
-     "fat": 98.0,
+    {
+     "name": "WhatsApp — Grupos Alunas",
+     "fat": 39.0,
+     "faturas": 1
+    },
+    {
+     "name": "Instagram — Bio",
+     "fat": 872.0,
+     "faturas": 5
+    },
+    {
+     "name": "WhatsApp — Alunas",
+     "fat": 225.0,
      "faturas": 2
     },
-    "outros": {
-     "fat": 0.0,
-     "faturas": 0
-    }
-   },
-   "regioes_ife": [
     {
-     "name": "Centro-Oeste",
+     "name": "Gaio — Reels Manifesto",
      "fat": 49.0,
      "faturas": 1
     },
     {
+     "name": "WhatsApp — Whats",
+     "fat": 245.0,
+     "faturas": 2
+    },
+    {
+     "name": "WhatsApp — Carrinho abandonado",
+     "fat": 98.0,
+     "faturas": 2
+    },
+    {
+     "name": "Sem origem",
+     "fat": 49.0,
+     "faturas": 1
+    }
+   ],
+   "fb_split_ife": {
+    "frio": {
+     "fat": 1753.0,
+     "faturas": 19
+    },
+    "quente": {
+     "fat": 588.0,
+     "faturas": 9
+    },
+    "outros": {
+     "fat": 147.0,
+     "faturas": 3
+    }
+   },
+   "regioes_ife": [
+    {
+     "name": "Sudeste",
+     "fat": 372.0,
+     "faturas": 5
+    },
+    {
+     "name": "Nordeste",
+     "fat": 392.0,
+     "faturas": 2
+    },
+    {
+     "name": "Centro-Oeste",
+     "fat": 245.0,
+     "faturas": 2
+    },
+    {
      "name": "Não informado",
-     "fat": 989.0,
-     "faturas": 8
+     "fat": 3056.0,
+     "faturas": 36
     }
    ],
    "pay_dist_ife": [
     {
      "method": "PIX",
-     "count": 5
+     "count": 30
     },
     {
      "method": "Cartão de Crédito",
-     "count": 4
+     "count": 15
     }
    ],
    "parc_dist_ife": [
     {
      "n": 1,
-     "count": 2
+     "count": 10
     },
     {
      "n": 2,
+     "count": 2
+    },
+    {
+     "n": 3,
      "count": 1
     },
     {
      "n": 6,
-     "count": 1
+     "count": 2
     }
    ],
    "ob_detail_ife": [
     {
-     "name": "O Mapa da Avaliação - Autismo",
-     "count": 4,
-     "val": 189.92
+     "name": "Gravação Imersão Funções Executivas na Clínica Infantil",
+     "count": 11,
+     "val": 781.3
     },
     {
-     "name": "Gravação Imersão Funções Executivas na Clínica Infantil",
-     "count": 3,
-     "val": 189.92
+     "name": "O Mapa da Avaliação - Autismo",
+     "count": 7,
+     "val": 274.38
     }
    ],
    "prods_dia": [
     {
-     "name": "O Mapa da Avaliação - Autismo",
-     "fat": 583.0,
-     "faturas": 2,
-     "units": 5
-    },
-    {
      "name": "Imersão de Funções Executivas na Clínica Infantil",
-     "fat": 480.0,
-     "faturas": 6,
-     "units": 8
+     "fat": 2684.0,
+     "faturas": 38,
+     "units": 46
     },
     {
      "name": "Gravação Imersão Funções Executivas na Clínica Infantil",
-     "fat": 470.0,
-     "faturas": 2,
-     "units": 6
+     "fat": 1058.0,
+     "faturas": 5,
+     "units": 12
+    },
+    {
+     "name": "O Mapa da Avaliação - Autismo",
+     "fat": 818.0,
+     "faturas": 3,
+     "units": 8
+    },
+    {
+     "name": "PRO",
+     "fat": 359.0,
+     "faturas": 1,
+     "units": 1
     }
    ],
    "prods_dia_all": [
     {
+     "name": "Imersão de Funções Executivas na Clínica Infantil",
+     "fat": 2035.0,
+     "faturas": 45,
+     "units": 45
+    },
+    {
      "name": "Gravação Imersão Funções Executivas na Clínica Infantil",
-     "fat": 441.0,
-     "faturas": 3,
-     "units": 3
+     "fat": 1617.0,
+     "faturas": 11,
+     "units": 11
+    },
+    {
+     "name": "O Mapa da Avaliação - Autismo",
+     "fat": 472.0,
+     "faturas": 8,
+     "units": 8
     },
     {
      "name": "Curso Psi: 0-8",
@@ -64171,16 +64232,10 @@
      "units": 1
     },
     {
-     "name": "Imersão de Funções Executivas na Clínica Infantil",
-     "fat": 361.0,
-     "faturas": 9,
-     "units": 9
-    },
-    {
-     "name": "O Mapa da Avaliação - Autismo",
-     "fat": 295.0,
-     "faturas": 5,
-     "units": 5
+     "name": "PRO",
+     "fat": 359.0,
+     "faturas": 1,
+     "units": 1
     },
     {
      "name": "Recursos Exclusivos Divertidamente 2",
@@ -64213,41 +64268,41 @@
    "camps_dia": [
     {
      "name": "[IFE] [Compra] [Estáticos] [Frio] - ABO",
-     "spend": 89.45,
-     "impressions": 3689,
-     "reach": 2838,
-     "fat": 568.0,
-     "faturas": 4
+     "spend": 312.52,
+     "impressions": 13668,
+     "reach": 10514,
+     "fat": 1097.0,
+     "faturas": 11
     },
     {
      "name": "[IFE] [Compra] [Vídeos] [Frio] - ABO",
-     "spend": 55.36,
-     "impressions": 1301,
-     "reach": 1001,
-     "fat": 372.0,
-     "faturas": 3
+     "spend": 282.58,
+     "impressions": 8202,
+     "reach": 6309,
+     "fat": 656.0,
+     "faturas": 8
     },
     {
      "name": "[IFE] [Compra] [Estáticos] [Quente] - CBO",
-     "spend": 124.89,
-     "impressions": 9485,
-     "reach": 7296,
-     "fat": 49.0,
-     "faturas": 1
+     "spend": 412.06,
+     "impressions": 30534,
+     "reach": 23488,
+     "fat": 245.0,
+     "faturas": 5
     },
     {
      "name": "[IFE] [Compra] [Vídeos] [Quente] - CBO",
-     "spend": 49.46,
-     "impressions": 2007,
-     "reach": 1544,
-     "fat": 49.0,
-     "faturas": 1
+     "spend": 108.67,
+     "impressions": 5204,
+     "reach": 4003,
+     "fat": 294.0,
+     "faturas": 3
     },
     {
      "name": "[IFE] [Compra] [RMKT] [Quente] - ABO",
-     "spend": 15.27,
-     "impressions": 123,
-     "reach": 95,
+     "spend": 45.51,
+     "impressions": 515,
+     "reach": 396,
      "fat": 0.0,
      "faturas": 0
     }
@@ -64261,68 +64316,107 @@
    "origins": [
     {
      "name": "Facebook Ads",
-     "fat": 1038.0,
-     "faturas": 9
+     "fat": 2488.0,
+     "faturas": 31
     },
     {
      "name": "Sem origem",
-     "fat": 495.0,
+     "fat": 903.0,
+     "faturas": 3
+    },
+    {
+     "name": "WhatsApp — Grupos Alunas",
+     "fat": 39.0,
      "faturas": 1
+    },
+    {
+     "name": "Instagram — Bio",
+     "fat": 872.0,
+     "faturas": 5
+    },
+    {
+     "name": "WhatsApp — Alunas",
+     "fat": 225.0,
+     "faturas": 2
+    },
+    {
+     "name": "Gaio — Reels Manifesto",
+     "fat": 49.0,
+     "faturas": 1
+    },
+    {
+     "name": "WhatsApp — Whats",
+     "fat": 245.0,
+     "faturas": 2
+    },
+    {
+     "name": "WhatsApp — Carrinho abandonado",
+     "fat": 98.0,
+     "faturas": 2
     }
    ],
    "fb_split": {
     "frio": {
-     "fat": 940.0,
-     "faturas": 7
+     "fat": 1753.0,
+     "faturas": 19
     },
     "quente": {
-     "fat": 98.0,
-     "faturas": 2
+     "fat": 588.0,
+     "faturas": 9
     },
     "outros": {
-     "fat": 0.0,
-     "faturas": 0
+     "fat": 147.0,
+     "faturas": 3
     }
    },
    "regioes": [
     {
      "name": "Sudeste",
-     "fat": 495.0,
-     "faturas": 1
+     "fat": 1226.0,
+     "faturas": 7
+    },
+    {
+     "name": "Nordeste",
+     "fat": 392.0,
+     "faturas": 2
     },
     {
      "name": "Centro-Oeste",
-     "fat": 49.0,
-     "faturas": 1
+     "fat": 245.0,
+     "faturas": 2
     },
     {
      "name": "Não informado",
-     "fat": 989.0,
-     "faturas": 8
+     "fat": 3056.0,
+     "faturas": 36
     }
    ],
    "pay_dist": [
     {
      "method": "PIX",
-     "count": 5
+     "count": 31
     },
     {
      "method": "Cartão de Crédito",
-     "count": 5
+     "count": 16
     }
    ],
    "parc_dist": [
     {
      "n": 1,
-     "count": 2
+     "count": 10
     },
     {
      "n": 2,
+     "count": 2
+    },
+    {
+     "n": 3,
      "count": 1
     },
     {
      "n": 6,
-     "count": 1
+     "count": 2
     },
     {
      "n": 12,
@@ -64407,9 +64501,332 @@
    "fat_pago_psi": 0.0,
    "faturas_pago_psi": 0,
    "abandoned_pago_psi": 0,
-   "fat_pago_ife": 1038.0,
-   "faturas_pago_ife": 9,
-   "abandoned_pago_ife": 8,
+   "fat_pago_ife": 2488.0,
+   "faturas_pago_ife": 31,
+   "abandoned_pago_ife": 18,
+   "month": 9,
+   "year": 2026
+  },
+  {
+   "day": 25,
+   "date": "2026-09-25",
+   "spend": 223.9,
+   "spend_sales": 223.9,
+   "impressions": 8020,
+   "faturas": 16,
+   "units": 25,
+   "fat": 1675.0,
+   "nh": 1537.31,
+   "abandoned": 14,
+   "checkouts": 30,
+   "abandoned_re": 0,
+   "abandoned_psi": 0,
+   "abandoned_ife": 14,
+   "fat_re": 0.0,
+   "fat_psi": 0.0,
+   "fat_ife": 1675.0,
+   "spend_re": 0.0,
+   "spend_psi": 0.0,
+   "faturas_re": 0,
+   "faturas_psi": 0,
+   "units_re": 0,
+   "units_psi": 0,
+   "spend_ife": 223.9,
+   "faturas_ife": 16,
+   "units_ife": 25,
+   "prods_dia_ife": [
+    {
+     "name": "Gravação Imersão Funções Executivas na Clínica Infantil",
+     "fat": 735.0,
+     "faturas": 5,
+     "units": 5
+    },
+    {
+     "name": "Imersão de Funções Executivas na Clínica Infantil",
+     "fat": 704.0,
+     "faturas": 16,
+     "units": 16
+    },
+    {
+     "name": "O Mapa da Avaliação - Autismo",
+     "fat": 236.0,
+     "faturas": 4,
+     "units": 4
+    }
+   ],
+   "funnel_clicks_ife": 68,
+   "funnel_lpv_ife": 49,
+   "funnel_imp_ife": 8020,
+   "origins_ife": [
+    {
+     "name": "Facebook Ads",
+     "fat": 1342.0,
+     "faturas": 13
+    },
+    {
+     "name": "Instagram — Bio",
+     "fat": 49.0,
+     "faturas": 1
+    },
+    {
+     "name": "WhatsApp — Carrinho abandonado",
+     "fat": 284.0,
+     "faturas": 2
+    }
+   ],
+   "fb_split_ife": {
+    "frio": {
+     "fat": 1009.0,
+     "faturas": 10
+    },
+    "quente": {
+     "fat": 284.0,
+     "faturas": 2
+    },
+    "outros": {
+     "fat": 49.0,
+     "faturas": 1
+    }
+   },
+   "regioes_ife": [
+    {
+     "name": "Sudeste",
+     "fat": 382.0,
+     "faturas": 4
+    },
+    {
+     "name": "Não informado",
+     "fat": 1293.0,
+     "faturas": 12
+    }
+   ],
+   "pay_dist_ife": [
+    {
+     "method": "PIX",
+     "count": 10
+    },
+    {
+     "method": "Cartão de Crédito",
+     "count": 6
+    }
+   ],
+   "parc_dist_ife": [
+    {
+     "n": 1,
+     "count": 4
+    },
+    {
+     "n": 2,
+     "count": 2
+    }
+   ],
+   "ob_detail_ife": [
+    {
+     "name": "Gravação Imersão Funções Executivas na Clínica Infantil",
+     "count": 5,
+     "val": 490.38
+    },
+    {
+     "name": "O Mapa da Avaliação - Autismo",
+     "count": 4,
+     "val": 231.92
+    }
+   ],
+   "prods_dia": [
+    {
+     "name": "Imersão de Funções Executivas na Clínica Infantil",
+     "fat": 1205.0,
+     "faturas": 14,
+     "units": 19
+    },
+    {
+     "name": "O Mapa da Avaliação - Autismo",
+     "fat": 470.0,
+     "faturas": 2,
+     "units": 6
+    }
+   ],
+   "prods_dia_all": [
+    {
+     "name": "Gravação Imersão Funções Executivas na Clínica Infantil",
+     "fat": 735.0,
+     "faturas": 5,
+     "units": 5
+    },
+    {
+     "name": "Imersão de Funções Executivas na Clínica Infantil",
+     "fat": 704.0,
+     "faturas": 16,
+     "units": 16
+    },
+    {
+     "name": "O Mapa da Avaliação - Autismo",
+     "fat": 236.0,
+     "faturas": 4,
+     "units": 4
+    }
+   ],
+   "prods_dia_re": [],
+   "prods_dia_psi": [],
+   "camps_dia": [
+    {
+     "name": "[IFE] [Compra] [Estáticos] [Frio] - ABO",
+     "spend": 67.59,
+     "impressions": 2602,
+     "reach": 2002,
+     "fat": 98.0,
+     "faturas": 2
+    },
+    {
+     "name": "[IFE] [Compra] [Vídeos] [Frio] - ABO",
+     "spend": 104.43,
+     "impressions": 2282,
+     "reach": 1755,
+     "fat": 911.0,
+     "faturas": 8
+    },
+    {
+     "name": "[IFE] [Compra] [Estáticos] [Quente] - CBO",
+     "spend": 40.61,
+     "impressions": 2869,
+     "reach": 2207,
+     "fat": 284.0,
+     "faturas": 2
+    },
+    {
+     "name": "[IFE] [Compra] [Vídeos] [Quente] - CBO",
+     "spend": 4.2,
+     "impressions": 189,
+     "reach": 145,
+     "fat": 0.0,
+     "faturas": 0
+    },
+    {
+     "name": "[IFE] [Compra] [RMKT] [Quente] - ABO",
+     "spend": 7.07,
+     "impressions": 78,
+     "reach": 60,
+     "fat": 0.0,
+     "faturas": 0
+    }
+   ],
+   "funnel_clicks_re": 0,
+   "funnel_lpv_re": 0,
+   "funnel_imp_re": 0,
+   "funnel_clicks_psi": 0,
+   "funnel_lpv_psi": 0,
+   "funnel_imp_psi": 0,
+   "origins": [
+    {
+     "name": "Facebook Ads",
+     "fat": 1342.0,
+     "faturas": 13
+    },
+    {
+     "name": "Instagram — Bio",
+     "fat": 49.0,
+     "faturas": 1
+    },
+    {
+     "name": "WhatsApp — Carrinho abandonado",
+     "fat": 284.0,
+     "faturas": 2
+    }
+   ],
+   "fb_split": {
+    "frio": {
+     "fat": 1009.0,
+     "faturas": 10
+    },
+    "quente": {
+     "fat": 284.0,
+     "faturas": 2
+    },
+    "outros": {
+     "fat": 49.0,
+     "faturas": 1
+    }
+   },
+   "regioes": [
+    {
+     "name": "Sudeste",
+     "fat": 382.0,
+     "faturas": 4
+    },
+    {
+     "name": "Não informado",
+     "fat": 1293.0,
+     "faturas": 12
+    }
+   ],
+   "pay_dist": [
+    {
+     "method": "PIX",
+     "count": 10
+    },
+    {
+     "method": "Cartão de Crédito",
+     "count": 6
+    }
+   ],
+   "parc_dist": [
+    {
+     "n": 1,
+     "count": 4
+    },
+    {
+     "n": 2,
+     "count": 2
+    }
+   ],
+   "origins_re": [],
+   "origins_psi": [],
+   "fb_split_re": {
+    "frio": {
+     "fat": 0.0,
+     "faturas": 0
+    },
+    "quente": {
+     "fat": 0.0,
+     "faturas": 0
+    },
+    "outros": {
+     "fat": 0.0,
+     "faturas": 0
+    }
+   },
+   "fb_split_psi": {
+    "frio": {
+     "fat": 0.0,
+     "faturas": 0
+    },
+    "quente": {
+     "fat": 0.0,
+     "faturas": 0
+    },
+    "outros": {
+     "fat": 0.0,
+     "faturas": 0
+    }
+   },
+   "regioes_re": [],
+   "regioes_psi": [],
+   "pay_dist_re": [],
+   "pay_dist_psi": [],
+   "parc_dist_re": [],
+   "parc_dist_psi": [],
+   "ob_detail_re": [],
+   "ob_detail_psi": [],
+   "mes_corrente": true,
+   "fat_pago_re": 0.0,
+   "faturas_pago_re": 0,
+   "abandoned_pago_re": 0,
+   "fat_pago_psi": 0.0,
+   "faturas_pago_psi": 0,
+   "abandoned_pago_psi": 0,
+   "fat_pago_ife": 1342.0,
+   "faturas_pago_ife": 13,
+   "abandoned_pago_ife": 13,
    "month": 9,
    "year": 2026
   }
@@ -64470,12 +64887,12 @@
    "units": 430,
    "faturas": 300,
    "nh": 27059.71,
-   "abandoned": 229,
-   "checkouts": 529,
+   "abandoned": 223,
+   "checkouts": 523,
    "cpa": 13.75,
    "roas": 7.16,
    "lucro": 22936.19,
-   "conv_checkout": 56.71,
+   "conv_checkout": 57.36,
    "fat_re": 5057.0,
    "fat_psi": 653.0,
    "fat_ife": 23081.0,
@@ -64486,21 +64903,21 @@
    "label": "22–28 set",
    "d0": 22,
    "d1": 28,
-   "spend": 1867.46,
-   "spend_sales": 1867.46,
-   "fat": 9717.66,
-   "units": 126,
-   "faturas": 88,
-   "nh": 9008.08,
-   "abandoned": 78,
-   "checkouts": 166,
-   "cpa": 21.22,
-   "roas": 5.2,
-   "lucro": 7140.62,
-   "conv_checkout": 53.01,
+   "spend": 2918.4,
+   "spend_sales": 2918.4,
+   "fat": 14778.66,
+   "units": 199,
+   "faturas": 141,
+   "nh": 13646.15,
+   "abandoned": 104,
+   "checkouts": 245,
+   "cpa": 20.7,
+   "roas": 5.06,
+   "lucro": 10727.75,
+   "conv_checkout": 57.55,
    "fat_re": 588.0,
    "fat_psi": 1089.0,
-   "fat_ife": 6610.0,
+   "fat_ife": 11312.0,
    "has_data": true
   },
   {
@@ -64653,77 +65070,77 @@
     {
      "method": "PIX",
      "count": 66,
-     "pct": 51.16
+     "pct": 50.38
     },
     {
      "method": "Cartão de Crédito",
-     "count": 62,
-     "pct": 48.06
-    },
-    {
-     "method": "Múltiplos cartões",
-     "count": 1,
-     "pct": 0.78
+     "count": 65,
+     "pct": 49.62
     }
    ],
    "parc_dist": [
     {
      "n": 1,
-     "count": 24,
-     "pct": 38.71
+     "count": 26,
+     "pct": 40.0
     },
     {
      "n": 2,
      "count": 13,
-     "pct": 20.97
+     "pct": 20.0
     },
     {
      "n": 3,
-     "count": 7,
-     "pct": 11.29
+     "count": 8,
+     "pct": 12.31
     },
     {
      "n": 4,
      "count": 4,
-     "pct": 6.45
+     "pct": 6.15
     },
     {
      "n": 5,
      "count": 4,
-     "pct": 6.45
+     "pct": 6.15
     },
     {
      "n": 7,
-     "count": 2,
-     "pct": 3.23
+     "count": 1,
+     "pct": 1.54
+    },
+    {
+     "n": 8,
+     "count": 1,
+     "pct": 1.54
     },
     {
      "n": 10,
      "count": 2,
-     "pct": 3.23
+     "pct": 3.08
     },
     {
      "n": 11,
      "count": 1,
-     "pct": 1.61
+     "pct": 1.54
     },
     {
      "n": 12,
      "count": 5,
-     "pct": 8.06
+     "pct": 7.69
     }
    ],
-   "ob_val": 1999.0,
+   "ob_val": 2488.0,
    "ob_detail": [
-    {
-     "name": "O Mapa da Avaliação - Autismo",
-     "count": 33,
-     "val": 1060.0
-    },
     {
      "name": "Recursos Exclusivos Divertidamente 2",
      "count": 45,
-     "val": 939.0
+     "val": 1311.0
+    },
+    {
+     "name": "O Mapa da Avaliação - Autismo",
+     "count": 33,
+     "val": 1177.0
     }
    ]
   },
@@ -64873,52 +65290,52 @@
      "pct": 33.33
     },
     {
-     "n": 4,
+     "n": 10,
      "count": 1,
      "pct": 33.33
     }
    ],
-   "ob_val": 118.0,
+   "ob_val": 255.0,
    "ob_detail": [
     {
      "name": "O Mapa da Avaliação - Autismo",
      "count": 4,
-     "val": 118.0
+     "val": 157.0
     },
     {
      "name": "Recursos Exclusivos Divertidamente 2",
      "count": 2,
-     "val": 0.0
+     "val": 98.0
     }
    ]
   },
   "IFE": {
    "code": "IFE",
-   "spend": 4784.3,
-   "impressions": 243529,
-   "reach": 187329,
-   "faturas": 343,
-   "units": 495,
-   "fat": 29691.0,
-   "nh": 27167.49,
-   "total": 29691.0,
-   "ob": 114,
-   "cpa": 13.95,
-   "roas": 6.21,
-   "roas_nh": 5.68,
-   "lucro": 22383.19,
-   "roi": 467.85,
-   "ticket": 86.56,
-   "cpm": 19.65,
-   "abandoned": 285,
-   "checkouts": 628,
-   "compras": 343,
-   "funnel_clicks": 2496,
-   "funnel_lpv": 2165,
-   "funnel_ctr": 1.02,
-   "funnel_cpc": 1.92,
+   "spend": 5835.24,
+   "impressions": 293076,
+   "reach": 225441,
+   "faturas": 395,
+   "units": 567,
+   "fat": 34393.0,
+   "nh": 31470.59,
+   "total": 34393.0,
+   "ob": 130,
+   "cpa": 14.77,
+   "roas": 5.89,
+   "roas_nh": 5.39,
+   "lucro": 25635.35,
+   "roi": 439.32,
+   "ticket": 87.07,
+   "cpm": 19.91,
+   "abandoned": 305,
+   "checkouts": 700,
+   "compras": 395,
+   "funnel_clicks": 2903,
+   "funnel_lpv": 2504,
+   "funnel_ctr": 0.99,
+   "funnel_cpc": 2.01,
    "funnel_source": "planilha",
-   "conv_checkout": 54.62,
+   "conv_checkout": 56.43,
    "weeks": [
     {
      "id": "S1",
@@ -64954,8 +65371,8 @@
      "spend": 2916.84,
      "fat": 23081.0,
      "faturas": 265,
-     "nh": 21119.29,
-     "lucro": 18202.45,
+     "nh": 21119.78,
+     "lucro": 18202.94,
      "impressions": 140953,
      "has_data": true
     },
@@ -64964,12 +65381,12 @@
      "label": "22–28 set",
      "d0": 22,
      "d1": 28,
-     "spend": 1867.46,
-     "fat": 6610.0,
-     "faturas": 78,
-     "nh": 6048.2,
-     "lucro": 4180.74,
-     "impressions": 102576,
+     "spend": 2918.4,
+     "fat": 11312.0,
+     "faturas": 130,
+     "nh": 10350.81,
+     "lucro": 7432.41,
+     "impressions": 152123,
      "has_data": true
     },
     {
@@ -65017,78 +65434,78 @@
    "pay_dist": [
     {
      "method": "PIX",
-     "count": 259,
-     "pct": 75.51
+     "count": 294,
+     "pct": 74.43
     },
     {
      "method": "Cartão de Crédito",
-     "count": 84,
-     "pct": 24.49
+     "count": 101,
+     "pct": 25.57
     }
    ],
    "parc_dist": [
     {
      "n": 1,
-     "count": 53,
-     "pct": 63.1
+     "count": 65,
+     "pct": 64.36
     },
     {
      "n": 2,
-     "count": 12,
-     "pct": 14.29
+     "count": 15,
+     "pct": 14.85
     },
     {
      "n": 3,
-     "count": 7,
-     "pct": 8.33
+     "count": 8,
+     "pct": 7.92
     },
     {
      "n": 4,
      "count": 1,
-     "pct": 1.19
+     "pct": 0.99
     },
     {
      "n": 5,
      "count": 1,
-     "pct": 1.19
+     "pct": 0.99
     },
     {
      "n": 6,
-     "count": 3,
-     "pct": 3.57
+     "count": 4,
+     "pct": 3.96
     },
     {
      "n": 9,
      "count": 1,
-     "pct": 1.19
+     "pct": 0.99
     },
     {
      "n": 10,
      "count": 2,
-     "pct": 2.38
+     "pct": 1.98
     },
     {
      "n": 11,
      "count": 1,
-     "pct": 1.19
+     "pct": 0.99
     },
     {
      "n": 12,
      "count": 3,
-     "pct": 3.57
+     "pct": 2.97
     }
    ],
-   "ob_val": 10125.05,
+   "ob_val": 9346.67,
    "ob_detail": [
     {
      "name": "Gravação Imersão Funções Executivas na Clínica Infantil",
-     "count": 77,
-     "val": 6197.99
+     "count": 90,
+     "val": 5872.56
     },
     {
      "name": "O Mapa da Avaliação - Autismo",
-     "count": 77,
-     "val": 3927.07
+     "count": 84,
+     "val": 3474.1
     }
    ]
   }
@@ -65671,10 +66088,10 @@
    "creat": "Estáticos",
    "obj": "sales",
    "status": "ACTIVE",
-   "spend": 1184.38,
-   "impressions": 55184,
-   "reach": 42449,
-   "cpm": 21.46,
+   "spend": 1475.05,
+   "impressions": 67766,
+   "reach": 52128,
+   "cpm": 21.77,
    "freq": 1.3,
    "days": [
     17,
@@ -65684,15 +66101,16 @@
     21,
     22,
     23,
-    24
+    24,
+    25
    ],
-   "faturas": 40,
-   "units": 40,
-   "fat": 3262.0,
-   "nh": 2987.07,
-   "cpa": 29.61,
-   "roas": 2.75,
-   "lucro": 1802.69,
+   "faturas": 49,
+   "units": 49,
+   "fat": 3889.0,
+   "nh": 3556.69,
+   "cpa": 30.1,
+   "roas": 2.64,
+   "lucro": 2081.64,
    "daily": [
     {
      "day": 17,
@@ -65732,15 +66150,21 @@
     },
     {
      "day": 23,
-     "spend": 216.18,
-     "impressions": 9660,
+     "spend": 216.19,
+     "impressions": 9661,
      "cpm": 22.38
     },
     {
      "day": 24,
-     "spend": 89.45,
-     "impressions": 3689,
-     "cpm": 24.25
+     "spend": 312.52,
+     "impressions": 13668,
+     "cpm": 22.87
+    },
+    {
+     "day": 25,
+     "spend": 67.59,
+     "impressions": 2602,
+     "cpm": 25.98
     }
    ]
   },
@@ -65752,10 +66176,10 @@
    "creat": "Vídeos",
    "obj": "sales",
    "status": "ACTIVE",
-   "spend": 1165.07,
-   "impressions": 40817,
-   "reach": 31397,
-   "cpm": 28.54,
+   "spend": 1496.72,
+   "impressions": 50000,
+   "reach": 38460,
+   "cpm": 29.93,
    "freq": 1.3,
    "days": [
     17,
@@ -65765,15 +66189,16 @@
     21,
     22,
     23,
-    24
+    24,
+    25
    ],
-   "faturas": 40,
-   "units": 40,
-   "fat": 3721.0,
-   "nh": 3406.78,
-   "cpa": 29.13,
-   "roas": 3.19,
-   "lucro": 2241.71,
+   "faturas": 53,
+   "units": 53,
+   "fat": 4916.0,
+   "nh": 4499.83,
+   "cpa": 28.24,
+   "roas": 3.28,
+   "lucro": 3003.11,
    "daily": [
     {
      "day": 17,
@@ -65819,9 +66244,15 @@
     },
     {
      "day": 24,
-     "spend": 55.36,
-     "impressions": 1301,
-     "cpm": 42.55
+     "spend": 282.58,
+     "impressions": 8202,
+     "cpm": 34.45
+    },
+    {
+     "day": 25,
+     "spend": 104.43,
+     "impressions": 2282,
+     "cpm": 45.76
     }
    ]
   },
@@ -65833,10 +66264,10 @@
    "creat": "Estáticos",
    "obj": "sales",
    "status": "ACTIVE",
-   "spend": 1491.2,
-   "impressions": 109167,
-   "reach": 83974,
-   "cpm": 13.66,
+   "spend": 1819.1,
+   "impressions": 133089,
+   "reach": 102376,
+   "cpm": 13.67,
    "freq": 1.3,
    "days": [
     17,
@@ -65846,15 +66277,16 @@
     21,
     22,
     23,
-    24
+    24,
+    25
    ],
-   "faturas": 45,
-   "units": 45,
-   "fat": 3732.0,
-   "nh": 3409.69,
-   "cpa": 33.14,
-   "roas": 2.5,
-   "lucro": 1918.49,
+   "faturas": 51,
+   "units": 51,
+   "fat": 4212.0,
+   "nh": 3845.95,
+   "cpa": 35.67,
+   "roas": 2.32,
+   "lucro": 2026.85,
    "daily": [
     {
      "day": 17,
@@ -65894,15 +66326,21 @@
     },
     {
      "day": 23,
-     "spend": 340.38,
-     "impressions": 27772,
+     "spend": 340.5,
+     "impressions": 27776,
      "cpm": 12.26
     },
     {
      "day": 24,
-     "spend": 124.89,
-     "impressions": 9485,
-     "cpm": 13.17
+     "spend": 412.06,
+     "impressions": 30534,
+     "cpm": 13.5
+    },
+    {
+     "day": 25,
+     "spend": 40.61,
+     "impressions": 2869,
+     "cpm": 14.15
     }
    ]
   },
@@ -65914,10 +66352,10 @@
    "creat": "Vídeos",
    "obj": "sales",
    "status": "ACTIVE",
-   "spend": 860.16,
-   "impressions": 37816,
-   "reach": 29089,
-   "cpm": 22.75,
+   "spend": 923.57,
+   "impressions": 41206,
+   "reach": 31696,
+   "cpm": 22.41,
    "freq": 1.3,
    "days": [
     18,
@@ -65926,15 +66364,16 @@
     21,
     22,
     23,
-    24
+    24,
+    25
    ],
-   "faturas": 18,
-   "units": 18,
-   "fat": 1734.0,
-   "nh": 1585.14,
-   "cpa": 47.79,
-   "roas": 2.02,
-   "lucro": 724.98,
+   "faturas": 20,
+   "units": 20,
+   "fat": 1979.0,
+   "nh": 1810.46,
+   "cpa": 46.18,
+   "roas": 2.14,
+   "lucro": 886.89,
    "daily": [
     {
      "day": 18,
@@ -65969,14 +66408,20 @@
     {
      "day": 23,
      "spend": 100.81,
-     "impressions": 5319,
-     "cpm": 18.95
+     "impressions": 5323,
+     "cpm": 18.94
     },
     {
      "day": 24,
-     "spend": 49.46,
-     "impressions": 2007,
-     "cpm": 24.64
+     "spend": 108.67,
+     "impressions": 5204,
+     "cpm": 20.88
+    },
+    {
+     "day": 25,
+     "spend": 4.2,
+     "impressions": 189,
+     "cpm": 22.22
     }
    ]
   },
@@ -76298,13 +76743,13 @@
   {
    "campaign": "[INSTA] [Seguidores] [Frio] - ABO",
    "name": "[INSTA] AD-C: Recursos Lúdicos",
-   "spend": 1328.99,
-   "impressions": 267517,
-   "reach": 246506,
-   "freq": 1.09,
-   "cpm": 4.97,
-   "clicks": 5396,
-   "ctr": 2.02,
+   "spend": 1364.71,
+   "impressions": 272711,
+   "reach": 251505,
+   "freq": 1.08,
+   "cpm": 5.0,
+   "clicks": 5526,
+   "ctr": 2.03,
    "cpc": 0.25,
    "lpv": 0,
    "lpv_rate": 0.0,
@@ -76701,9 +77146,9 @@
     },
     {
      "date": "2026-09-23",
-     "spend": 42.64,
-     "impressions": 7559,
-     "clicks": 186,
+     "spend": 42.65,
+     "impressions": 7560,
+     "clicks": 187,
      "lpv": 0,
      "reach": 7162,
      "cpm": 5.64,
@@ -76712,12 +77157,23 @@
     },
     {
      "date": "2026-09-24",
-     "spend": 10.0,
-     "impressions": 1570,
-     "clicks": 37,
+     "spend": 37.23,
+     "impressions": 5669,
+     "clicks": 142,
      "lpv": 0,
-     "reach": 1460,
-     "cpm": 6.37,
+     "reach": 5411,
+     "cpm": 6.57,
+     "fat": 0.0,
+     "faturas": 0
+    },
+    {
+     "date": "2026-09-25",
+     "spend": 8.48,
+     "impressions": 1094,
+     "clicks": 24,
+     "lpv": 0,
+     "reach": 1048,
+     "cpm": 7.75,
      "fat": 0.0,
      "faturas": 0
     }
@@ -78624,13 +79080,13 @@
   {
    "campaign": "[INSTA] [Seguidores] [Frio] - ABO",
    "name": "[INSTA] AD-C: Zootopia",
-   "spend": 869.14,
-   "impressions": 136618,
-   "reach": 130222,
+   "spend": 885.63,
+   "impressions": 138039,
+   "reach": 131618,
    "freq": 1.05,
-   "cpm": 6.36,
-   "clicks": 4151,
-   "ctr": 3.04,
+   "cpm": 6.42,
+   "clicks": 4215,
+   "ctr": 3.05,
    "cpc": 0.21,
    "lpv": 0,
    "lpv_rate": 0.0,
@@ -79115,12 +79571,23 @@
     },
     {
      "date": "2026-09-24",
-     "spend": 4.49,
-     "impressions": 429,
-     "clicks": 21,
+     "spend": 15.81,
+     "impressions": 1481,
+     "clicks": 72,
      "lpv": 0,
-     "reach": 420,
-     "cpm": 10.47,
+     "reach": 1468,
+     "cpm": 10.68,
+     "fat": 0.0,
+     "faturas": 0
+    },
+    {
+     "date": "2026-09-25",
+     "spend": 5.17,
+     "impressions": 369,
+     "clicks": 13,
+     "lpv": 0,
+     "reach": 348,
+     "cpm": 14.01,
      "fat": 0.0,
      "faturas": 0
     }
@@ -91951,7 +92418,7 @@
   "reach": 0,
   "cpm": 0.0,
   "freq": 0.0,
-  "days": 24,
+  "days": 25,
   "pct_invest": 0.0,
   "cost_per_1k_reach": 0,
   "daily": [],
@@ -91996,15 +92463,15 @@
  "origins": [
   {
    "name": "Facebook Ads",
-   "faturas": 249,
-   "fat": 30813.0,
-   "nh": 28507.8
+   "faturas": 284,
+   "fat": 33605.0,
+   "nh": 31049.9
   },
   {
    "name": "Instagram — Bio",
-   "faturas": 72,
-   "fat": 9027.0,
-   "nh": 8371.91
+   "faturas": 78,
+   "fat": 9948.0,
+   "nh": 9227.79
   },
   {
    "name": "Instagram — Stories",
@@ -92014,21 +92481,21 @@
   },
   {
    "name": "WhatsApp — Grupos Alunas",
-   "faturas": 55,
-   "fat": 5220.0,
-   "nh": 4792.01
+   "faturas": 56,
+   "fat": 5259.0,
+   "nh": 4826.18
   },
   {
    "name": "WhatsApp — Whats",
-   "faturas": 16,
-   "fat": 4840.62,
-   "nh": 4656.84
+   "faturas": 18,
+   "fat": 5085.62,
+   "nh": 4885.01
   },
   {
    "name": "WhatsApp — Alunas",
-   "faturas": 33,
-   "fat": 2745.0,
-   "nh": 2502.86
+   "faturas": 35,
+   "fat": 2970.0,
+   "nh": 2709.38
   },
   {
    "name": "WhatsApp — Imersões",
@@ -92044,21 +92511,21 @@
   },
   {
    "name": "WhatsApp — Carrinho abandonado",
-   "faturas": 12,
-   "fat": 1871.0,
-   "nh": 1754.49
+   "faturas": 16,
+   "fat": 2253.0,
+   "nh": 2103.61
+  },
+  {
+   "name": "Gaio — Reels Manifesto",
+   "faturas": 4,
+   "fat": 382.0,
+   "nh": 349.12
   },
   {
    "name": "Gaio — Carrossel psi08",
    "faturas": 1,
    "fat": 356.0,
    "nh": 338.65
-  },
-  {
-   "name": "Gaio — Reels Manifesto",
-   "faturas": 3,
-   "fat": 333.0,
-   "nh": 305.55
   },
   {
    "name": "TheMembers — Aula RE",
@@ -92074,9 +92541,9 @@
   },
   {
    "name": "Sem origem",
-   "faturas": 36,
-   "fat": 31034.41,
-   "nh": 29653.58
+   "faturas": 38,
+   "fat": 31442.41,
+   "nh": 30032.12
   }
  ],
  "products": [
@@ -92089,34 +92556,34 @@
    "plataforma": "hubla"
   },
   {
-   "name": "Regulando as Emoções",
-   "faturas": 129,
-   "fat": 20374.0,
-   "units": 158,
+   "name": "Imersão de Funções Executivas na Clínica Infantil",
+   "faturas": 320,
+   "fat": 21307.0,
+   "units": 391,
    "recorrente": false,
    "plataforma": "hubla"
   },
   {
-   "name": "Imersão de Funções Executivas na Clínica Infantil",
-   "faturas": 285,
-   "fat": 19844.0,
-   "units": 360,
+   "name": "Regulando as Emoções",
+   "faturas": 131,
+   "fat": 20863.0,
+   "units": 165,
    "recorrente": false,
    "plataforma": "hubla"
   },
   {
    "name": "O Mapa da Avaliação - Autismo",
-   "faturas": 42,
-   "fat": 7212.0,
-   "units": 102,
+   "faturas": 50,
+   "fat": 8742.0,
+   "units": 120,
    "recorrente": false,
    "plataforma": "hubla"
   },
   {
    "name": "Gravação Imersão Funções Executivas na Clínica Infantil",
-   "faturas": 31,
-   "fat": 6365.0,
-   "units": 73,
+   "faturas": 42,
+   "fat": 8558.0,
+   "units": 98,
    "recorrente": false,
    "plataforma": "hubla"
   },
@@ -92130,9 +92597,9 @@
   },
   {
    "name": "Recursos Exclusivos Divertidamente 2",
-   "faturas": 22,
-   "fat": 4596.0,
-   "units": 50,
+   "faturas": 18,
+   "fat": 3584.0,
+   "units": 40,
    "recorrente": false,
    "plataforma": "hubla"
   },
@@ -92147,16 +92614,16 @@
   {
    "name": "Curso Psi: 0-8",
    "faturas": 5,
-   "fat": 1603.0,
-   "units": 7,
+   "fat": 1642.0,
+   "units": 8,
    "recorrente": false,
    "plataforma": "hubla"
   },
   {
    "name": "PRO",
-   "faturas": 7,
-   "fat": 1236.6,
-   "units": 7,
+   "faturas": 8,
+   "fat": 1595.6,
+   "units": 8,
    "recorrente": false,
    "plataforma": "hotmart"
   }
@@ -92164,8 +92631,8 @@
  "regioes": [
   {
    "name": "Sudeste",
-   "faturas": 87,
-   "fat": 14927.66
+   "faturas": 97,
+   "fat": 16040.66
   },
   {
    "name": "Sul",
@@ -92174,13 +92641,13 @@
   },
   {
    "name": "Nordeste",
-   "faturas": 33,
-   "fat": 3765.9
+   "faturas": 35,
+   "fat": 4157.9
   },
   {
    "name": "Centro-Oeste",
-   "faturas": 13,
-   "fat": 743.0
+   "faturas": 14,
+   "fat": 939.0
   },
   {
    "name": "Norte",
@@ -92189,25 +92656,30 @@
   },
   {
    "name": "Não informado",
-   "faturas": 374,
-   "fat": 59960.42
+   "faturas": 414,
+   "fat": 63320.42
   }
  ],
  "estados": [
+  {
+   "uf": "SP",
+   "faturas": 45,
+   "fat": 7331.0
+  },
   {
    "uf": "SC",
    "faturas": 6,
    "fat": 7068.0
   },
   {
-   "uf": "SP",
-   "faturas": 41,
-   "fat": 6812.0
+   "uf": "MG",
+   "faturas": 28,
+   "fat": 5199.0
   },
   {
-   "uf": "MG",
-   "faturas": 26,
-   "fat": 5101.0
+   "uf": "RJ",
+   "faturas": 18,
+   "fat": 2714.66
   },
   {
    "uf": "RS",
@@ -92215,14 +92687,14 @@
    "fat": 2615.75
   },
   {
-   "uf": "RJ",
-   "faturas": 15,
-   "fat": 2257.66
-  },
-  {
    "uf": "PR",
    "faturas": 14,
    "fat": 1758.9
+  },
+  {
+   "uf": "CE",
+   "faturas": 8,
+   "fat": 1234.0
   },
   {
    "uf": "PE",
@@ -92230,14 +92702,14 @@
    "fat": 1048.0
   },
   {
-   "uf": "CE",
-   "faturas": 7,
-   "fat": 1038.0
-  },
-  {
    "uf": "BA",
    "faturas": 8,
    "fat": 848.0
+  },
+  {
+   "uf": "ES",
+   "faturas": 6,
+   "fat": 796.0
   },
   {
    "uf": "PA",
@@ -92245,14 +92717,14 @@
    "fat": 776.0
   },
   {
-   "uf": "ES",
-   "faturas": 5,
-   "fat": 757.0
+   "uf": "MS",
+   "faturas": 6,
+   "fat": 558.0
   },
   {
-   "uf": "MS",
-   "faturas": 5,
-   "fat": 362.0
+   "uf": "SE",
+   "faturas": 3,
+   "fat": 529.0
   },
   {
    "uf": "362",
@@ -92263,11 +92735,6 @@
    "uf": "PB",
    "faturas": 3,
    "fat": 342.0
-  },
-  {
-   "uf": "SE",
-   "faturas": 2,
-   "fat": 333.0
   },
   {
    "uf": "GO",
@@ -92308,117 +92775,117 @@
  "payment_dist": [
   {
    "method": "PIX",
-   "count": 353,
-   "pct": 64.65
+   "count": 389,
+   "pct": 64.94
   },
   {
    "method": "Cartão de Crédito",
-   "count": 191,
-   "pct": 34.98
+   "count": 208,
+   "pct": 34.72
   },
   {
    "method": "Boleto",
    "count": 1,
-   "pct": 0.18
+   "pct": 0.17
   },
   {
    "method": "Múltiplos cartões",
    "count": 1,
-   "pct": 0.18
+   "pct": 0.17
   }
  ],
  "parc_dist": [
   {
    "n": 1,
-   "count": 85,
-   "pct": 44.5
+   "count": 97,
+   "pct": 46.63
   },
   {
    "n": 2,
-   "count": 28,
-   "pct": 14.66
+   "count": 31,
+   "pct": 14.9
   },
   {
    "n": 3,
-   "count": 20,
-   "pct": 10.47
+   "count": 21,
+   "pct": 10.1
   },
   {
    "n": 4,
    "count": 9,
-   "pct": 4.71
+   "pct": 4.33
   },
   {
    "n": 5,
    "count": 8,
-   "pct": 4.19
+   "pct": 3.85
   },
   {
    "n": 6,
-   "count": 5,
-   "pct": 2.62
+   "count": 6,
+   "pct": 2.88
   },
   {
    "n": 7,
    "count": 2,
-   "pct": 1.05
+   "pct": 0.96
   },
   {
    "n": 8,
    "count": 1,
-   "pct": 0.52
+   "pct": 0.48
   },
   {
    "n": 9,
    "count": 2,
-   "pct": 1.05
+   "pct": 0.96
   },
   {
    "n": 10,
    "count": 7,
-   "pct": 3.66
+   "pct": 3.37
   },
   {
    "n": 11,
    "count": 2,
-   "pct": 1.05
+   "pct": 0.96
   },
   {
    "n": 12,
    "count": 18,
-   "pct": 9.42
+   "pct": 8.65
   }
  ],
  "ob_detail": [
   {
-   "name": "O Mapa da Avaliação - Autismo",
-   "count": 72,
-   "val": 9740.07
+   "name": "Imersão de Funções Executivas na Clínica Infantil",
+   "count": 73,
+   "val": 12792.0
   },
   {
-   "name": "Imersão de Funções Executivas na Clínica Infantil",
-   "count": 56,
-   "val": 9553.0
+   "name": "O Mapa da Avaliação - Autismo",
+   "count": 71,
+   "val": 9488.1
   },
   {
    "name": "Gravação Imersão Funções Executivas na Clínica Infantil",
-   "count": 46,
-   "val": 8057.99
+   "count": 48,
+   "val": 8632.56
   },
   {
    "name": "Regulando as Emoções",
-   "count": 35,
-   "val": 7436.0
+   "count": 33,
+   "val": 6947.0
   },
   {
    "name": "Recursos Exclusivos Divertidamente 2",
-   "count": 25,
-   "val": 3639.0
+   "count": 29,
+   "val": 3619.0
   },
   {
    "name": "Curso Psi: 0-8",
    "count": 2,
-   "val": 890.0
+   "val": 851.0
   }
  ],
  "insights": [
@@ -92426,15 +92893,15 @@
    "level": "positivo",
    "icon": "star",
    "tag": "MELHOR SEMANA",
-   "title": "Semana 4 (22–24/set): ROAS 5.2x e CPA R$21 — performance crescente",
-   "body": "Os 3 dias de 22–24/set já entregaram R$9,718 com R$1,867 investidos (ROAS 5.2x). CPA caiu de R$14 (S3) para R$21 — eficiência crescente. Sinal para aumentar orçamento gradualmente: +15–20% a cada 2–3 dias enquanto ROAS ≥ 4x."
+   "title": "Semana 4 (22–25/set): ROAS 5.1x e CPA R$21 — performance crescente",
+   "body": "Os 4 dias de 22–25/set já entregaram R$14,779 com R$2,918 investidos (ROAS 5.1x). CPA caiu de R$14 (S3) para R$21 — eficiência crescente. Sinal para aumentar orçamento gradualmente: +15–20% a cada 2–3 dias enquanto ROAS ≥ 4x."
   },
   {
    "level": "positivo",
    "icon": "star",
    "tag": "ESCALAR AGORA",
-   "title": "IFE · Vídeos · Frio: ROAS 3.19x — candidata ao escalonamento",
-   "body": "R$1,165 investidos geraram R$3,721 (40 vendas) com ROAS 3.19x. Frequência ainda controlada. Aumentar 15-20% do orçamento a cada 2-3 dias enquanto ROAS ≥ 3x."
+   "title": "IFE · Vídeos · Frio: ROAS 3.28x — candidata ao escalonamento",
+   "body": "R$1,497 investidos geraram R$4,916 (53 vendas) com ROAS 3.28x. Frequência ainda controlada. Aumentar 15-20% do orçamento a cada 2-3 dias enquanto ROAS ≥ 3x."
   },
   {
    "level": "info",
@@ -92447,43 +92914,43 @@
    "level": "positivo",
    "icon": "plus",
    "tag": "ORDER BUMP",
-   "title": "Order Bumps adicionam +29% ao faturamento — 236 compras complementares",
-   "body": "236 order bumps aceitos em 546 faturas (43.2% de adesão), adicionando R$26,404 ao faturamento."
+   "title": "Order Bumps adicionam +30% ao faturamento — 256 compras complementares",
+   "body": "256 order bumps aceitos em 599 faturas (42.7% de adesão), adicionando R$29,087 ao faturamento."
   },
   {
    "level": "atencao",
    "icon": "cart",
    "tag": "RECUPERAÇÃO",
-   "title": "388 carrinhos abandonados — R$65,161 em receita potencial",
-   "body": "Taxa de conversão do checkout: 58.7% (546 compras / 930 checkouts). Sequência de WhatsApp + e-mail em 1h-24h pode recuperar 15-30% dos leads."
+   "title": "408 carrinhos abandonados — R$65,904 em receita potencial",
+   "body": "Taxa de conversão do checkout: 59.7% (599 compras / 1003 checkouts). Sequência de WhatsApp + e-mail em 1h-24h pode recuperar 15-30% dos leads."
   },
   {
    "level": "info",
    "icon": "profit",
    "tag": "MARGEM",
-   "title": "Margem líquida (após Hubla): 93.6% — R$85,845 de 546 vendas",
-   "body": "De R$91,694 faturados, R$85,845 chega líquido (margem 93.6%). Com R$13,447 em mídia, o lucro operacional é R$72,398 (ROI 538%). Para cada R$1 investido, retornam R$6.82."
+   "title": "Margem líquida (após Hubla): 93.5% — R$90,483 de 599 vendas",
+   "body": "De R$96,755 faturados, R$90,483 chega líquido (margem 93.5%). Com R$14,498 em mídia, o lucro operacional é R$75,985 (ROI 524%). Para cada R$1 investido, retornam R$6.67."
   }
  ],
  "fb_split": {
   "frio": {
-   "faturas": 169,
-   "fat": 22515.0
+   "faturas": 191,
+   "fat": 24337.0
   },
   "quente": {
-   "faturas": 76,
-   "fat": 7710.0
+   "faturas": 85,
+   "fat": 8484.0
   },
   "outros": {
-   "faturas": 4,
-   "fat": 588.0
+   "faturas": 8,
+   "fat": 784.0
   }
  },
  "_validation": {
-  "period_label": "01 a 24 de setembro de 2026",
+  "period_label": "01 a 25 de setembro de 2026",
   "period_start": "2026-09-01",
-  "period_end": "2026-09-24",
-  "generated_at": "2026-09-24 10:21:28",
+  "period_end": "2026-09-25",
+  "generated_at": "2026-09-25 10:08:50",
   "checks": [
    {
     "name": "Período cobre mês corrente",
@@ -92523,15 +92990,15 @@
    {
     "name": "Faturas IFE (XLSX → JSON)",
     "ok": true,
-    "expected": 343,
-    "got": 343,
+    "expected": 395,
+    "got": 395,
     "critical": true
    },
    {
     "name": "Faturamento IFE bruto",
     "ok": true,
-    "expected": 29691.0,
-    "got": 29691.0,
+    "expected": 34393.0,
+    "got": 34393.0,
     "critical": true
    },
    {
@@ -92544,8 +93011,8 @@
    {
     "name": "Soma daily[mês] == totals.fat",
     "ok": true,
-    "expected": 91693.63,
-    "got": 91693.63,
+    "expected": 96754.63,
+    "got": 96754.63,
     "critical": false
    }
   ],
