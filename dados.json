@@ -1,36 +1,36 @@
 {
  "period": {
   "start": "2026-10-01",
-  "end": "2026-10-07",
-  "label": "01 a 7 de outubro de 2026",
-  "days_elapsed": 7,
+  "end": "2026-10-08",
+  "label": "01 a 8 de outubro de 2026",
+  "days_elapsed": 8,
   "days_month": 31
  },
- "_v": 1791380013854,
+ "_v": 1791466553859,
  "totals": {
   "spend": 4319.44,
   "spend_sales": 4319.44,
   "spend_insta": 0.0,
   "impressions": 166419,
   "impressions_sales": 166419,
-  "fat": 95534.02,
-  "total": 102545.1,
-  "nh": 87399.83,
-  "hubla_fee": 15145.27,
-  "faturas": 218,
-  "units": 298,
-  "abandoned": 185,
-  "checkouts": 403,
+  "fat": 109062.72,
+  "total": 118114.33,
+  "nh": 100072.33,
+  "hubla_fee": 18042.0,
+  "faturas": 226,
+  "units": 306,
+  "abandoned": 188,
+  "checkouts": 414,
   "ob_count": 80,
   "ob_val": 10558.15,
   "fat_with_ob": 62,
-  "cpa": 19.81,
-  "roas": 22.12,
-  "roas_sales": 22.12,
-  "lucro": 83080.39,
-  "roi": 1923.41,
-  "ticket": 438.23,
-  "conv_checkout": 54.09
+  "cpa": 19.11,
+  "roas": 25.25,
+  "roas_sales": 25.25,
+  "lucro": 95752.89,
+  "roi": 2216.79,
+  "ticket": 482.58,
+  "conv_checkout": 54.59
  },
  "daily": [
   {
@@ -68282,8 +68282,8 @@
    "units": 49,
    "fat": 20892.55,
    "nh": 19576.51,
-   "abandoned": 63,
-   "checkouts": 102,
+   "abandoned": 62,
+   "checkouts": 101,
    "abandoned_re": 1,
    "abandoned_psi": 0,
    "abandoned_ife": 25,
@@ -69098,8 +69098,8 @@
    "units": 29,
    "fat": 36181.72,
    "nh": 32604.59,
-   "abandoned": 9,
-   "checkouts": 34,
+   "abandoned": 8,
+   "checkouts": 33,
    "abandoned_re": 0,
    "abandoned_psi": 0,
    "abandoned_ife": 0,
@@ -69541,8 +69541,8 @@
    "units": 5,
    "fat": 9485.0,
    "nh": 8710.63,
-   "abandoned": 11,
-   "checkouts": 16,
+   "abandoned": 10,
+   "checkouts": 15,
    "abandoned_re": 0,
    "abandoned_psi": 0,
    "abandoned_ife": 0,
@@ -69740,18 +69740,18 @@
    "spend": 0.0,
    "spend_sales": 0.0,
    "impressions": 0,
-   "faturas": 1,
-   "units": 1,
-   "fat": 364.0,
-   "nh": 339.67,
-   "abandoned": 0,
-   "checkouts": 1,
+   "faturas": 8,
+   "units": 8,
+   "fat": 11395.7,
+   "nh": 10543.43,
+   "abandoned": 4,
+   "checkouts": 12,
    "abandoned_re": 0,
    "abandoned_psi": 0,
    "abandoned_ife": 0,
    "fat_re": 0.0,
    "fat_psi": 0.0,
-   "fat_ife": 0.0,
+   "fat_ife": 147.0,
    "spend_re": 0.0,
    "spend_psi": 0.0,
    "faturas_re": 0,
@@ -69759,13 +69759,26 @@
    "units_re": 0,
    "units_psi": 0,
    "spend_ife": 0.0,
-   "faturas_ife": 0,
-   "units_ife": 0,
-   "prods_dia_ife": [],
+   "faturas_ife": 1,
+   "units_ife": 1,
+   "prods_dia_ife": [
+    {
+     "name": "Gravação Imersão Funções Executivas na Clínica Infantil",
+     "fat": 147.0,
+     "faturas": 2,
+     "units": 2
+    }
+   ],
    "funnel_clicks_ife": 0,
    "funnel_lpv_ife": 0,
    "funnel_imp_ife": 0,
-   "origins_ife": [],
+   "origins_ife": [
+    {
+     "name": "Sem origem",
+     "fat": 147.0,
+     "faturas": 1
+    }
+   ],
    "fb_split_ife": {
     "frio": {
      "fat": 0.0,
@@ -69780,14 +69793,48 @@
      "faturas": 0
     }
    },
-   "regioes_ife": [],
-   "pay_dist_ife": [],
-   "parc_dist_ife": [],
-   "ob_detail_ife": [],
+   "regioes_ife": [
+    {
+     "name": "Não informado",
+     "fat": 147.0,
+     "faturas": 1
+    }
+   ],
+   "pay_dist_ife": [
+    {
+     "method": "Cartão de Crédito",
+     "count": 1
+    }
+   ],
+   "parc_dist_ife": [
+    {
+     "n": 3,
+     "count": 1
+    }
+   ],
+   "ob_detail_ife": [
+    {
+     "name": "Gravação Imersão Funções Executivas na Clínica Infantil",
+     "count": 1,
+     "val": 0.0
+    }
+   ],
    "prods_dia": [
     {
      "name": "Formação Primeira Infância - Turma 10",
-     "fat": 364.0,
+     "fat": 10651.7,
+     "faturas": 6,
+     "units": 6
+    },
+    {
+     "name": "Workshop de Funções Executivas",
+     "fat": 597.0,
+     "faturas": 1,
+     "units": 1
+    },
+    {
+     "name": "Gravação Imersão Funções Executivas na Clínica Infantil",
+     "fat": 147.0,
      "faturas": 1,
      "units": 1
     }
@@ -69795,7 +69842,19 @@
    "prods_dia_all": [
     {
      "name": "Formação Primeira Infância - Turma 10",
-     "fat": 364.0,
+     "fat": 10651.7,
+     "faturas": 6,
+     "units": 6
+    },
+    {
+     "name": "Workshop de Funções Executivas",
+     "fat": 597.0,
+     "faturas": 1,
+     "units": 1
+    },
+    {
+     "name": "Gravação Imersão Funções Executivas na Clínica Infantil",
+     "fat": 147.0,
      "faturas": 1,
      "units": 1
     }
@@ -69812,7 +69871,22 @@
    "origins": [
     {
      "name": "Sem origem",
-     "fat": 364.0,
+     "fat": 1407.7,
+     "faturas": 4
+    },
+    {
+     "name": "WhatsApp — Grupos Alunas",
+     "fat": 2497.0,
+     "faturas": 1
+    },
+    {
+     "name": "WhatsApp — Whats",
+     "fat": 4994.0,
+     "faturas": 2
+    },
+    {
+     "name": "Instagram — Bio",
+     "fat": 2497.0,
      "faturas": 1
     }
    ],
@@ -69833,17 +69907,57 @@
    "regioes": [
     {
      "name": "Sudeste",
-     "fat": 364.0,
+     "fat": 2861.0,
+     "faturas": 2
+    },
+    {
+     "name": "Nordeste",
+     "fat": 597.0,
      "faturas": 1
+    },
+    {
+     "name": "Norte",
+     "fat": 299.7,
+     "faturas": 1
+    },
+    {
+     "name": "Não informado",
+     "fat": 7638.0,
+     "faturas": 4
     }
    ],
    "pay_dist": [
+    {
+     "method": "Cartão de Crédito",
+     "count": 7
+    },
     {
      "method": "Boleto",
      "count": 1
     }
    ],
-   "parc_dist": [],
+   "parc_dist": [
+    {
+     "n": 1,
+     "count": 1
+    },
+    {
+     "n": 3,
+     "count": 2
+    },
+    {
+     "n": 5,
+     "count": 1
+    },
+    {
+     "n": 10,
+     "count": 1
+    },
+    {
+     "n": 12,
+     "count": 2
+    }
+   ],
    "origins_re": [],
    "origins_psi": [],
    "fb_split_re": {
@@ -69894,6 +70008,172 @@
    "abandoned_pago_ife": 0,
    "month": 10,
    "year": 2026
+  },
+  {
+   "day": 8,
+   "date": "2026-10-08",
+   "spend": 0.0,
+   "spend_sales": 0.0,
+   "impressions": 0,
+   "faturas": 1,
+   "units": 1,
+   "fat": 2497.0,
+   "nh": 2468.74,
+   "abandoned": 2,
+   "checkouts": 3,
+   "abandoned_re": 1,
+   "abandoned_psi": 0,
+   "abandoned_ife": 0,
+   "fat_re": 0.0,
+   "fat_psi": 0.0,
+   "fat_ife": 0.0,
+   "spend_re": 0.0,
+   "spend_psi": 0.0,
+   "faturas_re": 0,
+   "faturas_psi": 0,
+   "units_re": 0,
+   "units_psi": 0,
+   "spend_ife": 0.0,
+   "faturas_ife": 0,
+   "units_ife": 0,
+   "prods_dia_ife": [],
+   "funnel_clicks_ife": 0,
+   "funnel_lpv_ife": 0,
+   "funnel_imp_ife": 0,
+   "origins_ife": [],
+   "fb_split_ife": {
+    "frio": {
+     "fat": 0.0,
+     "faturas": 0
+    },
+    "quente": {
+     "fat": 0.0,
+     "faturas": 0
+    },
+    "outros": {
+     "fat": 0.0,
+     "faturas": 0
+    }
+   },
+   "regioes_ife": [],
+   "pay_dist_ife": [],
+   "parc_dist_ife": [],
+   "ob_detail_ife": [],
+   "prods_dia": [
+    {
+     "name": "Formação Primeira Infância - Turma 10",
+     "fat": 2497.0,
+     "faturas": 1,
+     "units": 1
+    }
+   ],
+   "prods_dia_all": [
+    {
+     "name": "Formação Primeira Infância - Turma 10",
+     "fat": 2497.0,
+     "faturas": 1,
+     "units": 1
+    }
+   ],
+   "prods_dia_re": [],
+   "prods_dia_psi": [],
+   "camps_dia": [],
+   "funnel_clicks_re": 0,
+   "funnel_lpv_re": 0,
+   "funnel_imp_re": 0,
+   "funnel_clicks_psi": 0,
+   "funnel_lpv_psi": 0,
+   "funnel_imp_psi": 0,
+   "origins": [
+    {
+     "name": "WhatsApp — Whats",
+     "fat": 2497.0,
+     "faturas": 1
+    }
+   ],
+   "fb_split": {
+    "frio": {
+     "fat": 0.0,
+     "faturas": 0
+    },
+    "quente": {
+     "fat": 0.0,
+     "faturas": 0
+    },
+    "outros": {
+     "fat": 0.0,
+     "faturas": 0
+    }
+   },
+   "regioes": [
+    {
+     "name": "Não informado",
+     "fat": 2497.0,
+     "faturas": 1
+    }
+   ],
+   "pay_dist": [
+    {
+     "method": "Cartão de Crédito",
+     "count": 1
+    }
+   ],
+   "parc_dist": [
+    {
+     "n": 12,
+     "count": 1
+    }
+   ],
+   "origins_re": [],
+   "origins_psi": [],
+   "fb_split_re": {
+    "frio": {
+     "fat": 0.0,
+     "faturas": 0
+    },
+    "quente": {
+     "fat": 0.0,
+     "faturas": 0
+    },
+    "outros": {
+     "fat": 0.0,
+     "faturas": 0
+    }
+   },
+   "fb_split_psi": {
+    "frio": {
+     "fat": 0.0,
+     "faturas": 0
+    },
+    "quente": {
+     "fat": 0.0,
+     "faturas": 0
+    },
+    "outros": {
+     "fat": 0.0,
+     "faturas": 0
+    }
+   },
+   "regioes_re": [],
+   "regioes_psi": [],
+   "pay_dist_re": [],
+   "pay_dist_psi": [],
+   "parc_dist_re": [],
+   "parc_dist_psi": [],
+   "ob_detail_re": [],
+   "ob_detail_psi": [],
+   "mes_corrente": true,
+   "fat_pago_re": 0.0,
+   "faturas_pago_re": 0,
+   "abandoned_pago_re": 1,
+   "fat_pago_psi": 0.0,
+   "faturas_pago_psi": 0,
+   "abandoned_pago_psi": 0,
+   "fat_pago_ife": 0.0,
+   "faturas_pago_ife": 0,
+   "abandoned_pago_ife": 0,
+   "month": 10,
+   "year": 2026
   }
  ],
  "weeks": [
@@ -69904,19 +70184,19 @@
    "d1": 7,
    "spend": 4319.44,
    "spend_sales": 4319.44,
-   "fat": 95534.02,
-   "units": 298,
-   "faturas": 218,
-   "nh": 87399.83,
-   "abandoned": 185,
-   "checkouts": 403,
-   "cpa": 19.81,
-   "roas": 22.12,
-   "lucro": 83080.39,
-   "conv_checkout": 54.09,
+   "fat": 106565.72,
+   "units": 305,
+   "faturas": 225,
+   "nh": 97603.59,
+   "abandoned": 186,
+   "checkouts": 411,
+   "cpa": 19.2,
+   "roas": 24.67,
+   "lucro": 93284.15,
+   "conv_checkout": 54.74,
    "fat_re": 686.0,
    "fat_psi": 592.0,
-   "fat_ife": 21463.0,
+   "fat_ife": 21610.0,
    "has_data": true
   },
   {
@@ -69926,20 +70206,20 @@
    "d1": 14,
    "spend": 0.0,
    "spend_sales": 0.0,
-   "fat": 0.0,
-   "units": 0,
-   "faturas": 0,
-   "nh": 0.0,
-   "abandoned": 0,
-   "checkouts": 0,
-   "cpa": 0,
+   "fat": 2497.0,
+   "units": 1,
+   "faturas": 1,
+   "nh": 2468.74,
+   "abandoned": 2,
+   "checkouts": 3,
+   "cpa": 0.0,
    "roas": 0,
-   "lucro": 0.0,
-   "conv_checkout": 0,
+   "lucro": 2468.74,
+   "conv_checkout": 33.33,
    "fat_re": 0.0,
    "fat_psi": 0.0,
    "fat_ife": 0.0,
-   "has_data": false
+   "has_data": true
   },
   {
    "id": "S3",
@@ -70027,15 +70307,15 @@
    "roi": 0,
    "ticket": 171.5,
    "cpm": 0.0,
-   "abandoned": 1,
-   "checkouts": 5,
+   "abandoned": 2,
+   "checkouts": 6,
    "compras": 4,
    "funnel_clicks": 0,
    "funnel_lpv": 0,
    "funnel_ctr": 0,
    "funnel_cpc": 0,
    "funnel_source": "planilha",
-   "conv_checkout": 80.0,
+   "conv_checkout": 66.67,
    "weeks": [
     {
      "id": "S1",
@@ -70324,28 +70604,28 @@
    "spend": 4319.44,
    "impressions": 166419,
    "reach": 128017,
-   "faturas": 169,
-   "units": 245,
-   "fat": 21463.0,
-   "nh": 19868.1,
-   "total": 21463.0,
+   "faturas": 170,
+   "units": 246,
+   "fat": 21610.0,
+   "nh": 20005.93,
+   "total": 21610.0,
    "ob": 60,
-   "cpa": 25.56,
-   "roas": 4.97,
-   "roas_nh": 4.6,
-   "lucro": 15548.66,
-   "roi": 359.97,
-   "ticket": 127.0,
+   "cpa": 25.41,
+   "roas": 5.0,
+   "roas_nh": 4.63,
+   "lucro": 15686.49,
+   "roi": 363.16,
+   "ticket": 127.12,
    "cpm": 25.96,
    "abandoned": 119,
-   "checkouts": 288,
-   "compras": 169,
+   "checkouts": 289,
+   "compras": 170,
    "funnel_clicks": 1339,
    "funnel_lpv": 1117,
    "funnel_ctr": 0.8,
    "funnel_cpc": 3.23,
    "funnel_source": "planilha",
-   "conv_checkout": 58.68,
+   "conv_checkout": 58.82,
    "weeks": [
     {
      "id": "S1",
@@ -70353,10 +70633,10 @@
      "d0": 1,
      "d1": 7,
      "spend": 4319.44,
-     "fat": 21463.0,
-     "faturas": 169,
-     "nh": 19868.1,
-     "lucro": 15548.66,
+     "fat": 21610.0,
+     "faturas": 170,
+     "nh": 20005.93,
+     "lucro": 15686.49,
      "impressions": 166419,
      "has_data": true
     },
@@ -70445,66 +70725,66 @@
     {
      "method": "PIX",
      "count": 109,
-     "pct": 64.5
+     "pct": 64.12
     },
     {
      "method": "Cartão de Crédito",
-     "count": 60,
-     "pct": 35.5
+     "count": 61,
+     "pct": 35.88
     }
    ],
    "parc_dist": [
     {
      "n": 1,
      "count": 17,
-     "pct": 28.33
+     "pct": 27.87
     },
     {
      "n": 2,
      "count": 18,
-     "pct": 30.0
+     "pct": 29.51
     },
     {
      "n": 3,
-     "count": 8,
-     "pct": 13.33
+     "count": 9,
+     "pct": 14.75
     },
     {
      "n": 4,
      "count": 5,
-     "pct": 8.33
+     "pct": 8.2
     },
     {
      "n": 5,
      "count": 4,
-     "pct": 6.67
+     "pct": 6.56
     },
     {
      "n": 6,
      "count": 3,
-     "pct": 5.0
+     "pct": 4.92
     },
     {
      "n": 7,
      "count": 1,
-     "pct": 1.67
+     "pct": 1.64
     },
     {
      "n": 8,
      "count": 1,
-     "pct": 1.67
+     "pct": 1.64
     },
     {
      "n": 12,
      "count": 3,
-     "pct": 5.0
+     "pct": 4.92
     }
    ],
    "ob_val": 4270.54,
    "ob_detail": [
     {
      "name": "Gravação Imersão Funções Executivas na Clínica Infantil",
-     "count": 76,
+     "count": 77,
      "val": 2986.46
     },
     {
@@ -82353,190 +82633,15 @@
    ]
   },
   {
-   "campaign": "[RE] [Compra] [Quente] [Validação] [Vídeos] - ABO",
-   "name": "[RE] AD-V: 01",
-   "spend": 1207.62,
-   "impressions": 43008,
-   "reach": 12642,
-   "freq": 3.4,
-   "cpm": 28.08,
-   "clicks": 726,
-   "ctr": 1.69,
-   "cpc": 1.66,
-   "lpv": 0,
-   "lpv_rate": 0.0,
-   "fat": 2479.0,
-   "faturas": 15,
-   "roas": 2.05,
-   "merged": false,
-   "copies_count": 0,
-   "daily": [
-    {
-     "date": "2026-05-01",
-     "spend": 603.81,
-     "impressions": 21504,
-     "clicks": 363,
-     "lpv": 0,
-     "reach": 12642,
-     "cpm": 28.08,
-     "fat": 0.0,
-     "faturas": 0
-    },
-    {
-     "date": "2026-05-07",
-     "spend": 2.42,
-     "impressions": 80,
-     "clicks": 4,
-     "lpv": 0,
-     "reach": 0,
-     "cpm": 30.25,
-     "fat": 0.0,
-     "faturas": 0
-    },
-    {
-     "date": "2026-05-08",
-     "spend": 42.54,
-     "impressions": 1340,
-     "clicks": 24,
-     "lpv": 0,
-     "reach": 0,
-     "cpm": 31.75,
-     "fat": 245.0,
-     "faturas": 1
-    },
-    {
-     "date": "2026-05-09",
-     "spend": 27.3,
-     "impressions": 1053,
-     "clicks": 18,
-     "lpv": 0,
-     "reach": 0,
-     "cpm": 25.93,
-     "fat": 333.0,
-     "faturas": 2
-    },
-    {
-     "date": "2026-05-10",
-     "spend": 59.24,
-     "impressions": 1942,
-     "clicks": 29,
-     "lpv": 0,
-     "reach": 0,
-     "cpm": 30.51,
-     "fat": 245.0,
-     "faturas": 1
-    },
-    {
-     "date": "2026-05-11",
-     "spend": 65.76,
-     "impressions": 2465,
-     "clicks": 43,
-     "lpv": 0,
-     "reach": 0,
-     "cpm": 26.68,
-     "fat": 480.0,
-     "faturas": 3
-    },
-    {
-     "date": "2026-05-12",
-     "spend": 61.94,
-     "impressions": 2297,
-     "clicks": 41,
-     "lpv": 0,
-     "reach": 0,
-     "cpm": 26.97,
-     "fat": 441.0,
-     "faturas": 3
-    },
-    {
-     "date": "2026-05-13",
-     "spend": 76.16,
-     "impressions": 2342,
-     "clicks": 38,
-     "lpv": 0,
-     "reach": 0,
-     "cpm": 32.52,
-     "fat": 294.0,
-     "faturas": 2
-    },
-    {
-     "date": "2026-05-14",
-     "spend": 117.71,
-     "impressions": 4065,
-     "clicks": 74,
-     "lpv": 0,
-     "reach": 0,
-     "cpm": 28.96,
-     "fat": 147.0,
-     "faturas": 1
-    },
-    {
-     "date": "2026-05-15",
-     "spend": 60.09,
-     "impressions": 2517,
-     "clicks": 49,
-     "lpv": 0,
-     "reach": 0,
-     "cpm": 23.88,
-     "fat": 0.0,
-     "faturas": 0
-    },
-    {
-     "date": "2026-05-16",
-     "spend": 34.31,
-     "impressions": 1172,
-     "clicks": 19,
-     "lpv": 0,
-     "reach": 0,
-     "cpm": 29.27,
-     "fat": 0.0,
-     "faturas": 0
-    },
-    {
-     "date": "2026-05-17",
-     "spend": 43.68,
-     "impressions": 1828,
-     "clicks": 23,
-     "lpv": 0,
-     "reach": 0,
-     "cpm": 23.89,
-     "fat": 0.0,
-     "faturas": 0
-    },
-    {
-     "date": "2026-05-18",
-     "spend": 12.66,
-     "impressions": 403,
-     "clicks": 1,
-     "lpv": 0,
-     "reach": 0,
-     "cpm": 31.41,
-     "fat": 147.0,
-     "faturas": 1
-    },
-    {
-     "date": "2026-05-20",
-     "spend": 0.0,
-     "impressions": 0,
-     "clicks": 0,
-     "lpv": 0,
-     "reach": 0,
-     "cpm": 0,
-     "fat": 147.0,
-     "faturas": 1
-    }
-   ]
-  },
-  {
    "campaign": "[INSTA] [Seguidores] [Frio] - ABO",
    "name": "[INSTA] AD-C: Zootopia",
-   "spend": 1174.39,
-   "impressions": 180035,
-   "reach": 171404,
+   "spend": 1212.5,
+   "impressions": 186653,
+   "reach": 177685,
    "freq": 1.05,
-   "cpm": 6.52,
-   "clicks": 5812,
-   "ctr": 3.23,
+   "cpm": 6.5,
+   "clicks": 6064,
+   "ctr": 3.25,
    "cpc": 0.2,
    "lpv": 0,
    "lpv_rate": 0.0,
@@ -83164,14 +83269,200 @@
     },
     {
      "date": "2026-10-07",
-     "spend": 12.5,
-     "impressions": 2126,
-     "clicks": 73,
+     "spend": 40.48,
+     "impressions": 7239,
+     "clicks": 258,
      "lpv": 0,
-     "reach": 1957,
-     "cpm": 5.88,
+     "reach": 6760,
+     "cpm": 5.59,
      "fat": 0.0,
      "faturas": 0
+    },
+    {
+     "date": "2026-10-08",
+     "spend": 10.13,
+     "impressions": 1505,
+     "clicks": 67,
+     "lpv": 0,
+     "reach": 1478,
+     "cpm": 6.73,
+     "fat": 0.0,
+     "faturas": 0
+    }
+   ]
+  },
+  {
+   "campaign": "[RE] [Compra] [Quente] [Validação] [Vídeos] - ABO",
+   "name": "[RE] AD-V: 01",
+   "spend": 1207.62,
+   "impressions": 43008,
+   "reach": 12642,
+   "freq": 3.4,
+   "cpm": 28.08,
+   "clicks": 726,
+   "ctr": 1.69,
+   "cpc": 1.66,
+   "lpv": 0,
+   "lpv_rate": 0.0,
+   "fat": 2479.0,
+   "faturas": 15,
+   "roas": 2.05,
+   "merged": false,
+   "copies_count": 0,
+   "daily": [
+    {
+     "date": "2026-05-01",
+     "spend": 603.81,
+     "impressions": 21504,
+     "clicks": 363,
+     "lpv": 0,
+     "reach": 12642,
+     "cpm": 28.08,
+     "fat": 0.0,
+     "faturas": 0
+    },
+    {
+     "date": "2026-05-07",
+     "spend": 2.42,
+     "impressions": 80,
+     "clicks": 4,
+     "lpv": 0,
+     "reach": 0,
+     "cpm": 30.25,
+     "fat": 0.0,
+     "faturas": 0
+    },
+    {
+     "date": "2026-05-08",
+     "spend": 42.54,
+     "impressions": 1340,
+     "clicks": 24,
+     "lpv": 0,
+     "reach": 0,
+     "cpm": 31.75,
+     "fat": 245.0,
+     "faturas": 1
+    },
+    {
+     "date": "2026-05-09",
+     "spend": 27.3,
+     "impressions": 1053,
+     "clicks": 18,
+     "lpv": 0,
+     "reach": 0,
+     "cpm": 25.93,
+     "fat": 333.0,
+     "faturas": 2
+    },
+    {
+     "date": "2026-05-10",
+     "spend": 59.24,
+     "impressions": 1942,
+     "clicks": 29,
+     "lpv": 0,
+     "reach": 0,
+     "cpm": 30.51,
+     "fat": 245.0,
+     "faturas": 1
+    },
+    {
+     "date": "2026-05-11",
+     "spend": 65.76,
+     "impressions": 2465,
+     "clicks": 43,
+     "lpv": 0,
+     "reach": 0,
+     "cpm": 26.68,
+     "fat": 480.0,
+     "faturas": 3
+    },
+    {
+     "date": "2026-05-12",
+     "spend": 61.94,
+     "impressions": 2297,
+     "clicks": 41,
+     "lpv": 0,
+     "reach": 0,
+     "cpm": 26.97,
+     "fat": 441.0,
+     "faturas": 3
+    },
+    {
+     "date": "2026-05-13",
+     "spend": 76.16,
+     "impressions": 2342,
+     "clicks": 38,
+     "lpv": 0,
+     "reach": 0,
+     "cpm": 32.52,
+     "fat": 294.0,
+     "faturas": 2
+    },
+    {
+     "date": "2026-05-14",
+     "spend": 117.71,
+     "impressions": 4065,
+     "clicks": 74,
+     "lpv": 0,
+     "reach": 0,
+     "cpm": 28.96,
+     "fat": 147.0,
+     "faturas": 1
+    },
+    {
+     "date": "2026-05-15",
+     "spend": 60.09,
+     "impressions": 2517,
+     "clicks": 49,
+     "lpv": 0,
+     "reach": 0,
+     "cpm": 23.88,
+     "fat": 0.0,
+     "faturas": 0
+    },
+    {
+     "date": "2026-05-16",
+     "spend": 34.31,
+     "impressions": 1172,
+     "clicks": 19,
+     "lpv": 0,
+     "reach": 0,
+     "cpm": 29.27,
+     "fat": 0.0,
+     "faturas": 0
+    },
+    {
+     "date": "2026-05-17",
+     "spend": 43.68,
+     "impressions": 1828,
+     "clicks": 23,
+     "lpv": 0,
+     "reach": 0,
+     "cpm": 23.89,
+     "fat": 0.0,
+     "faturas": 0
+    },
+    {
+     "date": "2026-05-18",
+     "spend": 12.66,
+     "impressions": 403,
+     "clicks": 1,
+     "lpv": 0,
+     "reach": 0,
+     "cpm": 31.41,
+     "fat": 147.0,
+     "faturas": 1
+    },
+    {
+     "date": "2026-05-20",
+     "spend": 0.0,
+     "impressions": 0,
+     "clicks": 0,
+     "lpv": 0,
+     "reach": 0,
+     "cpm": 0,
+     "fat": 147.0,
+     "faturas": 1
     }
    ]
   },
@@ -96998,7 +97289,7 @@
   "reach": 0,
   "cpm": 0.0,
   "freq": 0.0,
-  "days": 7,
+  "days": 8,
   "pct_invest": 0.0,
   "cost_per_1k_reach": 0,
   "daily": [],
@@ -97049,9 +97340,9 @@
   },
   {
    "name": "Instagram — Bio",
-   "faturas": 16,
-   "fat": 4021.0,
-   "nh": 3872.45
+   "faturas": 17,
+   "fat": 6518.0,
+   "nh": 6075.56
   },
   {
    "name": "Instagram — Stories",
@@ -97060,22 +97351,22 @@
    "nh": 1479.89
   },
   {
+   "name": "WhatsApp — Whats",
+   "faturas": 25,
+   "fat": 20052.0,
+   "nh": 18973.4
+  },
+  {
    "name": "WhatsApp — Comu ife",
    "faturas": 8,
    "fat": 19976.0,
    "nh": 18114.23
   },
   {
-   "name": "WhatsApp — Whats",
-   "faturas": 22,
-   "fat": 12561.0,
-   "nh": 11567.18
-  },
-  {
    "name": "WhatsApp — Grupos Alunas",
-   "faturas": 15,
-   "fat": 3702.0,
-   "nh": 3322.36
+   "faturas": 16,
+   "fat": 6199.0,
+   "nh": 5481.59
   },
   {
    "name": "WhatsApp — Alunas",
@@ -97127,17 +97418,17 @@
   },
   {
    "name": "Sem origem",
-   "faturas": 50,
-   "fat": 13020.02,
-   "nh": 11915.13
+   "faturas": 53,
+   "fat": 14063.72,
+   "nh": 12819.07
   }
  ],
  "products": [
   {
    "name": "Formação Primeira Infância - Turma 10",
-   "faturas": 38,
-   "fat": 70824.52,
-   "units": 38,
+   "faturas": 44,
+   "fat": 83609.22,
+   "units": 44,
    "recorrente": false,
    "plataforma": "hubla"
   },
@@ -97151,9 +97442,9 @@
   },
   {
    "name": "Gravação Imersão Funções Executivas na Clínica Infantil",
-   "faturas": 52,
-   "fat": 9247.0,
-   "units": 79,
+   "faturas": 53,
+   "fat": 9394.0,
+   "units": 80,
    "recorrente": false,
    "plataforma": "hubla"
   },
@@ -97178,6 +97469,14 @@
    "faturas": 2,
    "fat": 640.0,
    "units": 6,
+   "recorrente": false,
+   "plataforma": "hubla"
+  },
+  {
+   "name": "Workshop de Funções Executivas",
+   "faturas": 1,
+   "fat": 597.0,
+   "units": 1,
    "recorrente": false,
    "plataforma": "hubla"
   },
@@ -97217,8 +97516,8 @@
  "regioes": [
   {
    "name": "Sudeste",
-   "faturas": 26,
-   "fat": 16905.06
+   "faturas": 27,
+   "fat": 19402.06
   },
   {
    "name": "Sul",
@@ -97227,8 +97526,8 @@
   },
   {
    "name": "Nordeste",
-   "faturas": 20,
-   "fat": 10283.41
+   "faturas": 21,
+   "fat": 10880.41
   },
   {
    "name": "Centro-Oeste",
@@ -97237,16 +97536,21 @@
   },
   {
    "name": "Norte",
-   "faturas": 2,
-   "fat": 368.7
+   "faturas": 3,
+   "fat": 668.4
   },
   {
    "name": "Não informado",
-   "faturas": 154,
-   "fat": 54519.1
+   "faturas": 159,
+   "fat": 64654.1
   }
  ],
  "estados": [
+  {
+   "uf": "MG",
+   "faturas": 11,
+   "fat": 7348.66
+  },
   {
    "uf": "SP",
    "faturas": 10,
@@ -97266,11 +97570,6 @@
    "uf": "DF",
    "faturas": 3,
    "fat": 5063.0
-  },
-  {
-   "uf": "MG",
-   "faturas": 10,
-   "fat": 4851.66
   },
   {
    "uf": "GO",
@@ -97298,6 +97597,11 @@
    "fat": 778.75
   },
   {
+   "uf": "PB",
+   "faturas": 2,
+   "fat": 744.0
+  },
+  {
    "uf": "MA",
    "faturas": 2,
    "fat": 446.75
@@ -97318,9 +97622,9 @@
    "fat": 363.0
   },
   {
-   "uf": "PB",
+   "uf": "PA",
    "faturas": 1,
-   "fat": 147.0
+   "fat": 299.7
   },
   {
    "uf": "CE",
@@ -97337,84 +97641,84 @@
   {
    "method": "PIX",
    "count": 118,
-   "pct": 54.13
+   "pct": 52.21
   },
   {
    "method": "Cartão de Crédito",
-   "count": 98,
-   "pct": 44.95
+   "count": 106,
+   "pct": 46.9
   },
   {
    "method": "Boleto",
    "count": 1,
-   "pct": 0.46
+   "pct": 0.44
   },
   {
    "method": "Múltiplos cartões",
    "count": 1,
-   "pct": 0.46
+   "pct": 0.44
   }
  ],
  "parc_dist": [
   {
    "n": 1,
-   "count": 30,
-   "pct": 30.61
+   "count": 31,
+   "pct": 29.25
   },
   {
    "n": 2,
    "count": 19,
-   "pct": 19.39
+   "pct": 17.92
   },
   {
    "n": 3,
-   "count": 10,
-   "pct": 10.2
+   "count": 12,
+   "pct": 11.32
   },
   {
    "n": 4,
    "count": 5,
-   "pct": 5.1
+   "pct": 4.72
   },
   {
    "n": 5,
-   "count": 5,
-   "pct": 5.1
+   "count": 6,
+   "pct": 5.66
   },
   {
    "n": 6,
    "count": 3,
-   "pct": 3.06
+   "pct": 2.83
   },
   {
    "n": 7,
    "count": 1,
-   "pct": 1.02
+   "pct": 0.94
   },
   {
    "n": 8,
    "count": 3,
-   "pct": 3.06
+   "pct": 2.83
   },
   {
    "n": 9,
    "count": 1,
-   "pct": 1.02
+   "pct": 0.94
   },
   {
    "n": 10,
-   "count": 4,
-   "pct": 4.08
+   "count": 5,
+   "pct": 4.72
   },
   {
    "n": 11,
    "count": 1,
-   "pct": 1.02
+   "pct": 0.94
   },
   {
    "n": 12,
-   "count": 16,
-   "pct": 16.33
+   "count": 19,
+   "pct": 17.92
   }
  ],
  "ob_detail": [
@@ -97463,15 +97767,15 @@
    "level": "positivo",
    "icon": "plus",
    "tag": "ORDER BUMP",
-   "title": "Order Bumps adicionam +11% ao faturamento — 80 compras complementares",
-   "body": "80 order bumps aceitos em 218 faturas (36.7% de adesão), adicionando R$10,558 ao faturamento."
+   "title": "Order Bumps adicionam +10% ao faturamento — 80 compras complementares",
+   "body": "80 order bumps aceitos em 226 faturas (35.4% de adesão), adicionando R$10,558 ao faturamento."
   },
   {
    "level": "atencao",
    "icon": "cart",
    "tag": "RECUPERAÇÃO",
-   "title": "185 carrinhos abandonados — R$81,073 em receita potencial",
-   "body": "Taxa de conversão do checkout: 54.1% (218 compras / 403 checkouts). Sequência de WhatsApp + e-mail em 1h-24h pode recuperar 15-30% dos leads."
+   "title": "188 carrinhos abandonados — R$90,725 em receita potencial",
+   "body": "Taxa de conversão do checkout: 54.6% (226 compras / 414 checkouts). Sequência de WhatsApp + e-mail em 1h-24h pode recuperar 15-30% dos leads."
   },
   {
    "level": "positivo",
@@ -97484,8 +97788,8 @@
    "level": "info",
    "icon": "profit",
    "tag": "MARGEM",
-   "title": "Margem líquida (após Hubla): 91.5% — R$87,400 de 218 vendas",
-   "body": "De R$95,534 faturados, R$87,400 chega líquido (margem 91.5%). Com R$4,319 em mídia, o lucro operacional é R$83,080 (ROI 1923%). Para cada R$1 investido, retornam R$22.12."
+   "title": "Margem líquida (após Hubla): 91.8% — R$100,072 de 226 vendas",
+   "body": "De R$109,063 faturados, R$100,072 chega líquido (margem 91.8%). Com R$4,319 em mídia, o lucro operacional é R$95,753 (ROI 2217%). Para cada R$1 investido, retornam R$25.25."
   }
  ],
  "fb_split": {
@@ -97503,10 +97807,10 @@
   }
  },
  "_validation": {
-  "period_label": "01 a 7 de outubro de 2026",
+  "period_label": "01 a 8 de outubro de 2026",
   "period_start": "2026-10-01",
-  "period_end": "2026-10-07",
-  "generated_at": "2026-10-07 10:33:33",
+  "period_end": "2026-10-08",
+  "generated_at": "2026-10-08 10:35:53",
   "checks": [
    {
     "name": "Período cobre mês corrente",
@@ -97546,15 +97850,15 @@
    {
     "name": "Faturas IFE (XLSX → JSON)",
     "ok": true,
-    "expected": 169,
-    "got": 169,
+    "expected": 170,
+    "got": 170,
     "critical": true
    },
    {
     "name": "Faturamento IFE bruto",
     "ok": true,
-    "expected": 21463.0,
-    "got": 21463.0,
+    "expected": 21610.0,
+    "got": 21610.0,
     "critical": true
    },
    {
@@ -97567,8 +97871,8 @@
    {
     "name": "Soma daily[mês] == totals.fat",
     "ok": true,
-    "expected": 95534.02,
-    "got": 95534.02,
+    "expected": 109062.72,
+    "got": 109062.72,
     "critical": false
    }
   ],
