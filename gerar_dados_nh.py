@@ -266,7 +266,29 @@ CAMP_META = {
     "[IFE] [Compra] [Vídeos] [Frio] - ABO":                         {"prod":"IFE","aud":"Frio","creat":"Vídeos","obj":"sales","status":"ACTIVE","freq":1.30},
     "[IFE] [Compra] [Estáticos] [Quente] - CBO":                    {"prod":"IFE","aud":"Quente","creat":"Estáticos","obj":"sales","status":"ACTIVE","freq":1.30},
     "[IFE] [Compra] [Vídeos] [Quente] - CBO":                       {"prod":"IFE","aud":"Quente","creat":"Vídeos","obj":"sales","status":"ACTIVE","freq":1.30},
+    # Adicionadas em 21/out/2026 — tinham spend na aba DADOS IFE e vendas com
+    # UTM própria na Hubla, mas ficavam fora da aba Campanhas.
+    "[IFE] [Compra] [Estáticos] [L2] [Frio] - ABO":                 {"prod":"IFE","aud":"Frio","creat":"Estáticos","obj":"sales","status":"PAUSED","freq":1.30},
+    "[IFE] [Compra] [Estáticos] [L2] [Quente] - CBO":               {"prod":"IFE","aud":"Quente","creat":"Estáticos","obj":"sales","status":"PAUSED","freq":1.30},
+    "[IFE] [Compra] [RMKT] [Quente] - ABO":                         {"prod":"IFE","aud":"Quente","creat":"Misto","obj":"sales","status":"PAUSED","freq":1.30},
+    "[IFE] [Compra] [Virada de Lote 1] [Quente] - CBO":             {"prod":"IFE","aud":"Quente","creat":"Misto","obj":"sales","status":"PAUSED","freq":1.30},
+    # Sem aba DADOS na planilha: o spend vem do ads_daily.csv (Meta MCP), ver
+    # ADS_SPEND_CAMPS. "[Imersão]" (sem "[IFE]") fica fora do spend IFE/totals.
+    "[Imersão] [Alcance] [Quente] - ABO":                           {"prod":"IFE","aud":"Quente","creat":"Estáticos","obj":"sales","status":"PAUSED","freq":1.30},
+    # FPI (lançamento Turma 10, out/2026). Vendas: só "Formação Primeira
+    # Infância - Turma 10" com UTM de uma campanha FPI, somadas e divididas
+    # entre as 4 na proporção do spend (decisão do Guilherme, 21/out).
+    "[FPI] [Compra] [Carrinho] [Quente] - ABO":                     {"prod":"FPI","aud":"Quente","creat":"Vídeos","obj":"sales","status":"PAUSED","freq":1.30},
+    "[FPI] [Alcance] [Últimos Dias] [Quente] - ABO":                {"prod":"FPI","aud":"Quente","creat":"Vídeos","obj":"sales","status":"PAUSED","freq":1.30},
+    "[FPI] [Alcance] [Últimos Dias] [2] [Quente] - ABO":            {"prod":"FPI","aud":"Quente","creat":"Vídeos","obj":"sales","status":"ACTIVE","freq":1.30},
+    "[FPI] [LIVE] [Quente] - CBO":                                  {"prod":"FPI","aud":"Quente","creat":"Misto","obj":"sales","status":"ACTIVE","freq":1.30},
 }
+# Campanhas cujo spend NÃO está em nenhuma aba DADOS da planilha. O spend delas
+# sai do ads_daily.csv (soma dos anúncios por dia) e entra só na aba Campanhas
+# (meta_by_camp/camps_dia) — fica FORA do totals.spend e do ROAS consolidado.
+ADS_SPEND_CAMPS = {c for c,m in CAMP_META.items() if m['prod']=='FPI'} | {"[Imersão] [Alcance] [Quente] - ABO"}
+FPI_CAMPS = [c for c,m in CAMP_META.items() if m['prod']=='FPI']
+def is_fpi_t10(p): return 'Primeira Infância - Turma 10' in str(p)
 
 # Normalização de UTM Campanha. A Hubla às vezes grava o nome da campanha com
 # os espaços comidos e os acentos REMOVIDOS (não transliterados) — ex.:
@@ -696,6 +718,32 @@ if _ife_csvs:
 else:
     print("[IFE CSV] ⚠️  *DADOS IFE*.csv ausente — spend IFE fora do totals.spend")
 
+# ── Campanhas sem aba DADOS (FPI, Imersão Alcance) — spend do ads_daily.csv ──
+# Lista separada de meta_raw de propósito: entra em meta_by_camp/camps_dia (aba
+# Campanhas) DEPOIS que os totais são calculados, então totals.spend não muda.
+meta_raw_ads = []
+_ads_spend_file = os.path.join(BASE_DATA, 'ads_daily.csv')
+if os.path.exists(_ads_spend_file):
+    _ads_cd = defaultdict(lambda: {'spend':0.0,'imp':0,'reach':0})
+    with open(_ads_spend_file, encoding='utf-8') as f:
+        for row in csv.DictReader(f):
+            cname = (row.get('Campaign name') or '').strip()
+            if cname not in ADS_SPEND_CAMPS: continue
+            dt2 = parse_day_col(row.get('Day',''))
+            if not dt2 or not (HIST_START <= dt2.replace(hour=0,minute=0,second=0) <= HIST_END): continue
+            _k = (cname, dt2.strftime('%Y-%m-%d'))
+            _ads_cd[_k]['spend'] += n(row.get('Amount Spent',0))
+            _ads_cd[_k]['imp']   += r0(n(row.get('Impressions',0)))
+            _ads_cd[_k]['reach'] += r0(n(row.get('Reach',0)))
+    for (cname, _iso), v in sorted(_ads_cd.items(), key=lambda x: x[0][1]):
+        if v['spend'] == 0 and v['imp'] == 0: continue
+        freq_est = CAMP_META[cname]['freq']
+        meta_raw_ads.append({'campaign':cname, 'date':_iso, 'spend':r2(v['spend']),
+                             'impressions':v['imp'],
+                             'reach':v['reach'] or (r0(v['imp']/freq_est) if v['imp'] else 0),
+                             'frequency':r2(freq_est), 'cpm':r2(v['spend']*1000/v['imp']) if v['imp'] else 0})
+    print(f"[ads_daily → Campanhas] {len(meta_raw_ads)} dias de spend p/ {len(set(r['campaign'] for r in meta_raw_ads))} campanha(s) sem aba DADOS")
+
 # ── INSTA — hardcoded ──
 INSTA_CAMP = "[INSTA] [Seguidores] [Frio] - ABO"
 INSTA_RAW = [
@@ -764,6 +812,16 @@ total_sales_imp   = total_meta_imp - meta_by_camp[INSTA_CAMP]['imp']
 
 print(f"\n[Meta] Total spend={total_meta_spend:.2f} | sales_spend={total_sales_spend:.2f}")
 print(f"[Meta] Total impressions={total_meta_imp}")
+
+# Campanhas sem aba DADOS entram em meta_by_camp só agora, depois dos totais.
+for row in meta_raw_ads:
+    _dt_iso = parse_dt(row['date'])
+    if _dt_iso and PERIOD_START <= _dt_iso <= PERIOD_END:
+        c=row['campaign']; d=int(row['date'][8:10])
+        meta_by_camp[c]['spend']  += row['spend']
+        meta_by_camp[c]['imp']    += row['impressions']
+        meta_by_camp[c]['reach']  += row['reach']
+        meta_by_camp[c]['daily'].append({'day':d,'spend':r2(row['spend']),'impressions':row['impressions'],'cpm':r2(row['cpm'])})
 
 # ── STEP 6: Aggregate Hubla ──────────────────────────────────────
 total_fat=total_nh=total_total=0.0; total_faturas=total_units=0
@@ -1190,14 +1248,30 @@ camp_hubla = {k:{'faturas':0,'fat':0.0,'nh':0.0} for k in CAMP_UTM_MAP}
 # Atribuição por (campanha, dia) — para ROAS real por período no front (camps_dia).
 # Usa inv['fat'] (mesma base de camp_hubla) p/ que a soma dos dias == total mensal da campanha.
 camp_day_hubla = defaultdict(lambda: defaultdict(lambda: {'faturas':0,'fat':0.0}))
-for inv in invoices:
+
+# FPI: só vendas da Turma 10 com UTM de uma campanha FPI contam, e o total é
+# dividido entre as campanhas FPI na proporção do spend do mês da venda (todas
+# ficam com o mesmo ROAS). Sem spend no mês, a venda fica na campanha da UTM.
+_fpi_sp_ym = defaultdict(lambda: defaultdict(float))
+for _r in meta_raw_ads:
+    if _r['campaign'] in FPI_CAMPS: _fpi_sp_ym[_r['date'][:7]][_r['campaign']] += _r['spend']
+def _camp_split(inv):
+    """[(campanha, peso)] da fatura; [] se não atribuível."""
     c3 = inv['camp']
-    if c3 in camp_hubla:
-        camp_hubla[c3]['faturas'] += 1
-        camp_hubla[c3]['fat']     += inv['fat']
-        camp_hubla[c3]['nh']      += inv['nh']
-        camp_day_hubla[c3][inv['day']]['faturas'] += 1
-        camp_day_hubla[c3][inv['day']]['fat']     += inv['fat']
+    if c3 not in camp_hubla: return []
+    if c3 not in FPI_CAMPS: return [(c3, 1.0)]
+    if not is_fpi_t10(inv['prod']): return []
+    _sp = _fpi_sp_ym.get(inv['date'][:7], {}); _tot = sum(_sp.values())
+    if not _tot: return [(c3, 1.0)]
+    return [(c, s/_tot) for c, s in _sp.items() if s > 0]
+
+for inv in invoices:
+    for c3, w in _camp_split(inv):
+        camp_hubla[c3]['faturas'] += w
+        camp_hubla[c3]['fat']     += inv['fat']*w
+        camp_hubla[c3]['nh']      += inv['nh']*w
+        camp_day_hubla[c3][inv['day']]['faturas'] += w
+        camp_day_hubla[c3][inv['day']]['fat']     += inv['fat']*w
 
 # Atribuição REAL por anúncio: (UTM Campanha, base(UTM Conteúdo)) → por data ISO.
 # base() funde cópias ("— Cópia") no anúncio-base, igual à chave dos ads_arr.
@@ -1214,6 +1288,7 @@ def _ad_key(name): return re.sub(r'[^a-z0-9]', '', _ad_base(name).lower())
 ad_day_hubla = defaultdict(lambda: defaultdict(lambda: {'faturas':0,'fat':0.0}))
 for inv in invoices_hist:
     c3 = inv['camp']; cont = inv.get('conteudo','')
+    if c3 in FPI_CAMPS and not is_fpi_t10(inv['prod']): continue
     if c3 in camp_hubla and cont and cont.lower() not in ('bio','stories','whats','organico',''):
         key = (c3, _ad_key(cont))
         ad_day_hubla[key][inv['date']]['faturas'] += 1
@@ -1226,10 +1301,9 @@ for inv in invoices_hist:
 # zerados na tabela de campanhas e na análise de criativos. Ver [[gerador-dados-nh]].
 camp_day_hubla_iso = defaultdict(lambda: defaultdict(lambda: {'faturas':0,'fat':0.0}))
 for inv in invoices_hist:
-    c3 = inv['camp']
-    if c3 in camp_hubla:
-        camp_day_hubla_iso[c3][inv['date']]['faturas'] += 1
-        camp_day_hubla_iso[c3][inv['date']]['fat']     += inv['fat']
+    for c3, w in _camp_split(inv):
+        camp_day_hubla_iso[c3][inv['date']]['faturas'] += w
+        camp_day_hubla_iso[c3][inv['date']]['fat']     += inv['fat']*w
 
 # ── STEP 8: Weeks ────────────────────────────────────────────────
 def build_week(wid,label,d0,d1):
@@ -1289,7 +1363,7 @@ for cname,mc in CAMP_META.items():
     cd=meta_by_camp[cname]; sp=cd['spend']; imp=cd['imp']; reach=cd.get('reach',0)
     days_active=sorted(set(e['day'] for e in cd['daily']))
     ch=camp_hubla.get(cname,{'faturas':0,'fat':0.0,'nh':0.0})
-    cc=ch['faturas']; cf=r2(ch['fat']); cnh=r2(ch['nh'])
+    cc=r2(ch['faturas']); cf=r2(ch['fat']); cnh=r2(ch['nh'])
     freq_v = r2(imp/reach) if reach else r2(RE_FREQ.get(cname, PSI_FREQ.get(cname, 1.4)))
     campaigns_arr.append({
         "id":str(fid),"name":cname,"prod":mc['prod'],"aud":mc['aud'],
@@ -1317,7 +1391,7 @@ campaigns_arr.append({
 # um mês encerrado a tabela de campanhas e a análise de criativos ficariam
 # INCOMPLETAS (faltando campanhas ativas só naquele mês). Ver [[gerador-dados-nh]].
 _emitted = {c4['name'] for c4 in campaigns_arr}
-_hist_active = set(r['campaign'] for r in meta_raw) | set(camp_day_hubla_iso.keys())
+_hist_active = set(r['campaign'] for r in meta_raw + meta_raw_ads) | set(camp_day_hubla_iso.keys())
 for cname, mc in CAMP_META.items():
     if cname in _emitted or cname not in _hist_active: continue
     fid += 1
@@ -1379,14 +1453,14 @@ for _entry in daily_arr:
                                for pn,pv in sorted(day_prod_psi_d[_d].items(),key=lambda x:-x[1]['fat']) if pv['fat']>0]
     # Campanhas Meta do dia (para Campanhas e Seguidores funcionarem por intervalo)
     _camp_day = defaultdict(lambda: {'spend':0.0,'imp':0,'reach':0})
-    for _mr in meta_raw:
+    for _mr in meta_raw + meta_raw_ads:
         if int(_mr['date'][8:10]) == _d and _mr['date'][:7] == f"{PERIOD_YEAR}-{PERIOD_MONTH:02d}":
             _camp_day[_mr['campaign']]['spend'] += _mr['spend']
             _camp_day[_mr['campaign']]['imp']   += _mr['impressions']
             _camp_day[_mr['campaign']]['reach'] += _mr['reach']
     _entry['camps_dia']  = [{"name":cn,"spend":r2(cv['spend']),"impressions":r0(cv['imp']),"reach":r0(cv['reach']),
                              "fat":r2(camp_day_hubla.get(cn,{}).get(_d,{}).get('fat',0.0)),
-                             "faturas":camp_day_hubla.get(cn,{}).get(_d,{}).get('faturas',0)}
+                             "faturas":r2(camp_day_hubla.get(cn,{}).get(_d,{}).get('faturas',0))}
                             for cn,cv in _camp_day.items() if cv['spend']>0 or cv['imp']>0]
     # Funil por produto
     _entry['funnel_clicks_re']  = day_funnel_re[_d]['clicks']
@@ -1694,8 +1768,8 @@ for date_str, h in sorted(hist_by_date.items()):
         "camps_dia":[{"name":mr['campaign'],"spend":r2(mr['spend']),
                       "impressions":r0(mr['impressions']),"reach":r0(mr['reach']),
                       "fat":r2(camp_day_hubla_iso.get(mr['campaign'],{}).get(date_str,{}).get('fat',0.0)),
-                      "faturas":camp_day_hubla_iso.get(mr['campaign'],{}).get(date_str,{}).get('faturas',0)}
-                     for mr in meta_raw if mr['date']==date_str],
+                      "faturas":r2(camp_day_hubla_iso.get(mr['campaign'],{}).get(date_str,{}).get('faturas',0))}
+                     for mr in meta_raw + meta_raw_ads if mr['date']==date_str],
         "mes_corrente":False,
         **_pago_fields(date_str),
     })
