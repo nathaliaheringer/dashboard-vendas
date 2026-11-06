@@ -3312,14 +3312,235 @@ Day,Campaign name,Ad name,Amount Spent,Impressions,Reach,Frequency,"CPM (Cost pe
 2026-10-21,[RE] [Compra] [Quente] - ABO,[RE] AD-V: 08,11.95,483,433,1.12,24.74,6,1.99,1.24
 2026-10-21,[RE] [Compra] [Quente] - ABO,[RE] AD-V: 14A,22.9,1496,1180,1.27,15.31,13,1.76,0.87
 2026-10-21,[RE] [Compra] [Quente] - ABO,[RE] AD-V: 16 — Cópia,36.5,2345,1875,1.25,15.57,16,2.28,0.68
-2026-10-22,[INSTA] [Seguidores] [Frio] - ABO,[INSTA] AD-C: Zootopia,9.45,1320,1266,1.04,7.16,57,0.17,4.32
-2026-10-22,[RE] [Compra] [Frio] [Melhores Criativos] [ADV+] - CBO,[RE] AD-V: 02,1.2,30,28,1.07,40.0,2,0.6,6.67
-2026-10-22,[RE] [Compra] [Frio] [Melhores Criativos] [ADV+] - CBO,[RE] AD-V: 11 A,19.08,936,904,1.04,20.38,17,1.12,1.82
-2026-10-22,[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO,[RE] AD-V: 14A,19.09,816,710,1.15,23.39,13,1.47,1.59
-2026-10-22,[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO,[RE] AD-V: 14A — Cópia,18.48,867,794,1.09,21.31,17,1.09,1.96
-2026-10-22,[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO,[RE] AD-V: 14B,0.12,8,6,1.33,15.0,0,0,0.0
-2026-10-22,[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO,[RE] AD-V: 14B — Cópia,0.01,2,2,1.0,5.0,0,0,0.0
-2026-10-22,[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO,[RE] AD-V: 16,13.34,469,395,1.19,28.44,2,6.67,0.43
-2026-10-22,[RE] [Compra] [Quente] - ABO,[RE] AD-V: 08,0.45,2,2,1.0,225.0,0,0,0.0
-2026-10-22,[RE] [Compra] [Quente] - ABO,[RE] AD-V: 14A,8.95,422,349,1.21,21.21,7,1.28,1.66
-2026-10-22,[RE] [Compra] [Quente] - ABO,[RE] AD-V: 16 — Cópia,15.17,487,440,1.11,31.15,9,1.69,1.85
+2026-10-22,[INSTA] [Seguidores] [Frio] - ABO,[INSTA] AD-C: Zootopia,42.31,6351,5961,1.07,6.66,239,0.18,3.76
+2026-10-22,[RE] [Compra] [Frio] [Melhores Criativos] [ADV+] - CBO,[RE] AD-V: 02,25.27,1303,1191,1.09,19.39,29,0.87,2.23
+2026-10-22,[RE] [Compra] [Frio] [Melhores Criativos] [ADV+] - CBO,[RE] AD-V: 09,1.42,71,70,1.01,20.0,1,1.42,1.41
+2026-10-22,[RE] [Compra] [Frio] [Melhores Criativos] [ADV+] - CBO,[RE] AD-V: 11 A,45.59,2672,2420,1.1,17.06,38,1.2,1.42
+2026-10-22,[RE] [Compra] [Frio] [Melhores Criativos] [ADV+] - CBO,[RE] AD-V: 16,0.02,3,3,1.0,6.67,0,0,0.0
+2026-10-22,[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO,[RE] AD-V: 14A,38.76,2077,1867,1.11,18.66,42,0.92,2.02
+2026-10-22,[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO,[RE] AD-V: 14A — Cópia,66.26,3862,3291,1.17,17.16,70,0.95,1.81
+2026-10-22,[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO,[RE] AD-V: 14B,15.2,905,608,1.49,16.8,6,2.53,0.66
+2026-10-22,[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO,[RE] AD-V: 14B,1.37,52,47,1.11,26.35,1,1.37,1.92
+2026-10-22,[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO,[RE] AD-V: 14B — Cópia,2.84,110,96,1.15,25.82,1,2.84,0.91
+2026-10-22,[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO,[RE] AD-V: 16,1.28,53,52,1.02,24.15,0,0,0.0
+2026-10-22,[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO,[RE] AD-V: 16,45.61,1775,1314,1.35,25.7,17,2.68,0.96
+2026-10-22,[RE] [Compra] [Quente] - ABO,[RE] AD-V: 08,4.49,195,179,1.09,23.03,1,4.49,0.51
+2026-10-22,[RE] [Compra] [Quente] - ABO,[RE] AD-V: 14A,33.06,1908,1474,1.29,17.33,21,1.57,1.1
+2026-10-22,[RE] [Compra] [Quente] - ABO,[RE] AD-V: 16 — Cópia,34.76,1579,1376,1.15,22.01,16,2.17,1.01
+2026-10-23,[INSTA] [Seguidores] [Frio] - ABO,[INSTA] AD-C: Zootopia,31.8,5201,4972,1.05,6.11,152,0.21,2.92
+2026-10-23,[RE] [Compra] [Frio] [Melhores Criativos & Públicos] - ABO,[RE] AD-V: 09,5.36,224,214,1.05,23.93,0,0,0.0
+2026-10-23,[RE] [Compra] [Frio] [Melhores Criativos & Públicos] - ABO,[RE] AD-V: 09,14.91,762,667,1.14,19.57,3,4.97,0.39
+2026-10-23,[RE] [Compra] [Frio] [Melhores Criativos & Públicos] - ABO,[RE] AD-V: 11 A,13.98,854,763,1.12,16.37,14,1.0,1.64
+2026-10-23,[RE] [Compra] [Frio] [Melhores Criativos & Públicos] - ABO,[RE] AD-V: 11 A,4.63,184,179,1.03,25.16,4,1.16,2.17
+2026-10-23,[RE] [Compra] [Frio] [Melhores Criativos & Públicos] - ABO,[RE] AD-V: 16,4.31,61,59,1.03,70.66,0,0,0.0
+2026-10-23,[RE] [Compra] [Frio] [Melhores Criativos & Públicos] - ABO,[RE] AD-V: 16,1.82,80,78,1.03,22.75,1,1.82,1.25
+2026-10-23,[RE] [Compra] [Frio] [Melhores Criativos] [ADV+] - CBO,[RE] AD-V: 02,20.3,957,917,1.04,21.21,13,1.56,1.36
+2026-10-23,[RE] [Compra] [Frio] [Melhores Criativos] [ADV+] - CBO,[RE] AD-V: 09,2.46,122,112,1.09,20.16,2,1.23,1.64
+2026-10-23,[RE] [Compra] [Frio] [Melhores Criativos] [ADV+] - CBO,[RE] AD-V: 11 A,23.34,1888,1728,1.09,12.36,18,1.3,0.95
+2026-10-23,[RE] [Compra] [Frio] [Melhores Criativos] [ADV+] - CBO,[RE] AD-V: 16,0.03,5,5,1.0,6.0,0,0,0.0
+2026-10-23,[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO,[RE] AD-V: 14A,58.1,3272,2770,1.18,17.76,53,1.1,1.62
+2026-10-23,[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO,[RE] AD-V: 14A — Cópia,12.12,495,479,1.03,24.48,11,1.1,2.22
+2026-10-23,[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO,[RE] AD-V: 14B,0.63,63,55,1.15,10.0,0,0,0.0
+2026-10-23,[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO,[RE] AD-V: 14B,3.4,98,80,1.23,34.69,2,1.7,2.04
+2026-10-23,[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO,[RE] AD-V: 14B — Cópia,0.05,5,4,1.25,10.0,0,0,0.0
+2026-10-23,[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO,[RE] AD-V: 16,2.77,198,168,1.18,13.99,1,2.77,0.51
+2026-10-23,[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO,[RE] AD-V: 16,37.99,1606,1117,1.44,23.66,17,2.23,1.06
+2026-10-23,[RE] [Compra] [Quente] - ABO,[RE] AD-V: 08,3.41,205,191,1.07,16.63,0,0,0.0
+2026-10-23,[RE] [Compra] [Quente] - ABO,[RE] AD-V: 14A,27.54,1883,1396,1.35,14.63,13,2.12,0.69
+2026-10-23,[RE] [Compra] [Quente] - ABO,[RE] AD-V: 16 — Cópia,33.48,2006,1742,1.15,16.69,23,1.46,1.15
+2026-10-24,[INSTA] [Seguidores] [Frio] - ABO,[INSTA] AD-C: Zootopia,36.68,7362,6956,1.06,4.98,218,0.17,2.96
+2026-10-24,[RE] [Compra] [Frio] [Melhores Criativos & Públicos] - ABO,[RE] AD-V: 09,33.04,1429,1280,1.12,23.12,17,1.94,1.19
+2026-10-24,[RE] [Compra] [Frio] [Melhores Criativos & Públicos] - ABO,[RE] AD-V: 09,38.63,1905,1679,1.13,20.28,21,1.84,1.1
+2026-10-24,[RE] [Compra] [Frio] [Melhores Criativos & Públicos] - ABO,[RE] AD-V: 11 A,2.11,74,73,1.01,28.51,0,0,0.0
+2026-10-24,[RE] [Compra] [Frio] [Melhores Criativos & Públicos] - ABO,[RE] AD-V: 11 A,0.99,44,43,1.02,22.5,0,0,0.0
+2026-10-24,[RE] [Compra] [Frio] [Melhores Criativos & Públicos] - ABO,[RE] AD-V: 16,1.25,44,43,1.02,28.41,0,0,0.0
+2026-10-24,[RE] [Compra] [Frio] [Melhores Criativos & Públicos] - ABO,[RE] AD-V: 16,0.1,7,7,1.0,14.29,0,0,0.0
+2026-10-24,[RE] [Compra] [Frio] [Melhores Criativos] [ADV+] - CBO,[RE] AD-V: 09,2.64,71,70,1.01,37.18,0,0,0.0
+2026-10-24,[RE] [Compra] [Frio] [Melhores Criativos] [ADV+] - CBO,[RE] AD-V: 11 A,73.92,5226,4515,1.16,14.14,50,1.48,0.96
+2026-10-24,[RE] [Compra] [Frio] [Melhores Criativos] [ADV+] - CBO,[RE] AD-V: 16,0.06,1,1,1.0,60.0,0,0,0.0
+2026-10-24,[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO,[RE] AD-V: 14A,67.97,4501,3894,1.16,15.1,43,1.58,0.96
+2026-10-24,[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO,[RE] AD-V: 14B,0.73,27,23,1.17,27.04,0,0,0.0
+2026-10-24,[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO,[RE] AD-V: 14B,1.67,69,58,1.19,24.2,0,0,0.0
+2026-10-24,[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO,[RE] AD-V: 16,0.1,15,14,1.07,6.67,0,0,0.0
+2026-10-24,[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO,[RE] AD-V: 16,31.83,1452,1049,1.38,21.92,15,2.12,1.03
+2026-10-24,[RE] [Compra] [Quente] - ABO,[RE] AD-V: 08,14.8,544,489,1.11,27.21,3,4.93,0.55
+2026-10-24,[RE] [Compra] [Quente] - ABO,[RE] AD-V: 14A,30.22,2220,1646,1.35,13.61,13,2.32,0.59
+2026-10-24,[RE] [Compra] [Quente] - ABO,[RE] AD-V: 16 — Cópia,21.36,1338,1131,1.18,15.96,13,1.64,0.97
+2026-10-25,[INSTA] [Seguidores] [Frio] - ABO,[INSTA] AD-C: Zootopia,52.97,12915,11555,1.12,4.1,308,0.17,2.38
+2026-10-25,[RE] [Compra] [Frio] [Melhores Criativos & Públicos] - ABO,[RE] AD-V: 09,32.04,1713,1518,1.13,18.7,9,3.56,0.53
+2026-10-25,[RE] [Compra] [Frio] [Melhores Criativos & Públicos] - ABO,[RE] AD-V: 09,37.64,1597,1390,1.15,23.57,13,2.9,0.81
+2026-10-25,[RE] [Compra] [Frio] [Melhores Criativos & Públicos] - ABO,[RE] AD-V: 11 A,0.04,6,6,1.0,6.67,0,0,0.0
+2026-10-25,[RE] [Compra] [Frio] [Melhores Criativos & Públicos] - ABO,[RE] AD-V: 11 A,1.48,60,59,1.02,24.67,0,0,0.0
+2026-10-25,[RE] [Compra] [Frio] [Melhores Criativos & Públicos] - ABO,[RE] AD-V: 16,4.68,137,130,1.05,34.16,1,4.68,0.73
+2026-10-25,[RE] [Compra] [Frio] [Melhores Criativos] [ADV+] - CBO,[RE] AD-V: 09,1.03,20,20,1.0,51.5,0,0,0.0
+2026-10-25,[RE] [Compra] [Frio] [Melhores Criativos] [ADV+] - CBO,[RE] AD-V: 11 A,50.43,2994,2762,1.08,16.84,27,1.87,0.9
+2026-10-25,[RE] [Compra] [Frio] [Melhores Criativos] [ADV+] - CBO,[RE] AD-V: 16,0.01,2,2,1.0,5.0,0,0,0.0
+2026-10-25,[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO,[RE] AD-V: 14A,67.91,4086,3476,1.18,16.62,61,1.11,1.49
+2026-10-25,[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO,[RE] AD-V: 14B,0.15,15,12,1.25,10.0,0,0,0.0
+2026-10-25,[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO,[RE] AD-V: 14B,1.76,90,66,1.36,19.56,1,1.76,1.11
+2026-10-25,[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO,[RE] AD-V: 16,1.03,37,34,1.09,27.84,0,0,0.0
+2026-10-25,[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO,[RE] AD-V: 16,32.59,1386,915,1.51,23.51,18,1.81,1.3
+2026-10-25,[RE] [Compra] [Quente] - ABO,[RE] AD-V: 08,1.83,73,71,1.03,25.07,1,1.83,1.37
+2026-10-25,[RE] [Compra] [Quente] - ABO,[RE] AD-V: 14A,33.66,2441,1617,1.51,13.79,25,1.35,1.02
+2026-10-25,[RE] [Compra] [Quente] - ABO,[RE] AD-V: 16 — Cópia,34.48,2115,1782,1.19,16.3,20,1.72,0.95
+2026-10-26,[INSTA] [Seguidores] [Frio] - ABO,[INSTA] AD-C: Zootopia,34.28,9061,7981,1.14,3.78,203,0.17,2.24
+2026-10-26,[RE] [Compra] [Frio] [Melhores Criativos & Públicos] - ABO,[RE] AD-V: 09,5.95,294,279,1.05,20.24,0,0,0.0
+2026-10-26,[RE] [Compra] [Frio] [Melhores Criativos & Públicos] - ABO,[RE] AD-V: 09,4.93,191,182,1.05,25.81,2,2.46,1.05
+2026-10-26,[RE] [Compra] [Frio] [Melhores Criativos & Públicos] - ABO,[RE] AD-V: 11 A,6.38,278,256,1.09,22.95,5,1.28,1.8
+2026-10-26,[RE] [Compra] [Frio] [Melhores Criativos & Públicos] - ABO,[RE] AD-V: 11 A,23.37,1101,1005,1.1,21.23,16,1.46,1.45
+2026-10-26,[RE] [Compra] [Frio] [Melhores Criativos & Públicos] - ABO,[RE] AD-V: 16,3.01,86,82,1.05,35.0,1,3.01,1.16
+2026-10-26,[RE] [Compra] [Frio] [Melhores Criativos & Públicos] - ABO,[RE] AD-V: 16,3.4,88,87,1.01,38.64,2,1.7,2.27
+2026-10-26,[RE] [Compra] [Frio] [Melhores Criativos] [ADV+] - CBO,[RE] AD-V: 09,4.41,201,192,1.05,21.94,3,1.47,1.49
+2026-10-26,[RE] [Compra] [Frio] [Melhores Criativos] [ADV+] - CBO,[RE] AD-V: 11 A,55.37,3602,3188,1.13,15.37,29,1.91,0.81
+2026-10-26,[RE] [Compra] [Frio] [Melhores Criativos] [ADV+] - CBO,[RE] AD-V: 14A,55.53,2460,2343,1.05,22.57,42,1.32,1.71
+2026-10-26,[RE] [Compra] [Frio] [Melhores Criativos] [ADV+] - CBO,[RE] AD-V: 16,3.94,89,84,1.06,44.27,1,3.94,1.12
+2026-10-26,[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO,[RE] AD-V: 14A,62.79,4002,3406,1.17,15.69,56,1.12,1.4
+2026-10-26,[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO,[RE] AD-V: 14B,2.59,134,103,1.3,19.33,2,1.29,1.49
+2026-10-26,[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO,[RE] AD-V: 14B,0.48,25,23,1.09,19.2,0,0,0.0
+2026-10-26,[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO,[RE] AD-V: 16,1.72,84,74,1.14,20.48,0,0,0.0
+2026-10-26,[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO,[RE] AD-V: 16,9.1,272,230,1.18,33.46,4,2.27,1.47
+2026-10-26,[RE] [Compra] [Quente] - ABO,[RE] AD-V: 08,2.61,188,179,1.05,13.88,1,2.61,0.53
+2026-10-26,[RE] [Compra] [Quente] - ABO,[RE] AD-V: 14A,35.86,3537,2170,1.63,10.14,29,1.24,0.82
+2026-10-26,[RE] [Compra] [Quente] - ABO,[RE] AD-V: 16 — Cópia,31.41,2926,2103,1.39,10.73,25,1.26,0.85
+2026-10-27,[INSTA] [Seguidores] [Frio] - ABO,[INSTA] AD-C: Zootopia,30.85,6466,6128,1.06,4.77,191,0.16,2.95
+2026-10-27,[RE] [Compra] [Frio] [Melhores Criativos & Públicos] - ABO,[RE] AD-V: 11 A,34.97,1317,1202,1.1,26.55,20,1.75,1.52
+2026-10-27,[RE] [Compra] [Frio] [Melhores Criativos & Públicos] - ABO,[RE] AD-V: 16,2.4,40,40,1.0,60.0,0,0,0.0
+2026-10-27,[RE] [Compra] [Frio] [Melhores Criativos] [ADV+] - CBO,[RE] AD-V: 09,2.27,74,72,1.03,30.68,0,0,0.0
+2026-10-27,[RE] [Compra] [Frio] [Melhores Criativos] [ADV+] - CBO,[RE] AD-V: 11 A,34.34,1325,1253,1.06,25.92,17,2.02,1.28
+2026-10-27,[RE] [Compra] [Frio] [Melhores Criativos] [ADV+] - CBO,[RE] AD-V: 14A,90.63,4829,4374,1.1,18.77,51,1.78,1.06
+2026-10-27,[RE] [Compra] [Frio] [Melhores Criativos] [ADV+] - CBO,[RE] AD-V: 16,0.89,22,21,1.05,40.45,0,0,0.0
+2026-10-27,[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO,[RE] AD-V: 14A,70.4,4138,3381,1.22,17.01,42,1.68,1.01
+2026-10-27,[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO,[RE] AD-V: 14B,0.74,50,44,1.14,14.8,0,0,0.0
+2026-10-27,[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO,[RE] AD-V: 16,5.06,147,122,1.2,34.42,2,2.53,1.36
+2026-10-27,[RE] [Compra] [Quente] - ABO,[RE] AD-V: 08,4.65,195,181,1.08,23.85,0,0,0.0
+2026-10-27,[RE] [Compra] [Quente] - ABO,[RE] AD-V: 14A,36.83,2934,1926,1.52,12.55,22,1.67,0.75
+2026-10-27,[RE] [Compra] [Quente] - ABO,[RE] AD-V: 16 — Cópia,33.93,2194,1730,1.27,15.46,15,2.26,0.68
+2026-10-28,[INSTA] [Seguidores] [Frio] - ABO,[INSTA] AD-C: Zootopia,47.8,9207,8700,1.06,5.19,267,0.18,2.9
+2026-10-28,[RE] [Compra] [Frio] [Melhores Criativos & Públicos] - ABO,[RE] AD-V: 11 A,47.16,2594,2313,1.12,18.18,30,1.57,1.16
+2026-10-28,[RE] [Compra] [Frio] [Melhores Criativos & Públicos] - ABO,[RE] AD-V: 16,2.09,113,110,1.03,18.5,0,0,0.0
+2026-10-28,[RE] [Compra] [Frio] [Melhores Criativos] [ADV+] - CBO,[RE] AD-V: 09,2.12,71,68,1.04,29.86,0,0,0.0
+2026-10-28,[RE] [Compra] [Frio] [Melhores Criativos] [ADV+] - CBO,[RE] AD-V: 11 A,18.45,1082,1019,1.06,17.05,12,1.54,1.11
+2026-10-28,[RE] [Compra] [Frio] [Melhores Criativos] [ADV+] - CBO,[RE] AD-V: 14A,100.12,6273,5559,1.13,15.96,95,1.05,1.51
+2026-10-28,[RE] [Compra] [Frio] [Melhores Criativos] [ADV+] - CBO,[RE] AD-V: 16,7.34,265,242,1.1,27.7,2,3.67,0.75
+2026-10-28,[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO,[RE] AD-V: 14A,70.22,4385,3481,1.26,16.01,54,1.3,1.23
+2026-10-28,[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO,[RE] AD-V: 14B,4.1,219,176,1.24,18.72,5,0.82,2.28
+2026-10-28,[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO,[RE] AD-V: 16,3.42,96,81,1.19,35.62,3,1.14,3.12
+2026-10-28,[RE] [Compra] [Quente] - ABO,[RE] AD-V: 08,37.35,2452,1983,1.24,15.23,18,2.08,0.73
+2026-10-28,[RE] [Compra] [Quente] - ABO,[RE] AD-V: 14A,35.01,2744,1904,1.44,12.76,29,1.21,1.06
+2026-10-28,[RE] [Compra] [Quente] - ABO,[RE] AD-V: 16 — Cópia,21.65,975,814,1.2,22.21,12,1.8,1.23
+2026-10-29,[INSTA] [Seguidores] [Frio] - ABO,[INSTA] AD-C: Zootopia,43.86,5283,4946,1.07,8.3,169,0.26,3.2
+2026-10-29,[RE] [Compra] [Frio] [Melhores Criativos & Públicos] - ABO,[RE] AD-V: 11 A,48.98,2423,2208,1.1,20.21,31,1.58,1.28
+2026-10-29,[RE] [Compra] [Frio] [Melhores Criativos & Públicos] - ABO,[RE] AD-V: 16,0.06,2,2,1.0,30.0,0,0,0.0
+2026-10-29,[RE] [Compra] [Frio] [Melhores Criativos] [ADV+] - CBO,[RE] AD-V: 09,1.02,47,47,1.0,21.7,0,0,0.0
+2026-10-29,[RE] [Compra] [Frio] [Melhores Criativos] [ADV+] - CBO,[RE] AD-V: 11 A,0.71,57,55,1.04,12.46,0,0,0.0
+2026-10-29,[RE] [Compra] [Frio] [Melhores Criativos] [ADV+] - CBO,[RE] AD-V: 14A,119.94,6107,5653,1.08,19.64,89,1.35,1.46
+2026-10-29,[RE] [Compra] [Frio] [Melhores Criativos] [ADV+] - CBO,[RE] AD-V: 16,23.07,959,832,1.15,24.06,14,1.65,1.46
+2026-10-29,[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO,[RE] AD-V: 14A,62.28,3233,2458,1.32,19.26,50,1.25,1.55
+2026-10-29,[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO,[RE] AD-V: 14B,2.23,76,56,1.36,29.34,0,0,0.0
+2026-10-29,[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO,[RE] AD-V: 16,2.33,119,99,1.2,19.58,0,0,0.0
+2026-10-29,[RE] [Compra] [Quente] - ABO,[RE] AD-V: 08,43.74,2455,1924,1.28,17.82,33,1.33,1.34
+2026-10-29,[RE] [Compra] [Quente] - ABO,[RE] AD-V: 14A,36.37,2562,1746,1.47,14.2,24,1.52,0.94
+2026-10-30,[INSTA] [Seguidores] [Frio] - ABO,[INSTA] AD-C: Zootopia,37.62,4063,3670,1.11,9.26,138,0.27,3.4
+2026-10-30,[RE] [Compra] [Frio] [Melhores Criativos & Públicos] - ABO,[RE] AD-V: 11 A,38.81,2009,1873,1.07,19.32,19,2.04,0.95
+2026-10-30,[RE] [Compra] [Frio] [Melhores Criativos & Públicos] - ABO,[RE] AD-V: 16,2.58,130,122,1.07,19.85,2,1.29,1.54
+2026-10-30,[RE] [Compra] [Frio] [Melhores Criativos] [ADV+] - CBO,[RE] AD-V: 09,8.64,337,316,1.07,25.64,0,0,0.0
+2026-10-30,[RE] [Compra] [Frio] [Melhores Criativos] [ADV+] - CBO,[RE] AD-V: 11 A,3.21,186,176,1.06,17.26,3,1.07,1.61
+2026-10-30,[RE] [Compra] [Frio] [Melhores Criativos] [ADV+] - CBO,[RE] AD-V: 14A,114.99,6242,5733,1.09,18.42,88,1.31,1.41
+2026-10-30,[RE] [Compra] [Frio] [Melhores Criativos] [ADV+] - CBO,[RE] AD-V: 16,26.06,991,914,1.08,26.3,22,1.18,2.22
+2026-10-30,[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO,[RE] AD-V: 14A,64.24,3694,2908,1.27,17.39,40,1.61,1.08
+2026-10-30,[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO,[RE] AD-V: 14B,4.5,231,179,1.29,19.48,3,1.5,1.3
+2026-10-30,[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO,[RE] AD-V: 14B,26.06,1375,863,1.59,18.95,14,1.86,1.02
+2026-10-30,[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO,[RE] AD-V: 16,0.5,18,17,1.06,27.78,0,0,0.0
+2026-10-30,[RE] [Compra] [Quente] - ABO,[RE] AD-V: 08,37.53,1707,1440,1.19,21.99,15,2.5,0.88
+2026-10-30,[RE] [Compra] [Quente] - ABO,[RE] AD-V: 14A,30.58,2048,1460,1.4,14.93,18,1.7,0.88
+2026-10-30,[RE] [Compra] [Quente] - ABO,[RE] AD-V: 16 — Cópia,0.01,2,2,1.0,5.0,0,0,0.0
+2026-10-31,[INSTA] [Seguidores] [Frio] - ABO,[INSTA] AD-C: Zootopia,32.61,4540,4262,1.07,7.18,125,0.26,2.75
+2026-10-31,[RE] [Compra] [Frio] [Melhores Criativos & Públicos] - ABO,[RE] AD-V: 11 A,44.38,1783,1670,1.07,24.89,15,2.96,0.84
+2026-10-31,[RE] [Compra] [Frio] [Melhores Criativos & Públicos] - ABO,[RE] AD-V: 16,5.86,289,268,1.08,20.28,1,5.86,0.35
+2026-10-31,[RE] [Compra] [Frio] [Melhores Criativos] [ADV+] - CBO,[RE] AD-V: 09,14.68,482,433,1.11,30.46,8,1.83,1.66
+2026-10-31,[RE] [Compra] [Frio] [Melhores Criativos] [ADV+] - CBO,[RE] AD-V: 11 A,1.29,67,66,1.02,19.25,2,0.65,2.99
+2026-10-31,[RE] [Compra] [Frio] [Melhores Criativos] [ADV+] - CBO,[RE] AD-V: 14A,107.08,3997,3798,1.05,26.79,57,1.88,1.43
+2026-10-31,[RE] [Compra] [Frio] [Melhores Criativos] [ADV+] - CBO,[RE] AD-V: 16,32.28,1115,1016,1.1,28.95,10,3.23,0.9
+2026-10-31,[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO,[RE] AD-V: 14A,51.23,3044,2414,1.26,16.83,31,1.65,1.02
+2026-10-31,[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO,[RE] AD-V: 14B,33.4,1710,1058,1.62,19.53,19,1.76,1.11
+2026-10-31,[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO,[RE] AD-V: 16,13.44,738,612,1.21,18.21,7,1.92,0.95
+2026-10-31,[RE] [Compra] [Quente] - ABO,[RE] AD-V: 08,18.14,1193,1041,1.15,15.21,13,1.4,1.09
+2026-10-31,[RE] [Compra] [Quente] - ABO,[RE] AD-V: 14A,30.4,2043,1438,1.42,14.88,9,3.38,0.44
+2026-10-31,[RE] [Compra] [Quente] - ABO,[RE] AD-V: 16 — Cópia,17.97,884,750,1.18,20.33,7,2.57,0.79
+2026-11-01,[INSTA] [Seguidores] [Frio] - ABO,[INSTA] AD-C: Zootopia,43.03,8557,7673,1.12,5.03,235,0.18,2.75
+2026-11-01,[RE] [Compra] [Frio] [Melhores Criativos & Públicos] - ABO,[RE] AD-V: 11 A,39.78,1216,1127,1.08,32.71,16,2.49,1.32
+2026-11-01,[RE] [Compra] [Frio] [Melhores Criativos & Públicos] - ABO,[RE] AD-V: 16,2.17,46,45,1.02,47.17,0,0,0.0
+2026-11-01,[RE] [Compra] [Frio] [Melhores Criativos] [ADV+] - CBO,[RE] AD-V: 09,22.32,856,782,1.09,26.07,9,2.48,1.05
+2026-11-01,[RE] [Compra] [Frio] [Melhores Criativos] [ADV+] - CBO,[RE] AD-V: 11 A,2.66,143,141,1.01,18.6,1,2.66,0.7
+2026-11-01,[RE] [Compra] [Frio] [Melhores Criativos] [ADV+] - CBO,[RE] AD-V: 14A,91.33,3197,3044,1.05,28.57,59,1.55,1.85
+2026-11-01,[RE] [Compra] [Frio] [Melhores Criativos] [ADV+] - CBO,[RE] AD-V: 16,36.0,934,840,1.11,38.54,12,3.0,1.28
+2026-11-01,[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO,[RE] AD-V: 14A,52.52,3117,2476,1.26,16.85,29,1.81,0.93
+2026-11-01,[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO,[RE] AD-V: 14B,3.14,202,143,1.41,15.54,1,3.14,0.5
+2026-11-01,[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO,[RE] AD-V: 14B,39.83,1815,1196,1.52,21.94,19,2.1,1.05
+2026-11-01,[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO,[RE] AD-V: 16,13.59,497,365,1.36,27.34,7,1.94,1.41
+2026-11-01,[RE] [Compra] [Quente] - ABO,[RE] AD-V: 08,41.78,1808,1535,1.18,23.11,24,1.74,1.33
+2026-11-01,[RE] [Compra] [Quente] - ABO,[RE] AD-V: 14A,31.86,2033,1392,1.46,15.67,14,2.28,0.69
+2026-11-01,[RE] [Compra] [Quente] - ABO,[RE] AD-V: 16 — Cópia,1.13,26,25,1.04,43.46,0,0,0.0
+2026-11-02,[INSTA] [Seguidores] [Frio] - ABO,[INSTA] AD-C: Zootopia,42.58,9847,9361,1.05,4.32,259,0.16,2.63
+2026-11-02,[RE] [Compra] [Frio] [Melhores Criativos & Públicos] - ABO,[RE] AD-V: 11 A,50.82,2188,2008,1.09,23.23,21,2.42,0.96
+2026-11-02,[RE] [Compra] [Frio] [Melhores Criativos & Públicos] - ABO,[RE] AD-V: 16,0.78,16,16,1.0,48.75,0,0,0.0
+2026-11-02,[RE] [Compra] [Frio] [Melhores Criativos] [ADV+] - CBO,[RE] AD-V: 09,26.52,666,609,1.09,39.82,6,4.42,0.9
+2026-11-02,[RE] [Compra] [Frio] [Melhores Criativos] [ADV+] - CBO,[RE] AD-V: 11 A,1.87,88,86,1.02,21.25,2,0.94,2.27
+2026-11-02,[RE] [Compra] [Frio] [Melhores Criativos] [ADV+] - CBO,[RE] AD-V: 14A,86.71,3687,3467,1.06,23.52,50,1.73,1.36
+2026-11-02,[RE] [Compra] [Frio] [Melhores Criativos] [ADV+] - CBO,[RE] AD-V: 16,69.44,1891,1650,1.15,36.72,37,1.88,1.96
+2026-11-02,[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO,[RE] AD-V: 14A,68.23,3771,2874,1.31,18.09,56,1.22,1.49
+2026-11-02,[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO,[RE] AD-V: 14B,39.71,1555,1005,1.55,25.54,21,1.89,1.35
+2026-11-02,[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO,[RE] AD-V: 16,2.58,127,119,1.07,20.31,7,0.37,5.51
+2026-11-02,[RE] [Compra] [Quente] - ABO,[RE] AD-V: 08,42.17,2124,1768,1.2,19.85,28,1.51,1.32
+2026-11-02,[RE] [Compra] [Quente] - ABO,[RE] AD-V: 14A,34.29,1943,1267,1.53,17.65,18,1.91,0.93
+2026-11-02,[RE] [Compra] [Quente] - ABO,[RE] AD-V: 16 — Cópia,0.06,21,21,1.0,2.86,0,0,0.0
+2026-11-03,[INSTA] [Seguidores] [Frio] - ABO,[INSTA] AD-C: Zootopia,36.98,7103,6789,1.05,5.21,192,0.19,2.7
+2026-11-03,[RE] [Compra] [Frio] [Melhores Criativos & Públicos] - ABO,[RE] AD-E: 17,5.19,229,203,1.13,22.66,2,2.6,0.87
+2026-11-03,[RE] [Compra] [Frio] [Melhores Criativos & Públicos] - ABO,[RE] AD-V: 02,12.36,624,552,1.13,19.81,11,1.12,1.76
+2026-11-03,[RE] [Compra] [Frio] [Melhores Criativos & Públicos] - ABO,[RE] AD-V: 11 A,16.81,413,400,1.03,40.7,4,4.2,0.97
+2026-11-03,[RE] [Compra] [Frio] [Melhores Criativos & Públicos] - ABO,[RE] AD-V: 14A,4.96,302,293,1.03,16.42,3,1.65,0.99
+2026-11-03,[RE] [Compra] [Frio] [Melhores Criativos & Públicos] - ABO,[RE] AD-V: 16,3.53,70,68,1.03,50.43,1,3.53,1.43
+2026-11-03,[RE] [Compra] [Frio] [Melhores Criativos] [ADV+] - CBO,[RE] AD-V: 09,3.26,87,84,1.04,37.47,0,0,0.0
+2026-11-03,[RE] [Compra] [Frio] [Melhores Criativos] [ADV+] - CBO,[RE] AD-V: 11 A,0.61,15,15,1.0,40.67,0,0,0.0
+2026-11-03,[RE] [Compra] [Frio] [Melhores Criativos] [ADV+] - CBO,[RE] AD-V: 14A,15.3,673,672,1.0,22.73,16,0.96,2.38
+2026-11-03,[RE] [Compra] [Frio] [Melhores Criativos] [ADV+] - CBO,[RE] AD-V: 16,21.47,557,527,1.06,38.55,6,3.58,1.08
+2026-11-03,[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO,[RE] AD-V: 14A,75.78,4056,3216,1.26,18.68,56,1.35,1.38
+2026-11-03,[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO,[RE] AD-V: 14A,25.53,1466,1205,1.22,17.41,16,1.6,1.09
+2026-11-03,[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO,[RE] AD-V: 14B,0.92,37,35,1.06,24.86,0,0,0.0
+2026-11-03,[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO,[RE] AD-V: 14B,23.97,1025,788,1.3,23.39,9,2.66,0.88
+2026-11-03,[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO,[RE] AD-V: 16,2.32,100,87,1.15,23.2,0,0,0.0
+2026-11-03,[RE] [Compra] [Quente] - ABO,[RE] AD-V: 08,14.9,741,700,1.06,20.11,4,3.73,0.54
+2026-11-03,[RE] [Compra] [Quente] - ABO,[RE] AD-V: 14A,33.82,2430,1595,1.52,13.92,12,2.82,0.49
+2026-11-03,[RE] [Compra] [Quente] - ABO,[RE] AD-V: 16 — Cópia,23.31,1628,1322,1.23,14.32,17,1.37,1.04
+2026-11-04,[INSTA] [Seguidores] [Frio] - ABO,[INSTA] AD-C: Zootopia,44.71,6498,6088,1.07,6.88,237,0.19,3.65
+2026-11-04,[RE] [Compra] [Frio] [Melhores Criativos & Públicos] - ABO,[RE] AD-E: 17,11.5,597,521,1.15,19.26,12,0.96,2.01
+2026-11-04,[RE] [Compra] [Frio] [Melhores Criativos & Públicos] - ABO,[RE] AD-V: 02,38.33,1847,1615,1.14,20.75,27,1.42,1.46
+2026-11-04,[RE] [Compra] [Frio] [Melhores Criativos & Públicos] - ABO,[RE] AD-V: 14A,7.66,328,305,1.08,23.35,4,1.92,1.22
+2026-11-04,[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO,[RE] AD-V: 14A,72.98,4675,3968,1.18,15.61,47,1.55,1.01
+2026-11-04,[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO,[RE] AD-V: 14A,49.49,3136,2429,1.29,15.78,36,1.37,1.15
+2026-11-04,[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO,[RE] AD-V: 14B,3.12,171,150,1.14,18.25,3,1.04,1.75
+2026-11-04,[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO,[RE] AD-V: 14B,13.71,768,547,1.4,17.85,8,1.71,1.04
+2026-11-04,[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO,[RE] AD-V: 16,10.87,384,310,1.24,28.31,5,2.17,1.3
+2026-11-04,[RE] [Compra] [Quente] - ABO,[RE] AD-V: 08,9.1,517,465,1.11,17.6,3,3.03,0.58
+2026-11-04,[RE] [Compra] [Quente] - ABO,[RE] AD-V: 14A,35.23,2205,1497,1.47,15.98,17,2.07,0.77
+2026-11-04,[RE] [Compra] [Quente] - ABO,[RE] AD-V: 16 — Cópia,47.35,2670,2137,1.25,17.73,22,2.15,0.82
+2026-11-05,[INSTA] [Seguidores] [Frio] - ABO,[INSTA] AD-C: Zootopia,35.49,4774,4443,1.07,7.43,178,0.2,3.73
+2026-11-05,[RE] [Compra] [Frio] [Melhores Criativos & Públicos] - ABO,[RE] AD-E: 17,5.8,251,223,1.13,23.11,2,2.9,0.8
+2026-11-05,[RE] [Compra] [Frio] [Melhores Criativos & Públicos] - ABO,[RE] AD-V: 02,40.89,2449,2277,1.08,16.7,29,1.41,1.18
+2026-11-05,[RE] [Compra] [Frio] [Melhores Criativos & Públicos] - ABO,[RE] AD-V: 14A,0.25,18,18,1.0,13.89,0,0,0.0
+2026-11-05,[RE] [Compra] [Frio] [Melhores Criativos & Públicos] - ABO,[RE] AD-V: 16,2.67,100,98,1.02,26.7,2,1.33,2.0
+2026-11-05,[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO,[RE] AD-V: 14A,71.87,5155,4211,1.22,13.94,57,1.26,1.11
+2026-11-05,[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO,[RE] AD-V: 14A,70.18,4177,3275,1.28,16.8,59,1.19,1.41
+2026-11-05,[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO,[RE] AD-V: 14B,6.25,300,243,1.23,20.83,2,3.12,0.67
+2026-11-05,[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO,[RE] AD-V: 16,11.71,258,216,1.19,45.39,6,1.95,2.33
+2026-11-05,[RE] [Compra] [Quente] - ABO,[RE] AD-V: 14A,35.75,2200,1539,1.43,16.25,23,1.55,1.05
+2026-11-05,[RE] [Compra] [Quente] - ABO,[RE] AD-V: 16 — Cópia,61.52,3289,2603,1.26,18.7,22,2.8,0.67
+2026-11-06,[INSTA] [Seguidores] [Frio] - ABO,[INSTA] AD-C: Zootopia,10.36,1228,1115,1.1,8.44,40,0.26,3.26
+2026-11-06,[RE] [Compra] [Frio] [Melhores Criativos & Públicos] - ABO,[RE] AD-V: 02,16.06,761,736,1.03,21.1,11,1.46,1.45
+2026-11-06,[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO,[RE] AD-V: 14A,23.38,891,819,1.09,26.24,3,7.79,0.34
+2026-11-06,[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO,[RE] AD-V: 14A,24.68,1116,964,1.16,22.11,5,4.94,0.45
+2026-11-06,[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO,[RE] AD-V: 14B,0.64,21,18,1.17,30.48,0,0,0.0
+2026-11-06,[RE] [Compra] [Frio] [Novos Criativos] [Vídeos] - ABO,[RE] AD-V: 16,0.97,35,31,1.13,27.71,1,0.97,2.86
+2026-11-06,[RE] [Compra] [Quente] - ABO,[RE] AD-V: 08,0.72,20,20,1.0,36.0,0,0,0.0
+2026-11-06,[RE] [Compra] [Quente] - ABO,[RE] AD-V: 14A,10.8,559,461,1.21,19.32,8,1.35,1.43
+2026-11-06,[RE] [Compra] [Quente] - ABO,[RE] AD-V: 16 — Cópia,22.25,781,713,1.1,28.49,11,2.02,1.41
