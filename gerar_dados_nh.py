@@ -259,6 +259,9 @@ CAMP_META = {
     "[RE] [Compra] [Frio] [Novos Criativos] [Teste LAL] - ABO":     {"prod":"RE","aud":"Frio","creat":"Misto","obj":"sales","status":"ACTIVE","freq":1.30},
     "[RE] [Compra] [Quente] - ABO":                                 {"prod":"RE","aud":"Quente","creat":"Misto","obj":"sales","status":"ACTIVE","freq":1.30},
     "[RE] [Compra] [Quente] [RMKT] - ABO":                          {"prod":"RE","aud":"Quente","creat":"Misto","obj":"sales","status":"ACTIVE","freq":1.30},
+    # Adicionada em 06/nov/2026 (id 120249997137240031) — ativa desde 23/out,
+    # com spend na aba DADOS RE, mas fora da aba Campanhas.
+    "[RE] [Compra] [Frio] [Melhores Criativos & Públicos] - ABO":   {"prod":"RE","aud":"Frio","creat":"Misto","obj":"sales","status":"ACTIVE","freq":1.30},
     # Adicionadas em 21/set/2026 — lançamento da Imersão de Funções Executivas
     # (aba DADOS IFE da planilha). O spend entra em spend_sales/totals.spend, e
     # não em RE/PSI; a UTM "[IFE]+[Compra]+..." da Hubla casa via _camp_key.

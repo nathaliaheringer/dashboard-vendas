@@ -6,7 +6,7 @@
   "days_elapsed": 6,
   "days_month": 30
  },
- "_v": 1793972482101,
+ "_v": 1793972889129,
  "totals": {
   "spend": 1785.9,
   "spend_sales": 1785.9,
@@ -75750,8 +75750,8 @@
      "spend": 49.25,
      "impressions": 2707,
      "reach": 2082,
-     "fat": 0.0,
-     "faturas": 0.0
+     "fat": 147.0,
+     "faturas": 1.0
     }
    ],
    "mes_corrente": false,
@@ -77457,8 +77457,8 @@
      "spend": 42.85,
      "impressions": 1638,
      "reach": 1260,
-     "fat": 0.0,
-     "faturas": 0.0
+     "fat": 147.0,
+     "faturas": 1.0
     }
    ],
    "funnel_clicks_re": 96,
@@ -77745,8 +77745,8 @@
      "spend": 57.49,
      "impressions": 2772,
      "reach": 2132,
-     "fat": 0.0,
-     "faturas": 0.0
+     "fat": 186.0,
+     "faturas": 1.0
     }
    ],
    "funnel_clicks_re": 119,
@@ -78055,8 +78055,8 @@
      "spend": 49.61,
      "impressions": 2818,
      "reach": 2168,
-     "fat": 0.0,
-     "faturas": 0.0
+     "fat": 294.0,
+     "faturas": 2.0
     }
    ],
    "funnel_clicks_re": 128,
@@ -79231,6 +79231,73 @@
   },
   {
    "id": "120243000000000004",
+   "name": "[RE] [Compra] [Frio] [Melhores Criativos & Públicos] - ABO",
+   "prod": "RE",
+   "aud": "Frio",
+   "creat": "Misto",
+   "obj": "sales",
+   "status": "ACTIVE",
+   "spend": 259.51,
+   "impressions": 11452,
+   "reach": 8809,
+   "cpm": 22.66,
+   "freq": 1.3,
+   "days": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "faturas": 4.0,
+   "units": 4.0,
+   "fat": 627.0,
+   "nh": 583.8,
+   "cpa": 64.88,
+   "roas": 2.42,
+   "lucro": 324.29,
+   "daily": [
+    {
+     "day": 1,
+     "spend": 41.95,
+     "impressions": 1262,
+     "cpm": 33.24
+    },
+    {
+     "day": 2,
+     "spend": 51.6,
+     "impressions": 2204,
+     "cpm": 23.41
+    },
+    {
+     "day": 3,
+     "spend": 42.85,
+     "impressions": 1638,
+     "cpm": 26.16
+    },
+    {
+     "day": 4,
+     "spend": 57.49,
+     "impressions": 2772,
+     "cpm": 20.74
+    },
+    {
+     "day": 5,
+     "spend": 49.61,
+     "impressions": 2818,
+     "cpm": 17.6
+    },
+    {
+     "day": 6,
+     "spend": 16.01,
+     "impressions": 758,
+     "cpm": 21.12
+    }
+   ]
+  },
+  {
+   "id": "120243000000000005",
    "name": "[INSTA] [Seguidores] [Frio] - ABO",
    "prod": "INSTA",
    "aud": "Frio",
@@ -79253,7 +79320,7 @@
    "daily": []
   },
   {
-   "id": "120243000000000005",
+   "id": "120243000000000006",
    "name": "[PSI08] [Compra] [Frio] - ABO",
    "prod": "PSI",
    "aud": "Frio",
@@ -79277,7 +79344,7 @@
    "hist_only": true
   },
   {
-   "id": "120243000000000006",
+   "id": "120243000000000007",
    "name": "[PSI08] [Compra] [Quente] [Teste Criativos] [Estáticos] - ABO",
    "prod": "PSI",
    "aud": "Quente",
@@ -79301,7 +79368,7 @@
    "hist_only": true
   },
   {
-   "id": "120243000000000007",
+   "id": "120243000000000008",
    "name": "[PSI08] [Initiate Checkout] [Frio] [ADV+] - ABO",
    "prod": "PSI",
    "aud": "Frio",
@@ -79325,7 +79392,7 @@
    "hist_only": true
   },
   {
-   "id": "120243000000000008",
+   "id": "120243000000000009",
    "name": "[RE] [Compra] [Quente] [Validação] [Estáticos] - ABO",
    "prod": "RE",
    "aud": "Quente",
@@ -79349,7 +79416,7 @@
    "hist_only": true
   },
   {
-   "id": "120243000000000009",
+   "id": "120243000000000010",
    "name": "[RE] [Compra] [Quente] [Validação] [Vídeos] - ABO",
    "prod": "RE",
    "aud": "Quente",
@@ -79373,7 +79440,7 @@
    "hist_only": true
   },
   {
-   "id": "120243000000000010",
+   "id": "120243000000000011",
    "name": "[RE] [Compra] [Frio] [Validação] [Vídeos] - ABO",
    "prod": "RE",
    "aud": "Frio",
@@ -79397,7 +79464,7 @@
    "hist_only": true
   },
   {
-   "id": "120243000000000011",
+   "id": "120243000000000012",
    "name": "[RE] [Compra] [Frio] [Validação] [Estáticos] - ABO",
    "prod": "RE",
    "aud": "Frio",
@@ -79421,7 +79488,7 @@
    "hist_only": true
   },
   {
-   "id": "120243000000000012",
+   "id": "120243000000000013",
    "name": "[RE] [Compra] [Frio] [Melhores Criativos] - CBO",
    "prod": "RE",
    "aud": "Frio",
@@ -79445,7 +79512,7 @@
    "hist_only": true
   },
   {
-   "id": "120243000000000013",
+   "id": "120243000000000014",
    "name": "[RE] [Compra] [Frio] [Melhores Criativos] [Teste LAL] - ABO",
    "prod": "RE",
    "aud": "Frio",
@@ -79469,7 +79536,7 @@
    "hist_only": true
   },
   {
-   "id": "120243000000000014",
+   "id": "120243000000000015",
    "name": "[RE] [Compra] [Frio] [Novos Criativos] [Estáticos] - ABO",
    "prod": "RE",
    "aud": "Frio",
@@ -79493,7 +79560,7 @@
    "hist_only": true
   },
   {
-   "id": "120243000000000015",
+   "id": "120243000000000016",
    "name": "[RE] [Compra] [Quente] [Melhores Criativos] - ABO",
    "prod": "RE",
    "aud": "Quente",
@@ -79517,7 +79584,7 @@
    "hist_only": true
   },
   {
-   "id": "120243000000000016",
+   "id": "120243000000000017",
    "name": "[RE] [Compra] [Frio] [Novos Criativos] [Teste LAL] - ABO",
    "prod": "RE",
    "aud": "Frio",
@@ -79541,7 +79608,7 @@
    "hist_only": true
   },
   {
-   "id": "120243000000000017",
+   "id": "120243000000000018",
    "name": "[RE] [Compra] [Quente] [RMKT] - ABO",
    "prod": "RE",
    "aud": "Quente",
@@ -79565,7 +79632,7 @@
    "hist_only": true
   },
   {
-   "id": "120243000000000018",
+   "id": "120243000000000019",
    "name": "[IFE] [Compra] [Estáticos] [Frio] - ABO",
    "prod": "IFE",
    "aud": "Frio",
@@ -79589,7 +79656,7 @@
    "hist_only": true
   },
   {
-   "id": "120243000000000019",
+   "id": "120243000000000020",
    "name": "[IFE] [Compra] [Vídeos] [Frio] - ABO",
    "prod": "IFE",
    "aud": "Frio",
@@ -79613,7 +79680,7 @@
    "hist_only": true
   },
   {
-   "id": "120243000000000020",
+   "id": "120243000000000021",
    "name": "[IFE] [Compra] [Estáticos] [Quente] - CBO",
    "prod": "IFE",
    "aud": "Quente",
@@ -79637,7 +79704,7 @@
    "hist_only": true
   },
   {
-   "id": "120243000000000021",
+   "id": "120243000000000022",
    "name": "[IFE] [Compra] [Vídeos] [Quente] - CBO",
    "prod": "IFE",
    "aud": "Quente",
@@ -79661,7 +79728,7 @@
    "hist_only": true
   },
   {
-   "id": "120243000000000022",
+   "id": "120243000000000023",
    "name": "[IFE] [Compra] [Estáticos] [L2] [Frio] - ABO",
    "prod": "IFE",
    "aud": "Frio",
@@ -79685,7 +79752,7 @@
    "hist_only": true
   },
   {
-   "id": "120243000000000023",
+   "id": "120243000000000024",
    "name": "[IFE] [Compra] [Estáticos] [L2] [Quente] - CBO",
    "prod": "IFE",
    "aud": "Quente",
@@ -79709,7 +79776,7 @@
    "hist_only": true
   },
   {
-   "id": "120243000000000024",
+   "id": "120243000000000025",
    "name": "[IFE] [Compra] [RMKT] [Quente] - ABO",
    "prod": "IFE",
    "aud": "Quente",
@@ -79733,7 +79800,7 @@
    "hist_only": true
   },
   {
-   "id": "120243000000000025",
+   "id": "120243000000000026",
    "name": "[IFE] [Compra] [Virada de Lote 1] [Quente] - CBO",
    "prod": "IFE",
    "aud": "Quente",
@@ -79757,7 +79824,7 @@
    "hist_only": true
   },
   {
-   "id": "120243000000000026",
+   "id": "120243000000000027",
    "name": "[Imersão] [Alcance] [Quente] - ABO",
    "prod": "IFE",
    "aud": "Quente",
@@ -79781,7 +79848,7 @@
    "hist_only": true
   },
   {
-   "id": "120243000000000027",
+   "id": "120243000000000028",
    "name": "[FPI] [Compra] [Carrinho] [Quente] - ABO",
    "prod": "FPI",
    "aud": "Quente",
@@ -79805,7 +79872,7 @@
    "hist_only": true
   },
   {
-   "id": "120243000000000028",
+   "id": "120243000000000029",
    "name": "[FPI] [Alcance] [Últimos Dias] [Quente] - ABO",
    "prod": "FPI",
    "aud": "Quente",
@@ -79829,7 +79896,7 @@
    "hist_only": true
   },
   {
-   "id": "120243000000000029",
+   "id": "120243000000000030",
    "name": "[FPI] [Alcance] [Últimos Dias] [2] [Quente] - ABO",
    "prod": "FPI",
    "aud": "Quente",
@@ -79853,7 +79920,7 @@
    "hist_only": true
   },
   {
-   "id": "120243000000000030",
+   "id": "120243000000000031",
    "name": "[FPI] [LIVE] [Quente] - CBO",
    "prod": "FPI",
    "aud": "Quente",
@@ -100932,9 +100999,9 @@
    "cpc": 1.92,
    "lpv": 0,
    "lpv_rate": 0.0,
-   "fat": 0.0,
-   "faturas": 0,
-   "roas": 0.0,
+   "fat": 147.0,
+   "faturas": 1,
+   "roas": 0.39,
    "merged": false,
    "copies_count": 0,
    "daily": [
@@ -101001,8 +101068,8 @@
      "lpv": 0,
      "reach": 2313,
      "cpm": 18.18,
-     "fat": 0.0,
-     "faturas": 0
+     "fat": 147.0,
+     "faturas": 1
     },
     {
      "date": "2026-10-29",
@@ -106250,9 +106317,9 @@
    "cpc": 1.38,
    "lpv": 0,
    "lpv_rate": 0.0,
-   "fat": 0.0,
-   "faturas": 0,
-   "roas": 0.0,
+   "fat": 627.0,
+   "faturas": 4,
+   "roas": 5.82,
    "merged": false,
    "copies_count": 0,
    "daily": [
@@ -106264,8 +106331,8 @@
      "lpv": 0,
      "reach": 552,
      "cpm": 19.81,
-     "fat": 0.0,
-     "faturas": 0
+     "fat": 147.0,
+     "faturas": 1
     },
     {
      "date": "2026-11-04",
@@ -106275,8 +106342,8 @@
      "lpv": 0,
      "reach": 1615,
      "cpm": 20.75,
-     "fat": 0.0,
-     "faturas": 0
+     "fat": 186.0,
+     "faturas": 1
     },
     {
      "date": "2026-11-05",
@@ -106286,8 +106353,8 @@
      "lpv": 0,
      "reach": 2277,
      "cpm": 16.7,
-     "fat": 0.0,
-     "faturas": 0
+     "fat": 294.0,
+     "faturas": 2
     },
     {
      "date": "2026-11-06",
@@ -109917,7 +109984,7 @@
   "period_label": "01 a 6 de novembro de 2026",
   "period_start": "2026-11-01",
   "period_end": "2026-11-06",
-  "generated_at": "2026-11-06 10:41:22",
+  "generated_at": "2026-11-06 10:48:09",
   "checks": [
    {
     "name": "Período cobre mês corrente",
